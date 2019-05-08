@@ -1,0 +1,34 @@
+<div class="wrapper">
+  <app-side-panel></app-side-panel>
+  <div class="frm-wrapper">
+    <section class="frm-block">
+    <div class="container">
+	    <app-login-logo></app-login-logo>
+      <div class="row">
+        <div class="col-sm-12">
+		<div class="frm-outer">
+          <div class="frm-body">
+		    <h4>Forgot Password</h4>
+			<div class="reset-2fa">If you have lost your 2FA token, please <a href="mailto:support@idap.exchange">email us</a> with the subject "Lost 2FA Device".<br><br>IDAP Exchange support will then email you an ID verification link.</div>
+            <form class="" action="/" method="">
+			  <p>Don’t worry! Just fill in your email id below and you will receive a reset password link in your inbox.</p>
+              <div class="form-group input-ico email">
+                <label for="emailAddress" class="form-label">Email</label>
+                <input id="emailAddress" type="email" name="email" class="form-input" placeholder="" value="" required="" autofocus="" autocomplete="email">
+              </div>
+              <div class="text-center">
+                <button class="form-button">Request Reset Link</button>
+              </div>
+			        <div class="frm-footer">
+                <div class="forgot">Back to <a routerLink="/login">Log In</a></div>
+              </div>
+            </form>
+          </div>
+		  </div>       
+        </div>
+      </div>
+    </div>
+  </section>
+  </div>
+</div>
+<app-login-footer></app-login-footer>

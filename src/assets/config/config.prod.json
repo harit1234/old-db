@@ -1,0 +1,5 @@
+{
+    "env": "prod",
+    "restUrl": "https://testnet.idap.io/api/v1/",
+    "recaptchaKey": "6LfQMKIUAAAAAC1emeIR20Ze7SOcJG3xoEQY1V7_"
+}
