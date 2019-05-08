@@ -13,6 +13,12 @@
               </ul>
               <div class="frm-body">
                 <form [formGroup]="loginFormGroup" (ngSubmit)="onSubmit();">
+                  <div *ngIf="error" class="auth-error">
+                    <p>
+                        {{error}}
+                    </p>
+                    
+                  </div>
                   <div class="form-group input-ico email">
                     <label for="emailAddress" class="form-label">Email</label>
                     <input 
@@ -53,7 +59,7 @@
                     <input id="token" type="text" name="token" class="form-input" placeholder="Google Authenticator" value="">
                   </div>
                   <!--div class="form-group text-center"><img src="assets/img/captcha.png" alt=""></div-->
-                  <div class="form-group row ng-captcha-container" >
+                  <!--div class="form-group row ng-captcha-container" >
                     <ngx-recaptcha2 #captchaElem
                       [siteKey]="siteKey"
                       (load)="handleLoad()"
@@ -64,7 +70,7 @@
                     <div *ngIf="submitted && formFields.recaptcha.errors" class="form-valid-error">
                       <div *ngIf="formFields.recaptcha.errors.required">Please confirm you are not a robot!</div>
                     </div>  
-                  </div>
+                  </div-->
                   <div class="text-center">
                     <button class="form-button" type="submit">Log In</button>
                   </div>

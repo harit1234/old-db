@@ -13,7 +13,7 @@ import { LoginLogoComponent } from './login/login-logo/login-logo.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NgxCaptchaModule } from 'ngx-captcha';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { JwtInterceptor, ErrorInterceptor } from './shared/helpers';
+import { JwtInterceptor, ErrorInterceptor, FakeBackendInterceptor } from './shared/helpers';
 import { DashboardModule } from './dashboard/dashboard.module';
 
 export function initializeApp(appConfig: AppConfig) {
@@ -49,6 +49,7 @@ export function initializeApp(appConfig: AppConfig) {
     },
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: FakeBackendInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })

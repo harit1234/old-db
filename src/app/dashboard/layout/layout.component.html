@@ -1,4 +1,9 @@
-<p>
-  layout works!
-</p>
-<app-home></app-home>
+<app-dashboard-header></app-dashboard-header>
+<div id="content-wrapper" class="content-wrapper">
+  <app-dashboard-left-menu></app-dashboard-left-menu>
+  <div id="content" class="body-content">
+    <router-outlet></router-outlet>
+  </div>  
+  <div class="nav-overlay"></div>
+</div>
+<app-dashboard-footer></app-dashboard-footer>

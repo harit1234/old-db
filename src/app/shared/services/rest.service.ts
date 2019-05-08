@@ -11,7 +11,7 @@ import { AppConfig } from '../../app.config';
 export class RestService {
   private EQUAL = '=';
   private AMP = '&';
-  private loginUrl = 'api/login';
+  private loginUrl = 'login';
   private getFlagUrl = '/getFlags';
   private getCommonSettingsUrl = 'api/customer/Getkiosk';
   private getCardInfoUrl = 'api/card/GetCardInformation';
@@ -37,9 +37,8 @@ export class RestService {
         return d;
       }),
         catchError((err, caught) => {
-          console.log(err);
           return throwError(
-            `Error: ${err}`);
+            `${err}`);
         })
       );
   }
@@ -82,12 +81,7 @@ export class RestService {
   }
 
 
-  login(userName: string, password: string, company: string): Observable<any> {
-    const data = {
-      'UserName': userName,
-      'password': password,
-      'CompanyCode': company,
-    };
+  login(data: any): Observable<any> {
     console.log(data);
     for (const i in data) {
       if (!data[i]) {

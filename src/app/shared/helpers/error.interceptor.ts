@@ -19,6 +19,7 @@ export class ErrorInterceptor implements HttpInterceptor {
             } else if (err.status === 400) {
                 this.dataService.badRequestAction();
             }
+            console.log('error is ++');
             console.log(err);
             const error = err.error.message || err.statusText;
             return throwError(error);
