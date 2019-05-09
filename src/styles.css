@@ -24,7 +24,12 @@ label{font-weight: 400;}
 .container {
     width: 1200px;
 }
+.body-sticky-header {padding-top: 70px;}
+
+
+
 /*Login, Registration, Forgot Password Start*/
+.frm-wrapper .logo {text-align: center;}
 .wrapper {display: block; position: relative; width: 100%;}
 .frm-outer {
     clear: both;
@@ -32,8 +37,7 @@ label{font-weight: 400;}
     margin: 0 auto;
     width: 90%;
 }
-.logo{margin-bottom: 20px; text-align: center;}
-.logo img {width: 320px;}
+.logo{margin-bottom: 20px;}
 .logo > a{display: inline-block;}
 .frm-block {
 	min-height: calc(100vh - 50px);
@@ -206,7 +210,7 @@ label.form-check-label a:hover {
     display: flex;
 }
 .frm-tabs li{ flex-basis:50%;  list-style:none;}
-.frm-tabs li a{ display:block; font-size:16px; color:#ccc; position:relative; text-align:center; text-decoration:none; padding:10px 0 15px}
+.frm-tabs li a{ display:block; font-size:16px; color:#ccc; position:relative; text-align:center; text-decoration:none; padding:10px 0 15px; cursor: pointer;}
 .frm-tabs li a:hover{text-decoration:none;}
 .frm-tabs li a.active{color:#2767ff; font-weight: 500;}
 .frm-tabs li a:before{ background-color:#ccc; bottom:0; content:""; height:3px; left:0;  position:absolute; width:100%;}
@@ -520,7 +524,7 @@ ul.features li:before {
 	font-weight: 500;
 }
 .sidebar-nav ul li ul {
-    background-color: #f4f4f4;
+    background-color: #f2f3f8;
 	padding: 10px 0px 10px 0;
 }
 .sidebar-nav ul li ul li a {
@@ -773,24 +777,31 @@ footer {
     .frm-wrapper{margin-left: 460px;}
 }
  @media (max-width: 992px) {
+	 body{padding-top: 70px; top: 0;}
 	.container{width: 100%;}
 	.frm-block{height: inherit; padding: 20px 0; min-height: calc(100vh - 50px);}
 	.emailver-wd{max-width: 500px;}
 	.footer-block{position: static;}
+	.header {position: fixed;}
 	.header .navbar-collapse.collapse.in{display: inherit;}
 
 	/* Header */
 	.menu-trigger, .nav-menu-close, .nav-overlay{display: block;}
-	.aside{height: calc(100vh - 50px); overflow-y: auto; margin-left: -240px; position: fixed; top: 50px; z-index: 99; -webkit-transition: all 0.5s ease; transition: all 0.5s ease;}
+	.aside{height: 100vh;
+		overflow-y: auto;
+		margin-left: -240px;
+		position: fixed !important;
+		padding-top: 70px;
+		z-index: 99 !important;
+		-webkit-transition: all 0.5s ease;
+		transition: all 0.5s ease;}
 	.aside-open .aside{margin-left: 0;}
 	.header-right .guest {padding: 15px;}
 	.header-right .guest > ul{margin: 0; -webkit-justify-content: center; -ms-flex-pack: center; justify-content: center;}
 	.header-right .navbar ul{ -webkit-flex-direction: column; -ms-flex-direction: column; flex-direction: column;}
 	.user-login .user-dropdown{background: #fff; display: none; height: auto; position: absolute; right: 0; top: 50px; width: 250px; z-index: 9; -webkit-box-shadow: rgba(0, 0, 0, 0.176) 0px 6px 12px; box-shadow: rgba(0, 0, 0, 0.176) 0px 6px 12px;}
-	.user-login > a{border-left: 1px solid #ddd; display: block; padding: 0; height: 51px; width: 43px;}
-	.header .logo{margin-left: 35px;}
-	.header .navbar-brand > img{margin-top: 3px;}
-	.header .navbar-brand{padding: 0;}
+	.user-login > a{ display: block; padding: 0; height: 51px; width: 43px;}
+	
 	.nav-overlay {
 		background-color: #404040;
 		top: 0;
@@ -820,13 +831,8 @@ footer {
 }
 @media (max-width: 767px){
 	/* Header */
-	.header .navbar-brand > img{height: 36px; margin-top: 5px; width: 36px;}
-	.header .navbar ul li a{font-size: 12px; font-weight: 600; padding: 15px 5px;}
-	.user-login > a{border-left: 1px solid #ddd; display: block; padding: 0; height: 51px; width: 43px;}
-	.user-login .user-dropdown{display: none;}
-	.header .logo{margin-left: 35px; width: 40px;}
-	.header .navbar-brand > img{height: 36px; margin-top: 5px; width: 36px;}
-
+	
+	body { padding-top: 50px; top: 0;}
 	/* Widgets */
 	.tooltip-info{margin-top: 30px;}
 	.tooltip-info li{-webkit-flex-direction: column; -ms-flex-direction: column; flex-direction: column;}

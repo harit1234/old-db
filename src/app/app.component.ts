@@ -12,13 +12,14 @@ export class AppComponent {
   title = 'idap-web';
 
   constructor(private authService: AuthService, private router: Router) {
-      this.authService.stateChanged.subscribe( (state: AuthState) => {
-        if (state === AuthState.LOGGED_IN) {
-            console.log('Logged in');
-            this.router.navigate(['dashboard']);
-        } else if(state === AuthState.LOGGED_OUT) {
-            console.log('Logged out');
-        }
-      });
+    this.authService.stateChanged.subscribe((state: AuthState) => {
+      if (state === AuthState.LOGGED_IN) {
+        console.log('Logged in');
+        this.router.navigate(['dashboard']);
+      } else if (state === AuthState.LOGGED_OUT) {
+        console.log('Logout called: AppComponent');
+        this.router.navigate(['login']);
+      }
+    });
   }
 }

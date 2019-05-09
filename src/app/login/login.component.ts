@@ -4,6 +4,7 @@ import { AppConfig } from '../app.config';
 import { DataService } from '../shared/services/data.service';
 import { RestService } from '../shared/services/rest.service';
 import { AuthService } from '../shared/services/auth.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -15,12 +16,14 @@ export class LoginComponent implements OnInit {
   loginFormGroup: FormGroup;
   submitted = false;
   error = '';
-
+  returnUrl: string;
   constructor(
-    private loginFormBuilder: FormBuilder, 
-    private dataService: DataService, 
+    private loginFormBuilder: FormBuilder,
+    private dataService: DataService,
     private restService: RestService,
-    private authService: AuthService) { }
+    private authService: AuthService,
+    private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit() {
     this.loginFormGroup = this.loginFormBuilder.group(
@@ -32,6 +35,9 @@ export class LoginComponent implements OnInit {
         // recaptcha: ['', Validators.required]
       }
     );
+
+    // get return url from route parameters or default to '/'
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
   get siteKey() {
@@ -46,9 +52,9 @@ export class LoginComponent implements OnInit {
     this.submitted = true;
     console.log(this.formFields);
     const data = {
-        'username': this.formFields.email.value,
-        'password': this.formFields.password.value,
-        'googleotp': this.formFields.factorCode.value
+      'username': this.formFields.email.value,
+      'password': this.formFields.password.value,
+      'googleotp': this.formFields.factorCode.value
     };
 
     // stop here if form is invalid
@@ -59,20 +65,20 @@ export class LoginComponent implements OnInit {
     }
     console.log('Form Submitted!!');
     this.login(data);
-    
+
   }
 
   login(data: any) {
     this.dataService.loader = true;
-    this.restService.login(data).subscribe( userInfo => {
-          console.log('response');
-          this.authService.setCredentials(userInfo);
-      }, error => {
-        console.log('Error ssssss');
-        console.log(error.error);
-        this.dataService.loader = false;
-        this.error = error;
-      });
+    this.restService.login(data).subscribe(userInfo => {
+      console.log('response');
+      this.authService.setCredentials(userInfo);
+      //this.router.navigate([this.returnUrl]);
+    }, error => {
+      
+      this.dataService.loader = false;
+      this.error = error;
+    });
   }
 
   /**

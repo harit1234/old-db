@@ -1,10 +1,10 @@
-<header class="header loggedin">
-    <div class="hamburger d-md-none d-lg-none"><a href="javascript:;"> <span></span> </a></div>
+<header class="header loggedin" id="header" [ngClass]="{ 'aside-open': hamburgerMenuStatus}">
+    <div class="hamburger d-lg-none" (click)="hamburger();"><a href="javascript:;"> <span></span> </a></div>
     <div class="logo">
     <a class="navbar-brand" href="javascript:;">
-        <img src="assets/img/idap-io-logo.svg" alt="IDAP Exchange" class="logo-sticky hidden-xs">
-      <!--img src="assets/img/logo-idap-io.svg" alt="IDAP Exchange" class="logo-default">
-     <img src="assets/img/idap-symbol.png" alt="IDAP Exchange" class="logo-mobile visible-xs"-->
+        <img src="assets/img/idap-io-logo.svg" alt="IDAP Exchange" class="logo-sticky d-none d-md-block">
+      <!--img src="assets/img/logo-idap-io.svg" alt="IDAP Exchange" class="logo-default"-->
+     <img src="assets/img/idap-symbol.png" alt="IDAP Exchange" class="logo-mobile d-block d-md-none">
     </a>
     </div>
     <div class="navbar">
@@ -42,7 +42,7 @@
                 <li><a href="my-profile.html"><span><i class="fas fa-user"></i></span>My Profile</a></li>
                 <li><a href="security.html"><span><i class="fas fa-lock"></i></span>Security</a></li>
                 <li><a href="settings.html"><span><i class="fas fa-cog"></i></span>Settings</a></li>
-                <li><a href="javascript:;"><span><i class="fas fa-sign-out-alt"></i></span>Log Out</a></li>
+                <li (click)="dataService.logout();"><a href="javascript:;"><span><i class="fas fa-sign-out-alt"></i></span>Log Out</a></li>
               </ul>
             </div>
           </div>

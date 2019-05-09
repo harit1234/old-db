@@ -42,10 +42,10 @@ export class AuthService {
   }
 
   public clearSession() {
-      localStorage.removeItem('userIdStorage');
-      localStorage.removeItem('sessionIdStorage');
-      localStorage.removeItem('token');
-      localStorage.removeItem('email');
+    localStorage.removeItem('userIdStorage');
+    localStorage.removeItem('sessionIdStorage');
+    localStorage.removeItem('token');
+    localStorage.removeItem('email');
 
     this.setState(AuthState.LOGGED_OUT);
   }

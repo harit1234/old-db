@@ -12,7 +12,7 @@ export class RestService {
   private EQUAL = '=';
   private AMP = '&';
   private loginUrl = 'login';
-  private getFlagUrl = '/getFlags';
+  private registerUrl = '/resiter';
   private getCommonSettingsUrl = 'api/customer/Getkiosk';
   private getCardInfoUrl = 'api/card/GetCardInformation';
   private getCustomerSettignsUrl = 'api/customer/GetCustomerSettings';
@@ -43,42 +43,42 @@ export class RestService {
       );
   }
 
-  private post_request_query(url: string, data): Observable<string> {
-    const formData = Object.keys(data)
-      .map(key => Array.isArray(data[key])
-        ? data[key].map(value => key + this.EQUAL + encodeURIComponent(value)).join(this.AMP)
-        : key + this.EQUAL + encodeURIComponent(data[key])
-      ).join(this.AMP);
-    console.log('post_request: ', url, ', ', formData);
-    return this.http.post<any>(AppConfig.settings.restUrl + url + '?' + formData, '',
-      {
-        headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-      }).pipe(map(d => {
-        return d;
-      }),
-        catchError((err, caught) => {
-          console.log(err);
-          return throwError(
-            `Error: ${err}`);
-        })
-      );
-  }
+  // private post_request_query(url: string, data): Observable<string> {
+  //   const formData = Object.keys(data)
+  //     .map(key => Array.isArray(data[key])
+  //       ? data[key].map(value => key + this.EQUAL + encodeURIComponent(value)).join(this.AMP)
+  //       : key + this.EQUAL + encodeURIComponent(data[key])
+  //     ).join(this.AMP);
+  //   console.log('post_request: ', url, ', ', formData);
+  //   return this.http.post<any>(AppConfig.settings.restUrl + url + '?' + formData, '',
+  //     {
+  //       headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+  //     }).pipe(map(d => {
+  //       return d;
+  //     }),
+  //       catchError((err, caught) => {
+  //         console.log(err);
+  //         return throwError(
+  //           `Error: ${err}`);
+  //       })
+  //     );
+  // }
 
-  private get_request(url: string): Observable<any> {
+  // private get_request(url: string): Observable<any> {
 
-    return this.http.get(AppConfig.settings.restUrl + url,
-      {
-        headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' }),
-      }).pipe(map(d => {
-        return d;
-      }),
-        catchError((err, caught) => {
-          console.log(err);
-          return throwError(
-            `Error: ${err}`);
-        })
-      );
-  }
+  //   return this.http.get(AppConfig.settings.restUrl + url,
+  //     {
+  //       headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' }),
+  //     }).pipe(map(d => {
+  //       return d;
+  //     }),
+  //       catchError((err, caught) => {
+  //         console.log(err);
+  //         return throwError(
+  //           `Error: ${err}`);
+  //       })
+  //     );
+  // }
 
 
   login(data: any): Observable<any> {
@@ -92,35 +92,7 @@ export class RestService {
     console.log('login attempt:', JSON.stringify(data));
     return this.post_request(this.loginUrl, data);
   }
-
-  getFlags() {
-    return this.get_request(this.getFlagUrl);
+  register(data: any) {
+    return this.post_request(this.registerUrl, data);
   }
-
-  getCommonSettings() {
-    return this.get_request(this.getCommonSettingsUrl);
-  }
-
-  getCardInfo() {
-    return this.get_request(this.getCardInfoUrl);
-  }
-
-  getCustomerSettigns() {
-    return this.get_request(this.getCustomerSettignsUrl);
-  }
-
-  getToken(data: any) {
-    return this.post_request(this.getTokenUrl, data);
-  }
-  makePayment(data: any) {
-    return this.post_request(this.makePaymentUrl, data);
-  }
-  loadMoney(data: any) {
-    return this.post_request_query(this.loadMoneyUrl, data);
-  }
-  sendReceipt(data: any) {
-    return this.post_request_query(this.sendReceiptUrl, data);
-  }
-
-
 }

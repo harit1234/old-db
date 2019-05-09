@@ -20,8 +20,8 @@ export class ErrorInterceptor implements HttpInterceptor {
                 this.dataService.badRequestAction();
             }
             console.log('error is ++');
-            console.log(err);
-            const error = err.error.message || err.statusText;
+            console.log(err.error.error);
+            const error = err.error.error || err.statusText;
             return throwError(error);
         }));
     }

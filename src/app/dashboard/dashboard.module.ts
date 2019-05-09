@@ -6,16 +6,18 @@ import { dashboardRoutes } from './dashboard.routes';
 import { DashboardFooterComponent } from './dashboard-footer/dashboard-footer.component';
 import { DashboardHeaderComponent } from './dashboard-header/dashboard-header.component';
 import { DashboardLeftMenuComponent } from './dashboard-left-menu/dashboard-left-menu.component';
+import { CommonModule } from '@angular/common';
 @NgModule({
   declarations: [
-    LayoutComponent, 
-    HomeComponent, 
-    DashboardFooterComponent, 
-    DashboardHeaderComponent, 
-    DashboardLeftMenuComponent
+    LayoutComponent,
+    HomeComponent,
+    DashboardFooterComponent,
+    DashboardHeaderComponent,
+    DashboardLeftMenuComponent,
   ],
   imports: [
-    RouterModule.forChild(dashboardRoutes)
+    RouterModule.forChild(dashboardRoutes),
+    CommonModule
   ]
 })
 export class DashboardModule { }
