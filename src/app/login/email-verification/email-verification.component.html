@@ -1,0 +1,27 @@
+<section class="frm-block">
+    <div class="container">
+      <app-login-logo></app-login-logo>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="frm-body signin-wd">
+        <figure><img src="assets/img/icon-success.svg" alt=""></figure>
+        <h4>Success</h4>		  
+            <p>We have sent a confirmation email to your registered email address 
+              <strong>{{registerEmail}}</strong>.</p>
+            <p>Please follow the instructions in the email to continue.</p>
+            <p><a href="javascript:;" class="form-button" (click)="resendEmail();">Resend email</a></p>
+            <div class="verfication-steps">
+              <p>If you haven't received the email, please try the following:</p>
+              <ul>
+                <li>Make sure the email address you provided is correct.</li>
+                <li>Check your spam or junk mail folders.</li>
+                <li>Add idap.exchange to your email address whitelist.<br><a href="javascript:;" class="" target="_blank">How can I do this?</a></li>
+                <li>Make sure your email client is functioning normally.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+

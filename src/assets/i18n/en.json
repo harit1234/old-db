@@ -1,0 +1,44 @@
+{
+  "common": {
+    "lblLogin": "Log In",
+    "lblRegister": "Register"
+  },  
+  "login": {
+    "lblEmail": "Email",
+    "lblPassword": "Password",
+    "lblTwoFactorCode": "Two-Factor Code (if enabled)",
+    "lblGoogleAuthPh": "Google Authenticator",
+    "lblForgotTwoFDevice": "Forgot Password or Two-Factor Device?"
+  },
+  "loginValidate": {
+    "valUserRequired": "Username is required!",
+    "valUserEmail": "Please enter your valid username or email!",
+    "valPassRequired": "Password is required!",
+    "valPassMin": "Password should be minimum of {{length}} characters!",
+    "valRobot": "Please confirm you are not a robot!"
+  },
+  "register": {
+    "lblConfirmPassword": "Confirm Password",
+    "lblCountry": "Country of Residence",
+    "lblFirstName": "First Name",
+    "lblLastName": "Last Name",
+    "lblOptional": "Optional",
+    "lblTerms": "I accept the ",
+    "lblTermsOfService": "Terms of Service.",
+    "lblClickToChoose": "Click to choose a Country",
+    "btnRegister": "Create My Account"
+  },
+  "registerValidate": {
+    "valEmailRequired": "Email is required!",
+    "valRegEmailErr": "Please enter valid email address!",
+    "valRegPassRequired": "Please enter your password!",
+    "valRegPassChar": "Your password must contain at least one lowercase letter, one capital letter and one number!",
+    "valRegConPassRequired": "Please enter confirm password!",
+    "valRegPassMatchErr": "Password mush match!",
+    "valRegCountry": "Please choose a country!",
+    "valRegTerms": "Please choose terms of service!"
+  },
+  "serverError": {
+    "1001": "Invalid username or password!"
+  }
+}

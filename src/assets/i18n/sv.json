@@ -1,0 +1,21 @@
+{
+  "common": {
+    "lblLogin": "Log In sv",
+    "lblRegister": "Register sv"
+  },  
+  "login": {
+    "lblEmail": "Emailsv",
+    "lblPassword": "Passwordsv",
+    "lblTwoFactorCode": "Two-Factor Code (if enabled)",
+    "lblGoogleAuthPh": "Google Authenticator",
+    "lblForgotTwoFDevice": "Forgot Password or Two-Factor Device?"
+  },
+  "loginValidate": {
+    "valUserRequired": "Username is required!",
+    "valUserEmail": "Please enter your valid username or email!",
+    "valPassRequired": "Password is required!",
+    "valPassMin": "Password should be minimum of {{length}} characters!",
+    "valRobot": "Please confirm you are not a robot!"
+
+  }
+}

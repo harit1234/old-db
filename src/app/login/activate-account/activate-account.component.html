@@ -1,0 +1,26 @@
+<div class="wrapper">
+    <app-side-panel></app-side-panel>
+    <div class="frm-wrapper">
+      <section class="frm-block">
+      <div class="container">
+        <app-login-logo></app-login-logo>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="frm-body signin-wd" *ngIf="accountActivationStatus == 'Success'">
+              <figure><img src="assets/img/icon-success.svg" alt=""></figure>
+              <h1>Account Activation Successful</h1>
+                  <p>Your account is activated. Please Sign In to trade.</p>
+              <p><a routerLink="/login" class="form-button">Log In</a></p>
+            </div>
+            <div class="frm-body signin-wd" *ngIf="accountActivationStatus == 'Fail'">
+                <figure><img src="assets/img/icon-fail.svg" alt=""></figure>
+                <h1>Account Activation Fail</h1>
+                    <p>Your account has not been activated. Please try again.</p>
+                <p><a routerLink="/login" class="form-button">Log In</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
