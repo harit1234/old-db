@@ -7,6 +7,10 @@ import { DashboardFooterComponent } from './dashboard-footer/dashboard-footer.co
 import { DashboardHeaderComponent } from './dashboard-header/dashboard-header.component';
 import { DashboardLeftMenuComponent } from './dashboard-left-menu/dashboard-left-menu.component';
 import { CommonModule } from '@angular/common';
+import { AccountComponent } from './account/account.component';
+import { SecurityComponent } from './security/security.component';
+import { ChangePasswordComponent } from './security/change-password/change-password.component';
+import { GoogleAuthComponent } from './security/google-auth/google-auth.component';
 @NgModule({
   declarations: [
     LayoutComponent,
@@ -14,6 +18,10 @@ import { CommonModule } from '@angular/common';
     DashboardFooterComponent,
     DashboardHeaderComponent,
     DashboardLeftMenuComponent,
+    AccountComponent,
+    SecurityComponent,
+    ChangePasswordComponent,
+    GoogleAuthComponent,
   ],
   imports: [
     RouterModule.forChild(dashboardRoutes),

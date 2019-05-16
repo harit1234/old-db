@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { AppConfig } from '../app.config';
 import { DataService } from '../shared/services/data.service';
 import { RestService } from '../shared/services/rest.service';
 import { AuthService } from '../shared/services/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { environment } from '../../environments/environment';
+import { constants } from '../../constants';
+import { TranslateService } from '@ngx-translate/core';
+import { jsonpCallbackContext } from '@angular/common/http/src/module';
+import { HttpResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -12,10 +16,11 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  constants = constants;
   loginFormGroup: FormGroup;
   submitted = false;
   error = '';
+  errorCode = '';
   returnUrl: string;
   constructor(
     private loginFormBuilder: FormBuilder,
@@ -23,7 +28,9 @@ export class LoginComponent implements OnInit {
     private restService: RestService,
     private authService: AuthService,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    private translate: TranslateService
+   ) { }
 
   ngOnInit() {
     this.loginFormGroup = this.loginFormBuilder.group(
@@ -35,13 +42,13 @@ export class LoginComponent implements OnInit {
         // recaptcha: ['', Validators.required]
       }
     );
-
+    this.authService.clearSession();
     // get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
   get siteKey() {
-    return AppConfig.settings.recaptchaKey;
+    return environment.recaptchaKey;
   }
   // convenience getter for easy access to form fields
   get formFields() {

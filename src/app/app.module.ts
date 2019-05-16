@@ -15,9 +15,29 @@ import { NgxCaptchaModule } from 'ngx-captcha';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { JwtInterceptor, ErrorInterceptor, FakeBackendInterceptor } from './shared/helpers';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { EmailVerificationComponent } from './login/email-verification/email-verification.component';
+import { ResetPasswordComponent } from './login/reset-password/reset-password.component';
+import { JwtModule } from '@auth0/angular-jwt';
+import { ActivateAccountComponent } from './login/activate-account/activate-account.component';
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { AppLoaderComponent } from './app-loader/app-loader.component';
 
 export function initializeApp(appConfig: AppConfig) {
-  return () => appConfig.load();
+  return () => {
+    appConfig.load();
+    // JwtModule.forRoot({
+    //   config: {
+    //     whitelistedDomains: ['localhost:3001', 'foo.com', 'bar.com']
+    //   }
+    // });
+  }
+}
+
+// required for AOT compilation
+export function httpLoaderFactory(http: HttpClient) {
+  //return new TranslateHttpLoader(http);
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
 @NgModule({
@@ -29,7 +49,11 @@ export function initializeApp(appConfig: AppConfig) {
     RegisterComponent,
     ForgotComponent,
     LoginLogoComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    EmailVerificationComponent,
+    ResetPasswordComponent,
+    ActivateAccountComponent,
+    AppLoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +62,20 @@ export function initializeApp(appConfig: AppConfig) {
     ReactiveFormsModule,
     FormsModule,
     NgxCaptchaModule,
-    HttpClientModule
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: httpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
+    JwtModule
+    // JwtModule.forRoot({
+    //   config: {
+    //     whitelistedDomains: ['localhost:3001', 'foo.com', 'bar.com']
+    //   }
+    // })
   ],
   providers: [
     AppConfig,

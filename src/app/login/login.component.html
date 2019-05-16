@@ -8,19 +8,16 @@
           <div class="col-sm-12">
             <div class="frm-outer">
               <ul class="frm-tabs">
-                <li><a href="javascript:;" class="active">Log In</a></li>
-                <li><a routerLink="/register">Register</a></li>
+                <li><a href="javascript:;" class="active">{{ 'common.lblLogin' | translate }}</a></li>
+                <li><a routerLink="/register">{{ 'common.lblRegister' | translate }}</a></li>
               </ul>
               <div class="frm-body">
                 <form [formGroup]="loginFormGroup" (ngSubmit)="onSubmit();">
                   <div *ngIf="error" class="auth-error">
-                    <p>
-                        {{error}}
-                    </p>
-                    
+                    <p>{{error}}</p>
                   </div>
                   <div class="form-group input-ico email">
-                    <label for="emailAddress" class="form-label">Email</label>
+                    <label for="emailAddress" class="form-label">{{ 'login.lblEmail' | translate }}</label>
                     <input 
                     class="form-input"
                     formControlName="email"
@@ -33,15 +30,15 @@
                             </div-->
                     <div *ngIf="submitted && formFields.email.errors" class="form-valid-error">
                       <div *ngIf="formFields.email.errors.email" class="error-msg">
-                          Please enter your valid username or email!
+                          {{ 'loginValidate.valUserEmail' | translate }}
                       </div>
                       <div *ngIf="formFields.email.errors.required" class="error-msg">
-                          Username is required!
+                          {{ 'loginValidate.valUserRequired' | translate }}
                       </div>
                     </div>
                   </div>
                   <div class="form-group input-ico pwd">
-                    <label for="password" class="form-label">Password</label>
+                    <label for="password" class="form-label">{{ 'login.lblPassword' | translate }}</label>
                     <input
                     class="form-input"
                     formControlName="password"
@@ -50,15 +47,20 @@
                     maxlength="20"
                     >
                     <div *ngIf="submitted && formFields.password.errors" class="form-valid-error">
-                      <div *ngIf="formFields.password.errors.required">Password is required!</div>
-                      <div *ngIf="formFields.password.errors.minlength">Password should be minimum of {{formFields.password.errors.minlength.requiredLength}} characters!</div>
+                      <div *ngIf="formFields.password.errors.required">{{ 'loginValidate.valPassRequired' | translate }}</div>
+                      <div *ngIf="formFields.password.errors.minlength">{{ 'loginValidate.valPassMin' | translate:{'length': formFields.password.errors.minlength.requiredLength} }}</div>
                     </div>
                   </div>
                   <div class="form-group input-ico ga">
-                    <label class="form-label">Two-Factor Code (if enabled)</label>
-                    <input id="token" type="text" name="token" class="form-input" placeholder="Google Authenticator" value="">
+                    <label class="form-label">{{ 'login.lblTwoFactorCode' | translate }}</label>
+                    <input 
+                    type="text" 
+                    formControlName="factorCode" 
+                    class="form-input" 
+                    placeholder="{{'login.lblGoogleAuthPh' | translate}}" 
+                    maxlength="6"
+                    >
                   </div>
-                  <!--div class="form-group text-center"><img src="assets/img/captcha.png" alt=""></div-->
                   <!--div class="form-group row ng-captcha-container" >
                     <ngx-recaptcha2 #captchaElem
                       [siteKey]="siteKey"
@@ -68,14 +70,14 @@
                       class="g-recaptcha">
                     </ngx-recaptcha2>
                     <div *ngIf="submitted && formFields.recaptcha.errors" class="form-valid-error">
-                      <div *ngIf="formFields.recaptcha.errors.required">Please confirm you are not a robot!</div>
+                      <div *ngIf="formFields.recaptcha.errors.required">{{ 'loginValidate.valRobot' | translate }}</div>
                     </div>  
                   </div-->
                   <div class="text-center">
-                    <button class="form-button" type="submit">Log In</button>
+                    <button class="form-button" type="submit">{{ 'common.lblLogin' | translate }}</button>
                   </div>
                   <div class="frm-footer">
-                    <div class="sign"><a routerLink="/forgot">Forgot Password or Two-Factor Device?</a></div>
+                    <div class="sign"><a routerLink="/forgot">{{ 'login.lblForgotTwoFDevice' | translate}}</a></div>
                   </div>
                 </form>
               </div>

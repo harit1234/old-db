@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  name: 'dev'
+  name: 'dev',
+  restUrl: 'http://idaptradenew.demolinks.xyz/api/v1/',
+  recaptchaKey: '6LfQMKIUAAAAAC1emeIR20Ze7SOcJG3xoEQY1V7_'
 };
 
 /*

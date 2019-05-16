@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { Observable, Subject, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { AppConfig } from '../../app.config';
+//import { AppConfig } from '../../app.config';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,14 +13,15 @@ export class RestService {
   private EQUAL = '=';
   private AMP = '&';
   private loginUrl = 'login';
-  private registerUrl = '/resiter';
-  private getCommonSettingsUrl = 'api/customer/Getkiosk';
-  private getCardInfoUrl = 'api/card/GetCardInformation';
-  private getCustomerSettignsUrl = 'api/customer/GetCustomerSettings';
-  private getTokenUrl = 'api/payment/gettoken';
-  private makePaymentUrl = 'api/payment/postpayment';
-  private loadMoneyUrl = 'api/card/AddMoney/';
-  private sendReceiptUrl = 'api/customer/SendEmail';
+  private registerUrl = 'register';
+  private resendVerificationUrl = 'resend_verification_email';
+  private forgotPasswordUrl = 'forgot_password';
+  private logoutUrl = 'logout';
+  private userInfoUrl = 'userinfo';
+  private refreshTokenUrl = 'refreshToken';
+  private resetPasswordUrl = 'reset_password';
+  private activateAccountUrl = 'activate_account';
+  
   constructor(private http: HttpClient) {
 
   }
@@ -30,7 +32,7 @@ export class RestService {
     //     : key + this.EQUAL + encodeURIComponent(data[key])
     //   ).join(this.AMP);
     //  console.log('post_request: ', url, ', ', data);
-    return this.http.post<any>(AppConfig.settings.restUrl + url, data,
+    return this.http.post<any>(environment.restUrl + url, data,
       {
         headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
       }).pipe(map(d => {
@@ -64,21 +66,21 @@ export class RestService {
   //     );
   // }
 
-  // private get_request(url: string): Observable<any> {
+  private get_request(url: string): Observable<any> {
 
-  //   return this.http.get(AppConfig.settings.restUrl + url,
-  //     {
-  //       headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' }),
-  //     }).pipe(map(d => {
-  //       return d;
-  //     }),
-  //       catchError((err, caught) => {
-  //         console.log(err);
-  //         return throwError(
-  //           `Error: ${err}`);
-  //       })
-  //     );
-  // }
+    return this.http.get(environment.restUrl + url,
+      {
+        headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+      }).pipe(map(d => {
+        return d;
+      }),
+        catchError((err, caught) => {
+          console.log(err);
+          return throwError(
+            `Error: ${err}`);
+        })
+      );
+  }
 
 
   login(data: any): Observable<any> {
@@ -94,5 +96,31 @@ export class RestService {
   }
   register(data: any) {
     return this.post_request(this.registerUrl, data);
+  }
+
+  resendVerificationEmail(data: any) {
+    return this.post_request(this.resendVerificationUrl, data);
+  }
+
+  forgotPasswordSendRequest(data: any) {
+    return this.post_request(this.forgotPasswordUrl, data);
+  }
+
+  getUserAccountInfo() {
+    return this.get_request(this.userInfoUrl);
+  }
+
+  logout(data: any) {
+    return this.post_request(this.logoutUrl, data); 
+  }
+  refreshToken() {
+    const data = {};
+    return this.post_request(this.refreshTokenUrl, data);
+  }
+  resetPassword(data: any) {
+    return this.post_request(this.resetPasswordUrl, data);
+  }
+  activateAccount(data: any) {
+    return this.post_request(this.activateAccountUrl, data);
   }
 }
