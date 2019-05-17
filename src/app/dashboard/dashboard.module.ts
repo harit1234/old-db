@@ -11,6 +11,17 @@ import { AccountComponent } from './account/account.component';
 import { SecurityComponent } from './security/security.component';
 import { ChangePasswordComponent } from './security/change-password/change-password.component';
 import { GoogleAuthComponent } from './security/google-auth/google-auth.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {HttpClient} from '@angular/common/http';
+
+// required for AOT compilation
+export function httpLoaderFactory(http: HttpClient) {
+  //return new TranslateHttpLoader(http);
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
+
 @NgModule({
   declarations: [
     LayoutComponent,
@@ -25,7 +36,16 @@ import { GoogleAuthComponent } from './security/google-auth/google-auth.componen
   ],
   imports: [
     RouterModule.forChild(dashboardRoutes),
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule,
+    FormsModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: httpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ]
 })
 export class DashboardModule { }

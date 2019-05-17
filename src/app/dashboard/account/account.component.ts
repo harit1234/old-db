@@ -15,7 +15,8 @@ export class AccountComponent implements OnInit {
 
   ngOnInit() {
     console.log("AccountComponent: ngInit");
-    this.dataService.loader = true;
+
+    setTimeout(() => this.dataService.loader = true);
     this.restService.getUserAccountInfo().subscribe( userInfo => {
       this.dataService.loader = false;
       console.log("User info : ");

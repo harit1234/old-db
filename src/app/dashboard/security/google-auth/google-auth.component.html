@@ -8,8 +8,41 @@
         <div class="auth-option">
           <h4>Google Auth (2FA)</h4>
         </div>
-        <button type="submit" class="form-button form-button-sm">Enable</button>
+        <button type="button" class="form-button form-button-sm" (click)="formActive=true;">{{ btnLblText }}</button>
       </div>
+      <form [formGroup]="googleAuthFormGroup" (ngSubmit)="onSubmit()" *ngIf="formActive">
+          <div *ngIf="error" class="auth-error">
+            <p>{{error}}</p>
+          </div>
+          <div *ngIf="changePasswordStatus" class="msg-success">
+              <p>{{ 'changePassword.msgSuccess' | translate }}</p>
+            </div>
+          <div class="form-group">
+            <label for="OldPassword">Secret</label>
+            <div>{{secret}}</div>
+          </div>
+          <div class="form-group">
+            <label for="NewPassword">Scan this with the Google Authenticator app.</label>
+            <div><img src="{{gQrCode}}"></div>
+            
+          </div>
+          <div class="form-group input-ico pwd">
+            <label for="ConfirmPassword">Two-Factor Code</label>
+            <input 
+            formControlName="twoFactorCode" 
+            type="password" 
+            class="form-input" 
+            [ngClass]="{'is-invalid': submitted && formFields.twoFactorCode.errors}"
+            maxlength="6"
+            minlength="6">
+            <div *ngIf="submitted && formFields.twoFactorCode.errors" class="form-valid-error">
+              <div *ngIf="formFields.twoFactorCode.errors.required" class="error-msg">
+                Please enter two factor code!
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="form-button form-button-sm">Submit</button>
+        </form>
     </div>
   </div>
 </div>

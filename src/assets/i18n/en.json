@@ -38,6 +38,39 @@
     "valRegCountry": "Please choose a country!",
     "valRegTerms": "Please choose terms of service!"
   },
+  "changePassword": {
+    "lblChangeLoginPassword": "Change Login Password",
+    "lblCurrentPassword": "Current Password",
+    "lblPassword": "Password",
+    "lblConfirmPassword": "Confirm Password",
+    "btnUpdatePassword": "Update Password",
+    "msgSuccess": "Your password was successfully updated!"
+
+  },
+  "changePasswrodValidate": {
+    "valChCurrentPassRequired": "Please enter your current password!"
+  },
+  "dashboardHeader": {
+    "lblTrade": "Trade",
+    "lblAccount": "Acccount",
+    "lblDownload": "Download"
+  },
+  "dashboardLeftMenu": {
+    "lblWallet": "Wallet",
+    "lblBalances": "Balances",
+    "lblDeposit": "Deposits",
+    "lblWithdraw": "Withdraw",
+    "lblAccPref": "Account & Preferences",
+    "lblMyProfile": "My Profile",
+    "lblSecurity": "Security",
+    "lblHistory": "History",
+    "lblTradeHist": "Trade History",
+    "lblOrdHist": "Order History"
+  },
+  "googleAuth": {
+    "lblEnable": "Enable",
+    "lblDisable": "Disable"
+  },
   "serverError": {
     "1001": "Invalid username or password!"
   }

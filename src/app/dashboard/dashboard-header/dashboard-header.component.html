@@ -9,9 +9,9 @@
     </div>
     <div class="navbar">
       <ul>
-        <li><a href="javascript:;">Trade</a></li>
-        <li routerLinkActive="active"><a  routerLink="/dashboard/account" >Account</a></li>
-        <li><a href="javascript:;">Download</a></li>
+        <li><a href="javascript:;">{{ 'dashboardHeader.lblTrade' | translate }}</a></li>
+        <li routerLinkActive="active"><a  routerLink="/dashboard/account" >{{ 'dashboardHeader.lblAccount' | translate }}</a></li>
+        <li><a href="javascript:;">{{ 'dashboardHeader.lblDownload' | translate }}</a></li>
       </ul>
     </div>
     <div class="header-right">
@@ -24,7 +24,7 @@
             </ul>
           </div>
           <div class="user-nav-wrapper">
-            <div class="user-email">johndoe@gmail.com</div>
+            <div class="user-email">{{ userName }}</div>
             <div class="user-nav">
               <ul>
                 <li (click)="dataService.logout();"><a href="javascript:;"><span><i class="fas fa-sign-out-alt"></i></span>Log Out</a></li>

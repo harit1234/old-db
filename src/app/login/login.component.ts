@@ -5,7 +5,6 @@ import { RestService } from '../shared/services/rest.service';
 import { AuthService } from '../shared/services/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { environment } from '../../environments/environment';
-import { constants } from '../../constants';
 import { TranslateService } from '@ngx-translate/core';
 import { jsonpCallbackContext } from '@angular/common/http/src/module';
 import { HttpResponse } from '@angular/common/http';
@@ -16,7 +15,7 @@ import { HttpResponse } from '@angular/common/http';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  constants = constants;
+  
   loginFormGroup: FormGroup;
   submitted = false;
   error = '';

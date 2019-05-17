@@ -145,7 +145,7 @@ label.form-check-label a:hover {
 }
 .form-button:focus,
 .form-button:hover {
-	background-color: #0044e6;
+	background-color: #F18D05;
 	color: #FFF !important;
 	cursor:pointer;
 	outline: none;
@@ -362,13 +362,28 @@ ul.features li:before {
     box-sizing: border-box;
     font-size: 15px;
     padding: 12px !important;
-    margin: 12px 0 0 0 !important;
+    margin: 0 0 15px 0 !important;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
     border-radius: 3px;
     position: relative;
 }
-
+.auth-error p {
+    margin-top: none !important;
+}
+.msg-success {
+    background-color: rgba(50,194,77,0.05);
+    border: 1px solid #32c24d;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 20px !important;
+    text-align: left;
+    color: #289a3d;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    padding: 12px 40px !important;
+    
+}
 /* Header */
 .header{
 	background-color: #fff;

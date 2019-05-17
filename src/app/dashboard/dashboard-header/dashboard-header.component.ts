@@ -10,10 +10,11 @@ import { DataService } from '../../shared/services/data.service';
 export class DashboardHeaderComponent implements OnInit {
   hamburgerMenuStatus = false;
   @Output() hanburgerMenuOpened = new EventEmitter<boolean>();
-
+  userName: string;
   constructor(public dataService: DataService) { }
 
   ngOnInit() {
+    this.userName = localStorage.getItem('email');
   }
 
   /**

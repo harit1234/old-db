@@ -21,7 +21,9 @@ export class RestService {
   private refreshTokenUrl = 'refreshToken';
   private resetPasswordUrl = 'reset_password';
   private activateAccountUrl = 'activate_account';
-  
+  private changePasswordUrl = 'change_password';
+  private google2faStatusUrl = 'google_2fa_status';
+
   constructor(private http: HttpClient) {
 
   }
@@ -45,27 +47,6 @@ export class RestService {
       );
   }
 
-  // private post_request_query(url: string, data): Observable<string> {
-  //   const formData = Object.keys(data)
-  //     .map(key => Array.isArray(data[key])
-  //       ? data[key].map(value => key + this.EQUAL + encodeURIComponent(value)).join(this.AMP)
-  //       : key + this.EQUAL + encodeURIComponent(data[key])
-  //     ).join(this.AMP);
-  //   console.log('post_request: ', url, ', ', formData);
-  //   return this.http.post<any>(AppConfig.settings.restUrl + url + '?' + formData, '',
-  //     {
-  //       headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-  //     }).pipe(map(d => {
-  //       return d;
-  //     }),
-  //       catchError((err, caught) => {
-  //         console.log(err);
-  //         return throwError(
-  //           `Error: ${err}`);
-  //       })
-  //     );
-  // }
-
   private get_request(url: string): Observable<any> {
 
     return this.http.get(environment.restUrl + url,
@@ -82,6 +63,20 @@ export class RestService {
       );
   }
 
+  private put_request(url: string, data): Observable<string> {
+
+    return this.http.put<any>(environment.restUrl + url, data,
+      {
+        headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+      }).pipe(map(d => {
+        return d;
+      }),
+        catchError((err, caught) => {
+          return throwError(
+            `${err}`);
+        })
+      );
+  }
 
   login(data: any): Observable<any> {
     console.log(data);
@@ -120,7 +115,20 @@ export class RestService {
   resetPassword(data: any) {
     return this.post_request(this.resetPasswordUrl, data);
   }
+
+  /**
+   * Activate Account
+   * @param data json object
+   */
   activateAccount(data: any) {
     return this.post_request(this.activateAccountUrl, data);
+  }
+
+  changePassword(data: any) {
+    return this.put_request(this.changePasswordUrl, data);
+  }
+
+  getgoogle2faStatus() {
+    return this.get_request(this.google2faStatusUrl);
   }
 }

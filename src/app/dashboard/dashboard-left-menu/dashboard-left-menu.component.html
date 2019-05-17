@@ -1,28 +1,59 @@
 <aside id="aside" class="aside">
-      <nav class="sidebar-nav">
-        <ul id="sidebarnav">
-          <li> <a class="has-arrow active" href="javascript:;"><span class="icon"><i class="fas fa-wallet"></i></span><span>Wallet</span></a>
-            <ul class="collapse in">
-              <li><a routerLink="/dashboard/home" routerLinkActive="active">Balances</a></li>
-              <li><a href="deposit.html">Deposit</a></li>
-              <li><a href="withdraw.html">Withdraw</a></li>
-            </ul>
+  <nav class="sidebar-nav">
+    <ul id="sidebarnav">
+      <li>
+        <a class="has-arrow active" href="javascript:;">
+          <span class="icon">
+            <i class="fas fa-wallet"></i>
+          </span>
+          <span>{{ 'dashboardLeftMenu.lblWallet' | translate }}</span>
+        </a>
+        <ul class="collapse in">
+          <li>
+            <a routerLink="/dashboard/home" routerLinkActive="active">{{ 'dashboardLeftMenu.lblBalances' | translate }}</a>
           </li>
-          <li> <a class="has-arrow active" href="javascript:void(0)"><span class="icon"><i class="fas fa-user"></i></span><span>Account & Preferences</span></a>
-            <ul class="collapse in">
-              <li><a routerLink="/dashboard/account" routerLinkActive="active">My Profile</a></li>
-              <li><a routerLink="/dashboard/security" routerLinkActive="active">Security</a></li>
-              <!--li><a href="settings.html">Settings</a></li>
-              <li><a href="affiliate.html">Affiliate</a></li-->
-            </ul>
+          <li>
+            <a href="deposit.html">{{ 'dashboardLeftMenu.lblDeposit' | translate }}</a>
           </li>
-          <li> <a class="has-arrow active" href="javascript:;"><span class="icon"><i class="fas fa-history"></i></span><span>History</span></a>
-            <ul class="collapse in">
-              <li><a href="trade-history.html">Trade History</a></li>
-              <li><a href="order-history.html">Order History</a></li>
-            </ul>
+          <li>
+            <a href="withdraw.html">{{ 'dashboardLeftMenu.lblWithdraw' | translate }}</a>
           </li>
-          <li> <a class="active" href="javascript:;"><span class="icon"><i class="fas fa-trophy"></i></span><span>Leaderboard</span></a></li>
         </ul>
-      </nav>
-</aside>  
+      </li>
+      <li>
+        <a class="has-arrow active" href="javascript:void(0)">
+          <span class="icon">
+            <i class="fas fa-user"></i>
+          </span>
+          <span>{{ 'dashboardLeftMenu.lblAccPref' | translate }}</span>
+        </a>
+        <ul class="collapse in">
+          <li>
+            <a routerLink="/dashboard/account" routerLinkActive="active">{{ 'dashboardLeftMenu.lblMyProfile' | translate }}</a>
+          </li>
+          <li>
+            <a routerLink="/dashboard/security" routerLinkActive="active">{{ 'dashboardLeftMenu.lblSecurity' | translate }}</a>
+          </li>
+          <!--li><a href="settings.html">Settings</a></li>
+              <li><a href="affiliate.html">Affiliate</a></li-->
+        </ul>
+      </li>
+      <li>
+        <a class="has-arrow active" href="javascript:;">
+          <span class="icon">
+            <i class="fas fa-history"></i>
+          </span>
+          <span>{{ 'dashboardLeftMenu.lblHistory' | translate }}</span>
+        </a>
+        <ul class="collapse in">
+          <li>
+            <a href="trade-history.html">{{ 'dashboardLeftMenu.lblTradeHist' | translate }}</a>
+          </li>
+          <li>
+            <a href="order-history.html">{{ 'dashboardLeftMenu.lblOrdHist' | translate }}</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</aside>
