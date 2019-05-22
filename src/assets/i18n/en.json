@@ -1,7 +1,8 @@
 {
   "common": {
     "lblLogin": "Log In",
-    "lblRegister": "Register"
+    "lblRegister": "Register",
+    "lblSubmit": "Submit"
   },  
   "login": {
     "lblEmail": "Email",
@@ -69,9 +70,25 @@
   },
   "googleAuth": {
     "lblEnable": "Enable",
-    "lblDisable": "Disable"
+    "lblDisable": "Disable",
+    "lblGAuth": "Google Auth (2FA)",
+    "lblSecret": "Secret",
+    "lblScan": "Scan this with the Google Authenticator app.",
+    "lbl2FCode": "Two-Factor Code",
+    "msgSuccess": "You Google auth (2FA) has been enabled successfully."
+  },
+  "googleAuthVal": {
+    "val2FCode": "Please enter two factor code!",
+    "valLength": "The length of the two factor code should be 6."
   },
   "serverError": {
-    "1001": "Invalid username or password!"
+    "2012": "Your account is not configured properly. Our support team is looking into it.",
+    "2017": "Invalid username or password!",
+    "2041": "The Google Authenticator code is incorrect or has expired!",
+    "2051": "Current password does not match!"
+  },
+  "serverSuccess": {
+    "2046": "You Google auth (2FA) has been enabled successfully!",
+    "2047": "You Google auth (2FA) has been disabled successfully!"
   }
 }

@@ -29,9 +29,9 @@ export class ErrorInterceptor implements HttpInterceptor {
             console.log(err);    
             let error = err.error.error || err.statusText;
 
-            if(err.error.error_code) {
+            if(err.error.code) {
                 console.log("Error code found!!");
-                this.translateService.get('serverError.'+err.error.error_code).subscribe( text => {
+                this.translateService.get('serverError.'+err.error.code).subscribe( text => {
                     error = text;
                 });
             }

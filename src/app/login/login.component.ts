@@ -81,7 +81,8 @@ export class LoginComponent implements OnInit {
       this.authService.setCredentials(userInfo);
       //this.router.navigate([this.returnUrl]);
     }, error => {
-      
+      this.loginFormGroup.controls.password.reset();
+      this.submitted = false;
       this.dataService.loader = false;
       this.error = error;
     });

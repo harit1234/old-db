@@ -15,7 +15,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {HttpClient} from '@angular/common/http';
-
+import { TradeHistoryComponent } from './trade-history/trade-history.component';
+import { OrderHistoryComponent } from './order-history/order-history.component';
+import { DipositComponent } from './diposit/diposit.component';
+import { WithdrawComponent } from './withdraw/withdraw.component';
+import { AgGridModule } from 'ag-grid-angular/main';
+//import { GridModule, PageService, SortService, FilterService, GroupService } from '@syncfusion/ej2-angular-grids';
 // required for AOT compilation
 export function httpLoaderFactory(http: HttpClient) {
   //return new TranslateHttpLoader(http);
@@ -33,12 +38,18 @@ export function httpLoaderFactory(http: HttpClient) {
     SecurityComponent,
     ChangePasswordComponent,
     GoogleAuthComponent,
+    TradeHistoryComponent,
+    OrderHistoryComponent,
+    DipositComponent,
+    WithdrawComponent,
   ],
   imports: [
     RouterModule.forChild(dashboardRoutes),
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
+    //GridModule,
+    AgGridModule.withComponents([]),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -46,6 +57,7 @@ export function httpLoaderFactory(http: HttpClient) {
         deps: [HttpClient]
       }
     })
-  ]
+  ],
+  //providers: [PageService, SortService, FilterService, GroupService],
 })
 export class DashboardModule { }

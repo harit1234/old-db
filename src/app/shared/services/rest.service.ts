@@ -23,6 +23,10 @@ export class RestService {
   private activateAccountUrl = 'activate_account';
   private changePasswordUrl = 'change_password';
   private google2faStatusUrl = 'google_2fa_status';
+  private google2faPostUrl = 'google_2fa';
+  private accountBalanceUrl = 'account_balance';
+  private tradeHistoryUrl = 'trade_history';
+  private orderHistoryUrl = 'order_history';
 
   constructor(private http: HttpClient) {
 
@@ -131,4 +135,19 @@ export class RestService {
   getgoogle2faStatus() {
     return this.get_request(this.google2faStatusUrl);
   }
+
+  setGoogle2fa(data: any) {
+    return this.put_request(this.google2faPostUrl, data);
+  }
+
+  getAccountBalance(data: any) {
+    return this.post_request(this.accountBalanceUrl, data);
+  }
+  
+  getTradeHistory(data: any) {
+    return this.post_request(this.tradeHistoryUrl, data);
+  }
+  getOrderHistory(data: any) {
+    return this.post_request(this.orderHistoryUrl, data);
+  } 
 }

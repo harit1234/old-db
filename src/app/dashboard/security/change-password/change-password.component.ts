@@ -53,6 +53,8 @@ export class ChangePasswordComponent implements OnInit {
       console.log('Change password success');
       console.log(changePassInfo);
     }, error => {
+      this.changePasswordGroup.reset();
+      this.submitted = false;
       console.log('Change password failed!');
       this.error = error;
     });

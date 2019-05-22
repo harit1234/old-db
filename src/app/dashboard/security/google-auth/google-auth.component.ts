@@ -18,7 +18,9 @@ export class GoogleAuthComponent implements OnInit {
   secret:string;
   gQrCode:string;
   formActive = false;
+  btnText='';
   btnLblText: string;
+  successMsg = '';
   constructor(
     private googleAuthFormBuilder: FormBuilder,
     public dataService: DataService,
@@ -47,13 +49,13 @@ export class GoogleAuthComponent implements OnInit {
   }
 
   getBtnLbl(faCodeStatus: string) {
-    let btnText = '';
+    
     if(faCodeStatus == 'enabled') {
-      btnText = 'lblDisable';
+      this.btnText = 'lblDisable';
     }else {
-      btnText = 'lblEnable';
+      this.btnText = 'lblEnable';
     }
-    this.translateService.get('googleAuth.'+btnText).subscribe( text => {
+    this.translateService.get('googleAuth.'+this.btnText).subscribe( text => {
       this.btnLblText = text;
     });
   }
@@ -64,16 +66,62 @@ export class GoogleAuthComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
+    this.error = '';
+    this.successMsg = '';
+    console.log(this.googleAuthFormGroup);
     if(this.googleAuthFormGroup.invalid) {
+      
       console.log('Invalid');
+      return;
     }
+    let action = 'disabled';
+    if(this.btnText === 'lblEnable') {
+      action = 'enabled';
+    }
+
     const data = {
-      '2fa_secret': this.formFields.secret.value,
-      '2fa_status': 'enabled',
+      'g2fa_secret': this.secret,
+      'g2fa_status': action,
       'googleotp': this.formFields.twoFactorCode.value
     };
-
     console.log("Submitted Data : " ,data);
+    this.dataService.loader = true;
+    this.restService.setGoogle2fa(data).subscribe( (gAuthInfo: any) => {
+      
+      console.log(gAuthInfo);
+      this.translateService.get('serverSuccess.'+gAuthInfo.data.code).subscribe( text => {
+        this.successMsg = text;
+      });
+      this.resetGoogleAuthForm();
+
+    }, error => {
+      this.googleAuthFormGroup.reset();
+      this.submitted = false;
+      this.error = error;
+      console.log(error);
+
+
+    }); 
+    
+  }
+
+  /**
+   * Reseting the google auth form 
+   */
+  resetGoogleAuthForm() {
+    
+    this.restService.getgoogle2faStatus().subscribe( (statusInfo: any) => {
+      this.faCodeStatus = statusInfo.data.g2fa_status;
+      this.gQrCode = statusInfo.data.g2fa_qrcode;
+      this.secret = statusInfo.data.g2fa_secret;
+      this.getBtnLbl(this.faCodeStatus);
+      this.googleAuthFormGroup.reset();
+      this.submitted = false;
+      this.dataService.loader = false;
+    }, error => {
+      console.log('Google 2fa status failed');
+      console.log(error);
+    });
   }
 
 }

@@ -7,6 +7,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { EmailVerificationComponent } from './login/email-verification/email-verification.component';
 import { ResetPasswordComponent } from './login/reset-password/reset-password.component';
 import { ActivateAccountComponent } from './login/activate-account/activate-account.component';
+import { DownloadComponent } from './download/download.component';
 
 const routes: Routes = [
   {path: '' , redirectTo: 'dashboard', pathMatch: 'full'},
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: 'forgot', component: ForgotComponent},
   {path: 'resetPassword', component: ResetPasswordComponent},
   {path: 'activateAccount', component: ActivateAccountComponent},
+  {path: 'download', component: DownloadComponent},
   {path: '**', component: PageNotFoundComponent}
 ];
 @NgModule({
