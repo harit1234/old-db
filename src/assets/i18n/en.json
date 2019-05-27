@@ -53,13 +53,13 @@
   },
   "dashboardHeader": {
     "lblTrade": "Trade",
-    "lblAccount": "Acccount",
+    "lblAccount": "Account",
     "lblDownload": "Download"
   },
   "dashboardLeftMenu": {
     "lblWallet": "Wallet",
     "lblBalances": "Balances",
-    "lblDeposit": "Deposits",
+    "lblDeposit": "Deposit",
     "lblWithdraw": "Withdraw",
     "lblAccPref": "Account & Preferences",
     "lblMyProfile": "My Profile",
