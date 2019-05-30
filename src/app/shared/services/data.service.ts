@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { RestService } from './rest.service';
 import { AuthService } from './auth.service';
 import { Router, RouterStateSnapshot } from '@angular/router';
+import { TimerService } from './timer.service';
 @Injectable({
   providedIn: 'root'
 })
@@ -13,6 +14,7 @@ export class DataService {
     private restService: RestService, 
     private authService: AuthService,
     private router: Router,
+    private timerService: TimerService
     ) { }
 
 
@@ -67,6 +69,24 @@ export class DataService {
         console.log(val, this.router.url);
         this.router.navigate(['/dashboard/home']);
         
+    });
+  }
+
+  /**
+   * Start checking API status
+   */
+  startCheckingApiStatusTimer() {
+    this.timerService.startCheckCardTimer(this.checkApiStatus.bind(this));
+  }
+
+  checkApiStatus() {
+    console.log('Check api status function called');
+    const data = {
+      'token_id': localStorage.getItem('token'),
+      'username': localStorage.getItem('userIdStorage')
+    };
+    this.restService.getApiStatus(data).subscribe( apiStatus => {
+       console.log('Api Status', apiStatus);
     });
   }
   /**

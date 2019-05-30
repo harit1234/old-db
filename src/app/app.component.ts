@@ -18,11 +18,13 @@ export class AppComponent implements OnInit{
     private router: Router,
     private translate: TranslateService,
     public dataService: DataService) {
-    this.authService.stateChanged.subscribe((state: AuthState) => {
 
-      translate.setDefaultLang('en');
-
+      console.log('AppComponent');
+      
+      this.authService.stateChanged.subscribe((state: AuthState) => {
+      //translate.setDefaultLang('en');
       if (state === AuthState.LOGGED_IN) {
+        this.dataService.startCheckingApiStatusTimer();
         console.log('Logged in');
         this.router.navigate(['dashboard']);
       } else if (state === AuthState.LOGGED_OUT) {

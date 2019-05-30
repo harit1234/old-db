@@ -11,10 +11,10 @@ export class HomeComponent implements OnInit {
 
 
   rowData = [];
-  private columnDefs;
-  private searchValue;
-  private gridApi;
-  private gridColumnApi;
+  public columnDefs;
+  public searchValue;
+  public gridApi;
+  public gridColumnApi;
   public paginationPageSize = 10;
   constructor(
     public dataService: DataService,

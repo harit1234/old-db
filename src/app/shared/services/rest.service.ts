@@ -27,6 +27,7 @@ export class RestService {
   private accountBalanceUrl = 'account_balance';
   private tradeHistoryUrl = 'trade_history';
   private orderHistoryUrl = 'order_history';
+  private apiStatusUrl = 'get_api_status';
 
   constructor(private http: HttpClient) {
 
@@ -150,4 +151,8 @@ export class RestService {
   getOrderHistory(data: any) {
     return this.post_request(this.orderHistoryUrl, data);
   } 
+
+  getApiStatus(data: any) {
+    return this.post_request(this.apiStatusUrl, data);
+  }
 }

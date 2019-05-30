@@ -82,13 +82,36 @@
     "valLength": "The length of the two factor code should be 6."
   },
   "serverError": {
-    "2012": "Your account is not configured properly. Our support team is looking into it.",
+    "2011": "Could not create token!",
+    "2012": "Your account is not configured properly. Our support team is looking into it!",
+    "2013": "You need to activate your account. We have sent you a account activation email, please check your email.",
+    "2014": "Your account is not activated yet!",
+    "2015": "Your account is inactive, please contact with our support team!",
+    "2016": "The Google Authenticator code is incorrect or has expired!",
     "2017": "Invalid username or password!",
     "2041": "The Google Authenticator code is incorrect or has expired!",
-    "2051": "Current password does not match!"
+    "2042": "You must login to get Google auth (2FA) status!",
+    "2043": "The Google 2fa status field value should be either enabled or disabled!",
+    "2044": "The Google 2fa status field value should be either enabled or disabled!",
+    "2045": "You must login to update Google auth (2FA) security option!",
+    "2051": "Current password does not match!",
+    "2052": "New password can not be same as your current password. Please choose a different password!",
+    "2054": "You must be login to update Google auth (2FA) security option.",
+    "2061": "Your account is already activated!",
+    "2063": "Account activation link is invalid or expired!",
+    "2064": "This activation link is expired or have already been used!",
+    "2071": "Reset password link is invalid or expired!",
+    "2072": "This reset password link is expired or have already been used!",
+    "2082": "We can not find an account registered with that e-mail address!",
+    "2091": "You must be login to get affiliate link!",
+    "2101": "Auth token is invalid!",
+    "3001": "Something went wrong, please try again!",
+    "3002": "You must be login to access this API!"
+
   },
   "serverSuccess": {
     "2046": "You Google auth (2FA) has been enabled successfully!",
-    "2047": "You Google auth (2FA) has been disabled successfully!"
+    "2047": "You Google auth (2FA) has been disabled successfully!",
+    "2053": "Your password has been changed successfully!"
   }
 }
