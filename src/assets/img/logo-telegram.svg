@@ -1,0 +1,22 @@
+<svg width="100%" height="100%" viewBox="0 0 75 75" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <linearGradient x1="66.67%" y1="16.67%" x2="41.67%" y2="75%" id="linearGradient-1">
+            <stop stop-color="#37AEE2" offset="0%"></stop>
+            <stop stop-color="#1E96C8" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="61.2346759%" y1="43.69%" x2="74.7064382%" y2="80.24%" id="linearGradient-2">
+            <stop stop-color="#EFF7FC" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="-" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-HD" transform="translate(-1335.000000, -563.000000)" fill-rule="nonzero">
+            <g id="Telegram_logo" transform="translate(1335.000000, 563.000000)">
+                <circle id="Oval" fill="url(#linearGradient-1)" cx="37.5" cy="37.5" r="37.5"></circle>
+                <path d="M30.9090909,55 C29.7163045,55 29.9189886,54.5364526 29.5076068,53.3675263 L26,41.4860737 L53,25" id="Shape" fill="#C8DAEA"></path>
+                <path d="M31,55 C31.9545455,55 32.3762955,54.5515314 32.9090909,54.0193835 L38,48.9339064 L31.6497273,45" id="Shape" fill="#A9C9DD"></path>
+                <path d="M31.0619713,45.4378303 L46.2563804,56.5368757 C47.9902585,57.4827595 49.2416608,56.9930272 49.6735515,54.9452846 L55.8584552,26.1288959 C56.4916812,23.6188199 54.8907071,22.4803671 53.2319841,23.2249217 L16.91433,37.0706927 C14.43531,38.0537918 14.449763,39.4212213 16.4624566,40.030521 L25.7823854,42.9065682 L47.3590119,29.4478612 C48.3775966,28.8371637 49.3124486,29.1654878 48.5451561,29.8387773" id="Shape" fill="url(#linearGradient-2)"></path>
+            </g>
+        </g>
+    </g>
+</svg>

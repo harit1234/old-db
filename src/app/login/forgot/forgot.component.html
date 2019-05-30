@@ -17,7 +17,8 @@
                 <input
                 formControlName="email" 
                 type="email" 
-                class="form-input" 
+                class="form-input"
+                placeholder="Enter your username or email"
                 [ngClass]="{'is-invalid': submitted && formFields.email.errors || serverError}"
                 maxlength="50"
                 >
@@ -33,8 +34,8 @@
                     <div class="error-msg">{{serverError}}</div>
                 </div>
               </div>
-              <div class="text-center" *ngIf="!forgotRequestSuccessMsg">
-                <button class="form-button" type="submit">Request Reset Link</button>
+              <div class="text-center m-t-35" *ngIf="!forgotRequestSuccessMsg">
+                <button class="form-button reset-link-btn" type="submit">Request Reset Link</button>
               </div>
               <div *ngIf="forgotRequestSuccessMsg">{{forgotRequestSuccessMsg}}</div>
 
@@ -46,6 +47,7 @@
 		  </div>       
         </div>
       </div>
+      <div class="disclaimer-wrapper"><p>Access to the IDAP Testnet is not meant for any trading purposes. It is solely for the purpose of simulated trading. No actual trades are executed on the Testnet. No deposits and consequently no withdrawals are a part of the simulated trading on the Testnet. It is not intended as investment advice or as a solicitation to engage in any form of trading activity and should not he construed as such.</p></div>
     </div>
   </section>
   </div>

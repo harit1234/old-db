@@ -23,12 +23,12 @@ export class OrderHistoryComponent implements OnInit {
   ngOnInit() {
 
     this.columnDefs = [
-      {headerName: 'Order ID', field: 'orderId', width: 180},
-      {headerName: 'Time', field: 'time', width: 180},
-      {headerName: 'Symbol', field: 'symbol', width: 180},
-      {headerName: 'Side', field: 'side', width: 180},
-      {headerName: 'Price', field: 'price', width: 180},
-      {headerName: 'Qty', field: 'qty', width: 180}
+      {headerName: 'Order ID', field: 'orderId'},
+      {headerName: 'Time', field: 'time'},
+      {headerName: 'Symbol', field: 'symbol'},
+      {headerName: 'Side', field: 'side'},
+      {headerName: 'Price', field: 'price'},
+      {headerName: 'Qty', field: 'qty'}
     ];
   }
 
