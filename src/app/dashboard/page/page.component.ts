@@ -31,8 +31,8 @@ export class PageComponent implements OnInit {
         setTimeout(() => { this.dataService.loader = true; });
         this.restService.getPageContent(data).subscribe( (pageContent: any) => {
           this.dataService.loader = false;
-            //console.log('Page content');
-            //console.log(pageContent.data.content); 
+            console.log('Page content');
+            console.log(pageContent.data.content); 
             this.content = pageContent.data.content; 
         }
 

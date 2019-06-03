@@ -127,7 +127,7 @@
                         id="checkbox1.1">
                         <label for="checkbox1.1"><i></i></label>
                       </div>
-                      <div class="label-control">{{ 'register.lblTerms' | translate }} <a target="_blank" href="terms.html">{{ 'register.lblTermsOfService' | translate }}</a></div>
+                      <div class="label-control">{{ 'register.lblTerms' | translate }} <a target="_blank" routerLink="/page/terms">{{ 'register.lblTermsOfService' | translate }}</a></div>
                       <div *ngIf="submitted && formFields.terms.errors" class="form-valid-error">
                           <div *ngIf="formFields.terms.errors.required" class="error-msg">
                               {{ 'registerValidate.valRegTerms' | translate}}
