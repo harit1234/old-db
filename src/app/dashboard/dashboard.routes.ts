@@ -13,6 +13,7 @@ import { OrderHistoryComponent } from './order-history/order-history.component';
 import { DownloadComponent } from './download/download.component';
 import { AffiliateComponent } from './affiliate/affiliate.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
+import { PageComponent } from './page/page.component';
 export const dashboardRoutes: Routes = [
     {
         path: 'dashboard',
@@ -71,6 +72,10 @@ export const dashboardRoutes: Routes = [
             }
         ]
 
+    },
+    { 
+       path: 'page/:page',
+       component: PageComponent 
     },
     
 ];

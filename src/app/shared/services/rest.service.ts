@@ -33,6 +33,7 @@ export class RestService {
   private getActivityLogUrl = 'activity_log';
   private getAffiliateLinkUrl = 'affiliate';
   private getLeaderboardUrl = 'leaderboard';
+  private getPageContentUrl = 'get_page';
   constructor(private http: HttpClient) {
 
   }
@@ -173,5 +174,8 @@ export class RestService {
   }
   getLeaderBoard() {
     return this.get_request(this.getLeaderboardUrl);
+  }
+  getPageContent(data: any) {
+     return this.post_request(this.getPageContentUrl, data);
   }
 }

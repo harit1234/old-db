@@ -20,6 +20,8 @@ export class AppComponent implements OnInit{
     public dataService: DataService) {
 
       console.log('AppComponent');
+      console.log('Browser Lanugage' + navigator.language);
+      
       
       this.authService.stateChanged.subscribe((state: AuthState) => {
       //translate.setDefaultLang('en');
@@ -35,6 +37,7 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit() {
+    localStorage.setItem('lang', 'en');
     this.translate.use('en');
 
     if(this.authService.isAuthenticated()) {

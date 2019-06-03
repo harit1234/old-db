@@ -1,3 +1,10 @@
-<p>
-  page works!
-</p>
+<app-dashboard-header (hanburgerMenuOpened)="onOpened($event)"></app-dashboard-header>
+<div id="content-wrapper" class="content-wrapper" [ngClass]="{'aside-open':hamburgerMenuStatus}">
+  <div id="content" class="body-content">
+    <div class="row">
+        <div class="col-sm-12" [innerHTML]="content"></div>
+    </div>
+  </div>  
+  <div class="nav-overlay"></div>
+</div>
+<app-dashboard-footer></app-dashboard-footer>
