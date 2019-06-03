@@ -10,6 +10,9 @@ import { DipositComponent } from './diposit/diposit.component';
 import { WithdrawComponent } from './withdraw/withdraw.component';
 import { TradeHistoryComponent } from './trade-history/trade-history.component';
 import { OrderHistoryComponent } from './order-history/order-history.component';
+import { DownloadComponent } from './download/download.component';
+import { AffiliateComponent } from './affiliate/affiliate.component';
+import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 export const dashboardRoutes: Routes = [
     {
         path: 'dashboard',
@@ -51,7 +54,23 @@ export const dashboardRoutes: Routes = [
                 component: OrderHistoryComponent,
                 canActivate: [AuthGuard]
             },
+            {
+                path: 'download', 
+                component: DownloadComponent, 
+                canActivate: [AuthGuard]
+            },
+            {
+                path: 'affiliate', 
+                component: AffiliateComponent, 
+                canActivate: [AuthGuard]
+            },
+            {
+                path: 'leaderboard', 
+                component: LeaderboardComponent, 
+                canActivate: [AuthGuard]
+            }
         ]
 
-    }
+    },
+    
 ];

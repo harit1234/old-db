@@ -909,6 +909,10 @@ opacity:0;
     border-bottom: 3px solid #ddd;
 }
 
+.exchange-account-balances .ag-root-wrapper-body.ag-layout-normal {
+    height: auto;
+}
+
 /* Media Queries */
 
 @media (min-width: 1200px){

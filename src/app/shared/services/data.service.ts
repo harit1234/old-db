@@ -3,6 +3,8 @@ import { RestService } from './rest.service';
 import { AuthService } from './auth.service';
 import { Router, RouterStateSnapshot } from '@angular/router';
 import { TimerService } from './timer.service';
+import { InstrumentModel } from '../models/instrument-model';
+import { Dictionary } from '../models/dictionary';
 @Injectable({
   providedIn: 'root'
 })
@@ -10,6 +12,10 @@ export class DataService {
   authToken: string;
   loader = false;
   registerError = '';
+  countryList = '';
+
+  public instruments: Dictionary<InstrumentModel>;
+
   constructor(
     private restService: RestService, 
     private authService: AuthService,
@@ -50,6 +56,8 @@ export class DataService {
         console.log('Logout success');
         console.log(val);
         this.authService.clearSession();
+        this.timerService.stopCheckApiStatusTimer();
+        
     });
     
   }
@@ -72,21 +80,58 @@ export class DataService {
     });
   }
 
+  getInstrument() {
+    this.instruments = {};
+    console.log('get Instrument function called');
+    const data = {
+      'token_id': localStorage.getItem('sessionIdStorage'),
+      'username': localStorage.getItem('userIdStorage')
+    };
+    //this.loader = true;
+    this.restService.getInstruments(data).subscribe( (instrumentInfo: any) => {
+      this.loader = false;
+       console.log('Instruments : ', JSON.stringify(instrumentInfo));
+       if(instrumentInfo) {
+          instrumentInfo.instrument.forEach(instrument => {
+            this.instruments[instrument.Symbol] = instrument;
+          });
+       } 
+       
+    });
+  }
+
+  /**
+   * Fetching the country from API if not already fetched or return the old one
+   */
+  getCountryList() {
+
+    if(this.countryList) return this.countryList;
+
+    setTimeout(() => { this.loader = true; });
+    this.restService.getCountryList({'lang': 'en'}).subscribe( (countryList: any) => {
+      this.loader = false;
+      this.countryList = countryList.data.countries;
+      console.log('Country List : ', this.countryList);
+    }); 
+    return this.countryList;
+
+  }
+
   /**
    * Start checking API status
    */
   startCheckingApiStatusTimer() {
-    this.timerService.startCheckCardTimer(this.checkApiStatus.bind(this));
+    this.timerService.startCheckApiStatusTimer(this.checkApiStatus.bind(this));
   }
 
   checkApiStatus() {
     console.log('Check api status function called');
     const data = {
-      'token_id': localStorage.getItem('token'),
+      'token_id': localStorage.getItem('sessionIdStorage'),
       'username': localStorage.getItem('userIdStorage')
     };
     this.restService.getApiStatus(data).subscribe( apiStatus => {
-       console.log('Api Status', apiStatus);
+       console.log('Api Status', JSON.stringify(apiStatus));
     });
   }
   /**

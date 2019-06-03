@@ -1,0 +1,24 @@
+<div class="widget">
+    <div class="widget-header">
+      <h4>Activity Log</h4>
+    </div>
+    <div class=" table-responsive">
+      <table class="table table-hover table-striped table-bordered">
+        <thead>
+          <tr>
+            <th>Date and Time</th>
+            <th>IP Address</th>
+            <th>Browser</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr role="row" class="odd" *ngFor="let activity of activityLog">
+            <td>{{activity.time_login | timet}}</td>
+            <td>{{ activity.ip_address}}</td>
+            <td>{{activity.browser}} {{activity.browser_version}}, {{activity.operating_system}}</td>
+            
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

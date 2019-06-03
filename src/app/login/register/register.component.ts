@@ -4,6 +4,7 @@ import { DataService } from '../../shared/services/data.service';
 import { MustMatch } from '../../shared/helpers/must-match.validator';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from '../../../environments/environment';
+import { RestService } from '../../shared/services/rest.service';
 
 //import { } from 
 @Component({
@@ -20,6 +21,7 @@ export class RegisterComponent implements OnInit {
     private registerFormBuilder: FormBuilder,
     public dataService: DataService,
     private route: ActivatedRoute,
+    private restService: RestService
     ) { 
     
   }
@@ -38,9 +40,11 @@ export class RegisterComponent implements OnInit {
       validator: MustMatch('password', 'confirmPassword')
     });
 
-    if(this.route.snapshot.queryParams['ref_id']) {
-      localStorage.setItem('refId', this.route.snapshot.queryParams['ref_id']);
+    if(this.route.snapshot.queryParams['ref']) {
+      localStorage.setItem('refId', this.route.snapshot.queryParams['ref']);
     }
+
+    this.dataService.getCountryList(); 
 
   }
   get siteKey() {

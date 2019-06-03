@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="page-title">
+        <h1>Affiliate</h1>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">Account</li>
+          <li class="breadcrumb-item active">Affiliate</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="widget">
+        <div class="widget-header">
+          <h4>Share Referral Link</h4>
+        </div>
+        <div class="form-group input-ico refer">
+          <label for="refer">Copy your personal referral link and share it with your friends</label>
+          <input #refererText id="refer" class="form-input referral-link" type="text" value="{{ affliliateLink }}" placeholder=""
+            readonly="true">
+        </div>
+        <button class="form-button form-button-sm copy-referral-link" data-clipboard-target="#refer" (click)="copyRefererLink(refererText)">Copy Referral Link</button>
+        <div class="referral-link-copied" *ngIf="copiedMsg"><i class="far fa-check-circle"></i>Referral link copied to clipboard</div>
+      </div>
+    </div>
+  </div>
+</div>

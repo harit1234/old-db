@@ -18,6 +18,7 @@ export class RestService {
   private forgotPasswordUrl = 'forgot_password';
   private logoutUrl = 'logout';
   private userInfoUrl = 'userinfo';
+  private getCountryUrl = 'get_countries';
   private refreshTokenUrl = 'refreshToken';
   private resetPasswordUrl = 'reset_password';
   private activateAccountUrl = 'activate_account';
@@ -28,7 +29,10 @@ export class RestService {
   private tradeHistoryUrl = 'trade_history';
   private orderHistoryUrl = 'order_history';
   private apiStatusUrl = 'get_api_status';
-
+  private getInstrumentUrl = 'get_instrument';
+  private getActivityLogUrl = 'activity_log';
+  private getAffiliateLinkUrl = 'affiliate';
+  private getLeaderboardUrl = 'leaderboard';
   constructor(private http: HttpClient) {
 
   }
@@ -98,6 +102,9 @@ export class RestService {
     return this.post_request(this.registerUrl, data);
   }
 
+  getCountryList(data: any) {
+    return this.post_request(this.getCountryUrl, data);
+  }
   resendVerificationEmail(data: any) {
     return this.post_request(this.resendVerificationUrl, data);
   }
@@ -154,5 +161,17 @@ export class RestService {
 
   getApiStatus(data: any) {
     return this.post_request(this.apiStatusUrl, data);
+  }
+  getInstruments(data: any) {
+    return this.post_request(this.getInstrumentUrl, data);
+  }
+  getActivityLog() {
+    return this.get_request(this.getActivityLogUrl);
+  }
+  getReferralLink() {
+    return this.get_request(this.getAffiliateLinkUrl);
+  }
+  getLeaderBoard() {
+    return this.get_request(this.getLeaderboardUrl);
   }
 }

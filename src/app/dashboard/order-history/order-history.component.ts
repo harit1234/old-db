@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../shared/services/data.service';
 import { RestService } from '../../shared/services/rest.service';
-
+import { PricePipe } from '../../shared/pipes/price.pipe';
+import {QtyPipe} from '../../shared/pipes/qty.pipe';
+import { TimetPipe } from '../../shared/pipes/timet.pipe';
+import { SlicePipe } from '@angular/common';
 @Component({
   selector: 'app-order-history',
   templateUrl: './order-history.component.html',
@@ -18,7 +21,11 @@ export class OrderHistoryComponent implements OnInit {
 
   constructor(
     public dataService: DataService,
-    private restService: RestService) { }
+    private restService: RestService,
+    private pricePipe: PricePipe,
+    private timetPipe: TimetPipe,
+    private slicePipe: SlicePipe,
+    private qtyPipe: QtyPipe) { }
 
   ngOnInit() {
 
@@ -36,13 +43,20 @@ export class OrderHistoryComponent implements OnInit {
     console.log(balanceInfo);
     if(balanceInfo.order) {
       balanceInfo.order.forEach(element => {
+        let price = '';
+        if (element.Type == 'OT_Market' ) {
+           price  = this.pricePipe.transform(element.LastPrice, this.dataService.instruments[element.Symbol]);
+        }
+        price =  this.pricePipe.transform(element.LimitPrice, this.dataService.instruments[element.Symbol]);
+
+        
         var rowElement = {
-          orderId: element.OrderID,
-          time: element.InitTime,
+          orderId: element.ID,
+          time: this.timetPipe.transform(element.InitTime),
           symbol: element.Symbol,
-          side: element.OrderSide,
-          price: element.Price,
-          qty: element.Qty
+          side: this.slicePipe.transform(element.OrderSide, 3),
+          price: price,
+          qty: this.qtyPipe.transform(element.OrigQty,  this.dataService.instruments[element.Symbol])
         };
         this.rowData.push(rowElement);
       });
@@ -63,6 +77,14 @@ export class OrderHistoryComponent implements OnInit {
   onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
+    params.api.sizeColumnsToFit();
+
+    window.addEventListener("resize", function() {
+      setTimeout(function() {
+        params.api.sizeColumnsToFit();
+      });
+    });
+
     setTimeout(() => { this.dataService.loader = true;}, 0);
     const data = {
       'token_id': localStorage.getItem('token'),

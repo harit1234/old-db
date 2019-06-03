@@ -1,4 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
+import { RestService } from '../../shared/services/rest.service';
+import { DataService } from '../../shared/services/data.service';
 
 @Component({
   selector: 'app-layout',
@@ -7,7 +9,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
 })
 export class LayoutComponent implements OnInit {
   hamburgerMenuStatus = false;
-  constructor() { }
+  constructor(private restService: RestService, public dataService: DataService) { }
   @HostListener('window:scroll', ['$event'])
   onWindowScroll(e) {
     if (window.pageYOffset > 70) {
@@ -23,6 +25,7 @@ export class LayoutComponent implements OnInit {
     }
   }
   ngOnInit() {
+    this.dataService.getInstrument();
   }
 
   onOpened(status: boolean) {

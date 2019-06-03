@@ -15,9 +15,10 @@
             <h4>Balances</h4>
         </div>
       <div class="table-responsive">
+          <div class="mb-2 form-inline">
         <div class="col-sm-6">
             Show
-            <select (change)="onPageSizeChange($event)">
+            <select class="form-control form-control-sm" (change)="onPageSizeChange($event)">
               <option value="10" selected>10</option>
               <option value="25">25</option>
               <option value="50">50</option>
@@ -25,12 +26,13 @@
             </select>
             entries
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-6 text-right">
             Search
-            <input type="text" name="search" (keyup)="onFilterTextBoxChanged()" [(ngModel)]="searchValue">
+            <input type="text" class="form-control form-control-sm" name="search" (keyup)="onFilterTextBoxChanged()" [(ngModel)]="searchValue">
+        </div>
         </div>
       <ag-grid-angular 
-        style="width: 100%; height: 500px;" 
+        style="width: 100%; height: 100%;" 
         [paginationPageSize]="paginationPageSize" 
         [pagination]="true" 
         [enableSorting]="true"

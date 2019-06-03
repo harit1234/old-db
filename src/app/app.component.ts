@@ -36,6 +36,10 @@ export class AppComponent implements OnInit{
 
   ngOnInit() {
     this.translate.use('en');
+
+    if(this.authService.isAuthenticated()) {
+      this.dataService.startCheckingApiStatusTimer();
+    }
   }
 
 }

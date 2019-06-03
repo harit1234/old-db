@@ -22,7 +22,6 @@ import { ActivateAccountComponent } from './login/activate-account/activate-acco
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { AppLoaderComponent } from './app-loader/app-loader.component';
-//import { DownloadComponent } from './download/download.component';
 
 export function initializeApp(appConfig: AppConfig) {
   return () => {
@@ -55,7 +54,6 @@ export function httpLoaderFactory(http: HttpClient) {
     ResetPasswordComponent,
     ActivateAccountComponent,
     AppLoaderComponent,
-    //DownloadComponent
   ],
   imports: [
     BrowserModule,

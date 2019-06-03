@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../shared/services/data.service';
 import { RestService } from '../../shared/services/rest.service';
+import { MonetaryPipe } from '../../shared/pipes/monetary.pipe';
 
 @Component({
   selector: 'app-home',
@@ -18,35 +19,46 @@ export class HomeComponent implements OnInit {
   public paginationPageSize = 10;
   constructor(
     public dataService: DataService,
-    private restService: RestService) { }
+    private restService: RestService,
+    private monentryPipe: MonetaryPipe) { }
 
   ngOnInit() {
     this.columnDefs = [
-      { headerName: 'Balance', field: 'balance', width: 180 },
-      { headerName: 'P/L', field: 'pl', width: 180 },
-      { headerName: 'Open P/L', field: 'openpl', width: 180 },
-      { headerName: 'Net Asset Value', field: 'netAssetValue', width: 180 },
-      { headerName: 'Used Margin', field: 'usedMargin', width: 180 },
-      { headerName: 'Available Margin', field: 'availMargin', width: 180 }
+      { headerName: 'Balance', field: 'balance'},
+      { headerName: 'Open P/L', field: 'openpl'},
+      { headerName: 'P/L', field: 'pl'},
+      { headerName: 'Net Asset Value', field: 'netAssetValue'},
+      { headerName: 'Used Margin', field: 'usedMargin'},
+      { headerName: 'Available Margin', field: 'availMargin'}
     ];
 
     console.log("HomeComponent: ngInit");
   }
 
   createRowData(balanceInfo: any) {
-    console.log(balanceInfo);
-    if (balanceInfo.account) {
+    console.log("Testing ", balanceInfo.account);
+    if (balanceInfo.account instanceof Array) {
       balanceInfo.account.forEach(element => {
         var rowElement = {
-          balance: element.Balance,
-          pl: '',
-          openpl: '',
-          netAssetValue: element.NetAssetValue,
-          usedMargin: element.UsedMargin,
-          availMargin: ''
+          balance: this.monentryPipe.transform(balanceInfo.account.Balance, balanceInfo.account.Currency, 'value'),
+          openpl: this.monentryPipe.transform(balanceInfo.account.UnrealizedPNL, balanceInfo.account.Currency, 'PnL'),
+          pl: this.monentryPipe.transform(balanceInfo.account.RealizedPNL, balanceInfo.account.Currency, 'PnL'),
+          netAssetValue: this.monentryPipe.transform(balanceInfo.account.NetAssetValue, balanceInfo.account.Currency, 'value'),
+          usedMargin: this.monentryPipe.transform(balanceInfo.account.UsedMargin, balanceInfo.account.Currency, 'value'),
+          availMargin: this.monentryPipe.transform(balanceInfo.account.UnusedMargin, balanceInfo.account.Currency, 'value')
         };
         this.rowData.push(rowElement);
       });
+    }else {
+      var rowElement = {
+        balance: this.monentryPipe.transform(balanceInfo.account.Balance, balanceInfo.account.Currency, 'value'),
+        openpl: this.monentryPipe.transform(balanceInfo.account.UnrealizedPNL, balanceInfo.account.Currency, 'PnL'),
+        pl: this.monentryPipe.transform(balanceInfo.account.RealizedPNL, balanceInfo.account.Currency, 'PnL'),
+        netAssetValue: this.monentryPipe.transform(balanceInfo.account.NetAssetValue, balanceInfo.account.Currency, 'value'),
+        usedMargin: this.monentryPipe.transform(balanceInfo.account.UsedMargin, balanceInfo.account.Currency, 'value'),
+        availMargin: this.monentryPipe.transform(balanceInfo.account.UnusedMargin, balanceInfo.account.Currency, 'value')
+      };
+      this.rowData.push(rowElement);
     }
   }
 
@@ -64,7 +76,13 @@ export class HomeComponent implements OnInit {
   onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
+    params.api.sizeColumnsToFit();
     setTimeout(() => { this.dataService.loader = true; }, 0);
+    window.addEventListener("resize", function() {
+      setTimeout(function() {
+        params.api.sizeColumnsToFit();
+      });
+    });
     const data = {
       'token_id': localStorage.getItem('token'),
       'username': localStorage.getItem('userIdStorage')
@@ -78,6 +96,11 @@ export class HomeComponent implements OnInit {
       console.log("Error gettting balance info+");
     });
   }
+
+  /**
+   * When records on page changed
+   * @param params value
+   */
   onPageSizeChange(params) {
     console.log('Size Change', parseInt(params.target.value));
     this.gridApi.paginationSetPageSize(parseInt(params.target.value));

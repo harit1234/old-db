@@ -9,6 +9,7 @@ import { RestService } from '../../shared/services/rest.service';
 })
 export class AccountComponent implements OnInit {
   userInfo: any = '';
+  activityLog: any = '';
   constructor(
     public dataService: DataService,
     private restService: RestService) { }

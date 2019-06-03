@@ -20,6 +20,16 @@ import { OrderHistoryComponent } from './order-history/order-history.component';
 import { DipositComponent } from './diposit/diposit.component';
 import { WithdrawComponent } from './withdraw/withdraw.component';
 import { AgGridModule } from 'ag-grid-angular/main';
+import { SlicePipe } from '@angular/common';
+import { TimetPipe } from '../shared/pipes/timet.pipe';
+import { PricePipe } from '../shared/pipes/price.pipe';
+import { QtyPipe } from '../shared/pipes/qty.pipe';
+import { ActivityLogComponent } from './account/activity-log/activity-log.component';
+import { DownloadComponent } from './download/download.component';
+import { PageComponent } from './page/page.component';
+import { MonetaryPipe } from '../shared/pipes/monetary.pipe';
+import { LeaderboardComponent } from './leaderboard/leaderboard.component';
+import { AffiliateComponent } from './affiliate/affiliate.component';
 //import { GridModule, PageService, SortService, FilterService, GroupService } from '@syncfusion/ej2-angular-grids';
 // required for AOT compilation
 export function httpLoaderFactory(http: HttpClient) {
@@ -42,6 +52,13 @@ export function httpLoaderFactory(http: HttpClient) {
     OrderHistoryComponent,
     DipositComponent,
     WithdrawComponent,
+    ActivityLogComponent,
+    DownloadComponent,
+    PageComponent,
+    LeaderboardComponent,
+    AffiliateComponent,
+    TimetPipe,
+    
   ],
   imports: [
     RouterModule.forChild(dashboardRoutes),
@@ -59,5 +76,6 @@ export function httpLoaderFactory(http: HttpClient) {
     })
   ],
   //providers: [PageService, SortService, FilterService, GroupService],
+  providers: [SlicePipe, TimetPipe, PricePipe, QtyPipe, MonetaryPipe]
 })
 export class DashboardModule { }

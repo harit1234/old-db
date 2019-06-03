@@ -89,10 +89,7 @@
                       [ngClass]="{'is-invalid': submitted && formFields.country.errors}" 
                       >
                         <option value="" selected="">{{ 'register.lblClickToChoose' | translate }}</option>
-                        <option value="19">India (IN)</option>
-                        <option value="20">Japan (JP)</option>
-                        <option value="21">Sweden (SE)</option>
-                        <option value="22">Switzerland (CH)</option>
+                        <option *ngFor="let country of dataService.countryList" value="{{country.country_id}}">{{ country.name }}</option>
                       </select>
                       <div *ngIf="submitted && formFields.country.errors" class="form-valid-error">
                           <div *ngIf="formFields.country.errors.required" class="error-msg">
