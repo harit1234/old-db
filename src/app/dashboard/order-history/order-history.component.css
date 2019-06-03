@@ -1,0 +1,17 @@
+@media screen and (max-width:414px){
+
+    .exchange-account-balances .mb-2 input{
+        display: inline-block;
+        width: calc(100% - 50px);
+    }
+    .exchange-account-balances .mb-2 select{
+        display: inline-block;
+        max-width: 65px;
+    }
+    .exchange-account-balances .text-right {
+        text-align: left!important;
+    }
+    .exchange-account-balances .mb-2 .col-sm-6:nth-child(1){
+        margin-bottom:10px;
+    }
+}

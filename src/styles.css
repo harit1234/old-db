@@ -125,6 +125,15 @@ label{font-weight: 400;}
 	padding: 10px 10px 10px 50px;
 	width:100%;
 }
+.form-input-box {
+	border: 1px solid rgba(0,0,0,0.1);
+	color: #596377;
+	display:block;
+	height:42px;
+	outline:0;
+	padding: 10px;
+	width:100%;
+}
 label.form-check-label {
 	font-size:14px;
 	font-weight:normal;
@@ -913,6 +922,31 @@ opacity:0;
     height: auto;
 }
 
+/*Satic pages*/
+.content-wrapper.static-page{ 
+    background-color: #fff; 
+    padding: 25px 15px;
+
+}
+.content-wrapper.static-page .entry-content {
+    position: relative;
+    max-width: 720px;
+    margin: 0 auto 30px;
+}
+.content-wrapper.static-page .entry-content, 
+.content-wrapper.static-page .entry-content p {
+    line-height: 24px;
+    margin-bottom: 30px;
+    text-align: justify;
+}
+.content-wrapper.static-page h1{
+    font-family: 'Exo', sans-serif;
+    font-size: 40px;
+}
+.content-wrapper.static-page h3 {
+    font-size: 24px;
+}
+
 /* Media Queries */
 
 @media (min-width: 1200px){
@@ -939,7 +973,7 @@ opacity:0;
 }
  @media (max-width: 992px) {
 	 body{padding-top: 70px; top: 0;}
-	.container{width: 100%;}
+	.container{width: 100%; max-width: 100%;}
 	.frm-block{height: inherit; padding: 20px 0; min-height: calc(100vh - 50px);}
 	.emailver-wd{max-width: 500px;}
 	.footer-block{position: static;}
@@ -986,13 +1020,23 @@ opacity:0;
 	}
 	.body-content{width: 100%;}
 
-/* My profile */
-.myprofile{min-height: inherit;}
+    /* My profile */
+    .myprofile{min-height: inherit;}
+
+    /*Static page*/
+    .content-wrapper.static-page h1 {
+        font-size: 24px;
+    }
+    .content-wrapper.static-page h3 {
+        font-size: 18px;
+    }
+
 
 }
+
 @media (max-width: 767px){
 	/* Header */
-	
+	.aside{padding-top: 50px; top: 0;}
 	body { padding-top: 50px; top: 0;}
 	/* Widgets */
 	.tooltip-info{margin-top: 30px;}

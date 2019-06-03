@@ -1,0 +1,10 @@
+@media screen and (max-width:414px){
+    .exchange-account-balances input{
+        display: inline-block;
+        max-width: calc(100% - 50px);
+    }
+    .text-right{
+        text-align:left !important;
+        width: 100%;
+    }
+}

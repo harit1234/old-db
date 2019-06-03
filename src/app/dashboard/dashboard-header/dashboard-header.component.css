@@ -66,22 +66,29 @@
 	.hamburger {top: 24px;}
     .header .navbar-brand{padding: 0;}
     .sticky-header .translator > a:before{ top: 22px;}
-.sticky-header .user-login > a:before{background-position: -38px -38px; top: 23px;}
+    .sticky-header .user-login > a:before{background-position: -38px -38px; top: 23px;}
     
 }
 @media (max-width: 767px) {
-   
+    .header, .sticky-header.header {
+        position: fixed;
+        height: 50px;
+    }
 	.header .navbar-brand > img{height: 36px; margin-top: 5px; width: 36px;}
 	.header .navbar ul li a{font-size: 12px; font-weight: 600; padding: 15px 5px;}
 	.user-login > a{ display: block; padding: 0; height: 51px; width: 43px;}
 	.user-login .user-dropdown{display: none;}
 	/*body.logged-in .header .navbar ul li:nth-child(2) {display: none;}*/
 	.header{height: 50px;}
-	.translator > a:before, .user-login > a:before {top: 12px;}
+    .translator > a:before,
+    .user-login > a:before,
+    .sticky-header .user-login > a:before,
+    .sticky-header .translator > a:before {top: 12px;}
     .header .navbar ul li:nth-child(2) {display: none;}
     .header .navbar ul li a, .sticky-header.header .navbar ul li a{ font-size: 12px; padding: 16px 5px;}
 	.header .logo{ margin-left: 45px; margin-right: 5px; width: 40px;}
 	.header .navbar-brand{margin-right:0;}
 	.header .navbar-brand > img{height: 36px; margin-top: 5px; width: 36px;}
-	.hamburger {top: 12px;}
+    .hamburger {top: 12px;}
+    
 }

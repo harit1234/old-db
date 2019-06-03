@@ -1,0 +1,6 @@
+@media screen and (max-width:414px) {
+    .active-log th,
+    .active-log td{
+        white-space: nowrap;
+    }
+}

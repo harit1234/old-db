@@ -10,7 +10,7 @@
         </div>
         <button type="button" class="form-button form-button-sm" (click)="formActive=true;">{{ btnLblText }}</button>
       </div>
-      <form [formGroup]="googleAuthFormGroup" (ngSubmit)="onSubmit()" *ngIf="formActive">
+      <form [formGroup]="googleAuthFormGroup" (ngSubmit)="onSubmit()" *ngIf="formActive" class="mt-20">
           <div *ngIf="error" class="auth-error">
             <p>{{error}}</p>
           </div>
@@ -20,14 +20,14 @@
 
           <div class="form-group" *ngIf="btnLblText == 'Enable'">
             <label for="OldPassword">{{ 'googleAuth.lblSecret'| translate }}</label>
-            <div>{{secret}}</div>
+            <div class="form-input-box">{{secret}}</div>
           </div>
           <div class="form-group" *ngIf="btnLblText == 'Enable'">
             <label for="NewPassword">{{ 'googleAuth.lblScan'| translate }}</label>
             <div><img src="{{ gQrCode }}"></div>
             
           </div>
-          <div class="form-group input-ico pwd">
+          <div class="form-group input-ico ga input-ico:before">
             <label for="ConfirmPassword">{{ 'googleAuth.lbl2FCode' | translate }}</label>
             <input 
             formControlName="twoFactorCode" 
