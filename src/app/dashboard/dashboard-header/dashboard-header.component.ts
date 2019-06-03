@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { DataService } from '../../shared/services/data.service';
+import { AuthService } from '../../shared/services/auth.service';
 
 
 @Component({
@@ -11,7 +12,9 @@ export class DashboardHeaderComponent implements OnInit {
   hamburgerMenuStatus = false;
   @Output() hanburgerMenuOpened = new EventEmitter<boolean>();
   userName: string;
-  constructor(public dataService: DataService) { }
+  constructor(
+    public dataService: DataService,
+    public authService: AuthService) { }
 
   ngOnInit() {
     this.userName = localStorage.getItem('email');

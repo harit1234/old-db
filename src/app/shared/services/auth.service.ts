@@ -39,6 +39,10 @@ export class AuthService {
     
   }
 
+  public get isLogged(): boolean {
+    return this.state == AuthState.LOGGED_IN;
+  }
+
   /**
    * Setting the credentials
    * @param userInfo json data of user response

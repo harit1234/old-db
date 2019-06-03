@@ -1,13 +1,13 @@
-<header class="header loggedin" id="header" [ngClass]="{ 'aside-open': hamburgerMenuStatus}">
+<header class="header" [ngClass]="{loggedin: authService.isLogged}"  id="header" [ngClass]="{ 'aside-open': hamburgerMenuStatus}">
     <div class="hamburger d-lg-none" (click)="hamburger();"><a href="javascript:;"> <span></span> </a></div>
     <div class="logo">
-    <a class="navbar-brand" href="javascript:;">
+    <a class="navbar-brand" routerLink="/">
         <img src="assets/img/idap-io-logo.svg" alt="IDAP Exchange" class="logo-sticky d-none d-md-block">
       <!--img src="assets/img/logo-idap-io.svg" alt="IDAP Exchange" class="logo-default"-->
      <img src="assets/img/idap-symbol.png" alt="IDAP Exchange" class="logo-mobile d-block d-md-none">
     </a>
     </div>
-    <div class="navbar">
+    <div class="navbar" *ngIf="authService.isLogged">
       <ul>
         <li><a href="javascript:;">{{ 'dashboardHeader.lblTrade' | translate }}</a></li>
         <li routerLinkActive="active"><a  routerLink="/dashboard/account" >{{ 'dashboardHeader.lblAccount' | translate }}</a></li>
@@ -15,15 +15,15 @@
       </ul>
     </div>
     <div class="header-right">
-      <div class="user-login loggedin"> <a href="javascript:;"></a>
+      <div class="user-login" [ngClass]="{loggedin: authService.isLogged}"> <a href="javascript:;"></a>
         <div class="user-dropdown">
           <div class="guest">
             <ul>
-              <li><a href="login.html" class="btn-purple">Login</a></li>
-              <li><a href="register.html" class="btn-blue">Register</a></li>
+              <li><a routerLink="/login" class="btn-login">Login</a></li>
+              <li><a routerLink="/register" class="btn-register">Register</a></li>
             </ul>
           </div>
-          <div class="user-nav-wrapper">
+          <div class="user-nav-wrapper" *ngIf="authService.isLogged">
             <div class="user-email">{{ userName }}</div>
             <div class="user-nav">
               <ul>
