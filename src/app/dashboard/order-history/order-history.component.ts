@@ -87,7 +87,7 @@ export class OrderHistoryComponent implements OnInit {
 
     setTimeout(() => { this.dataService.loader = true;}, 0);
     const data = {
-      'token_id': localStorage.getItem('token'),
+      'token_id': localStorage.getItem('sessionIdStorage'),
       'username': localStorage.getItem('userIdStorage')
     };
     this.restService.getOrderHistory(data).subscribe( orderHistory => {

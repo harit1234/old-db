@@ -84,7 +84,7 @@ export class HomeComponent implements OnInit {
       });
     });
     const data = {
-      'token_id': localStorage.getItem('token'),
+      'token_id': localStorage.getItem('sessionIdStorage'),
       'username': localStorage.getItem('userIdStorage')
     };
     this.restService.getAccountBalance(data).subscribe(balanceInfo => {

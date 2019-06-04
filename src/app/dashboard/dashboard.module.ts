@@ -58,6 +58,9 @@ export function httpLoaderFactory(http: HttpClient) {
     LeaderboardComponent,
     AffiliateComponent,
     TimetPipe,
+    QtyPipe,
+    MonetaryPipe,
+    PricePipe
     
   ],
   imports: [

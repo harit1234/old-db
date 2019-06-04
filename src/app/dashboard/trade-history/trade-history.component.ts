@@ -74,7 +74,7 @@ export class TradeHistoryComponent implements OnInit {
     params.api.sizeColumnsToFit();
     setTimeout(() => { this.dataService.loader = true;}, 0);
     const data = {
-      'token_id': localStorage.getItem('token'),
+      'token_id': localStorage.getItem('sessionIdStorage'),
       'username': localStorage.getItem('userIdStorage')
     };
 

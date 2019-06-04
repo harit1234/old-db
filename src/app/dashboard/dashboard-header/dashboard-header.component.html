@@ -9,7 +9,7 @@
     </div>
     <div class="navbar" *ngIf="authService.isLogged">
       <ul>
-        <li><a href="javascript:;">{{ 'dashboardHeader.lblTrade' | translate }}</a></li>
+        <li><a href="/trade/">{{ 'dashboardHeader.lblTrade' | translate }}</a></li>
         <li routerLinkActive="active"><a  routerLink="/dashboard/account" >{{ 'dashboardHeader.lblAccount' | translate }}</a></li>
         <li routerLinkActive="active"><a routerLink="/dashboard/download">{{ 'dashboardHeader.lblDownload' | translate }}</a></li>
       </ul>

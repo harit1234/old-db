@@ -62,7 +62,7 @@
                     maxlength="6"
                     >
                   </div>
-                  <!--div class="form-group row ng-captcha-container" >
+                  <div class="form-group row ng-captcha-container" >
                     <ngx-recaptcha2 #captchaElem
                       [siteKey]="siteKey"
                       (load)="handleLoad()"
@@ -73,11 +73,11 @@
                     <div *ngIf="submitted && formFields.recaptcha.errors" class="form-valid-error">
                       <div *ngIf="formFields.recaptcha.errors.required">{{ 'loginValidate.valRobot' | translate }}</div>
                     </div>  
-                  </div-->
+                  </div>
                   <div class="text-center">
                     <button class="form-button login-btn" type="submit">{{ 'common.lblLogin' | translate }}</button>
                   </div>
-                  <div class="text-center m-t-15"><a href="https://testnet.idap.io/trade" class="green-btn">View Exchange</a></div>
+                  <div class="text-center m-t-15"><a href="/trade/" class="green-btn">View Exchange</a></div>
                   <div class="frm-footer">
                     <div class="sign"><a routerLink="/forgot">{{ 'login.lblForgotTwoFDevice' | translate}}</a></div>
                   </div>
