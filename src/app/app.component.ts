@@ -41,7 +41,8 @@ export class AppComponent implements OnInit{
     this.translate.use('en');
 
     if(this.authService.isAuthenticated()) {
-      this.dataService.startCheckingApiStatusTimer();
+      this.authService.setState(AuthState.LOGGED_IN);
+      //this.dataService.startCheckingApiStatusTimer();
     }
   }
 

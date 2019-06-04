@@ -6,7 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard-left-menu.component.css']
 })
 export class DashboardLeftMenuComponent implements OnInit {
-
+  walletSlide = true;
+  accountSlide = true;
+  historySlide = true;
+  
   constructor() { }
 
   ngOnInit() {

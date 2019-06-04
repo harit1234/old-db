@@ -2,13 +2,13 @@
   <nav class="sidebar-nav">
     <ul id="sidebarnav">
       <li>
-        <a class="has-arrow active" href="javascript:;">
+        <a class="has-arrow" href="javascript:void(0)" [ngClass]="{'active': walletSlide}" (click)="walletSlide = !walletSlide">
           <span class="icon">
             <i class="fa fa-wallet"></i>
           </span>
           <span>{{ 'dashboardLeftMenu.lblWallet' | translate }}</span>
         </a>
-        <ul class="collapse in">
+        <ul class="collapse in" [ngStyle]="{'display': walletSlide? 'block':'none'}">
           <li>
             <a routerLink="/dashboard/balances" routerLinkActive="active">{{ 'dashboardLeftMenu.lblBalances' | translate }}</a>
           </li>
@@ -21,13 +21,13 @@
         </ul>
       </li>
       <li>
-        <a class="has-arrow active" href="javascript:void(0)">
+        <a class="has-arrow" href="javascript:void(0)" [ngClass]="{'active': accountSlide}" (click)="accountSlide = !accountSlide">
           <span class="icon">
             <i class="fa fa-user" aria-hidden="true"></i>
           </span>
           <span>{{ 'dashboardLeftMenu.lblAccPref' | translate }}</span>
         </a>
-        <ul class="collapse in">
+        <ul class="collapse in" [ngStyle]="{'display': accountSlide? 'block':'none'}">
           <li>
             <a routerLink="/dashboard/account" routerLinkActive="active">{{ 'dashboardLeftMenu.lblMyProfile' | translate }}</a>
           </li>
@@ -40,13 +40,13 @@
         </ul>
       </li>
       <li>
-        <a class="has-arrow active" href="javascript:;">
+        <a class="has-arrow" href="javascript:;" [ngClass]="{'active': historySlide}" (click)="historySlide = !historySlide">
           <span class="icon">
             <i class="fa fa-history"></i>
           </span>
           <span>{{ 'dashboardLeftMenu.lblHistory' | translate }}</span>
         </a>
-        <ul class="collapse in">
+        <ul class="collapse in" [ngStyle]="{'display': historySlide? 'block':'none'}">
           <li>
             <a routerLink="/dashboard/tradeHistory" routerLinkActive="active">{{ 'dashboardLeftMenu.lblTradeHist' | translate }}</a>
           </li>

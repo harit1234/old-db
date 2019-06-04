@@ -41,6 +41,7 @@ export class AuthService {
 
   public get isLogged(): boolean {
     return this.state == AuthState.LOGGED_IN;
+    //return this.isAuthenticated();
   }
 
   /**
