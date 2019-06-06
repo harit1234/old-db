@@ -5,6 +5,8 @@ import { PricePipe } from '../../shared/pipes/price.pipe';
 import {QtyPipe} from '../../shared/pipes/qty.pipe';
 import { TimetPipe } from '../../shared/pipes/timet.pipe';
 import { SlicePipe } from '@angular/common';
+import { constants } from '../../../constants';
+
 @Component({
   selector: 'app-order-history',
   templateUrl: './order-history.component.html',
@@ -17,7 +19,7 @@ export class OrderHistoryComponent implements OnInit {
   public searchValue;
   public gridApi;
   public gridColumnApi;
-  public paginationPageSize = 10;
+  public paginationPageSize = constants.PAGINATION_PAGE_SIZE;
 
   constructor(
     public dataService: DataService,

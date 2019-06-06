@@ -37,8 +37,8 @@ export class LoginComponent implements OnInit {
         email: ['', [Validators.required, Validators.email]],
         password: ['', [Validators.required, Validators.minLength(8)]],
         factorCode: [''],
-        recaptcha: ['']
-        // recaptcha: ['', Validators.required]
+        //recaptcha: ['']
+        recaptcha: ['', Validators.required]
       }
     );
     this.authService.clearSession();

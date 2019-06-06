@@ -39,7 +39,7 @@ export class ResetPasswordComponent implements OnInit {
     return this.resetPasswordGroup.controls;
   }
   resetPassword() {
-    this.dataService.loader = true;
+    
     this.error = '';
     this.resetPasswordSuccessMsg ='';
     this.submitted = true;
@@ -48,6 +48,7 @@ export class ResetPasswordComponent implements OnInit {
       return;
     }
 
+    this.dataService.loader = true;
     const data = {
       'id': this.userId,
       'hash': this.hash,

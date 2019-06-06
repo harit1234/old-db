@@ -82,6 +82,7 @@
     "valLength": "The length of the two factor code should be 6."
   },
   "serverError": {
+    "1026": "The email has already been taken!",
     "2011": "Could not create token!",
     "2012": "Your account is not configured properly. Our support team is looking into it!",
     "2013": "You need to activate your account. We have sent you a account activation email, please check your email.",

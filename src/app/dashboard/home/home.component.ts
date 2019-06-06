@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../shared/services/data.service';
 import { RestService } from '../../shared/services/rest.service';
 import { MonetaryPipe } from '../../shared/pipes/monetary.pipe';
+import { constants } from '../../../constants';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +17,7 @@ export class HomeComponent implements OnInit {
   public searchValue;
   public gridApi;
   public gridColumnApi;
-  public paginationPageSize = 10;
+  public paginationPageSize = constants.PAGINATION_PAGE_SIZE;
   constructor(
     public dataService: DataService,
     private restService: RestService,
@@ -37,8 +38,21 @@ export class HomeComponent implements OnInit {
 
   createRowData(balanceInfo: any) {
     console.log("Testing ", balanceInfo.account);
-    if (balanceInfo.account instanceof Array) {
-      balanceInfo.account.forEach(element => {
+    if (balanceInfo.account){
+      if (balanceInfo.account instanceof Array) {
+        
+        balanceInfo.account.forEach(element => {
+          var rowElement = {
+            balance: this.monentryPipe.transform(balanceInfo.account.Balance, balanceInfo.account.Currency, 'value'),
+            openpl: this.monentryPipe.transform(balanceInfo.account.UnrealizedPNL, balanceInfo.account.Currency, 'PnL'),
+            pl: this.monentryPipe.transform(balanceInfo.account.RealizedPNL, balanceInfo.account.Currency, 'PnL'),
+            netAssetValue: this.monentryPipe.transform(balanceInfo.account.NetAssetValue, balanceInfo.account.Currency, 'value'),
+            usedMargin: this.monentryPipe.transform(balanceInfo.account.UsedMargin, balanceInfo.account.Currency, 'value'),
+            availMargin: this.monentryPipe.transform(balanceInfo.account.UnusedMargin, balanceInfo.account.Currency, 'value')
+          };
+          this.rowData.push(rowElement);
+        });
+      }else {
         var rowElement = {
           balance: this.monentryPipe.transform(balanceInfo.account.Balance, balanceInfo.account.Currency, 'value'),
           openpl: this.monentryPipe.transform(balanceInfo.account.UnrealizedPNL, balanceInfo.account.Currency, 'PnL'),
@@ -48,17 +62,7 @@ export class HomeComponent implements OnInit {
           availMargin: this.monentryPipe.transform(balanceInfo.account.UnusedMargin, balanceInfo.account.Currency, 'value')
         };
         this.rowData.push(rowElement);
-      });
-    }else {
-      var rowElement = {
-        balance: this.monentryPipe.transform(balanceInfo.account.Balance, balanceInfo.account.Currency, 'value'),
-        openpl: this.monentryPipe.transform(balanceInfo.account.UnrealizedPNL, balanceInfo.account.Currency, 'PnL'),
-        pl: this.monentryPipe.transform(balanceInfo.account.RealizedPNL, balanceInfo.account.Currency, 'PnL'),
-        netAssetValue: this.monentryPipe.transform(balanceInfo.account.NetAssetValue, balanceInfo.account.Currency, 'value'),
-        usedMargin: this.monentryPipe.transform(balanceInfo.account.UsedMargin, balanceInfo.account.Currency, 'value'),
-        availMargin: this.monentryPipe.transform(balanceInfo.account.UnusedMargin, balanceInfo.account.Currency, 'value')
-      };
-      this.rowData.push(rowElement);
+      }
     }
   }
 

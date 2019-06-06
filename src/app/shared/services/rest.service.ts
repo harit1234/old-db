@@ -2,14 +2,15 @@ import { Injectable } from '@angular/core';
 import { Observable, Subject, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-//import { AppConfig } from '../../app.config';
 import { environment } from '../../../environments/environment';
+//import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class RestService {
+  //jwtHelper = new JwtHelperService();
   private EQUAL = '=';
   private AMP = '&';
   private loginUrl = 'login';
@@ -19,7 +20,7 @@ export class RestService {
   private logoutUrl = 'logout';
   private userInfoUrl = 'userinfo';
   private getCountryUrl = 'get_countries';
-  private refreshTokenUrl = 'refreshToken';
+  private refreshTokenUrl = 'refresh_token';
   private resetPasswordUrl = 'reset_password';
   private activateAccountUrl = 'activate_account';
   private changePasswordUrl = 'change_password';
@@ -176,6 +177,16 @@ export class RestService {
     return this.get_request(this.getLeaderboardUrl);
   }
   getPageContent(data: any) {
-     return this.post_request(this.getPageContentUrl, data);
+    return this.post_request(this.getPageContentUrl, data);
   }
+
+  // getTokenStaus() {
+  //   var token = localStorage.getItem('token');
+  //   if(token !== null) {
+  //       return this.jwtHelper.isTokenExpired(token)
+  //   } else {
+  //     // Token is not there then logout from the
+  //   }
+  // }
+
 }

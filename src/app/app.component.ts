@@ -4,6 +4,8 @@ import { AuthState } from './shared/enums/auth-state.enum';
 import { Router } from '@angular/router';
 import {TranslateService} from '@ngx-translate/core';
 import { DataService } from './shared/services/data.service';
+import { Meta } from '@angular/platform-browser';
+import {VERSION} from '../environments/version'
 
 @Component({
   selector: 'app-root',
@@ -17,7 +19,8 @@ export class AppComponent implements OnInit{
     private authService: AuthService, 
     private router: Router,
     private translate: TranslateService,
-    public dataService: DataService) {
+    public dataService: DataService,
+    private meta: Meta) {
 
       console.log('AppComponent');
       console.log('Browser Lanugage' + navigator.language);
@@ -34,6 +37,13 @@ export class AppComponent implements OnInit{
         this.router.navigate(['login']);
       }
     });
+
+    console.log(VERSION);
+      /* tslint:disable */
+      const versionValue = VERSION.version.toString() + (VERSION.hasOwnProperty('revision') ? ':' + VERSION['revision'].toString() : '');
+      /* tslint:enable */
+
+    this.meta.addTag({name: 'version', content: versionValue});
   }
 
   ngOnInit() {

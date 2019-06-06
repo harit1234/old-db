@@ -13,6 +13,7 @@ export class DataService {
   loader = false;
   registerError = '';
   countryList = '';
+  tokenRefreshing = false;
 
   public instruments: Dictionary<InstrumentModel>;
 
@@ -70,13 +71,16 @@ export class DataService {
   // }
 
   refreshToken() {
-    console.log("Redirect to page:");
-    this.router.navigate(['/dashboard/account']);
-    return;
-    this.restService.refreshToken().subscribe( val => {
-        console.log(val, this.router.url);
-        this.router.navigate(['/dashboard/home']);
+    this.restService.refreshToken().subscribe( (val: any) => {
+      console.log("Redirect to page:");
+      localStorage.setItem('token', val.access_token);
+        //console.log(val.access_token, this.router.url);
+        //this.router.navigate(['/dashboard/home']);
         
+    }, error => {
+      console.log('Refresh token failed!!!');
+      //localStorage.removeItem('token');
+      //this.router.navigate(['/dashboard/account']);
     });
   }
 

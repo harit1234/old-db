@@ -12,3 +12,18 @@
 .reset-link-btn{
     min-width: 200px;
 }
+.sucess-msg {
+    color: #289a3d;
+    display: block;
+    padding-left: 35px;
+    position: relative;
+}
+.sucess-msg:before {
+    content: "\f3fe";
+    font-family: "Ionicons" !important;
+    font-size: 24px;
+    font-weight: bold;
+    position: absolute;
+    left: 8px;
+    top: -8px;
+}

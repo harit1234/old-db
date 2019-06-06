@@ -226,8 +226,11 @@ a.green-btn:hover{
     -webkit-transform: scale(0.82);
    
 }
-.verfication-steps{border-top: 1px solid #ddd; margin-top: 30px; padding-top: 30px;}
-.verfication-steps ul{padding-left: 60px;}
+.signin-wd {
+    max-width: 500px;
+}
+.verfication-steps{border-top: 1px solid #ddd; margin-top: 30px; padding-top: 30px; text-align: center;}
+.verfication-steps ul{padding-left: 60px; text-align: left;}
 .frm-body figure{text-align: center;}
 .frm-body figure > img{width: 64px;}
 .reset-2fa{background-color: #f9f9f9; border: 1px solid #ddd; margin: 20px 0; padding: 15px;}
@@ -466,6 +469,7 @@ ul.features li:before {
     -webkit-border-radius: 3px;
     border-radius: 3px;
     position: relative;
+    text-align: center;
 }
 .auth-error p {
     margin-top: none !important;
@@ -482,8 +486,10 @@ ul.features li:before {
     -webkit-border-radius: 0;
     border-radius: 0;
     padding: 12px 40px !important;
+    text-align: center;
     
 }
+.msg-success p { margin-bottom: 0;}
 /* Header */
 .header{
 	background-color: #fff;

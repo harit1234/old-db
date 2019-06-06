@@ -11,6 +11,8 @@ import { DataService } from '../../shared/services/data.service';
 export class EmailVerificationComponent implements OnInit {
   registerEmail: string;
   emailSentStatus = false;
+  processing = false;
+  emailSendError = false;
   constructor(
     private authService: AuthService,
     private restService: RestService,
@@ -19,20 +21,24 @@ export class EmailVerificationComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log("Registered Email" + this.registerEmail);
     if(!this.registerEmail) {
         this.authService.clearSession();
     }
   }
   resendEmail() {
+    
+    this.processing = true;
     const emailToSend = localStorage.getItem('registerEmail');
-    console.log('Email has been sent to ', emailToSend);
     if(emailToSend) {
       this.dataService.loader = true;
       const data = {'email': emailToSend};
       this.restService.resendVerificationEmail(data).subscribe( data => {
+        this.processing = false;
         this.dataService.loader = false;
         this.emailSentStatus = true;
+        
+      }, error => {
+        this.emailSendError = true;
       });
     }else {
       this.authService.clearSession();

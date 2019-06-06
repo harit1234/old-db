@@ -1,5 +1,5 @@
 export const constants = {
-    PAGINATION_PAGE_SIZE: 10,
+    PAGINATION_PAGE_SIZE: 15,
     CHECK_API_STATUS_DEALAY: 600000, //10 minutes
     TIME_FORMAT: 'yyyy-MM-dd HH:mm:ss',
     INT_MIN: '-2147483648',

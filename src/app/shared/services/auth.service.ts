@@ -24,19 +24,16 @@ export class AuthService {
 
     const token = localStorage.getItem('token');
     if(token !== null) {
-      const expDate = this.jwtHelper.getTokenExpirationDate(token);
-      console.log(expDate)
+      //const expDate = this.jwtHelper.getTokenExpirationDate(token);
+      //console.log(expDate)
       if(this.jwtHelper.isTokenExpired(token)) {
           console.log('Token Expired !!!');
       }
       return true;
-      //return !this.jwtHelper.isTokenExpired(token);
+    }else {
+      //this.clearSession();
     }
     return false;
-    // Check whether the token is expired and return
-    // true or false
-    //return !this.jwtHelper.isTokenExpired(token);
-    
   }
 
   public get isLogged(): boolean {
@@ -80,5 +77,9 @@ export class AuthService {
     localStorage.removeItem('registerEmail');
 
     this.setState(AuthState.LOGGED_OUT);
+  }
+
+  public getAccessToken () {
+    return localStorage.getItem('token');
   }
 }
