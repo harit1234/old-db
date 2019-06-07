@@ -2,32 +2,32 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from './shared/services/auth.service';
 import { AuthState } from './shared/enums/auth-state.enum';
 import { Router } from '@angular/router';
-import {TranslateService} from '@ngx-translate/core';
+import { TranslateService } from '@ngx-translate/core';
 import { DataService } from './shared/services/data.service';
 import { Meta } from '@angular/platform-browser';
-import {VERSION} from '../environments/version'
+import { VERSION } from '../environments/version';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = 'idap-web';
 
   constructor(
-    private authService: AuthService, 
+    private authService: AuthService,
     private router: Router,
     private translate: TranslateService,
     public dataService: DataService,
     private meta: Meta) {
 
-      console.log('AppComponent');
-      console.log('Browser Lanugage' + navigator.language);
-      
-      
-      this.authService.stateChanged.subscribe((state: AuthState) => {
-      //translate.setDefaultLang('en');
+    console.log('AppComponent');
+    console.log('Browser Lanugage' + navigator.language);
+
+
+    this.authService.stateChanged.subscribe((state: AuthState) => {
+      // translate.setDefaultLang('en');
       if (state === AuthState.LOGGED_IN) {
         this.dataService.startCheckingApiStatusTimer();
         console.log('Logged in');
@@ -39,20 +39,20 @@ export class AppComponent implements OnInit{
     });
 
     console.log(VERSION);
-      /* tslint:disable */
-      const versionValue = VERSION.version.toString() + (VERSION.hasOwnProperty('revision') ? ':' + VERSION['revision'].toString() : '');
-      /* tslint:enable */
+    /* tslint:disable */
+    const versionValue = VERSION.version.toString() + (VERSION.hasOwnProperty('revision') ? ':' + VERSION['revision'].toString() : '');
+    /* tslint:enable */
 
-    this.meta.addTag({name: 'version', content: versionValue});
+    this.meta.addTag({ name: 'version', content: versionValue });
   }
 
   ngOnInit() {
     localStorage.setItem('lang', 'en');
     this.translate.use('en');
 
-    if(this.authService.isAuthenticated()) {
+    if (this.authService.isAuthenticated()) {
       this.authService.setState(AuthState.LOGGED_IN);
-      //this.dataService.startCheckingApiStatusTimer();
+      // this.dataService.startCheckingApiStatusTimer();
     }
   }
 

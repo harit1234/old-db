@@ -15,10 +15,9 @@ export class JwtInterceptor implements HttpInterceptor {
         // const token = this.cookie.get('token');
         const token = localStorage.getItem('token');
         if (token) {
-            
-            if(this.jwtHelper.isTokenExpired(token) && !this.dataService.tokenRefreshing) {
+            if (this.jwtHelper.isTokenExpired(token) && !this.dataService.tokenRefreshing) {
                 this.dataService.tokenRefreshing = true;
-                this.restService.refreshToken().subscribe ( (refreshToken: any) => {
+                this.restService.refreshToken().subscribe((refreshToken: any) => {
                     this.dataService.tokenRefreshing = false;
                     console.log('Refresh Token in jwt interceptor:::', );
                     localStorage.setItem('token', refreshToken.access_token);

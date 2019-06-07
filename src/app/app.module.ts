@@ -31,12 +31,12 @@ export function initializeApp(appConfig: AppConfig) {
     //     whitelistedDomains: ['localhost:3001', 'foo.com', 'bar.com']
     //   }
     // });
-  }
+  };
 }
 
 // required for AOT compilation
 export function httpLoaderFactory(http: HttpClient) {
-  //return new TranslateHttpLoader(http);
+  // return new TranslateHttpLoader(http);
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 

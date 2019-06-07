@@ -15,7 +15,7 @@ import { HttpResponse } from '@angular/common/http';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  
+
   loginFormGroup: FormGroup;
   submitted = false;
   error = '';
@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private translate: TranslateService
-   ) { }
+  ) { }
 
   ngOnInit() {
     this.loginFormGroup = this.loginFormBuilder.group(
@@ -37,7 +37,6 @@ export class LoginComponent implements OnInit {
         email: ['', [Validators.required, Validators.email]],
         password: ['', [Validators.required, Validators.minLength(8)]],
         factorCode: [''],
-        //recaptcha: ['']
         recaptcha: ['', Validators.required]
       }
     );
@@ -79,7 +78,7 @@ export class LoginComponent implements OnInit {
     this.restService.login(data).subscribe(userInfo => {
       console.log('response');
       this.authService.setCredentials(userInfo);
-      //this.router.navigate([this.returnUrl]);
+      // this.router.navigate([this.returnUrl]);
     }, error => {
       this.loginFormGroup.controls.password.reset();
       this.submitted = false;

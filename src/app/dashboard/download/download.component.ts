@@ -11,21 +11,21 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class DownloadComponent implements OnInit {
   content: any;
   constructor(
-    private restService: RestService, 
+    private restService: RestService,
     public dataService: DataService,
     public domSanitizer: DomSanitizer) { }
 
   ngOnInit() {
-    setTimeout(() => { this.dataService.loader = true;});
+    setTimeout(() => { this.dataService.loader = true; });
     const data = {
       'page_id': 'download',
       'lang': localStorage.getItem('lang')
     };
-    this.restService.getPageContent(data).subscribe( (downloadContent: any) => {
-        this.dataService.loader = false;
-        console.log(downloadContent.data.content);
-        this.content = this.domSanitizer.bypassSecurityTrustHtml(downloadContent.data.content); 
-    })
+    this.restService.getPageContent(data).subscribe((downloadContent: any) => {
+      this.dataService.loader = false;
+      console.log(downloadContent.data.content);
+      this.content = this.domSanitizer.bypassSecurityTrustHtml(downloadContent.data.content);
+    });
   }
 
 }

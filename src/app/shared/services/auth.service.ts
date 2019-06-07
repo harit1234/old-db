@@ -23,22 +23,22 @@ export class AuthService {
   public isAuthenticated(): boolean {
 
     const token = localStorage.getItem('token');
-    if(token !== null) {
-      //const expDate = this.jwtHelper.getTokenExpirationDate(token);
-      //console.log(expDate)
-      if(this.jwtHelper.isTokenExpired(token)) {
-          console.log('Token Expired !!!');
+    if (token !== null) {
+      // const expDate = this.jwtHelper.getTokenExpirationDate(token);
+      // console.log(expDate)
+      if (this.jwtHelper.isTokenExpired(token)) {
+        console.log('Token Expired !!!');
       }
       return true;
-    }else {
-      //this.clearSession();
+    } else {
+      // this.clearSession();
     }
     return false;
   }
 
   public get isLogged(): boolean {
-    return this.state == AuthState.LOGGED_IN;
-    //return this.isAuthenticated();
+    return this.state === AuthState.LOGGED_IN;
+    // return this.isAuthenticated();
   }
 
   /**
@@ -46,15 +46,15 @@ export class AuthService {
    * @param userInfo json data of user response
    */
   public setCredentials(userInfo: any) {
-      console.log('UserInfo:');
-      console.log(userInfo);
-      localStorage.setItem('userIdStorage', userInfo.data.username);
-      localStorage.setItem('sessionIdStorage', userInfo.data.session_id);
-      localStorage.setItem('token', userInfo.data.access_token);
-      localStorage.setItem('email', userInfo.data.email);
-      this.setState(AuthState.LOGGED_IN);
+    console.log('UserInfo:');
+    console.log(userInfo);
+    localStorage.setItem('userIdStorage', userInfo.data.username);
+    localStorage.setItem('sessionIdStorage', userInfo.data.session_id);
+    localStorage.setItem('token', userInfo.data.access_token);
+    localStorage.setItem('email', userInfo.data.email);
+    this.setState(AuthState.LOGGED_IN);
   }
- 
+
   /**
    * Changing the auth state and throwing the observer
    * @param value different auth state
@@ -79,7 +79,7 @@ export class AuthService {
     this.setState(AuthState.LOGGED_OUT);
   }
 
-  public getAccessToken () {
+  public getAccessToken() {
     return localStorage.getItem('token');
   }
 }

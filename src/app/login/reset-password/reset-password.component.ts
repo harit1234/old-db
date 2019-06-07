@@ -29,8 +29,8 @@ export class ResetPasswordComponent implements OnInit {
       newPassword: ['', [Validators.required, Validators.minLength(8)]],
       confirmPassword: ['', [Validators.required]]
     }, {
-      validator: MustMatch('newPassword', 'confirmPassword')
-    });
+        validator: MustMatch('newPassword', 'confirmPassword')
+      });
     this.userId = this.route.snapshot.queryParams['id'];
     this.hash = this.route.snapshot.queryParams['hash'];
   }
@@ -39,11 +39,11 @@ export class ResetPasswordComponent implements OnInit {
     return this.resetPasswordGroup.controls;
   }
   resetPassword() {
-    
+
     this.error = '';
-    this.resetPasswordSuccessMsg ='';
+    this.resetPasswordSuccessMsg = '';
     this.submitted = true;
-    if(this.resetPasswordGroup.invalid) {
+    if (this.resetPasswordGroup.invalid) {
       console.log('Invalid');
       return;
     }
@@ -54,7 +54,7 @@ export class ResetPasswordComponent implements OnInit {
       'hash': this.hash,
       'password': this.formFields.newPassword.value
     };
-    this.restService.resetPassword(data).subscribe ( (resetInfo: any) => {
+    this.restService.resetPassword(data).subscribe((resetInfo: any) => {
       this.dataService.loader = false;
       console.log('Reset Password success');
       this.resetPasswordSuccessMsg = resetInfo.data.message;

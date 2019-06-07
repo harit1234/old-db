@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DataService } from '../../shared/services/data.service';
 import { MustMatch } from '../../shared/helpers/must-match.validator';
@@ -6,7 +6,6 @@ import { ActivatedRoute } from '@angular/router';
 import { environment } from '../../../environments/environment';
 import { RestService } from '../../shared/services/rest.service';
 
-//import { } from 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -22,8 +21,8 @@ export class RegisterComponent implements OnInit {
     public dataService: DataService,
     private route: ActivatedRoute,
     private restService: RestService
-    ) { 
-    
+  ) {
+
   }
 
   ngOnInit() {
@@ -37,19 +36,19 @@ export class RegisterComponent implements OnInit {
       terms: ['', Validators.requiredTrue],
       recaptcha: ['', Validators.required]
     }, {
-      validator: MustMatch('password', 'confirmPassword')
-    });
+        validator: MustMatch('password', 'confirmPassword')
+      });
 
-    if(this.route.snapshot.queryParams['ref']) {
+    if (this.route.snapshot.queryParams['ref']) {
       localStorage.setItem('refId', this.route.snapshot.queryParams['ref']);
     }
 
-    this.dataService.getCountryList(); 
+    this.dataService.getCountryList();
 
   }
   get siteKey() {
     return environment.recaptchaKey;
-    //return AppConfig.settings.recaptchaKey;
+    // return AppConfig.settings.recaptchaKey;
   }
   // convenience getter for easy access to form fields
   get formFields() {
@@ -57,7 +56,7 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-    
+
     this.dataService.registerError = null;
     const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
     this.submitted = true;
@@ -82,13 +81,13 @@ export class RegisterComponent implements OnInit {
     }
     console.log('Form Submitted!!');
     console.log('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerFormGroup.value));
-    this.dataService.register(data)
+    this.dataService.register(data);
 
   }
 
-   /**
-   * Recaptcha is loading
-   */
+  /**
+  * Recaptcha is loading
+  */
   handleLoad() {
     console.log('Captcha loading');
   }

@@ -12,9 +12,9 @@ import { SecurityComponent } from './security/security.component';
 import { ChangePasswordComponent } from './security/change-password/change-password.component';
 import { GoogleAuthComponent } from './security/google-auth/google-auth.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
-import {HttpClient} from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { HttpClient } from '@angular/common/http';
 import { TradeHistoryComponent } from './trade-history/trade-history.component';
 import { OrderHistoryComponent } from './order-history/order-history.component';
 import { DipositComponent } from './diposit/diposit.component';
@@ -30,10 +30,10 @@ import { PageComponent } from './page/page.component';
 import { MonetaryPipe } from '../shared/pipes/monetary.pipe';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { AffiliateComponent } from './affiliate/affiliate.component';
-//import { GridModule, PageService, SortService, FilterService, GroupService } from '@syncfusion/ej2-angular-grids';
+// import { GridModule, PageService, SortService, FilterService, GroupService } from '@syncfusion/ej2-angular-grids';
 // required for AOT compilation
 export function httpLoaderFactory(http: HttpClient) {
-  //return new TranslateHttpLoader(http);
+  // return new TranslateHttpLoader(http);
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
@@ -61,14 +61,14 @@ export function httpLoaderFactory(http: HttpClient) {
     QtyPipe,
     MonetaryPipe,
     PricePipe
-    
+
   ],
   imports: [
     RouterModule.forChild(dashboardRoutes),
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    //GridModule,
+    // GridModule,
     AgGridModule.withComponents([]),
     TranslateModule.forRoot({
       loader: {
@@ -78,7 +78,7 @@ export function httpLoaderFactory(http: HttpClient) {
       }
     })
   ],
-  //providers: [PageService, SortService, FilterService, GroupService],
+  // providers: [PageService, SortService, FilterService, GroupService],
   providers: [SlicePipe, TimetPipe, PricePipe, QtyPipe, MonetaryPipe]
 })
 export class DashboardModule { }

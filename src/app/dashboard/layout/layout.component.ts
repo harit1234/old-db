@@ -28,8 +28,8 @@ export class LayoutComponent implements OnInit {
     this.dataService.getInstrument();
   }
 
-  onOpened(status: boolean) {
-    this.hamburgerMenuStatus = status;
-  }
-
+  // onOpened(status: boolean) {
+  //   this.hamburgerMenuStatus = status;
+  //   this.dataService.hamurgerLeftMenu = this.hamburgerMenuStatus;
+  // }
 }

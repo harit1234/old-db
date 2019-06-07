@@ -15,32 +15,27 @@ export class ErrorInterceptor implements HttpInterceptor {
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         return next.handle(request).pipe(catchError(err => {
-
-            
-            console.log('Error Status ::: ', err.status);
-
-
             this.dataService.loader = false;
             if (err.status === 403) {
                 // auto logout if 401 response returned from api
                 // this.authenticationService.logout();
-                 console.log("Refreshing token");
-                 //this.dataService.refreshToken();
+                console.log('Token Expired in error interceiptor');
+                // this.dataService.refreshToken();
                 // return;
                 // location.reload(true);
             } else if (err.status === 400) {
                 this.dataService.badRequestAction();
             }
-            console.log(err);    
+            console.log(err);
             let error = err.error.error || err.statusText;
 
-            if(err.error.code) {
-                console.log("Error code found!!");
-                this.translateService.get('serverError.'+err.error.code).subscribe( text => {
+            if (err.error.code) {
+                console.log('Error code found!!');
+                this.translateService.get('serverError.' + err.error.code).subscribe(text => {
                     console.log('Translated error : ', text);
                     error = text;
                 });
-                
+
             }
             return throwError(error);
         }));

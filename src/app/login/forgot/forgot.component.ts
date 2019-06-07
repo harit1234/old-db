@@ -25,8 +25,8 @@ export class ForgotComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]]
     });
 
-    this.formFields.email.valueChanges.subscribe( val => {
-        this.serverError = '';
+    this.formFields.email.valueChanges.subscribe(val => {
+      this.serverError = '';
     });
   }
 
@@ -42,11 +42,11 @@ export class ForgotComponent implements OnInit {
       console.log('Invalid');
       return;
     }
-    
+
     const data = { 'email': this.formFields.email.value };
     console.log(data);
     this.dataService.loader = true;
-    this.restService.forgotPasswordSendRequest(data).subscribe( (val: any) => {
+    this.restService.forgotPasswordSendRequest(data).subscribe((val: any) => {
       this.dataService.loader = false;
       this.forgotRequestSuccessMsg = val.data.message;
       console.log('Forgot password success', val.data.message);

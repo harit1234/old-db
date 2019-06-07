@@ -30,24 +30,24 @@ export class TradeHistoryComponent implements OnInit {
   ngOnInit() {
 
     this.columnDefs = [
-      {headerName: 'Order ID', field: 'orderId'},
-      {headerName: 'Time', field: 'time'},
-      {headerName: 'Symbol', field: 'symbol'},
-      {headerName: 'Side', field: 'side'},
-      {headerName: 'Price', field: 'price'},
-      {headerName: 'Qty', field: 'qty'}
+      { headerName: 'Order ID', field: 'orderId' },
+      { headerName: 'Time', field: 'time' },
+      { headerName: 'Symbol', field: 'symbol' },
+      { headerName: 'Side', field: 'side' },
+      { headerName: 'Price', field: 'price' },
+      { headerName: 'Qty', field: 'qty' }
     ];
   }
 
   createRowData(balanceInfo: any) {
     console.log(balanceInfo);
-    if(balanceInfo.trade) {
+    if (balanceInfo.trade) {
       balanceInfo.trade.forEach(element => {
-        var rowElement = {
+        const rowElement = {
           orderId: element.OrderID,
           time: this.timetPipe.transform(element.InitTime),
           symbol: element.Symbol,
-          side: this.slicePipe.transform(element.OrderSide,3),
+          side: this.slicePipe.transform(element.OrderSide, 3),
           price: this.pricePipe.transform(element.Price, this.dataService.instruments[element.Symbol]),
           qty: element.Qty
         };
@@ -72,29 +72,29 @@ export class TradeHistoryComponent implements OnInit {
     this.gridColumnApi = params.columnApi;
 
     params.api.sizeColumnsToFit();
-    setTimeout(() => { this.dataService.loader = true;}, 0);
+    setTimeout(() => { this.dataService.loader = true; }, 0);
     const data = {
       'token_id': localStorage.getItem('sessionIdStorage'),
       'username': localStorage.getItem('userIdStorage')
     };
 
-    window.addEventListener("resize", function() {
-      setTimeout(function() {
+    window.addEventListener('resize', function () {
+      setTimeout(function () {
         params.api.sizeColumnsToFit();
       });
     });
-    
-    this.restService.getTradeHistory(data).subscribe( tradeHistory => {
-        console.log(tradeHistory);
-        this.dataService.loader = false;
-        this.createRowData(tradeHistory);
-        params.api.setRowData(this.rowData);
+
+    this.restService.getTradeHistory(data).subscribe(tradeHistory => {
+      console.log(tradeHistory);
+      this.dataService.loader = false;
+      this.createRowData(tradeHistory);
+      params.api.setRowData(this.rowData);
     }, error => {
-      console.log("Error gettting balance info+");
+      console.log('Error gettting balance info+');
     });
   }
   onPageSizeChange(params) {
-    console.log('Size Change',parseInt(params.target.value));
+    console.log('Size Change', parseInt(params.target.value));
     this.gridApi.paginationSetPageSize(parseInt(params.target.value));
   }
 

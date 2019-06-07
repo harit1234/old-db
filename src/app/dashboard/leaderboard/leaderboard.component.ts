@@ -22,28 +22,28 @@ export class LeaderboardComponent implements OnInit {
 
   ngOnInit() {
     setTimeout(() => { this.dataService.loader = true; });
-    this.restService.getLeaderBoard().subscribe( leaderBoardInfo => {
+    this.restService.getLeaderBoard().subscribe(leaderBoardInfo => {
       this.dataService.loader = false;
       console.log('Leaderboard Info: ', leaderBoardInfo);
     });
 
     this.columnDefs = [
-      {headerName: '#', field: 'sno'},
-      {headerName: 'Name/Email', field: 'name'},
-      {headerName: 'Registered Referrals	', field: 'registered_ref'},
-      {headerName: 'Total Referrals', field: 'total_ref'},
+      { headerName: '#', field: 'sno' },
+      { headerName: 'Name/Email', field: 'name' },
+      { headerName: 'Registered Referrals	', field: 'registered_ref' },
+      { headerName: 'Total Referrals', field: 'total_ref' },
     ];
 
   }
 
   createRowData(leaderBoardInfo: any) {
-    
-    if(leaderBoardInfo.data.all) {
+
+    if (leaderBoardInfo.data.all) {
       leaderBoardInfo.data.all.forEach((element, index) => {
 
-        var name = (element.name)?element.name:element.email;
+        const name = (element.name) ? element.name : element.email;
 
-        var rowElement = {
+        const rowElement = {
           sno: index + 1,
           name: name,
           registered_ref: element.registered_ref,
@@ -70,19 +70,19 @@ export class LeaderboardComponent implements OnInit {
     this.gridColumnApi = params.columnApi;
 
     params.api.sizeColumnsToFit();
-    window.addEventListener("resize", function() {
-      setTimeout(function() {
+    window.addEventListener('resize', function () {
+      setTimeout(function () {
         params.api.sizeColumnsToFit();
       });
     });
-    setTimeout(() => { this.dataService.loader = true;}, 0);
-    this.restService.getLeaderBoard().subscribe( leaderBoardInfo => {
-        console.log(leaderBoardInfo);
-        this.dataService.loader = false;
-        this.createRowData(leaderBoardInfo);
-        params.api.setRowData(this.rowData);
+    setTimeout(() => { this.dataService.loader = true; }, 0);
+    this.restService.getLeaderBoard().subscribe(leaderBoardInfo => {
+      console.log(leaderBoardInfo);
+      this.dataService.loader = false;
+      this.createRowData(leaderBoardInfo);
+      params.api.setRowData(this.rowData);
     }, error => {
-      console.log("Error gettting Leaderboard info+");
+      console.log('Error gettting Leaderboard info+');
     });
   }
 

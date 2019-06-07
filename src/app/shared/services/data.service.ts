@@ -14,35 +14,30 @@ export class DataService {
   registerError = '';
   countryList = '';
   tokenRefreshing = false;
-
+  hambergerMenuStatus = false;
+  hamurgerLeftMenu = false;
   public instruments: Dictionary<InstrumentModel>;
 
   constructor(
-    private restService: RestService, 
+    private restService: RestService,
     private authService: AuthService,
     private router: Router,
     private timerService: TimerService
-    ) { }
+  ) { }
 
 
   register(data: any) {
-      console.log('Register Data');
-      console.log(data);
-      this.loader = true;
-      this.restService.register(data).subscribe(userInfo => {
-        this.loader = false;
-        localStorage.removeItem('refId');
-        console.log('Request Data');
-        console.log(data.email);
-        localStorage.setItem('registerEmail',data.email);
-        console.log('response');
-        //this.authService.setCredentials(userInfo);
-        this.router.navigate(['emailVerification']);
-      }, error => {
-        
-        this.loader = false;
-        this.registerError = error;
-      });
+    this.loader = true;
+    this.restService.register(data).subscribe(userInfo => {
+      this.loader = false;
+      localStorage.removeItem('refId');
+      localStorage.setItem('registerEmail', data.email);
+      this.router.navigate(['emailVerification']);
+    }, error => {
+
+      this.loader = false;
+      this.registerError = error;
+    });
   }
 
   /**
@@ -52,38 +47,33 @@ export class DataService {
     console.log('Logout Api should be called here!!');
     this.loader = true;
     const data = {};
-    this.restService.logout(data).subscribe ( val => {
-        this.loader = false;
-        console.log('Logout success');
-        console.log(val);
-        this.authService.clearSession();
-        this.timerService.stopCheckApiStatusTimer();
-        
+    this.restService.logout(data).subscribe(val => {
+      this.loader = false;
+      console.log('Logout success');
+      console.log(val);
+      this.authService.clearSession();
+      this.timerService.stopCheckApiStatusTimer();
+
     });
-    
+
   }
 
-  // getUserInfo() {
-  //   this.restService.getUserAccountInfo().subscribe( val => {
-  //     console.log("User info : ");
-  //     console.log(val);
-  //   }); 
-  // }
-
+  /**
+   * This function gets the new token
+   */
   refreshToken() {
-    this.restService.refreshToken().subscribe( (val: any) => {
-      console.log("Redirect to page:");
+    this.restService.refreshToken().subscribe((val: any) => {
       localStorage.setItem('token', val.access_token);
-        //console.log(val.access_token, this.router.url);
-        //this.router.navigate(['/dashboard/home']);
-        
     }, error => {
       console.log('Refresh token failed!!!');
-      //localStorage.removeItem('token');
-      //this.router.navigate(['/dashboard/account']);
+      // localStorage.removeItem('token');
+      // this.router.navigate(['/dashboard/account']);
     });
   }
 
+  /**
+   * This function gets all the instruments available to calculate the amount and qunty and price with denominators
+   */
   getInstrument() {
     this.instruments = {};
     console.log('get Instrument function called');
@@ -91,16 +81,15 @@ export class DataService {
       'token_id': localStorage.getItem('sessionIdStorage'),
       'username': localStorage.getItem('userIdStorage')
     };
-    //this.loader = true;
-    this.restService.getInstruments(data).subscribe( (instrumentInfo: any) => {
+    this.restService.getInstruments(data).subscribe((instrumentInfo: any) => {
       this.loader = false;
-       console.log('Instruments : ', JSON.stringify(instrumentInfo));
-       if(instrumentInfo) {
-          instrumentInfo.instrument.forEach(instrument => {
-            this.instruments[instrument.Symbol] = instrument;
-          });
-       } 
-       
+      console.log('Instruments : ', JSON.stringify(instrumentInfo));
+      if (instrumentInfo.instrument) {
+        instrumentInfo.instrument.forEach(instrument => {
+          this.instruments[instrument.Symbol] = instrument;
+        });
+      }
+
     });
   }
 
@@ -109,14 +98,16 @@ export class DataService {
    */
   getCountryList() {
 
-    if(this.countryList) return this.countryList;
+    if (this.countryList) {
+      return this.countryList;
+    }
 
     setTimeout(() => { this.loader = true; });
-    this.restService.getCountryList({'lang': 'en'}).subscribe( (countryList: any) => {
+    this.restService.getCountryList({ 'lang': 'en' }).subscribe((countryList: any) => {
       this.loader = false;
       this.countryList = countryList.data.countries;
       console.log('Country List : ', this.countryList);
-    }); 
+    });
     return this.countryList;
 
   }
@@ -134,8 +125,8 @@ export class DataService {
       'token_id': localStorage.getItem('sessionIdStorage'),
       'username': localStorage.getItem('userIdStorage')
     };
-    this.restService.getApiStatus(data).subscribe( apiStatus => {
-       console.log('Api Status', JSON.stringify(apiStatus));
+    this.restService.getApiStatus(data).subscribe(apiStatus => {
+      console.log('Api Status', JSON.stringify(apiStatus));
     });
   }
   /**
@@ -143,5 +134,9 @@ export class DataService {
    */
   badRequestAction() {
     console.log('bad request');
+  }
+  hideHambergurMenu() {
+    this.hambergerMenuStatus = false;
+    this.hamurgerLeftMenu = false;
   }
 }

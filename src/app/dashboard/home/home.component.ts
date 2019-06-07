@@ -25,24 +25,26 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.columnDefs = [
-      { headerName: 'Balance', field: 'balance'},
-      { headerName: 'Open P/L', field: 'openpl'},
-      { headerName: 'P/L', field: 'pl'},
-      { headerName: 'Net Asset Value', field: 'netAssetValue'},
-      { headerName: 'Used Margin', field: 'usedMargin'},
-      { headerName: 'Available Margin', field: 'availMargin'}
+      { headerName: 'Balance', field: 'balance' },
+      { headerName: 'Open P/L', field: 'openpl' },
+      { headerName: 'P/L', field: 'pl' },
+      { headerName: 'Net Asset Value', field: 'netAssetValue' },
+      { headerName: 'Used Margin', field: 'usedMargin' },
+      { headerName: 'Available Margin', field: 'availMargin' }
     ];
-
-    console.log("HomeComponent: ngInit");
   }
 
+  /**
+   * Creating the row data for balance
+   * @param balanceInfo Any type
+   */
   createRowData(balanceInfo: any) {
-    console.log("Testing ", balanceInfo.account);
-    if (balanceInfo.account){
+    console.log('Balace Info ', balanceInfo.account);
+    if (balanceInfo.account) {
       if (balanceInfo.account instanceof Array) {
-        
+
         balanceInfo.account.forEach(element => {
-          var rowElement = {
+          const rowElement = {
             balance: this.monentryPipe.transform(balanceInfo.account.Balance, balanceInfo.account.Currency, 'value'),
             openpl: this.monentryPipe.transform(balanceInfo.account.UnrealizedPNL, balanceInfo.account.Currency, 'PnL'),
             pl: this.monentryPipe.transform(balanceInfo.account.RealizedPNL, balanceInfo.account.Currency, 'PnL'),
@@ -52,8 +54,8 @@ export class HomeComponent implements OnInit {
           };
           this.rowData.push(rowElement);
         });
-      }else {
-        var rowElement = {
+      } else {
+        const rowElement = {
           balance: this.monentryPipe.transform(balanceInfo.account.Balance, balanceInfo.account.Currency, 'value'),
           openpl: this.monentryPipe.transform(balanceInfo.account.UnrealizedPNL, balanceInfo.account.Currency, 'PnL'),
           pl: this.monentryPipe.transform(balanceInfo.account.RealizedPNL, balanceInfo.account.Currency, 'PnL'),
@@ -82,8 +84,8 @@ export class HomeComponent implements OnInit {
     this.gridColumnApi = params.columnApi;
     params.api.sizeColumnsToFit();
     setTimeout(() => { this.dataService.loader = true; }, 0);
-    window.addEventListener("resize", function() {
-      setTimeout(function() {
+    window.addEventListener('resize', function () {
+      setTimeout(function () {
         params.api.sizeColumnsToFit();
       });
     });
@@ -97,7 +99,7 @@ export class HomeComponent implements OnInit {
       this.createRowData(balanceInfo);
       params.api.setRowData(this.rowData);
     }, error => {
-      console.log("Error gettting balance info+");
+      console.log('Error gettting balance info');
     });
   }
 

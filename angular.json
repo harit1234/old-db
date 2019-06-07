@@ -78,7 +78,7 @@
             ],
             "scripts": [],
             "assets": [
-              "src/favicon.ico",
+              "src/idap-favicon-96x96.png",
               "src/assets"
             ]
           }

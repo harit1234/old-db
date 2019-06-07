@@ -16,33 +16,33 @@ export class EmailVerificationComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private restService: RestService,
-    public dataService: DataService) { 
+    public dataService: DataService) {
     this.registerEmail = localStorage.getItem('registerEmail');
   }
 
   ngOnInit() {
-    if(!this.registerEmail) {
-        this.authService.clearSession();
+    if (!this.registerEmail) {
+      this.authService.clearSession();
     }
   }
   resendEmail() {
-    
+
     this.processing = true;
     const emailToSend = localStorage.getItem('registerEmail');
-    if(emailToSend) {
+    if (emailToSend) {
       this.dataService.loader = true;
-      const data = {'email': emailToSend};
-      this.restService.resendVerificationEmail(data).subscribe( data => {
+      const data = { 'email': emailToSend };
+      this.restService.resendVerificationEmail(data).subscribe(resetMailInfo => {
         this.processing = false;
         this.dataService.loader = false;
         this.emailSentStatus = true;
-        
+
       }, error => {
         this.emailSendError = true;
       });
-    }else {
+    } else {
       this.authService.clearSession();
     }
-    
+
   }
 }

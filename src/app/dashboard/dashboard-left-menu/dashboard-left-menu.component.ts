@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../../shared/services/data.service';
 
 @Component({
   selector: 'app-dashboard-left-menu',
@@ -9,10 +10,10 @@ export class DashboardLeftMenuComponent implements OnInit {
   walletSlide = true;
   accountSlide = true;
   historySlide = true;
-  
-  constructor() { }
+
+  constructor(public dataService: DataService) {
+  }
 
   ngOnInit() {
   }
-
 }

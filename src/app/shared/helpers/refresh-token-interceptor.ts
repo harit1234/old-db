@@ -2,7 +2,7 @@ import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, mergeMap } from 'rxjs/operators';
-//import { JwtInterceptor } from '@auth0/angular-jwt';
+// import { JwtInterceptor } from '@auth0/angular-jwt';
 import { RestService } from '../services/rest.service';
 import { JwtInterceptor } from './jwt.interceptor';
 @Injectable()
@@ -11,7 +11,7 @@ export class RefreshTokenInterceptor implements HttpInterceptor {
   }
 
   intercept (req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    //if (this.jwtInterceptor.isWhitelistedDomain(req) && !this.jwtInterceptor.isBlacklistedRoute(req)) {
+    // if (this.jwtInterceptor.isWhitelistedDomain(req) && !this.jwtInterceptor.isBlacklistedRoute(req)) {
       return next.handle(req).pipe(
         catchError((err) => {
           const errorResponse = err as HttpErrorResponse;

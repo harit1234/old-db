@@ -13,12 +13,10 @@ export class ActivityLogComponent implements OnInit {
 
   ngOnInit() {
     setTimeout(() => this.dataService.loader = true);
-    this.restService.getActivityLog().subscribe( activityLog => {
+    this.restService.getActivityLog().subscribe(activityLog => {
       this.dataService.loader = false;
-      console.log("Activity Log is :::");
-      console.log(activityLog);
       this.activityLog = activityLog;
-    }); 
+    });
   }
 
 }

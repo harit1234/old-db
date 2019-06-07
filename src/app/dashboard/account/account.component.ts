@@ -15,14 +15,10 @@ export class AccountComponent implements OnInit {
     private restService: RestService) { }
 
   ngOnInit() {
-    console.log("AccountComponent: ngInit");
-
     setTimeout(() => this.dataService.loader = true);
-    this.restService.getUserAccountInfo().subscribe( userInfo => {
+    this.restService.getUserAccountInfo().subscribe(userInfo => {
       this.dataService.loader = false;
-      console.log("User info : ");
       this.userInfo = userInfo.data;
-      console.log(this.userInfo);
     });
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../shared/services/data.service';
 import { AuthService } from '../../shared/services/auth.service';
 
@@ -9,8 +9,8 @@ import { AuthService } from '../../shared/services/auth.service';
   styleUrls: ['./dashboard-header.component.css'],
 })
 export class DashboardHeaderComponent implements OnInit {
-  hamburgerMenuStatus = false;
-  @Output() hanburgerMenuOpened = new EventEmitter<boolean>();
+  // hamburgerMenuStatus = false;
+  // @Output() hanburgerMenuOpened = new EventEmitter<boolean>();
   userName: string;
   constructor(
     public dataService: DataService,
@@ -24,9 +24,11 @@ export class DashboardHeaderComponent implements OnInit {
    * Hamberger menu action on mobile version
    */
   hamburger() {
-    this.hamburgerMenuStatus = !this.hamburgerMenuStatus;
+    // this.hamburgerMenuStatus = !this.hamburgerMenuStatus;
+    // console.log(this.hamburgerMenuStatus);
 
+    this.dataService.hambergerMenuStatus = !this.dataService.hambergerMenuStatus;
     // Passed message to parent component (layout component)
-    this.hanburgerMenuOpened.emit(this.hamburgerMenuStatus);
+    // this.hanburgerMenuOpened.emit(this.dataService.hambergerMenuStatus);
   }
 }

@@ -16,7 +16,6 @@ export class TimerService {
         if (this.checkApiStatusSub != null) {
             this.checkApiStatusSub.unsubscribe();
         }
-        console.log("Timer is", constants.CHECK_API_STATUS_DEALAY);
         this.checkApiStatusTimer = timer(1000, constants.CHECK_API_STATUS_DEALAY);
         this.checkApiStatusSub = this.checkApiStatusTimer.subscribe(val => {
             console.log('checkCardTimer');

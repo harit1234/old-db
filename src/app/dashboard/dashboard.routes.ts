@@ -56,26 +56,26 @@ export const dashboardRoutes: Routes = [
                 canActivate: [AuthGuard]
             },
             {
-                path: 'download', 
-                component: DownloadComponent, 
+                path: 'download',
+                component: DownloadComponent,
                 canActivate: [AuthGuard]
             },
             {
-                path: 'affiliate', 
-                component: AffiliateComponent, 
+                path: 'affiliate',
+                component: AffiliateComponent,
                 canActivate: [AuthGuard]
             },
             {
-                path: 'leaderboard', 
-                component: LeaderboardComponent, 
+                path: 'leaderboard',
+                component: LeaderboardComponent,
                 canActivate: [AuthGuard]
             }
         ]
 
     },
-    { 
-       path: 'page/:page',
-       component: PageComponent 
+    {
+        path: 'page/:page',
+        component: PageComponent
     },
-    
+
 ];

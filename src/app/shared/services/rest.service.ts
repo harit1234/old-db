@@ -3,14 +3,14 @@ import { Observable, Subject, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
-//import { JwtHelperService } from '@auth0/angular-jwt';
+// import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class RestService {
-  //jwtHelper = new JwtHelperService();
+  // jwtHelper = new JwtHelperService();
   private EQUAL = '=';
   private AMP = '&';
   private loginUrl = 'login';
@@ -120,7 +120,7 @@ export class RestService {
   }
 
   logout(data: any) {
-    return this.post_request(this.logoutUrl, data); 
+    return this.post_request(this.logoutUrl, data);
   }
   refreshToken() {
     const data = {};
@@ -153,13 +153,13 @@ export class RestService {
   getAccountBalance(data: any) {
     return this.post_request(this.accountBalanceUrl, data);
   }
-  
+
   getTradeHistory(data: any) {
     return this.post_request(this.tradeHistoryUrl, data);
   }
   getOrderHistory(data: any) {
     return this.post_request(this.orderHistoryUrl, data);
-  } 
+  }
 
   getApiStatus(data: any) {
     return this.post_request(this.apiStatusUrl, data);

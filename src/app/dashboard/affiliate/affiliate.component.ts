@@ -16,14 +16,14 @@ export class AffiliateComponent implements OnInit {
 
   ngOnInit() {
     setTimeout(() => this.dataService.loader = true);
-    this.restService.getReferralLink().subscribe( affiliateInfo => {
+    this.restService.getReferralLink().subscribe(affiliateInfo => {
       this.dataService.loader = false;
-      console.log("Affiliate info : ", affiliateInfo.data.affiliate_link);
+      console.log('Affiliate info : ', affiliateInfo.data.affiliate_link);
       this.affliliateLink = affiliateInfo.data.affiliate_link;
     });
   }
 
-  copyRefererLink(inputElement){
+  copyRefererLink(inputElement) {
     inputElement.select();
     document.execCommand('copy');
     inputElement.setSelectionRange(0, 0);

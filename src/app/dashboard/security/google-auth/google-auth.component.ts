@@ -14,11 +14,11 @@ export class GoogleAuthComponent implements OnInit {
   googleAuthFormGroup: FormGroup;
   submitted = false;
   error = '';
-  faCodeStatus:string;
-  secret:string;
-  gQrCode:string;
+  faCodeStatus: string;
+  secret: string;
+  gQrCode: string;
   formActive = false;
-  btnText='';
+  btnText = '';
   btnLblText: string;
   successMsg = '';
   constructor(
@@ -32,30 +32,30 @@ export class GoogleAuthComponent implements OnInit {
       twoFactorCode: ['', Validators.required]
     });
     setTimeout(() => this.dataService.loader = true);
-    this.restService.getgoogle2faStatus().subscribe( (statusInfo: any) => {
+    this.restService.getgoogle2faStatus().subscribe((statusInfo: any) => {
       console.log('Google 2fa status success', statusInfo);
 
       this.faCodeStatus = statusInfo.data.g2fa_status;
       this.gQrCode = statusInfo.data.g2fa_qrcode;
       this.secret = statusInfo.data.g2fa_secret;
       this.getBtnLbl(this.faCodeStatus);
-      
+
       this.dataService.loader = false;
     }, error => {
       console.log('Google 2fa status failed');
       console.log(error);
-    });  
+    });
 
   }
 
   getBtnLbl(faCodeStatus: string) {
-    
-    if(faCodeStatus == 'enabled') {
+
+    if (faCodeStatus === 'enabled') {
       this.btnText = 'lblDisable';
-    }else {
+    } else {
       this.btnText = 'lblEnable';
     }
-    this.translateService.get('googleAuth.'+this.btnText).subscribe( text => {
+    this.translateService.get('googleAuth.' + this.btnText).subscribe(text => {
       this.btnLblText = text;
     });
   }
@@ -69,13 +69,13 @@ export class GoogleAuthComponent implements OnInit {
     this.error = '';
     this.successMsg = '';
     console.log(this.googleAuthFormGroup);
-    if(this.googleAuthFormGroup.invalid) {
-      
+    if (this.googleAuthFormGroup.invalid) {
+
       console.log('Invalid');
       return;
     }
     let action = 'disabled';
-    if(this.btnText === 'lblEnable') {
+    if (this.btnText === 'lblEnable') {
       action = 'enabled';
     }
 
@@ -84,12 +84,12 @@ export class GoogleAuthComponent implements OnInit {
       'g2fa_status': action,
       'googleotp': this.formFields.twoFactorCode.value
     };
-    console.log("Submitted Data : " ,data);
+    console.log('Submitted Data : ', data);
     this.dataService.loader = true;
-    this.restService.setGoogle2fa(data).subscribe( (gAuthInfo: any) => {
-      
+    this.restService.setGoogle2fa(data).subscribe((gAuthInfo: any) => {
+
       console.log(gAuthInfo);
-      this.translateService.get('serverSuccess.'+gAuthInfo.data.code).subscribe( text => {
+      this.translateService.get('serverSuccess.' + gAuthInfo.data.code).subscribe(text => {
         this.successMsg = text;
       });
       this.resetGoogleAuthForm();
@@ -101,16 +101,16 @@ export class GoogleAuthComponent implements OnInit {
       console.log(error);
 
 
-    }); 
-    
+    });
+
   }
 
   /**
-   * Reseting the google auth form 
+   * Reseting the google auth form
    */
   resetGoogleAuthForm() {
-    
-    this.restService.getgoogle2faStatus().subscribe( (statusInfo: any) => {
+
+    this.restService.getgoogle2faStatus().subscribe((statusInfo: any) => {
       this.faCodeStatus = statusInfo.data.g2fa_status;
       this.gQrCode = statusInfo.data.g2fa_qrcode;
       this.secret = statusInfo.data.g2fa_secret;
