@@ -35,9 +35,12 @@ export class OrderHistoryComponent implements OnInit {
       { headerName: 'Order ID', field: 'orderId' },
       { headerName: 'Time', field: 'time' },
       { headerName: 'Symbol', field: 'symbol' },
+      { headerName: 'Type', field: 'type' },
       { headerName: 'Side', field: 'side' },
       { headerName: 'Price', field: 'price' },
-      { headerName: 'Qty', field: 'qty' }
+      { headerName: 'Qty', field: 'qty' },
+      { headerName: 'Filled', field: 'filled' },
+      { headerName: 'Status', field: 'status' }
     ];
   }
 
@@ -56,9 +59,12 @@ export class OrderHistoryComponent implements OnInit {
           orderId: element.ID,
           time: this.timetPipe.transform(element.InitTime),
           symbol: element.Symbol,
+          type: this.slicePipe.transform(element.Type, 3),
           side: this.slicePipe.transform(element.OrderSide, 3),
           price: price,
-          qty: this.qtyPipe.transform(element.OrigQty, this.dataService.instruments[element.Symbol])
+          qty: this.qtyPipe.transform(element.OrigQty, this.dataService.instruments[element.Symbol]),
+          filled: this.qtyPipe.transform(element.TotalFillQty, this.dataService.instruments[element.Symbol]),
+          status: this.slicePipe.transform(element.OrderState, 5)
         };
         this.rowData.push(rowElement);
       });
