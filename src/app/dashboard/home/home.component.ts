@@ -3,6 +3,7 @@ import { DataService } from '../../shared/services/data.service';
 import { RestService } from '../../shared/services/rest.service';
 import { MonetaryPipe } from '../../shared/pipes/monetary.pipe';
 import { constants } from '../../../constants';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-home',
@@ -18,14 +19,24 @@ export class HomeComponent implements OnInit {
   public gridApi;
   public gridColumnApi;
   public paginationPageSize = constants.PAGINATION_PAGE_SIZE;
+  public balanceText: string;
   constructor(
     public dataService: DataService,
     private restService: RestService,
-    private monentryPipe: MonetaryPipe) { }
+    private monentryPipe: MonetaryPipe,
+    private translateService: TranslateService) { }
 
   ngOnInit() {
+
+    this.translateService.get('langDashboardTexts.lblBalances').subscribe(text => {
+      this.balanceText = text;
+    });
+    this.translateService.onLangChange.subscribe((event: LangChangeEvent) => {
+        console.log('Lanugage Change Event', event.translations.langDashboardTexts.lblBalance);
+        this.balanceText = event.translations.langDashboardTexts.lblBalance;
+    });
     this.columnDefs = [
-      { headerName: 'Balance', field: 'balance' },
+      { headerName: this.balanceText, field: 'balance' },
       { headerName: 'Open P/L', field: 'openpl' },
       { headerName: 'P/L', field: 'pl' },
       { headerName: 'Net Asset Value', field: 'netAssetValue' },

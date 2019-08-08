@@ -5,6 +5,8 @@ import { Router, RouterStateSnapshot } from '@angular/router';
 import { TimerService } from './timer.service';
 import { InstrumentModel } from '../models/instrument-model';
 import { Dictionary } from '../models/dictionary';
+import { TranslateService } from '@ngx-translate/core';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -16,13 +18,15 @@ export class DataService {
   tokenRefreshing = false;
   hambergerMenuStatus = false;
   hamurgerLeftMenu = false;
+  selectedLanguage: string;
   public instruments: Dictionary<InstrumentModel>;
 
   constructor(
     private restService: RestService,
     private authService: AuthService,
     private router: Router,
-    private timerService: TimerService
+    private timerService: TimerService,
+    private translate: TranslateService
   ) { }
 
 
@@ -72,7 +76,7 @@ export class DataService {
   }
 
   /**
-   * This function gets all the instruments available to calculate the amount and qunty and price with denominators
+   * This function gets all the instruments available to calculate the amount, qty and price with denominators
    */
   getInstrument() {
     this.instruments = {};
@@ -83,11 +87,16 @@ export class DataService {
     };
     this.restService.getInstruments(data).subscribe((instrumentInfo: any) => {
       this.loader = false;
-      console.log('Instruments : ', JSON.stringify(instrumentInfo));
+      console.log('Instruments : ', JSON.stringify(instrumentInfo.instrument));
       if (instrumentInfo.instrument) {
-        instrumentInfo.instrument.forEach(instrument => {
-          this.instruments[instrument.Symbol] = instrument;
-        });
+
+        if (instrumentInfo.instrument instanceof Array) {
+          instrumentInfo.instrument.forEach(instrument => {
+            this.instruments[instrument.Symbol] = instrument;
+          });
+        }else {
+          this.instruments[instrumentInfo.instrument.Symbol] = instrumentInfo.instrument;
+        }
       }
 
     });
@@ -138,5 +147,12 @@ export class DataService {
   hideHambergurMenu() {
     this.hambergerMenuStatus = false;
     this.hamurgerLeftMenu = false;
+  }
+  changeLanguage(lang: string) {
+    console.log(lang);
+    localStorage.setItem('lang', lang);
+    this.translate.use(lang);
+    this.selectedLanguage = lang;
+
   }
 }

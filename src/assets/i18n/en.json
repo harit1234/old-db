@@ -1,24 +1,24 @@
 {
-  "common": {
+  "langCommon": {
     "lblLogin": "Log In",
     "lblRegister": "Register",
     "lblSubmit": "Submit"
   },  
-  "login": {
+  "langLogin": {
     "lblEmail": "Email",
     "lblPassword": "Password",
     "lblTwoFactorCode": "Two-Factor Code (if enabled)",
     "lblGoogleAuthPh": "Google Authenticator",
     "lblForgotTwoFDevice": "Forgot Password or Two-Factor Device?"
   },
-  "loginValidate": {
+  "langLoginValidate": {
     "valUserRequired": "Username is required!",
     "valUserEmail": "Please enter your valid username or email!",
     "valPassRequired": "Password is required!",
     "valPassMin": "Password should be minimum of {{length}} characters!",
     "valRobot": "Please confirm you are not a robot!"
   },
-  "register": {
+  "langRegister": {
     "lblConfirmPassword": "Confirm Password",
     "lblCountry": "Country of Residence",
     "lblFirstName": "First Name",
@@ -29,7 +29,7 @@
     "lblClickToChoose": "Click to choose a Country",
     "btnRegister": "Create My Account"
   },
-  "registerValidate": {
+  "langRegisterValidate": {
     "valEmailRequired": "Email is required!",
     "valRegEmailErr": "Please enter valid email address!",
     "valRegPassRequired": "Please enter your password!",
@@ -39,7 +39,7 @@
     "valRegCountry": "Please choose a country!",
     "valRegTerms": "Please choose terms of service!"
   },
-  "changePassword": {
+  "langChangePassword": {
     "lblChangeLoginPassword": "Change Login Password",
     "lblCurrentPassword": "Current Password",
     "lblPassword": "Password",
@@ -48,15 +48,15 @@
     "msgSuccess": "Your password was successfully updated!"
 
   },
-  "changePasswrodValidate": {
+  "langChangePasswrodValidate": {
     "valChCurrentPassRequired": "Please enter your current password!"
   },
-  "dashboardHeader": {
+  "langDashboardHeader": {
     "lblTrade": "Trade",
     "lblAccount": "Account",
     "lblDownload": "Download"
   },
-  "dashboardLeftMenu": {
+  "langDashboardLeftMenu": {
     "lblWallet": "Wallet",
     "lblBalances": "Balances",
     "lblDeposit": "Deposit",
@@ -64,11 +64,26 @@
     "lblAccPref": "Account & Preferences",
     "lblMyProfile": "My Profile",
     "lblSecurity": "Security",
+    "lblAffiliate": "Affiliate",
+    "lblLeaderBoard": "Leader Board",
     "lblHistory": "History",
     "lblTradeHist": "Trade History",
     "lblOrdHist": "Order History"
   },
-  "googleAuth": {
+  "langDashboardTexts": {
+    "lblSearch": "Search",
+    "lblShow": "Show",
+    "lblEntries": "entries",
+    "lblBalances": "Balances",
+    "lblWallet": "Wallet",
+    "lblBalance": "Balance",
+    "lblOpenPL": "Open P/L",
+    "lblPL": "P/L",
+    "lblNetAssetValue": "Net Asset Value",
+    "lblUsedMargin": "Used Margin",
+    "lblAvailableMargin": "Available Margin"
+  },
+  "langGoogleAuth": {
     "lblEnable": "Enable",
     "lblDisable": "Disable",
     "lblGAuth": "Google Auth (2FA)",
@@ -77,11 +92,11 @@
     "lbl2FCode": "Two-Factor Code",
     "msgSuccess": "You Google auth (2FA) has been enabled successfully."
   },
-  "googleAuthVal": {
+  "langGoogleAuthVal": {
     "val2FCode": "Please enter two factor code!",
     "valLength": "The length of the two factor code should be 6."
   },
-  "serverError": {
+  "langServerError": {
     "1026": "The email has already been taken!",
     "2011": "Could not create token!",
     "2012": "Your account is not configured properly. Our support team is looking into it!",
@@ -110,7 +125,7 @@
     "3002": "You must be login to access this API!"
 
   },
-  "serverSuccess": {
+  "langServerSuccess": {
     "2046": "You Google auth (2FA) has been enabled successfully!",
     "2047": "You Google auth (2FA) has been disabled successfully!",
     "2053": "Your password has been changed successfully!"

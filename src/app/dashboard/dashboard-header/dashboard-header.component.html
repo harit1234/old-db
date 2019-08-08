@@ -9,9 +9,9 @@
     </div>
     <div class="navbar" *ngIf="authService.isLogged">
       <ul>
-        <li><a href="/trade/">{{ 'dashboardHeader.lblTrade' | translate }}</a></li>
-        <li routerLinkActive="active"><a  routerLink="/dashboard/account" >{{ 'dashboardHeader.lblAccount' | translate }}</a></li>
-        <li routerLinkActive="active"><a routerLink="/dashboard/download">{{ 'dashboardHeader.lblDownload' | translate }}</a></li>
+        <li><a href="/trade/">{{ 'langDashboardHeader.lblTrade' | translate }}</a></li>
+        <li routerLinkActive="active"><a  routerLink="/dashboard/account" >{{ 'langDashboardHeader.lblAccount' | translate }}</a></li>
+        <li routerLinkActive="active"><a routerLink="/dashboard/download">{{ 'langDashboardHeader.lblDownload' | translate }}</a></li>
       </ul>
     </div>
     <div class="header-right">
@@ -36,9 +36,16 @@
       <div class="translator"> <a href="javascript:;"></a>
         <div class="translator-dropdown">
           <h3>Website Translator</h3>
-          <div class=""><img src="assets/img/lang.png" alt=""></div>
-            <p>Translations by Google is provided for convenience and is not verified contextually. Please refer to original for accuracy.</p>
+          <div class="">
+            <ul>
+              <li
+              [ngClass]="{'active-lang': dataService.selectedLanguage == language.code}" 
+              *ngFor="let language of languages" 
+              (click)="dataService.changeLanguage(language.code)">{{language.name}}</li>
+            </ul>
           </div>
-        </div>
+            <!--p>Translations by Google is provided for convenience and is not verified contextually. Please refer to original for accuracy.</p-->
+          </div>
+      </div>
       </div>
   </header>

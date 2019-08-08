@@ -2,31 +2,31 @@
   <div class="row">
     <div class="col-sm-12">
       <div class="page-title">
-        <h1>Balances</h1>
+        <h1>{{ 'langDashboardTexts.lblBalances' | translate }}</h1>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item">Wallet</li>
-          <li class="breadcrumb-item active">Balances</li>
+          <li class="breadcrumb-item">{{ 'langDashboardTexts.lblWallet' | translate }}</li>
+          <li class="breadcrumb-item active">{{ 'langDashboardTexts.lblBalances' | translate }}</li>
         </ol>
       </div>
     </div>
   </div>
   <div class="widget exchange-account-balances">
       <div class="widget-header">
-          <h4>Balances</h4>
+          <h4>{{ 'langDashboardTexts.lblBalances' | translate }}</h4>
       </div>
         <div class="row mb-2 form-inline">        
         <div class="col-sm-6">
-          Show
+          {{ 'langDashboardTexts.lblShow' | translate }}
           <select class="form-control form-control-sm" (change)="onPageSizeChange($event)">
             <option value="10" selected>10</option>
             <option value="25">25</option>
             <option value="50">50</option>
             <option value="100">100</option>
           </select>
-          entries
+          {{ 'langDashboardTexts.lblEntries' | translate }}
       </div>
       <div class="col-sm-6 text-right">
-          Search
+        {{ 'langDashboardTexts.lblSearch' | translate }}
           <input type="text" name="search" class="form-control form-control-sm" (keyup)="onFilterTextBoxChanged()" [(ngModel)]="searchValue">
       </div>    
       </div>

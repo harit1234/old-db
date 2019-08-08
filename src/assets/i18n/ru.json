@@ -1,0 +1,134 @@
+{
+  "langCommon": {
+    "lblLogin": "Voyti",
+    "lblRegister": "Zaregistrirovat'sya",
+    "lblSubmit": "Otpravit'"
+  },
+  "langLogin": {
+    "lblEmail": "Elektronnaya pochta",
+    "lblPassword": "Parol'",
+    "lblTwoFactorCode": "Dvukhfaktornyy kod (yesli vklyuchen)",
+    "lblGoogleAuthPh": "Autentifikator Google",
+    "lblForgotTwoFDevice": "Zabyli parol' ili dvukhfaktornoye ustroystvo?"
+  },
+  "langLoginValidate": {
+    "valUserRequired": "Trebuyetsya imya pol'zovatelya!",
+    "valUserEmail": "Pozhaluysta, vvedite vashe deystvitel'noye imya pol'zovatelya ili adres elektronnoy pochty!",
+    "valPassRequired": "Trebuyetsya parol'!",
+    "valPassMin": "Parol' dolzhen soderzhat' ne meneye {{length}} simvolov!",
+    "valRobot": "Pozhaluysta, podtverdite, chto vy ne robot!"
+  },
+  "langRegister": {
+    "lblConfirmPassword": "Podtverdit' parol'",
+    "lblCountry": "Strana prozhivaniya",
+    "lblFirstName": "Imya",
+    "lblLastName": "Familiya",
+    "lblOptional": "Neobyazatel'no",
+    "lblTerms": "YA prinimayu",
+    "lblTermsOfService": "Usloviya predostavleniya uslug.",
+    "lblClickToChoose": "Nazhmite, chtoby vybrat' stranu",
+    "btnRegister": "Sozdat' moyu uchetnuyu zapis'"
+  },
+  "langRegisterValidate": {
+    "valEmailRequired": "Trebuyetsya elektronnaya pochta!",
+    "valRegEmailErr": "Pozhaluysta, vvedite deystvitel'nyy adres elektronnoy pochty!",
+    "valRegPassRequired": "Pozhaluysta, vvedite vash parol'!",
+    "valRegPassChar": "Vash parol' dolzhen soderzhat' khotya by odnu strochnuyu bukvu, odnu zaglavnuyu bukvu i odnu tsifru!",
+    "valRegConPassRequired": "Pozhaluysta, vvedite parol' dlya podtverzhdeniya!",
+    "valRegPassMatchErr": "Parol' sovpadayet!",
+    "valRegCountry": "Pozhaluysta, vyberite stranu!",
+    "valRegTerms": "Pozhaluysta, vyberite usloviya obsluzhivaniya!"
+  },
+  "langChangePassword": {
+    "lblChangeLoginPassword": "Izmenit' parol' dlya vkhoda",
+    "lblCurrentPassword": "Tekushchiy parol'",
+    "lblPassword": "Parol'",
+    "lblConfirmPassword": "Podtverdit' parol'",
+    "btnUpdatePassword": "Obnovit' parol'",
+    "msgSuccess": "Vash parol' byl uspeshno obnovlen!"
+
+  },
+  "langChangePasswrodValidate": {
+    "valChCurrentPassRequired": "Pozhaluysta, vvedite vash tekushchiy parol'!"
+  },
+  "langDashboardHeader": {
+    "lblTrade": "Torgovlya",
+    "lblAccount": "Akkaunt",
+    "lblDownload": "Skachat'"
+  },
+  "langDashboardLeftMenu": {
+    "lblWallet": "Koshelek",
+    "lblBalances": "Balansy",
+    "lblDeposit": "Depozit",
+    "lblWithdraw": "Snyat'",
+    "lblAccPref": "Akkaunt i nastroyki",
+    "lblMyProfile": "Moy profil'",
+    "lblSecurity": "Bezopasnost'",
+    "lblAffiliate": "филиал",
+    "lblLeaderBoard": "Доска лидеров",
+    "lblHistory": "Istoriya",
+    "lblTradeHist": "Istoriya torgovli",
+    "lblOrdHist": "Istoriya zakazov"
+  },
+  "langDashboardTexts": {
+    "lblSearch": "Поиск",
+    "lblShow": "шоу",
+    "lblEntries": "записи",
+    "lblBalances": "Балансы",
+    "lblWallet": "Кошелек",
+    "lblBalance": "Баланс",
+    "lblOpenPL": "Open P / L",
+    "lblPL": "P / L",
+    "lblNetAssetValue": "Чистая стоимость активов",
+    "lblUsedMargin": "Используемая маржа",
+    "lblAvailableMargin": "Доступная маржа"
+  },
+  "langGoogleAuth": {
+    "lblEnable": "Vklyuchit'",
+    "lblDisable": "Disable",
+    "lblGAuth": "Google Auth (2FA)",
+    "lblSecret": "Secret",
+    "lblScan": "Skanirovat' eto s pomoshch'yu prilozheniya Google Authenticator.",
+    "lbl2FCode": "Dvukhfaktornyy kod",
+    "msgSuccess": "Vash Google auth (2FA) uspeshno vklyuchen"
+  },
+  "langGoogleAuthVal": {
+    "val2FCode": "Pozhaluysta, vvedite dvukhfaktornyy kod!",
+    "valLength": "Dlina dvukhfaktornogo koda dolzhna byt' 6"
+  },
+  "langServerError": {
+    "1026": "Pis'mo uzhe zanyato!",
+    "2011": "Ne udalos' sozdat' token!",
+    "2012": "Vash akkaunt ne nastroyen dolzhnym obrazom. Nasha sluzhba podderzhki izuchayet yego!",
+    "2013": "Vam neobkhodimo aktivirovat' svoyu uchetnuyu zapis'. My otpravili vam elektronnoye pis'mo dlya aktivatsii uchetnoy zapisi, prover'te svoyu elektronnuyu pochtu.",
+    "2014": "Vash akkaunt yeshche ne aktivirovan!",
+    "2015": "Vash akkaunt neaktiven, pozhaluysta, svyazhites' s nashey sluzhboy podderzhki!",
+    "2016": "Kod Google Authenticator neveren ili ustarel!",
+    "2017": "Nevernoye imya pol'zovatelya ili parol'!",
+    "2041": "Kod Google Authenticator neveren ili ustarel!",
+    "2042": "Vy dolzhny voyti v sistemu, chtoby poluchit' status Google Auth (2FA)!",
+    "2043": "Znacheniye polya statusa Google 2fa dolzhno byt' libo vklyucheno, libo otklyucheno!",
+    "2044": "Znacheniye polya statusa Google 2fa dolzhno byt' libo vklyucheno, libo otklyucheno!",
+    "2045": "Vy dolzhny voyti v sistemu, chtoby obnovit' parametr bezopasnosti Google auth (2FA)!",
+    "2051": "Tekushchiy parol' ne sovpadayet!",
+    "2052": "Novyy parol' ne mozhet sovpadat' s vashim tekushchim parolem. Pozhaluysta, vyberite drugoy parol'!",
+    "2054": "Vy dolzhny voyti v sistemu, chtoby obnovit' optsiyu bezopasnosti Google auth (2FA).",
+    "2061": "Vasha uchetnaya zapis' uzhe aktivirovana!",
+    "2063": "Ssylka dlya aktivatsii uchetnoy zapisi nedeystvitel'na ili ustarela!",
+    "2064": "Eta ssylka dlya aktivatsii ustarela ili uzhe byla ispol'zovana!",
+    "2071": "Ssylka dlya sbrosa parolya nedeystvitel'na ili ustarela!",
+    "2072": "Srok deystviya ssylki dlya sbrosa parolya istek ili uzhe ispol'zovalsya!",
+    "2082": "My ne mozhem nayti akkaunt, zaregistrirovannyy s etim adresom elektronnoy pochty!",
+    "2091": "Vy dolzhny voyti v sistemu, chtoby poluchit' partnerskuyu ssylku!",
+    "2101": "Token autentifikatsii nedeystvitelen!",
+    "3001": "Chto-to poshlo ne tak, poprobuyte yeshche raz!",
+    "3002": "Vy dolzhny voyti v sistemu, chtoby poluchit' dostup k etomu API!"
+
+  },
+  "langServerSuccess": {
+    "2046": "Vash Google auth (2FA) uspeshno vklyuchen!",
+    "2047": "Vash Google auth (2FA) byl uspeshno otklyuchen!",
+    "2053": "Vash parol' byl uspeshno izmenen!"
+  }
+}
+

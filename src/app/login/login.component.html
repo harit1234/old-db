@@ -8,8 +8,8 @@
           <div class="col-sm-12">
             <div class="frm-outer">
               <ul class="frm-tabs">
-                <li><a href="javascript:;" class="active">{{ 'common.lblLogin' | translate }}</a></li>
-                <li><a routerLink="/register">{{ 'common.lblRegister' | translate }}</a></li>
+                <li><a href="javascript:;" class="active">{{ 'langCommon.lblLogin' | translate }}</a></li>
+                <li><a routerLink="/register">{{ 'langCommon.lblRegister' | translate }}</a></li>
               </ul>
               <div class="frm-body">
                 <form [formGroup]="loginFormGroup" (ngSubmit)="onSubmit();">
@@ -18,7 +18,7 @@
                   </div>
                   <div class="login-signup-heading">Register Separately for TestNet and TokenSale</div>
                   <div class="form-group input-ico email">
-                    <label for="emailAddress" class="form-label">{{ 'login.lblEmail' | translate }}</label>
+                    <label for="emailAddress" class="form-label">{{ 'langLogin.lblEmail' | translate }}</label>
                     <input 
                     class="form-input"
                     formControlName="email"
@@ -31,15 +31,15 @@
                             </div-->
                     <div *ngIf="submitted && formFields.email.errors" class="form-valid-error">
                       <div *ngIf="formFields.email.errors.email" class="error-msg">
-                          {{ 'loginValidate.valUserEmail' | translate }}
+                          {{ 'langLoginValidate.valUserEmail' | translate }}
                       </div>
                       <div *ngIf="formFields.email.errors.required" class="error-msg">
-                          {{ 'loginValidate.valUserRequired' | translate }}
+                          {{ 'langLoginValidate.valUserRequired' | translate }}
                       </div>
                     </div>
                   </div>
                   <div class="form-group input-ico pwd">
-                    <label for="password" class="form-label">{{ 'login.lblPassword' | translate }}</label>
+                    <label for="password" class="form-label">{{ 'langLogin.lblPassword' | translate }}</label>
                     <input
                     class="form-input"
                     formControlName="password"
@@ -48,17 +48,17 @@
                     maxlength="20"
                     >
                     <div *ngIf="submitted && formFields.password.errors" class="form-valid-error">
-                      <div *ngIf="formFields.password.errors.required">{{ 'loginValidate.valPassRequired' | translate }}</div>
-                      <div *ngIf="formFields.password.errors.minlength">{{ 'loginValidate.valPassMin' | translate:{'length': formFields.password.errors.minlength.requiredLength} }}</div>
+                      <div *ngIf="formFields.password.errors.required">{{ 'langLoginValidate.valPassRequired' | translate }}</div>
+                      <div *ngIf="formFields.password.errors.minlength">{{ 'langLoginValidate.valPassMin' | translate:{'length': formFields.password.errors.minlength.requiredLength} }}</div>
                     </div>
                   </div>
                   <div class="form-group input-ico ga">
-                    <label class="form-label">{{ 'login.lblTwoFactorCode' | translate }}</label>
+                    <label class="form-label">{{ 'langLogin.lblTwoFactorCode' | translate }}</label>
                     <input 
                     type="text" 
                     formControlName="factorCode" 
                     class="form-input" 
-                    placeholder="{{'login.lblGoogleAuthPh' | translate}}" 
+                    placeholder="{{'langLogin.lblGoogleAuthPh' | translate}}" 
                     maxlength="6"
                     >
                   </div>
@@ -71,15 +71,15 @@
                       class="g-recaptcha">
                     </ngx-recaptcha2>
                     <div *ngIf="submitted && formFields.recaptcha.errors" class="form-valid-error">
-                      <div *ngIf="formFields.recaptcha.errors.required">{{ 'loginValidate.valRobot' | translate }}</div>
+                      <div *ngIf="formFields.recaptcha.errors.required">{{ 'langLoginValidate.valRobot' | translate }}</div>
                     </div>  
                   </div>
                   <div class="text-center">
-                    <button class="form-button login-btn" type="submit">{{ 'common.lblLogin' | translate }}</button>
+                    <button class="form-button login-btn" type="submit">{{ 'langCommon.lblLogin' | translate }}</button>
                   </div>
                   <div class="text-center m-t-15"><a href="/trade/" class="green-btn">View Exchange</a></div>
                   <div class="frm-footer">
-                    <div class="sign"><a routerLink="/forgot">{{ 'login.lblForgotTwoFDevice' | translate}}</a></div>
+                    <div class="sign"><a routerLink="/forgot">{{ 'langLogin.lblForgotTwoFDevice' | translate}}</a></div>
                   </div>
                 </form>
               </div>

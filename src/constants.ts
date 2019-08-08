@@ -17,4 +17,9 @@ export const constants = {
           'Value': 8
         },
       },
+  WEBSITE_LANGUAGE: [
+    {code :'en', name: 'English'},
+    {code :'ru', name: 'Russian'},
+    {code :'sv', name: 'Swedish'}
+  ]    
 };

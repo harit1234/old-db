@@ -47,8 +47,25 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    localStorage.setItem('lang', 'en');
-    this.translate.use('en');
+    
+    //console.log("Language ddddd : ", document.documentElement.lang);
+    // var browser_lang = window.navigator.language || window.navigator.userAgent; 
+    // if (browser_lang === 'en-US') {
+    //   console.log("language is english");
+    // }
+
+    const lang = localStorage.getItem('lang');
+    if(lang) {
+
+      this.dataService.selectedLanguage = lang;
+    
+    }else {
+      
+      this.dataService.selectedLanguage = 'en';
+      localStorage.setItem('lang', this.dataService.selectedLanguage);
+      
+    }
+    this.translate.use(this.dataService.selectedLanguage);
 
     if (this.authService.isAuthenticated()) {
       this.authService.setState(AuthState.LOGGED_IN);

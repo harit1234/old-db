@@ -1,21 +1,133 @@
 {
-  "common": {
-    "lblLogin": "Log In sv",
-    "lblRegister": "Register sv"
-  },  
-  "login": {
-    "lblEmail": "Emailsv",
-    "lblPassword": "Passwordsv",
-    "lblTwoFactorCode": "Two-Factor Code (if enabled)",
-    "lblGoogleAuthPh": "Google Authenticator",
-    "lblForgotTwoFDevice": "Forgot Password or Two-Factor Device?"
+  "langCommon": {
+    "lblLogin": "Logga in",
+    "lblRegister": "Registrera",
+    "lblSubmit": "Skicka"
   },
-  "loginValidate": {
-    "valUserRequired": "Username is required!",
-    "valUserEmail": "Please enter your valid username or email!",
-    "valPassRequired": "Password is required!",
-    "valPassMin": "Password should be minimum of {{length}} characters!",
-    "valRobot": "Please confirm you are not a robot!"
+  "langLogin": {
+    "lblEmail": "Email",
+    "lblPassword": "Lösenord",
+    "lblTwoFactorCode": "Tvåfaktorkod (om den är aktiverad)",
+    "lblGoogleAuthPh": "Google Authenticator",
+    "lblForgotTwoFDevice": "Glömt lösenord eller tvåfaktorer?"
+  },
+  "langLoginValidate": {
+    "valUserRequired": "Användarnamn krävs!",
+    "valUserEmail": "Vänligen ange ditt giltiga användarnamn eller e-post!",
+    "valPassRequired": "Lösenord krävs!",
+    "valPassMin": "Lösenord bör vara minst {{length}} tecken!",
+    "valRobot": "Bekräfta att du inte är en robot!"
+  },
+  "langRegister": {
+    "lblConfirmPassword": "Bekräfta lösenord",
+    "lblCountry": "Bostadsland",
+    "lblFirstName": "Förnamn",
+    "lblLastName": "Efternamn",
+    "lblOptional": "Valfritt",
+    "lblTerms": "Jag accepterar",
+    "lblTermsOfService": "Användarvillkor.",
+    "lblClickToChoose": "Klicka för att välja ett land",
+    "btnRegister": "Skapa mitt konto"
+  },
+  "langRegisterValidate": {
+    "valEmailRequired": "E-post krävs!",
+    "valRegEmailErr": "Vänligen ange giltig e-postadress!",
+    "valRegPassRequired": "Vänligen ange ditt lösenord!",
+    "valRegPassChar": "Ditt lösenord måste innehålla minst en liten bokstav, en stor bokstav och ett nummer!",
+    "valRegConPassRequired": "Vänligen ange bekräfta lösenord!",
+    "valRegPassMatchErr": "Password mush match!",
+    "valRegCountry": "Vänligen välj ett land!",
+    "valRegTerms": "Vänligen välj användarvillkor!"
+  },
+  "langChangePassword": {
+    "lblChangeLoginPassword": "Ändra inloggnings lösenord",
+    "lblCurrentPassword": "Nuvarande lösenord",
+    "lblPassword": "Lösenord",
+    "lblConfirmPassword": "Bekräfta lösenord",
+    "btnUpdatePassword": "Uppdatera lösenord",
+    "msgSuccess": "Ditt lösenord har uppdaterats!"
 
+  },
+  "langChangePasswrodValidate": {
+    "valChCurrentPassRequired": "Vänligen ange ditt nuvarande lösenord!"
+  },
+  "langDashboardHeader": {
+    "lblTrade": "Trade",
+    "lblAccount": "Konto",
+    "lblDownload": "Download"
+  },
+  "langDashboardLeftMenu": {
+    "lblWallet": "Plånbok",
+    "lblBalances": "Balanser",
+    "lblDeposit": "Insättning",
+    "lblWithdraw": "Dra ut",
+    "lblAccPref": "Konto & Inställningar",
+    "lblMyProfile": "Min profil",
+    "lblSecurity": "Säkerhet",
+    "lblAffiliate": "Dotterbolag",
+    "lblLeaderBoard": "Leader Board",
+    "lblHistory": "History",
+    "lblTradeHist": "Handelshistoria",
+    "lblOrdHist": "Beställningshistorik"
+  },
+  "langDashboardTexts": {
+    "lblSearch": "Sök",
+    "lblShow": "Show",
+    "lblEntries": "anteckningar",
+    "lblBalances": "Balanser",
+    "lblWallet": "Plånbok",
+    "lblBalance": "Balans",
+    "lblOpenPL": "Öppna P / L",
+    "lblPL": "P / L",
+    "lblNetAssetValue": "Nettotillgångsvärde",
+    "lblUsedMargin": "Used Margin",
+    "lblAvailableMargin": "Tillgänglig marginal"
+  },
+  "langGoogleAuth": {
+    "lblEnable": "Aktivera",
+    "lblDisable": "Inaktivera",
+    "lblGAuth": "Google Auth (2FA)",
+    "lblSecret": "Secret",
+    "lblScan": "Skanna detta med Google Authenticator-appen.",
+    "lbl2FCode": "Tvåfaktorkod",
+    "msgSuccess": "Du Google Auth (2FA) har aktiverats framgångsrikt."
+  },
+  "langGoogleAuthVal": {
+    "val2FCode": "Vänligen ange tvåfaktorkod!",
+    "valLength": "Längden på den tvåfaktorkoden ska vara 6."
+  },
+  "langServerError": {
+    "1026": "E-postmeddelandet har redan tagits!",
+    "2011": "Kunde inte skapa token!",
+    "2012": "Ditt konto är inte konfigurerat korrekt. Vårt supportteam ser det!",
+    "2013": "Du måste aktivera ditt konto. Vi har skickat ett e-postkonto till ditt konto, kolla din e-postadress.",
+    "2014": "Ditt konto är inte aktiverat än!",
+    "2015": "Ditt konto är inaktivt, var vänlig kontakta vår supportteam!",
+    "2016": "Google Authenticator-koden är felaktig eller har gått ut!",
+    "2017": "Ogiltigt användarnamn eller lösenord!",
+    "2041": "Google Authenticator-koden är felaktig eller har gått ut!",
+    "2042": "Du måste logga in för att få Google Auth (2FA) status!",
+    "2043": "Värdet för Google 2fa-statusfältet ska antingen vara aktiverat eller inaktiverat!",
+    "2044": "Värdet för Google 2fa-statusfältet ska antingen vara aktiverat eller inaktiverat!",
+    "2045": "Du måste logga in för att uppdatera Google Auth (2FA) säkerhetsalternativ!",
+    "2051": "Nuvarande lösenord matchar inte!",
+    "2052": "Nytt lösenord kan inte vara samma som ditt nuvarande lösenord. Var god välj ett annat lösenord!",
+    "2054": "Du måste vara inloggad för att uppdatera Google Auth (2FA) säkerhetsalternativ.",
+    "2061": "Ditt konto är redan aktiverat!",
+    "2063": "Kontoaktiveringslänk är ogiltigt eller utgått!",
+    "2064": "Den här aktiveringslänken har gått ut eller har redan använts!",
+    "2071": "Återställ lösenordslänk är ogiltig eller utgått!",
+    "2072": "Den här länken för återställning av lösenord är utgått eller har redan använts!",
+    "2082": "Vi kan inte hitta ett konto registrerat med den e-postadressen!",
+    "2091": "Du måste vara inloggad för att få affiliate länk!",
+    "2101": "Autotoken är ogiltig!",
+    "3001": "Något gick fel, var god försök igen!",
+    "3002": "Du måste vara inloggad för att komma åt detta API!"
+
+  },
+  "langServerSuccess": {
+    "2046": "Du Google Auth (2FA) har blivit aktiverad!",
+    "2047": "Du Google Auth (2FA) har blivit avstängd med framgång!",
+    "2053": "Ditt lösenord har ändrats!"
   }
 }

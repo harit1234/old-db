@@ -58,6 +58,24 @@
     from {top: -100px;}
     to {top:15px !important;}
 }
+.translator-dropdown ul {
+    background-color:#eee ;   
+    display: flex;
+    flex-direction: column;
+    
+}
+.translator-dropdown ul li{ 
+    padding: 5px 10px;
+    cursor:pointer;
+    color: #000;    
+}
+.translator-dropdown ul li:not(:first-child) {
+    border-top:1px solid rgba(0,0,0,.5);
+}
+.translator-dropdown ul li.active-lang {
+    background-color:  #0278e1;
+    color:#fff;
+}
 @media (max-width: 992px) {
     .header,
     .sticky-header.header {

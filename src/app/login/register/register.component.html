@@ -8,8 +8,8 @@
           <div class="col-sm-12">
             <div class="frm-outer">
               <ul class="frm-tabs">
-                <li><a routerLink="/login">{{ 'common.lblLogin' | translate }}</a></li>
-                <li><a href="javascript:;" class="active">{{ 'common.lblRegister' | translate }}</a></li>
+                <li><a routerLink="/login">{{ 'langCommon.lblLogin' | translate }}</a></li>
+                <li><a href="javascript:;" class="active">{{ 'langCommon.lblRegister' | translate }}</a></li>
               </ul>
               <div class="frm-body signin-wd">
                   <form [formGroup]="registerFormGroup" (ngSubmit)="onSubmit();">
@@ -18,7 +18,7 @@
                   </div>  
                   <div class="login-signup-heading">Register Separately for TestNet and TokenSale</div>                
                   <div class="form-group input-ico email">
-                    <label for="emailAddress" class="form-label">{{ 'login.lblEmail' | translate }}</label>
+                    <label for="emailAddress" class="form-label">{{ 'langLogin.lblEmail' | translate }}</label>
                     <input
                     formControlName="email" 
                     type="email" 
@@ -28,15 +28,15 @@
                     >
 					          <div *ngIf="submitted && formFields.email.errors" class="form-valid-error">
                         <div *ngIf="formFields.email.errors.email" class="error-msg">
-                            {{ 'registerValidate.valRegEmailErr' | translate }}
+                            {{ 'langRegisterValidate.valRegEmailErr' | translate }}
                         </div>
                         <div *ngIf="formFields.email.errors.required" class="error-msg">
-                            {{ 'registerValidate.valEmailRequired' | translate }}
+                            {{ 'langRegisterValidate.valEmailRequired' | translate }}
                         </div>
                     </div>
                   </div>
                   <div class="form-group input-ico pwd">
-                    <label for="password" class="form-label">{{ 'login.lblPassword' | translate }}</label>
+                    <label for="password" class="form-label">{{ 'langLogin.lblPassword' | translate }}</label>
                     <input
                     formControlName="password" 
                     type="password" 
@@ -49,18 +49,18 @@
                     >
 					          <div *ngIf="submitted && formFields.password.errors" class="form-valid-error">
                       <div *ngIf="formFields.password.errors.required" class="error-msg">
-                        {{ 'registerValidate.valRegPassRequired' | translate }}
+                        {{ 'langRegisterValidate.valRegPassRequired' | translate }}
                       </div>
                       <div *ngIf="formFields.password.errors.minlength" class="error-msg">
-                          {{ 'loginValidate.valPassMin' | translate:{'length': formFields.password.errors.minlength.requiredLength} }}
+                          {{ 'langLoginValidate.valPassMin' | translate:{'length': formFields.password.errors.minlength.requiredLength} }}
                       </div>
                       <div *ngIf="formFields.password.errors.pattern && !formFields.password.errors.minlength" class="error-msg">
-                          {{ 'registerValidate.valRegPassChar' | translate }}
+                          {{ 'langRegisterValidate.valRegPassChar' | translate }}
                       </div>
                     </div>
                   </div>
                   <div class="form-group input-ico pwd">
-                    <label for="password" class="form-label">{{ 'register.lblConfirmPassword' | translate }}</label>
+                    <label for="password" class="form-label">{{ 'langRegister.lblConfirmPassword' | translate }}</label>
                     <input
                     formControlName="confirmPassword" 
                     type="password" 
@@ -72,15 +72,15 @@
                     >
 					          <div *ngIf="submitted && formFields.confirmPassword.errors" class="form-valid-error">
                       <div *ngIf="formFields.confirmPassword.errors.required" class="error-msg">
-                          {{ 'registerValidate.valRegConPassRequired' | translate }}
+                          {{ 'langRegisterValidate.valRegConPassRequired' | translate }}
                       </div>
                       <div *ngIf="formFields.confirmPassword.errors.mustMatch" class="error-msg">
-                          {{ 'registerValidate.valRegPassMatchErr' | translate }}
+                          {{ 'langRegisterValidate.valRegPassMatchErr' | translate }}
                       </div>
                     </div>
                   </div>
                   <div class="form-group input-ico globe">
-                    <label for="countrySelector" class="form-label">{{ 'register.lblCountry' | translate }}</label>
+                    <label for="countrySelector" class="form-label">{{ 'langRegister.lblCountry' | translate }}</label>
 					          <div class="select-wrap">
                       <select 
                       formControlName="country"
@@ -88,18 +88,18 @@
                       class="form-input"
                       [ngClass]="{'is-invalid': submitted && formFields.country.errors}" 
                       >
-                        <option value="" selected="">{{ 'register.lblClickToChoose' | translate }}</option>
+                        <option value="" selected="">{{ 'langRegister.lblClickToChoose' | translate }}</option>
                         <option *ngFor="let country of dataService.countryList" value="{{country.country_id}}">{{ country.name }}</option>
                       </select>
                       <div *ngIf="submitted && formFields.country.errors" class="form-valid-error">
                           <div *ngIf="formFields.country.errors.required" class="error-msg">
-                            {{ 'registerValidate.valRegCountry' | translate}}
+                            {{ 'langRegisterValidate.valRegCountry' | translate}}
                           </div>
                         </div>
                     </div>
 				          </div>
                   <div class="form-group input-ico user">
-                    <label for="username" class="form-label">{{ 'register.lblFirstName' | translate }} <span>({{ 'register.lblOptional' | translate }})</span></label>
+                    <label for="username" class="form-label">{{ 'langRegister.lblFirstName' | translate }} <span>({{ 'langRegister.lblOptional' | translate }})</span></label>
                     <input
                     formControlName="firstName" 
                     type="text" 
@@ -109,7 +109,7 @@
                     >
 					        </div>
                   <div class="form-group input-ico user">
-                      <label for="username" class="form-label">{{ 'register.lblLastName' | translate }} <span>({{ 'register.lblOptional' | translate }})</span></label>
+                      <label for="username" class="form-label">{{ 'langRegister.lblLastName' | translate }} <span>({{ 'langRegister.lblOptional' | translate }})</span></label>
                       <input
                       formControlName="lastName" 
                       type="text" 
@@ -127,10 +127,10 @@
                         id="checkbox1.1">
                         <label for="checkbox1.1"><i></i></label>
                       </div>
-                      <div class="label-control">{{ 'register.lblTerms' | translate }} <a target="_blank" routerLink="/page/terms">{{ 'register.lblTermsOfService' | translate }}</a></div>
+                      <div class="label-control">{{ 'langRegister.lblTerms' | translate }} <a target="_blank" routerLink="/page/terms">{{ 'langRegister.lblTermsOfService' | translate }}</a></div>
                       <div *ngIf="submitted && formFields.terms.errors" class="form-valid-error">
                           <div *ngIf="formFields.terms.errors.required" class="error-msg">
-                              {{ 'registerValidate.valRegTerms' | translate}}
+                              {{ 'langRegisterValidate.valRegTerms' | translate}}
                           </div>
                       </div>
                     </div>
@@ -144,11 +144,11 @@
                       class="g-recaptcha">
                     </ngx-recaptcha2>
                     <div *ngIf="submitted && formFields.recaptcha.errors" class="form-valid-error">
-                      <div *ngIf="formFields.recaptcha.errors.required">{{ 'loginValidate.valRobot' | translate }}</div>
+                      <div *ngIf="formFields.recaptcha.errors.required">{{ 'langLoginValidate.valRobot' | translate }}</div>
                     </div>  
                   </div>
                   <div class="text-center">
-                    <button class="form-button create-account">{{ 'register.btnRegister' | translate }}</button>
+                    <button class="form-button create-account">{{ 'langRegister.btnRegister' | translate }}</button>
                   </div>
                   <div class="text-center m-t-15"><a href="/trade/" class="green-btn">View Exchange</a></div>
                 </form>

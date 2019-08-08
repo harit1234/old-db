@@ -6,17 +6,17 @@
           <span class="icon">
             <i class="fa fa-wallet"></i>
           </span>
-          <span>{{ 'dashboardLeftMenu.lblWallet' | translate }}</span>
+          <span>{{ 'langDashboardLeftMenu.lblWallet' | translate }}</span>
         </a>
         <ul class="collapse in" [ngStyle]="{'display': walletSlide? 'block':'none'}">
           <li>
-            <a routerLink="/dashboard/balances" routerLinkActive="active">{{ 'dashboardLeftMenu.lblBalances' | translate }}</a>
+            <a routerLink="/dashboard/balances" routerLinkActive="active">{{ 'langDashboardLeftMenu.lblBalances' | translate }}</a>
           </li>
           <li>
-            <a routerLink="/dashboard/deposits" routerLinkActive="active">{{ 'dashboardLeftMenu.lblDeposit' | translate }}</a>
+            <a routerLink="/dashboard/deposits" routerLinkActive="active">{{ 'langDashboardLeftMenu.lblDeposit' | translate }}</a>
           </li>
           <li>
-            <a routerLink="/dashboard/withdraw" routerLinkActive="active">{{ 'dashboardLeftMenu.lblWithdraw' | translate }}</a>
+            <a routerLink="/dashboard/withdraw" routerLinkActive="active">{{ 'langDashboardLeftMenu.lblWithdraw' | translate }}</a>
           </li>
         </ul>
       </li>
@@ -25,18 +25,18 @@
           <span class="icon">
             <i class="fa fa-user" aria-hidden="true"></i>
           </span>
-          <span>{{ 'dashboardLeftMenu.lblAccPref' | translate }}</span>
+          <span>{{ 'langDashboardLeftMenu.lblAccPref' | translate }}</span>
         </a>
         <ul class="collapse in" [ngStyle]="{'display': accountSlide? 'block':'none'}">
           <li>
-            <a routerLink="/dashboard/account" routerLinkActive="active">{{ 'dashboardLeftMenu.lblMyProfile' | translate }}</a>
+            <a routerLink="/dashboard/account" routerLinkActive="active">{{ 'langDashboardLeftMenu.lblMyProfile' | translate }}</a>
           </li>
           <li>
-            <a routerLink="/dashboard/security" routerLinkActive="active">{{ 'dashboardLeftMenu.lblSecurity' | translate }}</a>
+            <a routerLink="/dashboard/security" routerLinkActive="active">{{ 'langDashboardLeftMenu.lblSecurity' | translate }}</a>
           </li>
           <!--li><a href="settings.html">Settings</a></li-->
-          <li><a routerLink="/dashboard/affiliate" routerLinkActive="active">Affiliate</a></li>
-          <li><a routerLink="/dashboard/leaderboard" routerLinkActive="active">Leader Board</a></li>
+          <li><a routerLink="/dashboard/affiliate" routerLinkActive="active">{{ 'langDashboardLeftMenu.lblAffiliate' | translate }}</a></li>
+          <li><a routerLink="/dashboard/leaderboard" routerLinkActive="active">{{ 'langDashboardLeftMenu.lblLeaderBoard' | translate }}</a></li>
         </ul>
       </li>
       <li>
@@ -44,14 +44,14 @@
           <span class="icon">
             <i class="fa fa-history"></i>
           </span>
-          <span>{{ 'dashboardLeftMenu.lblHistory' | translate }}</span>
+          <span>{{ 'langDashboardLeftMenu.lblHistory' | translate }}</span>
         </a>
         <ul class="collapse in" [ngStyle]="{'display': historySlide? 'block':'none'}">
           <li>
-            <a routerLink="/dashboard/tradeHistory" routerLinkActive="active">{{ 'dashboardLeftMenu.lblTradeHist' | translate }}</a>
+            <a routerLink="/dashboard/tradeHistory" routerLinkActive="active">{{ 'langDashboardLeftMenu.lblTradeHist' | translate }}</a>
           </li>
           <li>
-            <a routerLink="/dashboard/orderHistory" routerLinkActive="active">{{ 'dashboardLeftMenu.lblOrdHist' | translate }}</a>
+            <a routerLink="/dashboard/orderHistory" routerLinkActive="active">{{ 'langDashboardLeftMenu.lblOrdHist' | translate }}</a>
           </li>
         </ul>
       </li>

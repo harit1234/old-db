@@ -55,7 +55,7 @@ export class GoogleAuthComponent implements OnInit {
     } else {
       this.btnText = 'lblEnable';
     }
-    this.translateService.get('googleAuth.' + this.btnText).subscribe(text => {
+    this.translateService.get('langGoogleAuth.' + this.btnText).subscribe(text => {
       this.btnLblText = text;
     });
   }
@@ -89,7 +89,7 @@ export class GoogleAuthComponent implements OnInit {
     this.restService.setGoogle2fa(data).subscribe((gAuthInfo: any) => {
 
       console.log(gAuthInfo);
-      this.translateService.get('serverSuccess.' + gAuthInfo.data.code).subscribe(text => {
+      this.translateService.get('langServerSuccess.' + gAuthInfo.data.code).subscribe(text => {
         this.successMsg = text;
       });
       this.resetGoogleAuthForm();

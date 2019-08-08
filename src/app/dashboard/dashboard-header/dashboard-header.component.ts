@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../shared/services/data.service';
 import { AuthService } from '../../shared/services/auth.service';
-
+import { constants } from '../../../constants';
 
 @Component({
   selector: 'app-dashboard-header',
@@ -11,6 +11,7 @@ import { AuthService } from '../../shared/services/auth.service';
 export class DashboardHeaderComponent implements OnInit {
   // hamburgerMenuStatus = false;
   // @Output() hanburgerMenuOpened = new EventEmitter<boolean>();
+  languages: any;
   userName: string;
   constructor(
     public dataService: DataService,
@@ -18,6 +19,8 @@ export class DashboardHeaderComponent implements OnInit {
 
   ngOnInit() {
     this.userName = localStorage.getItem('email');
+    this.languages = constants.WEBSITE_LANGUAGE;
+    console.log(this.languages);
   }
 
   /**
