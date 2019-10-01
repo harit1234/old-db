@@ -19,8 +19,8 @@
         <div class="user-dropdown">
           <div class="guest">
             <ul>
-              <li><a routerLink="/login" class="btn-login">Login</a></li>
-              <li><a routerLink="/register" class="btn-register">Register</a></li>
+              <li><a routerLink="/login" class="btn-login">{{ 'langCommon.lblLogin' | translate }}</a></li>
+              <li><a routerLink="/register" class="btn-register">{{ 'langCommon.lblRegister' | translate }}</a></li>
             </ul>
           </div>
           <div class="user-nav-wrapper" *ngIf="authService.isLogged">
@@ -35,7 +35,7 @@
       </div>
       <div class="translator"> <a href="javascript:;"></a>
         <div class="translator-dropdown">
-          <h3>Website Translator</h3>
+          <h3>{{ 'langCommon.lblWebsiteTrans' | translate }}</h3>
           <div class="">
             <ul>
               <li

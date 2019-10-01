@@ -66,6 +66,7 @@
     "lblSecurity": "Säkerhet",
     "lblAffiliate": "Dotterbolag",
     "lblLeaderBoard": "Leader Board",
+    "lblApiSecret": "Skaffa Api Secret",
     "lblHistory": "History",
     "lblTradeHist": "Handelshistoria",
     "lblOrdHist": "Beställningshistorik"

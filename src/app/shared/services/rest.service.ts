@@ -35,6 +35,8 @@ export class RestService {
   private getAffiliateLinkUrl = 'affiliate';
   private getLeaderboardUrl = 'leaderboard';
   private getPageContentUrl = 'get_page';
+  private getApiCredentialsUrl = 'generate_api_secret_key';
+
   constructor(private http: HttpClient) {
 
   }
@@ -180,6 +182,9 @@ export class RestService {
     return this.post_request(this.getPageContentUrl, data);
   }
 
+  getApiCredentials(data: any) {
+    return this.post_request(this.getApiCredentialsUrl, data);
+  }
   // getTokenStaus() {
   //   var token = localStorage.getItem('token');
   //   if(token !== null) {

@@ -2,10 +2,10 @@
   <div class="row">
     <div class="col-sm-12">
       <div class="page-title">
-        <h1>Affiliate</h1>
+        <h1>{{ 'langAffiliatePage.lblAffiliage' | translate }}</h1>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item">Account</li>
-          <li class="breadcrumb-item active">Affiliate</li>
+          <li class="breadcrumb-item">{{ 'langDashboardLeftMenu.lblAccPref' | translate }}</li>
+          <li class="breadcrumb-item active">{{ 'langAffiliatePage.lblAffiliage' | translate }}</li>
         </ol>
       </div>
     </div>
@@ -14,15 +14,15 @@
     <div class="col-md-6">
       <div class="widget">
         <div class="widget-header">
-          <h4>Share Referral Link</h4>
+          <h4>{{ 'langAffiliatePage.lblSharedReferalLink' | translate }}</h4>
         </div>
         <div class="form-group input-ico refer">
-          <label for="refer">Copy your personal referral link and share it with your friends</label>
+          <label for="refer">{{ 'langAffiliatePage.lblCopyYourPersonalRef' | translate }}</label>
           <input #refererText id="refer" class="form-input referral-link" type="text" value="{{ affliliateLink }}" placeholder=""
             readonly="true">
         </div>
-        <button class="form-button form-button-sm copy-referral-link" data-clipboard-target="#refer" (click)="copyRefererLink(refererText)">Copy Referral Link</button>
-        <div class="referral-link-copied" *ngIf="copiedMsg"><i class="far fa-check-circle"></i>Referral link copied to clipboard</div>
+        <button class="form-button form-button-sm copy-referral-link" data-clipboard-target="#refer" (click)="copyRefererLink(refererText)">{{ 'langAffiliatePage.lblCopyRefLink' | translate }}</button>
+        <div class="referral-link-copied" *ngIf="copiedMsg"><i class="far fa-check-circle"></i>{{ 'langAffiliatePage.lblRefLinkCopyClip' | translate }}</div>
       </div>
     </div>
   </div>

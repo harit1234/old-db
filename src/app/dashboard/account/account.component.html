@@ -2,10 +2,10 @@
   <div class="row">
     <div class="col-sm-12">
       <div class="page-title">
-        <h1>Account</h1>
+        <h1>{{ 'langDashboardHeader.lblAccount' | translate }}</h1>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item">Account & Preferences</li>
-          <li class="breadcrumb-item active">My Profile</li>
+          <li class="breadcrumb-item">{{ 'langDashboardLeftMenu.lblAccPref' | translate }}</li>
+          <li class="breadcrumb-item active">{{ 'langDashboardLeftMenu.lblMyProfile' | translate}}</li>
         </ol>
       </div>
     </div>
@@ -14,18 +14,18 @@
     <div class="col-sm-12 col-md-6">
       <div class="widget myprofile">
         <div class="widget-header">
-          <h4>My Profile</h4>
+          <h4>{{ 'langDashboardLeftMenu.lblMyProfile' | translate}}</h4>
         </div>
         <div class="widget-row">
-          <div class="widget-col-left">Email:</div>
+          <div class="widget-col-left">{{ 'langMyProfilePage.lblMyProfileEmail' | translate }}:</div>
           <div class="widget-col-right">{{ userInfo.email }}</div>
         </div>
         <div class="widget-row">
-          <div class="widget-col-left">Name:</div>
+          <div class="widget-col-left">{{ 'langMyProfilePage.lblMyProfileName' | translate }}:</div>
           <div class="widget-col-right">{{ userInfo.first_name }} {{ userInfo.last_name}}</div>
         </div>
         <div class="widget-row">
-            <div class="widget-col-left">Desktop User ID:</div>
+            <div class="widget-col-left">{{ 'langMyProfilePage.lblMyProfileDesktopId' | translate }}:</div>
             <div class="widget-col-right">{{ userInfo.username }}</div>
           </div>
       </div>

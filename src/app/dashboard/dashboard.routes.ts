@@ -14,6 +14,7 @@ import { DownloadComponent } from './download/download.component';
 import { AffiliateComponent } from './affiliate/affiliate.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { PageComponent } from './page/page.component';
+import { ApiSecretComponent } from './api-secret/api-secret.component';
 export const dashboardRoutes: Routes = [
     {
         path: 'dashboard',
@@ -68,6 +69,11 @@ export const dashboardRoutes: Routes = [
             {
                 path: 'leaderboard',
                 component: LeaderboardComponent,
+                canActivate: [AuthGuard]
+            },
+            {
+                path: 'apiSecret',
+                component: ApiSecretComponent,
                 canActivate: [AuthGuard]
             }
         ]

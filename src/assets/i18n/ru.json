@@ -66,6 +66,7 @@
     "lblSecurity": "Bezopasnost'",
     "lblAffiliate": "филиал",
     "lblLeaderBoard": "Доска лидеров",
+    "lblApiSecret": "Получить Api Secret",
     "lblHistory": "Istoriya",
     "lblTradeHist": "Istoriya torgovli",
     "lblOrdHist": "Istoriya zakazov"

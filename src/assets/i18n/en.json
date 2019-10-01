@@ -2,7 +2,9 @@
   "langCommon": {
     "lblLogin": "Log In",
     "lblRegister": "Register",
-    "lblSubmit": "Submit"
+    "lblSubmit": "Submit",
+    "lblWebsiteTrans": "Website Translator",
+    "lblFeatureNotAvail":  "This feature is not available!"
   },  
   "langLogin": {
     "lblEmail": "Email",
@@ -48,6 +50,22 @@
     "msgSuccess": "Your password was successfully updated!"
 
   },
+  "langMyProfilePage": {
+    "lblMyProfileName": "Name",
+    "lblMyProfileEmail": "Email",
+    "lblMyProfileDesktopId": "Desktop User ID",
+    "lblActivityLog": "Activity Log",
+    "lblDateAndTime": "Date and Time",
+    "lblIpAddress": "IP Address",
+    "lblBrowser": "Browser"
+  },
+  "langAffiliatePage": {
+    "lblAffiliage": "Affiliate",
+    "lblSharedReferalLink": "Share Referral Link",
+    "lblCopyYourPersonalRef": "Copy your personal referral link and share it with your friends",
+    "lblCopyRefLink": "Copy Referral Link",
+    "lblRefLinkCopyClip": "Referral link copied to clipboard"
+  },
   "langChangePasswrodValidate": {
     "valChCurrentPassRequired": "Please enter your current password!"
   },
@@ -66,6 +84,7 @@
     "lblSecurity": "Security",
     "lblAffiliate": "Affiliate",
     "lblLeaderBoard": "Leader Board",
+    "lblApiSecret": "Get Api Secret",
     "lblHistory": "History",
     "lblTradeHist": "Trade History",
     "lblOrdHist": "Order History"
@@ -92,12 +111,32 @@
     "lbl2FCode": "Two-Factor Code",
     "msgSuccess": "You Google auth (2FA) has been enabled successfully."
   },
+  "langApiSecret": {
+    "lblApiKey": "Api Key",
+    "lblApiSecret": "Api Secret",
+    "lblApiCredential": "Api Credentials",
+    "btnGenerateBtnText": "Generate Credentials",
+    "msgGenerationSuccess": "Credentials successfully generated!",
+    "msgSecretKeyNote": "Please write down the secret key somewhere safe! The secret key will no longer be available once you leave this page."
+  },
   "langGoogleAuthVal": {
     "val2FCode": "Please enter two factor code!",
     "valLength": "The length of the two factor code should be 6."
   },
+  "langCommonFooter": {
+    "lblAllRightReserved": "All Rights Reserved.",
+    "lblContactUs": "CONTACT US",
+    "lblResources": "RESOURCES",
+    "lblCommunity": "COMMUNITY",
+    "lblSocialMedia": "SOCIAL MEDIA",
+    "lblPrivacyPolicy": "Privacy Policy",
+    "lblTermsOfUse": "Terms of Use",
+    "lblContact": "Contact",
+    "lblFaq": "FAQ"
+  },
   "langServerError": {
     "1026": "The email has already been taken!",
+    "2001": "User registration fail!",
     "2011": "Could not create token!",
     "2012": "Your account is not configured properly. Our support team is looking into it!",
     "2013": "You need to activate your account. We have sent you a account activation email, please check your email.",
@@ -105,6 +144,8 @@
     "2015": "Your account is inactive, please contact with our support team!",
     "2016": "The Google Authenticator code is incorrect or has expired!",
     "2017": "Invalid username or password!",
+    "2022": "Logged out failed!",
+    "2031": "User does not exist!",
     "2041": "The Google Authenticator code is incorrect or has expired!",
     "2042": "You must login to get Google auth (2FA) status!",
     "2043": "The Google 2fa status field value should be either enabled or disabled!",
@@ -121,13 +162,29 @@
     "2082": "We can not find an account registered with that e-mail address!",
     "2091": "You must be login to get affiliate link!",
     "2101": "Auth token is invalid!",
+    "2102": "Something went wrong, please try again!",
+    "2111": "Requested page not found!",
+    "2121": "Country not found!",
+    "2122": "Selected country not found!",
+    "2131": "Requested message not found!",
+    "2151": "You must be login to generate api secret key!",
+    "2152": "Api secret key not generated, please try again!",
+    "2161": "Api key is required!",
+    "2162": "Api key is invalid!",
+    "2163": "Api secret key not generated yet!",
     "3001": "Something went wrong, please try again!",
     "3002": "You must be login to access this API!"
 
   },
   "langServerSuccess": {
+    "2021": "Successfully logged out!",
     "2046": "You Google auth (2FA) has been enabled successfully!",
     "2047": "You Google auth (2FA) has been disabled successfully!",
-    "2053": "Your password has been changed successfully!"
+    "2053": "Your password has been changed successfully!",
+    "2062": "Account activation email has been resend!",
+    "2065": "Your account has been activated successfully!",
+    "2073": "Your password has been reset!",
+    "2081": "We have sent you a password reset link to your e-mail. Please check your inbox!",
+    "2141": "User profile language updated successfully"
   }
 }
