@@ -1,0 +1,100 @@
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { DataService } from '../../shared/services/data.service';
+import { RestService } from '../../shared/services/rest.service';
+import { constants } from '../../../constants';
+
+@Component({
+  selector: 'app-address',
+  templateUrl: './address.component.html',
+  styleUrls: ['./address.component.css']
+})
+export class AddressComponent implements OnInit {
+  addressGeneratedStaus:any;
+  createdAddress:string;
+  coinsArray = [];
+  createAddressGroup: FormGroup;
+  submitted = false;
+  error = '';
+
+  constructor(
+    private createAddressFormBuilder: FormBuilder,
+    public dataService: DataService,
+    public restService: RestService) { }
+
+  ngOnInit() {
+
+    this.addressGeneratedStaus = localStorage.getItem('addressGenerated'); 
+    if(this.addressGeneratedStaus !== 'true') {
+      this.getCurrencies();
+    }
+
+    this.createAddressGroup = this.createAddressFormBuilder.group({
+      'coin': [Validators.required],
+    });
+    this.createAddressGroup.controls['coin'].setValue(constants.DEFAULT_CURRENCY, {onlySelf: true});
+  }
+
+  getCurrencies() {
+    
+    setTimeout(() => { this.dataService.loader = true;});
+    
+    this.restService.getCurrencies().subscribe((currenciesInfo: any) => {
+      console.log('Returned Data: ', currenciesInfo);
+
+      this.dataService.loader = false;
+      if (currenciesInfo.data instanceof Array) {
+         console.log('array : ', currenciesInfo);
+         
+         currenciesInfo.data.forEach(element => {
+          const keys = Object.keys(element);
+          keys.forEach( key => {
+            this.coinsArray.push({key: key, value: element[key].name});           
+          });
+         });
+      } else {
+        const keys = Object.keys(currenciesInfo.data);
+        console.log(keys);
+        keys.forEach(key => {
+          this.coinsArray.push({key: key, value: currenciesInfo.data[key].name});
+        });
+      }
+    }, error => {
+      console.log(error);
+    });
+  }
+  
+
+  onSubmit() {
+    this.error = '';
+    this.submitted = true;
+
+    if (this.createAddressGroup.invalid) {
+      console.log('Invalid');
+      return;
+    }
+
+    const data = {'coin': this.formFields.coin.value};
+
+    console.log('Data to send ', data);
+    //return;
+    this.dataService.loader = true;
+    this.restService.getAddress(data).subscribe(addressInfo => {
+      this.dataService.loader = false;
+      
+      console.log('Address Result:', addressInfo);
+      this.addressGeneratedStaus = 'true';
+      this.createdAddress = addressInfo.data.address;
+    }, error => {
+      this.createAddressGroup.reset();
+      this.submitted = false;
+      this.error = error;
+    });
+  }
+
+  // convenience getter for easy access to form fields
+  get formFields() {
+    return this.createAddressGroup.controls;
+  }
+
+}
