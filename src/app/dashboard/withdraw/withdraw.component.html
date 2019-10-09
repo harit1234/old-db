@@ -2,18 +2,122 @@
     <div class="row">
       <div class="col-sm-12">
         <div class="page-title">
-          <h1>{{ 'langDashboardLeftMenu.lblWithdraw' | translate }}</h1>
+          <h1>{{ 'langDashboardLeftMenu.lblWithdraw' | translate }} {{defaultCurrency}}</h1>
           <ol class="breadcrumb">
             <li class="breadcrumb-item">{{ 'langDashboardLeftMenu.lblWallet' | translate }}</li>
-            <li class="breadcrumb-item active">{{ 'langDashboardLeftMenu.lblWithdraw' | translate }}</li>
+            <li class="breadcrumb-item active">{{ 'langDashboardLeftMenu.lblWithdraw' | translate }} {{defaultCurrency}}</li>
           </ol>
         </div>
       </div>
     </div>
-    <div class="widget exchange-account-withdraw">
-    <div class="table-responsive">
-    <div class="record-not-found">{{ 'langCommon.lblFeatureNotAvail' | translate }}</div>
+    <div class="row mobileRow">
+        <div class="col-md-6">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="widget">
+                <form [formGroup]="withdrawFormGroup" (ngSubmit)="onSubmit()" *ngIf="googleFaStatus">
+                  <div *ngIf="error" class="auth-error">
+                    <p>{{error}}</p>
+                  </div>
+                  <div *ngIf="changePasswordStatus" class="msg-success">
+                      <p>{{ 'langChangePassword.msgSuccess' | translate }}</p>
+                    </div>
+                  <div class="form-group">
+                      <label for="OldPassword">{{ 'langWithdraw.lblAddress' | translate }}</label>
+                      <div class="d-flex">
+                          <input formControlName="address" type="text" class="form-input" [ngClass]="{'is-invalid': submitted && formFields.address.errors}">
+                          <span class="d-flex align-items-center symbolType">BTC</span>
+                      </div>
+                      <div *ngIf="submitted && formFields.address.errors" class="form-valid-error">
+                          <div *ngIf="formFields.address.errors.required" class="error-msg">
+                            {{ 'langWithdraw.valEnterAddress' | translate }}
+                          </div>
+                        </div>
+                  </div>
+                  <div class="form-group">
+                      <label for="OldPassword">{{ 'langWithdraw.lblTradingBal' | translate }}</label>
+                      <div class="d-flex">
+                          <input formControlName="tradingBalance" type="text" class="form-input">
+                          <span class="d-flex align-items-center symbolType">{{defaultCurrency}}</span>
+                      </div>
+                  </div>
+
+                  <div class="form-group">
+                      <label for="OldPassword">{{ 'langWithdraw.lblAvailableBal' | translate }}</label>
+                      <div class="d-flex">
+                          <input formControlName="available" type="text" class="form-input">
+                          <span class="d-flex align-items-center symbolType">{{defaultCurrency}}</span>
+                      </div>
+                      
+                  </div>
+                  <div class="form-group">
+                      <label for="OldPassword">{{ 'langWithdraw.lblAmount' | translate }}</label>
+                      <div class="d-flex">
+                          <input 
+                          formControlName="amount" 
+                          type="text" 
+                          class="form-input" 
+                          [ngClass]="{'is-invalid': submitted && formFields.address.errors}"
+                          placeholder="{{ 'langWithdraw.lblMinAmount' | translate }}: {{minWithdrawalAmount}}">
+                          <span class="d-flex align-items-center symbolType">{{defaultCurrency}}</span>
+                      </div>
+                      <div *ngIf="submitted && formFields.amount.errors" class="form-valid-error">
+                          <div *ngIf="formFields.amount.errors.required" class="error-msg">
+                            {{ 'langWithdraw.valEnterAmount' | translate }}
+                          </div>
+                        </div>
+                  </div>
+                  <div class="form-group">
+                      <label for="OldPassword">{{ 'langWithdraw.lblComment' | translate }}</label>
+                      <div class="d-flex">
+                          <textarea formControlName="comment" class="form-control" rows="4"></textarea>
+                          <span class="d-flex align-items-center symbolType">{{defaultCurrency}}</span>
+                      </div>
+                      
+                  </div>
+                  <div class="form-group">
+                      <button type="submit" class="form-button form-button-sm update-password">{{ 'langWithdraw.btnWithdraw' | translate }}</button>
+                      <span class="text-right"> {{ 'langWithdraw.lblWithdrawalFee' | translate }}: {{defaultWithdrawalFee}} </span>
+                      
+                  </div>
+                  
+                </form>
+                <div *ngIf="!googleFaStatus">
+                    {{ 'langWithdraw.errTwoFactorAuth' | translate}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--div class="col-md-6">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="widget">
+                  <div class="widget-header">
+                    <h4>BTC</h4>
+                  </div>
+                  <div class="d-flex flex-wrap withdrawValues">
+                    <div>
+                        <label for="">{{ 'langWithdraw.lblTradingBal' | translate }}</label>
+                        <div>aldfjalksf afjalsfjsalfjaslf</div>
+                    </div>
+                    <div>
+                        <label for="">{{ 'langWithdraw.lblAvailableBal' | translate }}</label>
+                        <div>aldfjalksf afjalsfjsalfjaslf</div>
+                    </div>
+                    <div>
+                        <label for="">{{ 'langWithdraw.lblWithdrawalFee' | translate }}</label>
+                        <div>aldfjalksf afjalsfjsalfjaslf</div>
+                    </div>
+                    <div>
+                        <label for="">{{ 'langWithdraw.lblMinAmount' | translate }}</label>
+                        <div>aldfjalksf afjalsfjsalfjaslf</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div-->
+      </div>
     </div>
-    </div>
-  </div>
 

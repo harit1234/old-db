@@ -31,6 +31,7 @@ import { MonetaryPipe } from '../shared/pipes/monetary.pipe';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { AffiliateComponent } from './affiliate/affiliate.component';
 import { ApiSecretComponent } from './api-secret/api-secret.component';
+import { AddressComponent } from './address/address.component';
 // import { GridModule, PageService, SortService, FilterService, GroupService } from '@syncfusion/ej2-angular-grids';
 // required for AOT compilation
 export function httpLoaderFactory(http: HttpClient) {
@@ -62,7 +63,8 @@ export function httpLoaderFactory(http: HttpClient) {
     QtyPipe,
     MonetaryPipe,
     PricePipe,
-    ApiSecretComponent
+    ApiSecretComponent,
+    AddressComponent
 
   ],
   imports: [

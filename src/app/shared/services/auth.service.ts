@@ -53,6 +53,7 @@ export class AuthService {
     localStorage.setItem('token', userInfo.data.access_token);
     localStorage.setItem('email', userInfo.data.email);
     localStorage.setItem('apiSecretGenerated', userInfo.data.api_secret_generated);
+    localStorage.setItem('walletAddress', JSON.stringify(userInfo.data.wallet_address));
     this.setState(AuthState.LOGGED_IN);
   }
 

@@ -78,6 +78,7 @@
     "lblWallet": "Wallet",
     "lblBalances": "Balances",
     "lblDeposit": "Deposit",
+    "lblAddress": "Address",
     "lblWithdraw": "Withdraw",
     "lblAccPref": "Account & Preferences",
     "lblMyProfile": "My Profile",
@@ -118,6 +119,27 @@
     "btnGenerateBtnText": "Generate Credentials",
     "msgGenerationSuccess": "Credentials successfully generated!",
     "msgSecretKeyNote": "Please write down the secret key somewhere safe! The secret key will no longer be available once you leave this page."
+  },
+  "langAddress": {
+    "lblAddress": "Address",
+    "lblSelectCoin": "Select Coin",
+    "btnCreateNewAddress": "Create new Address",
+    "valChooseCoin": "Please select one coin!"
+  },
+  "langWithdraw": {
+    "lblAddress": "Address",
+    "lblSelectCoin": "Select Coin",
+    "lblTradingBal": "Trading balance",
+    "lblAvailableBal": "Available",
+    "lblAmount": "Amount",
+    "lblMinAmount": "Minimum Amount",
+    "lblWithdrawalFee": "Withdrawal fee",
+    "lblComment": "Comment",
+    "btnWithdraw": "Withdraw",
+    "valEnterAmount":  "Please enter amount!",
+    "valEnterAddress": "Please enter address!",
+    "valChooseCoin": "Please select one coin!",
+    "errTwoFactorAuth": "Please enable google two factor authentication for withdrawal!"
   },
   "langGoogleAuthVal": {
     "val2FCode": "Please enter two factor code!",

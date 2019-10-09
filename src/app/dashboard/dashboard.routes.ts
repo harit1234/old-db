@@ -15,6 +15,7 @@ import { AffiliateComponent } from './affiliate/affiliate.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { PageComponent } from './page/page.component';
 import { ApiSecretComponent } from './api-secret/api-secret.component';
+import { AddressComponent } from './address/address.component';
 export const dashboardRoutes: Routes = [
     {
         path: 'dashboard',
@@ -39,6 +40,11 @@ export const dashboardRoutes: Routes = [
             {
                 path: 'withdraw',
                 component: WithdrawComponent,
+                canActivate: [AuthGuard]
+            },
+            {
+                path: 'address',
+                component: AddressComponent,
                 canActivate: [AuthGuard]
             },
             {

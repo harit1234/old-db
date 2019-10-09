@@ -36,6 +36,8 @@ export class RestService {
   private getLeaderboardUrl = 'leaderboard';
   private getPageContentUrl = 'get_page';
   private getApiCredentialsUrl = 'generate_api_secret_key';
+  private getAddressUrl = 'wallets/address';
+  private getCurrencyUrl = 'wallets/currencies';
 
   constructor(private http: HttpClient) {
 
@@ -178,12 +180,19 @@ export class RestService {
   getLeaderBoard() {
     return this.get_request(this.getLeaderboardUrl);
   }
+  getAddress(data: any) {
+    const url = this.getAddressUrl+'/'+data.coin;
+    return this.get_request(url);
+  }
   getPageContent(data: any) {
     return this.post_request(this.getPageContentUrl, data);
   }
 
   getApiCredentials(data: any) {
     return this.post_request(this.getApiCredentialsUrl, data);
+  }
+  getCurrencies() {
+    return this.get_request(this.getCurrencyUrl);
   }
   // getTokenStaus() {
   //   var token = localStorage.getItem('token');

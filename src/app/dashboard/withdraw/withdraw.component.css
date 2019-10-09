@@ -1,0 +1,35 @@
+select, input, textarea {
+    background: #fff;
+    padding: 0 0 0 5px;
+}
+
+span.symbolType {
+    background-color: #e6e9ee;
+    padding: 0 10px;
+    color: #000;
+    /*font-weight: 500;*/
+}
+/*
+.withdrawValues > div { 
+    width: calc(50% - 30px);
+    margin-bottom: 20px;
+
+}
+.withdrawValues > div:nth-child(2n) {
+    margin-left: auto;
+}
+.withdrawValues > div label {
+    font-weight: 500;
+    margin-bottom: 0;
+}
+@media(max-width: 767px) {
+    .withdrawValues > div {
+        width: 100%;
+    }
+    .mobileRow {
+        -webkit-flex-direction: column-reverse;
+        -ms-flex-direction: column-reverse;
+        flex-direction: column-reverse; 
+    }
+}
+*/

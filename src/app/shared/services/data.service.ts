@@ -6,6 +6,7 @@ import { TimerService } from './timer.service';
 import { InstrumentModel } from '../models/instrument-model';
 import { Dictionary } from '../models/dictionary';
 import { TranslateService } from '@ngx-translate/core';
+import { WebSocketOmsService } from './web-socket-oms.service';
 
 @Injectable({
   providedIn: 'root'
@@ -26,9 +27,27 @@ export class DataService {
     private authService: AuthService,
     private router: Router,
     private timerService: TimerService,
-    private translate: TranslateService
-  ) { }
+    private translate: TranslateService,
+    private wsOmsService: WebSocketOmsService
+  ) {
+    this.wsOmsService.onMessage.subscribe(message => this.onMessage(message));
+   }
 
+   onMessage(data): void {
+     
+     console.log("On Message++++");
+    if (data.data instanceof Blob) {
+        const blobReader = new FileReader();
+        blobReader.onload = () => {
+            // console.log("On Load++++");
+            // this.processWSMessage(<string>blobReader.result);
+        };
+        blobReader.readAsText(data.data);
+    } else {
+         console.log("On Else++++",data);
+        //this.processWSMessage(data);
+    }
+  }
 
   register(data: any) {
     this.loader = true;

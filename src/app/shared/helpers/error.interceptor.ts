@@ -26,6 +26,7 @@ export class ErrorInterceptor implements HttpInterceptor {
             } else if (err.status === 400) {
                 this.dataService.badRequestAction();
             }
+            console.log('Error Status is :', err.status);
             console.log(err);
             let error = err.error.error || err.statusText;
 
@@ -35,7 +36,6 @@ export class ErrorInterceptor implements HttpInterceptor {
                     console.log('Translated error : ', text);
                     error = text;
                 });
-
             }
             return throwError(error);
         }));
