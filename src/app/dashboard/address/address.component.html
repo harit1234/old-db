@@ -20,7 +20,7 @@
             <div class="widget-header">
               <h4>{{ 'langAddress.btnCreateNewAddress' | translate }}</h4>
             </div>
-            <form [formGroup]="createAddressGroup" (ngSubmit)="onSubmit()" *ngIf="addressGeneratedStaus != 'true'">
+            <form [formGroup]="createAddressGroup" (ngSubmit)="onSubmit()" *ngIf="addressGeneratedStaus != true">
               <div *ngIf="error" class="auth-error">
                 <p>{{error}}</p>
               </div>
@@ -40,7 +40,7 @@
               </div>
               <button type="submit" class="form-button form-button-sm update-password">{{ 'langAddress.btnCreateNewAddress' | translate }}</button>
             </form>
-            <div class="form-group" *ngIf="addressGeneratedStaus == 'true' && createdAddress">
+            <div class="form-group" *ngIf="addressGeneratedStaus == true && createdAddress">
                 <label for="OldPassword">{{ 'langAddress.lblAddress'| translate }}</label>
                 <div class="form-input-box">{{createdAddress}}</div>
               </div>

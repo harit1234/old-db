@@ -10,7 +10,7 @@ import { constants } from '../../../constants';
   styleUrls: ['./address.component.css']
 })
 export class AddressComponent implements OnInit {
-  addressGeneratedStaus:any;
+  addressGeneratedStaus = false;
   createdAddress:string;
   coinsArray = [];
   createAddressGroup: FormGroup;
@@ -24,9 +24,19 @@ export class AddressComponent implements OnInit {
 
   ngOnInit() {
 
-    this.addressGeneratedStaus = localStorage.getItem('addressGenerated'); 
-    if(this.addressGeneratedStaus !== 'true') {
+    let addressGenerated = localStorage.getItem('walletAddress');
+    addressGenerated = JSON.parse(addressGenerated);
+    
+    if(addressGenerated && addressGenerated[constants.DEFAULT_CURRENCY] === true) {
+      this.addressGeneratedStaus = addressGenerated[constants.DEFAULT_CURRENCY];
+    }
+    
+    
+    if(this.addressGeneratedStaus !== true) {
       this.getCurrencies();
+    }else {
+      const data = {'coin': constants.DEFAULT_CURRENCY};
+      this.getAddress(data);
     }
 
     this.createAddressGroup = this.createAddressFormBuilder.group({
@@ -75,23 +85,25 @@ export class AddressComponent implements OnInit {
     }
 
     const data = {'coin': this.formFields.coin.value};
+    this.getAddress(data);
+  }
 
-    console.log('Data to send ', data);
+  getAddress(data:any) {
     //return;
-    this.dataService.loader = true;
+    setTimeout(() => { this.dataService.loader = true;});
     this.restService.getAddress(data).subscribe(addressInfo => {
       this.dataService.loader = false;
       
       console.log('Address Result:', addressInfo);
-      this.addressGeneratedStaus = 'true';
+      this.addressGeneratedStaus = true;
       this.createdAddress = addressInfo.data.address;
+      localStorage.setItem('walletAddress', '{"'+addressInfo.data.symbol+'": true}');
     }, error => {
       this.createAddressGroup.reset();
       this.submitted = false;
       this.error = error;
     });
   }
-
   // convenience getter for easy access to form fields
   get formFields() {
     return this.createAddressGroup.controls;

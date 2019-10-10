@@ -145,6 +145,11 @@
     "val2FCode": "Please enter two factor code!",
     "valLength": "The length of the two factor code should be 6."
   },
+  "langTwoFactor": {
+    "lblTwoFactor": "Two-Factor Code",
+    "valEnterOtp": "Please enter two factor code!",
+    "btnTwoSubmit": "Verify Code"
+  },
   "langCommonFooter": {
     "lblAllRightReserved": "All Rights Reserved.",
     "lblContactUs": "CONTACT US",
@@ -194,6 +199,7 @@
     "2161": "Api key is required!",
     "2162": "Api key is invalid!",
     "2163": "Api secret key not generated yet!",
+    "2198": "Your withdrawal request not accepted, please try again!",
     "3001": "Something went wrong, please try again!",
     "3002": "You must be login to access this API!"
 

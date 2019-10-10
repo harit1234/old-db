@@ -77,6 +77,8 @@ export class AuthService {
     localStorage.removeItem('token');
     localStorage.removeItem('email');
     localStorage.removeItem('registerEmail');
+    localStorage.removeItem('apiSecretGenerated');
+    localStorage.removeItem('walletAddress');
 
     this.setState(AuthState.LOGGED_OUT);
   }

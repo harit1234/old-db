@@ -9,27 +9,33 @@ span.symbolType {
     color: #000;
     /*font-weight: 500;*/
 }
-/*
-.withdrawValues > div { 
-    width: calc(50% - 30px);
-    margin-bottom: 20px;
-
+.twoFactorCodeClass {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.25);
+    top: 0;
+    left: 0;
+    z-index: 99;
 }
-.withdrawValues > div:nth-child(2n) {
-    margin-left: auto;
+.twoFactorCodeClass .container {
+    background-color: #fff;
+    max-width: 600px;
 }
-.withdrawValues > div label {
-    font-weight: 500;
-    margin-bottom: 0;
+.twoFactorCodeClass .widget {
+    border: none;
+    padding: 0;
 }
-@media(max-width: 767px) {
-    .withdrawValues > div {
-        width: 100%;
-    }
-    .mobileRow {
-        -webkit-flex-direction: column-reverse;
-        -ms-flex-direction: column-reverse;
-        flex-direction: column-reverse; 
-    }
+.twoFactorCodeClass .container .page-title h1 {
+    font-size: 20px;
 }
-*/
+.send-otp { min-width: 150px;}

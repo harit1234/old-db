@@ -25,7 +25,13 @@
                   <div class="form-group">
                       <label for="OldPassword">{{ 'langWithdraw.lblAddress' | translate }}</label>
                       <div class="d-flex">
-                          <input formControlName="address" type="text" class="form-input" [ngClass]="{'is-invalid': submitted && formFields.address.errors}">
+                          <input 
+                          formControlName="address" 
+                          type="text" 
+                          class="form-input" 
+                          [ngClass]="{'is-invalid': submitted && formFields.address.errors}"
+                          maxlength="50"
+                          >
                           <span class="d-flex align-items-center symbolType">BTC</span>
                       </div>
                       <div *ngIf="submitted && formFields.address.errors" class="form-valid-error">
@@ -37,7 +43,13 @@
                   <div class="form-group">
                       <label for="OldPassword">{{ 'langWithdraw.lblTradingBal' | translate }}</label>
                       <div class="d-flex">
-                          <input formControlName="tradingBalance" type="text" class="form-input">
+                          <input 
+                          formControlName="tradingBalance" 
+                          type="text" 
+                          class="form-input"
+                          value="tradingBalance"
+                          readonly
+                          >
                           <span class="d-flex align-items-center symbolType">{{defaultCurrency}}</span>
                       </div>
                   </div>
@@ -45,7 +57,13 @@
                   <div class="form-group">
                       <label for="OldPassword">{{ 'langWithdraw.lblAvailableBal' | translate }}</label>
                       <div class="d-flex">
-                          <input formControlName="available" type="text" class="form-input">
+                          <input 
+                          formControlName="available" 
+                          type="text" 
+                          class="form-input" 
+                          value="tradingBalance"
+                          readonly
+                          >
                           <span class="d-flex align-items-center symbolType">{{defaultCurrency}}</span>
                       </div>
                       
@@ -70,7 +88,7 @@
                   <div class="form-group">
                       <label for="OldPassword">{{ 'langWithdraw.lblComment' | translate }}</label>
                       <div class="d-flex">
-                          <textarea formControlName="comment" class="form-control" rows="4"></textarea>
+                          <textarea formControlName="comment" class="form-control" rows="4" maxlength="200"></textarea>
                           <span class="d-flex align-items-center symbolType">{{defaultCurrency}}</span>
                       </div>
                       
@@ -89,35 +107,49 @@
             </div>
           </div>
         </div>
-        <!--div class="col-md-6">
+      </div>
+    </div>
+    <div class="twoFactorCodeClass" *ngIf="showTwoFactorForm">
+        <div class="container">
             <div class="row">
-              <div class="col-sm-12">
-                <div class="widget">
-                  <div class="widget-header">
-                    <h4>BTC</h4>
-                  </div>
-                  <div class="d-flex flex-wrap withdrawValues">
-                    <div>
-                        <label for="">{{ 'langWithdraw.lblTradingBal' | translate }}</label>
-                        <div>aldfjalksf afjalsfjsalfjaslf</div>
-                    </div>
-                    <div>
-                        <label for="">{{ 'langWithdraw.lblAvailableBal' | translate }}</label>
-                        <div>aldfjalksf afjalsfjsalfjaslf</div>
-                    </div>
-                    <div>
-                        <label for="">{{ 'langWithdraw.lblWithdrawalFee' | translate }}</label>
-                        <div>aldfjalksf afjalsfjsalfjaslf</div>
-                    </div>
-                    <div>
-                        <label for="">{{ 'langWithdraw.lblMinAmount' | translate }}</label>
-                        <div>aldfjalksf afjalsfjsalfjaslf</div>
-                    </div>
+                <div class="col-sm-12">
+                  <div class="page-title">
+                    <h1>{{ 'langTwoFactor.lblTwoFactor' | translate }}</h1>
                   </div>
                 </div>
               </div>
-            </div>
-        </div-->
-      </div>
+              <div class="row mobileRow">
+                  <div class="col-md-12">
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <div class="widget">
+                          <form [formGroup]="twoFactorFormGroup" (ngSubmit)="onTwoFaSubmit()">
+                           <div class="form-group">
+                                <div class="d-flex">
+                                    <input 
+                                    formControlName="otp" 
+                                    type="text" 
+                                    class="form-input" 
+                                    [ngClass]="{'is-invalid': twoFASubmitted && twoFactorformFields.otp.errors}"
+                                    maxlength="6"
+                                    >
+                                </div>
+                                <div *ngIf="twoFASubmitted && twoFactorformFields.otp.errors" class="form-valid-error">
+                                    <div *ngIf="twoFactorformFields.otp.errors.required" class="error-msg">
+                                      {{ 'langTwoFactor.valEnterOtp' | translate }}
+                                    </div>
+                                  </div>
+                            </div>
+                            <div class="form-group text-right">
+                                <button type="submit" class="form-button form-button-sm send-otp">{{ 'langTwoFactor.btnTwoSubmit' | translate }}</button>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+        </div>
     </div>
+    
 

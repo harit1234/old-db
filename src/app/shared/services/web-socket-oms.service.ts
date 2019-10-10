@@ -40,16 +40,32 @@ export class WebSocketOmsService extends WebSocketService {
         this.subscribeOSS(session, user, account, 'orders');
     }
 
+    public unSubscribeForOrders(session, user, account) {
+        this.unSubscribeOSS(session, user, account, 'orders');
+    }
+
     public subscribeForAccounts(session, user, account) {
         this.subscribeOSS(session, user, account, 'accounts');
+    }
+
+    public unSubscribeForAccounts(session, user, account) {
+        this.unSubscribeOSS(session, user, account, 'accounts');
     }
 
     public subscribeForTrades(session, user, account) {
         this.subscribeOSS(session, user, account, 'trades');
     }
 
+    public unSubscribeForTrades(session, user, account) {
+        this.unSubscribeOSS(session, user, account, 'trades');
+    }
+
     public subscribeForPositions(session, user, account) {
         this.subscribeOSS(session, user, account, 'positions');
+    }
+
+    public unSubscribeForPositions(session, user, account) {
+        this.unSubscribeOSS(session, user, account, 'positions');
     }
 
     private subscribeOSS(session, user, account, type: 'orders' | 'trades' | 'accounts' | 'positions' | 'OrdersAndTrades' | 'AccountsAndPositions'): Observable<any> {
@@ -68,19 +84,37 @@ export class WebSocketOmsService extends WebSocketService {
         }
         return this.onMessage;
     }
+    private unSubscribeOSS(session, user, account, type: 'orders' | 'trades' | 'accounts' | 'positions' | 'OrdersAndTrades' | 'AccountsAndPositions'): Observable<any> {
+        const data = {
+            'user_id': user,
+            'session_id': session,
+            'action': 'unsubscribe',
+            'type': type,
+            'account': account
+        };
+        if (this.isConnected()) {
+            this.ws.send(JSON.stringify(data));
+        }
+        return this.onMessage;
+    }
 
     public subscribeAllOms(userId: string, sessionId: string, account: string): Observable<any> {
         this.activeRequests = [];
 
         this.subscribeForAccounts(sessionId, userId, account);
-        this.subscribeForOrders(sessionId, userId, account);
-        this.subscribeForTrades(sessionId, userId, account);
-        this.subscribeForPositions(sessionId, userId, account);
+        //this.subscribeForOrders(sessionId, userId, account);
+        //this.subscribeForTrades(sessionId, userId, account);
+        //this.subscribeForPositions(sessionId, userId, account);
 
         return this.onMessage;
     }
 
     public unsubscribeAllOms(userId: string, sessionId: string, account: any) {
+        this.unSubscribeForAccounts(sessionId, userId, account);
+        //this.unSubscribeForOrders(sessionId, userId, account);
+        //this.unSubscribeForTrades(sessionId, userId, account);
+        //this.unSubscribeForPositions(sessionId, userId, account);
 
+        return this.onMessage;
     }
 }

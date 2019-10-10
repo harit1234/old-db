@@ -7,6 +7,8 @@ import { InstrumentModel } from '../models/instrument-model';
 import { Dictionary } from '../models/dictionary';
 import { TranslateService } from '@ngx-translate/core';
 import { WebSocketOmsService } from './web-socket-oms.service';
+import { AccountModel } from '../../models/account-model';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +22,11 @@ export class DataService {
   hambergerMenuStatus = false;
   hamurgerLeftMenu = false;
   selectedLanguage: string;
+
+  tradingBalance:any;
+  availableBalance:any;
+  accountSubject = new Subject();
+
   public instruments: Dictionary<InstrumentModel>;
 
   constructor(
@@ -35,7 +42,7 @@ export class DataService {
 
    onMessage(data): void {
      
-     console.log("On Message++++");
+     // console.log("On Message++++");
     if (data.data instanceof Blob) {
         const blobReader = new FileReader();
         blobReader.onload = () => {
@@ -44,9 +51,38 @@ export class DataService {
         };
         blobReader.readAsText(data.data);
     } else {
-         console.log("On Else++++",data);
-        //this.processWSMessage(data);
+         // console.log("On Else++++",data);
+        this.processWSMessage(data);
     }
+  }
+
+  processWSMessage(pack: {event: string, data: any}) {
+    switch (pack.event) {
+        
+        case 'account': {
+            this.setAccount(pack.data);
+            break;
+        }
+        default: {
+            break;
+        }
+
+    }
+    return;
+  }
+
+  private _accountInfo: AccountModel;
+
+  public get accountInfo(): AccountModel {
+      return this._accountInfo;
+  }
+
+  public setAccount(account: AccountModel) {
+    // console.log('Account Info:', account);
+    this.tradingBalance = account.UnusedMargin;
+    this.availableBalance = account.UsedMargin;
+    this._accountInfo = account;
+    this.accountSubject.next(account);
   }
 
   register(data: any) {
@@ -106,7 +142,7 @@ export class DataService {
     };
     this.restService.getInstruments(data).subscribe((instrumentInfo: any) => {
       this.loader = false;
-      console.log('Instruments : ', JSON.stringify(instrumentInfo.instrument));
+      // console.log('Instruments : ', JSON.stringify(instrumentInfo.instrument));
       if (instrumentInfo.instrument) {
 
         if (instrumentInfo.instrument instanceof Array) {

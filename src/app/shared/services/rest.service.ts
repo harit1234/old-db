@@ -38,6 +38,8 @@ export class RestService {
   private getApiCredentialsUrl = 'generate_api_secret_key';
   private getAddressUrl = 'wallets/address';
   private getCurrencyUrl = 'wallets/currencies';
+  private sendWithdrawalUrl = 'wallets/withdrawal';
+  private verify2faUrl = 'verify_2fa';
 
   constructor(private http: HttpClient) {
 
@@ -193,6 +195,14 @@ export class RestService {
   }
   getCurrencies() {
     return this.get_request(this.getCurrencyUrl);
+  }
+
+  sendWithdrawalRequest(data:any) {
+    return this.post_request(this.sendWithdrawalUrl, data);
+  }
+
+  verifyTwoFaCode(data:any) {
+    return this.post_request(this.verify2faUrl, data);
   }
   // getTokenStaus() {
   //   var token = localStorage.getItem('token');
