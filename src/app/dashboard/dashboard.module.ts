@@ -32,6 +32,10 @@ import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { AffiliateComponent } from './affiliate/affiliate.component';
 import { ApiSecretComponent } from './api-secret/api-secret.component';
 import { AddressComponent } from './address/address.component';
+import { NumericDirective } from '../shared/directives/numeric.directive';
+import { DepositHistoryComponent } from './diposit/deposit-history/deposit-history.component';
+import { WithdrawalHistoryComponent } from './withdraw/withdrawal-history/withdrawal-history.component';
+import { WithdrawalStatusComponent } from './withdraw/withdrawal-history/withdrawal-status/withdrawal-status.component';
 // import { GridModule, PageService, SortService, FilterService, GroupService } from '@syncfusion/ej2-angular-grids';
 // required for AOT compilation
 export function httpLoaderFactory(http: HttpClient) {
@@ -64,7 +68,11 @@ export function httpLoaderFactory(http: HttpClient) {
     MonetaryPipe,
     PricePipe,
     ApiSecretComponent,
-    AddressComponent
+    AddressComponent,
+    NumericDirective,
+    DepositHistoryComponent,
+    WithdrawalHistoryComponent,
+    WithdrawalStatusComponent
 
   ],
   imports: [
@@ -73,7 +81,7 @@ export function httpLoaderFactory(http: HttpClient) {
     ReactiveFormsModule,
     FormsModule,
     // GridModule,
-    AgGridModule.withComponents([]),
+    AgGridModule.withComponents([WithdrawalStatusComponent]),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

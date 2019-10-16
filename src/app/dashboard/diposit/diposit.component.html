@@ -1,19 +1,69 @@
 <div class="container">
-    <div class="row">
-      <div class="col-sm-12">
-        <div class="page-title">
-          <h1>{{ 'langDashboardLeftMenu.lblDeposit' | translate }}</h1>
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item">{{ 'langDashboardLeftMenu.lblWallet' | translate }}</li>
-            <li class="breadcrumb-item active">{{ 'langDashboardLeftMenu.lblDeposit' | translate }}</li>
-          </ol>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="col-sm-12">
+            <div class="page-title">
+                <h1>{{ 'langDashboardLeftMenu.lblDeposit' | translate }}</h1>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">{{ 'langDashboardLeftMenu.lblWallet' | translate }}</li>
+                    <li class="breadcrumb-item active">{{ 'langDashboardLeftMenu.lblDeposit' | translate }}</li>
+                  </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="widget">
+                <div class="widget-header">
+                  <h4 *ngIf="addressGeneratedStaus != true">{{ 'langDeposit.btnCreateNewAddress' | translate }}</h4>
+                  <h4 *ngIf="addressGeneratedStaus == true">{{ 'langDeposit.lblYourBtcAddress' | translate }}:</h4>
+                </div>
+                <form [formGroup]="createAddressGroup" (ngSubmit)="onSubmit()" *ngIf="addressGeneratedStaus != true">
+                  <div *ngIf="error" class="auth-error">
+                    <p>{{error}}</p>
+                  </div>
+                  <div *ngIf="changePasswordStatus" class="msg-success">
+                      <p>{{ 'langChangePassword.msgSuccess' | translate }}</p>
+                    </div>
+                  <div class="form-group">
+                    <label for="OldPassword">{{ 'langDeposit.lblSelectCoin' | translate }}</label>
+                    <select formControlName="coin" class="form-input" [ngClass]="{'is-invalid': submitted && formFields.coin.errors}">
+                      <option *ngFor="let coin of coinsArray" value="{{coin.key}}">{{coin.value}}</option>
+                    </select>  
+                    <div *ngIf="submitted && formFields.coin.errors" class="form-valid-error">
+                      <div *ngIf="formFields.coin.errors.required" class="error-msg">
+                        {{ 'langDeposit.valChooseCoin' | translate }}
+                      </div>
+                    </div>
+                  </div>
+                  <button type="submit" class="form-button form-button-sm update-password">{{ 'langDeposit.btnCreateNewAddress' | translate }}</button>
+                </form>
+                <div *ngIf="error && addressGeneratedStaus == true" class="auth-error"><p>{{error}}</p></div>
+                <div class="form-group" *ngIf="addressGeneratedStaus == true && createdAddress">
+                    
+                    <input 
+                    type="text" 
+                    #refererText 
+                    class="form-input-box" 
+                    id="addressCopy" 
+                    value="{{ createdAddress }}"
+                    readonly
+                    > 
+                    <button 
+                    class="form-button form-button-sm copyBtn" 
+                    data-clipboard-target="#addressCopy" 
+                    (click)="copyRefererLink(refererText)">{{ 'langDeposit.btnAddressCopy' | translate }}</button>
+                    <div class="address-copied" *ngIf="copiedAddress"><i class="far fa-check-circle"></i>{{ 'langDeposit.lblAddressCopyClip' | translate }}</div>
+                    
+                </div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="widget exchange-account-withdraw">
-    <div class="table-responsive">
-    <div class="record-not-found">{{ 'langCommon.lblFeatureNotAvail' | translate }}</div>
-    </div>
-    </div>
   </div>
+</div>
+<app-deposit-history></app-deposit-history>
 

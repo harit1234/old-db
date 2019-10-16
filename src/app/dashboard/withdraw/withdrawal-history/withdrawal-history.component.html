@@ -1,0 +1,32 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+        <div class="widget exchange-account-balances">
+            <div class="widget-header">
+              <h4>{{ 'langWithdrawHistory.lblWithdrawalHistory' | translate }}</h4>
+            </div>
+            <div *ngIf="withdrawalSuccess" class="msg-success">
+                <p>{{ 'langWithdrawHistory.lblWithdrwalCancelSuccess' | translate }}</p>
+            </div>
+            <div *ngIf="withdrawalError" class="auth-error">
+                <p>{{withdrawalError}}</p>
+            </div>
+            <div class="table-responsive">
+              <ag-grid-angular 
+              style="width: 100%; height: 100%;" 
+              [pagination]="true" 
+              [enableSorting]="true"
+              class="ag-theme-balham" 
+              [rowData]="rowData" 
+              [columnDefs]="columnDefs" 
+              [animateRows]="true" 
+              (gridReady)="onGridReady($event)"
+              [context]="context"
+              [frameworkComponents]="frameworkComponents"
+              >
+              </ag-grid-angular>
+            </div>
+          </div>
+    </div>
+  </div>
+  </div>

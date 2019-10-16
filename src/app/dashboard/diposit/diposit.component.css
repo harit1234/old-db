@@ -1,0 +1,27 @@
+select {
+    background: #fff;
+    padding: 0 0 0 5px;
+}
+.address-copied {
+    color: #289a3d;
+    position: absolute;
+    top: 60px;
+    right: 22px;
+    padding-left: 35px;
+    display: flex;
+    align-items: center;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+  
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.address-copied i{
+    color: #289a3d;
+    font-size: 24px;
+    margin-right: 5px;
+}
+.copyBtn {
+    margin-top: 10px;
+}

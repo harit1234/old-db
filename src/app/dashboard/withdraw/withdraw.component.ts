@@ -6,6 +6,7 @@ import { constants } from '../../../constants';
 import { PricePipe } from '../../shared/pipes/price.pipe';
 import { WebSocketOmsService } from '../../shared/services/web-socket-oms.service';
 import { AccountModel } from '../../models/account-model';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-withdraw',
@@ -21,13 +22,16 @@ export class WithdrawComponent implements OnInit, OnDestroy {
   twoFASubmitted = false;
   twoFAError = '';
   error = '';
+  msgSuccess = '';
   googleFaStatus = false;
   showTwoFactorForm = false;
+  withdrawalRequestStatus = false;
   defaultCurrency:string;
   minWithdrawalAmount: any;
   defaultWithdrawalFee:any;
   tradingBalance:any;
   availableBalance:any;
+  amountGreaterStatus = false;
 
   @HostListener('document:keydown.escape', ['$event']) onKeydownHandler(event: KeyboardEvent) {
     this.showTwoFactorForm = false;
@@ -39,7 +43,8 @@ export class WithdrawComponent implements OnInit, OnDestroy {
     public dataService: DataService,
     private restService: RestService,
     public pricePipe:PricePipe,
-    private wsOmsService: WebSocketOmsService
+    private wsOmsService: WebSocketOmsService,
+    private translateService: TranslateService
   ) { }
 
   ngOnInit() {
@@ -48,7 +53,8 @@ export class WithdrawComponent implements OnInit, OnDestroy {
     this.dataService.accountSubject.subscribe( (accountInfo: AccountModel) => {
 
       this.tradingBalance = parseFloat(accountInfo.UnusedMargin.toString()).toFixed(8);
-      this.availableBalance = parseFloat(accountInfo.UsedMargin.toString()).toFixed(8);
+      // this.availableBalance = parseFloat(accountInfo.UsedMargin.toString()).toFixed(8);
+      this.availableBalance = '5.00000000';
 
       this.formFields.tradingBalance.setValue(this.tradingBalance);
       this.formFields.available.setValue(this.availableBalance);
@@ -78,12 +84,15 @@ export class WithdrawComponent implements OnInit, OnDestroy {
       'tradingBalance': [''],
       'available': [''],
       'amount': ['', Validators.required],
-      'comment': ['', Validators.required]
+      'comment': ['']
     });
     this.twoFactorFormGroup = this.twoFactorFormBuilder.group({'otp': ['', Validators.required]});
     this.defaultCurrency = constants.DEFAULT_CURRENCY;
   }
 
+  /**
+   * Initializing the web socket connection to get the available amount
+   */
   initiateWebSocketConnection() {
     console.log('Getting Account Info....');
     this.dataService.loader = true;
@@ -144,12 +153,29 @@ export class WithdrawComponent implements OnInit, OnDestroy {
     this.error = '';
     this.submitted = true;
 
-    if (this.withdrawFormGroup.invalid) {
+    this.amountGreaterStatus = this.checkForAmountGreater();
+    
+    if (this.withdrawFormGroup.invalid || this.amountGreaterStatus) {
+      
+      if(this.amountGreaterStatus) {
+        this.formFields.amount.setValue(this.availableBalance);
+      }
       console.log('Invalid');
       return;
     }
     this.showTwoFactorForm = true;
     return;
+  }
+
+  checkForAmountGreater() {
+    
+    const firstValue = parseFloat(this.formFields.amount.value);
+    const secondValue = parseFloat(this.formFields.available.value);
+    // set error on matchingControl if validation fails
+    if (secondValue < firstValue) {
+        return true;
+    }
+    return false; 
   }
 
   sendWithdrawData() {
@@ -160,9 +186,16 @@ export class WithdrawComponent implements OnInit, OnDestroy {
       'comment': this.formFields.comment.value
     };
     this.dataService.loader = true;
-    this.restService.sendWithdrawalRequest(data).subscribe( withdrawSatus => {
+    this.restService.sendWithdrawalRequest(data).subscribe( (withdrawSatus:any) => {
       this.dataService.loader = false;
-        console.log('Withdraw Data staus :: ', withdrawSatus);
+      this.withdrawalRequestStatus = true;
+      this.submitted = false;
+      this.withdrawFormGroup.reset();
+      this.translateService.get('langServerSuccess.' + withdrawSatus.data.code).subscribe(text => {
+        console.log('Translated error : ', text);
+        this.msgSuccess = text;
+      });
+
     }, error => {
       this.error = error;
     }); 
@@ -186,8 +219,8 @@ export class WithdrawComponent implements OnInit, OnDestroy {
     this.restService.verifyTwoFaCode(data).subscribe( (twoFactorStatus:any) => {
       this.dataService.loader = false;
       this.showTwoFactorForm = false;
-      console.log('Address Result:', twoFactorStatus.success);
-
+      this.twoFASubmitted = false;
+      this.twoFactorFormGroup.reset();
       if(twoFactorStatus.success === true) {
         this.sendWithdrawData();
       }
@@ -197,7 +230,7 @@ export class WithdrawComponent implements OnInit, OnDestroy {
       this.twoFASubmitted = false;
       this.showTwoFactorForm = false;
     });
-
+    
     
 
     return;
@@ -214,12 +247,11 @@ export class WithdrawComponent implements OnInit, OnDestroy {
       localStorage.getItem('sessionIdStorage'),
       localStorage.getItem('exchangeAccountId'));
   }
-  clickedDiv() {
-    console.log('clikced outside');
-  }
-  clickedInside() {
-    console.log('clicked inside');
-    return false;
+
+  hidePopup() {
+    this.twoFactorFormGroup.reset();
+    this.twoFASubmitted = false;
+    this.showTwoFactorForm = false;
   }
 
 }

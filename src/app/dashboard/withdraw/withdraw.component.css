@@ -39,3 +39,8 @@ span.symbolType {
     font-size: 20px;
 }
 .send-otp { min-width: 150px;}
+.twoFactorCodeClass img {
+    margin-top: 10px;
+    max-width: 17px;
+    cursor: pointer;
+}

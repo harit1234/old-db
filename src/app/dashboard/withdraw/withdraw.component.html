@@ -19,8 +19,8 @@
                   <div *ngIf="error" class="auth-error">
                     <p>{{error}}</p>
                   </div>
-                  <div *ngIf="changePasswordStatus" class="msg-success">
-                      <p>{{ 'langChangePassword.msgSuccess' | translate }}</p>
+                  <div *ngIf="withdrawalRequestStatus" class="msg-success">
+                      <p>{{ msgSuccess }}</p>
                     </div>
                   <div class="form-group">
                       <label for="OldPassword">{{ 'langWithdraw.lblAddress' | translate }}</label>
@@ -66,16 +66,17 @@
                           >
                           <span class="d-flex align-items-center symbolType">{{defaultCurrency}}</span>
                       </div>
-                      
                   </div>
                   <div class="form-group">
                       <label for="OldPassword">{{ 'langWithdraw.lblAmount' | translate }}</label>
                       <div class="d-flex">
                           <input 
                           formControlName="amount" 
-                          type="text" 
+                          type="text"
+                          numeric
+                          numericType="decimal" 
                           class="form-input" 
-                          [ngClass]="{'is-invalid': submitted && formFields.address.errors}"
+                          [ngClass]="{'is-invalid': submitted && formFields.amount.errors}"
                           placeholder="{{ 'langWithdraw.lblMinAmount' | translate }}: {{minWithdrawalAmount}}">
                           <span class="d-flex align-items-center symbolType">{{defaultCurrency}}</span>
                       </div>
@@ -84,11 +85,21 @@
                             {{ 'langWithdraw.valEnterAmount' | translate }}
                           </div>
                         </div>
+                        <div *ngIf="submitted && formFields.amount.errors && !submitclicked" class="form-valid-error">
+                            <div *ngIf="formFields.amount.errors.amountGreater" class="error-msg">
+                              {{ 'langWithdraw.valAmountIsGreater' | translate }}
+                            </div>
+                        </div>
+                        <div *ngIf="amountGreaterStatus" class="form-valid-error">
+                            <div class="error-msg">
+                              {{ 'langWithdraw.valAmountIsGreaterAfterSubmit' | translate }}
+                            </div>
+                        </div>    
                   </div>
                   <div class="form-group">
                       <label for="OldPassword">{{ 'langWithdraw.lblComment' | translate }}</label>
                       <div class="d-flex">
-                          <textarea formControlName="comment" class="form-control" rows="4" maxlength="200"></textarea>
+                          <textarea formControlName="comment" class="form-control" rows="2" maxlength="200"></textarea>
                           <span class="d-flex align-items-center symbolType">{{defaultCurrency}}</span>
                       </div>
                       
@@ -109,14 +120,19 @@
         </div>
       </div>
     </div>
+    
+    <!--Tow Factor Code pop-up-->
     <div class="twoFactorCodeClass" *ngIf="showTwoFactorForm">
         <div class="container">
             <div class="row">
-                <div class="col-sm-12">
+                <div class="col-sm-6">
                   <div class="page-title">
                     <h1>{{ 'langTwoFactor.lblTwoFactor' | translate }}</h1>
                   </div>
                 </div>
+                <div class="col-sm-6 text-right">
+                    <div><img src="../../../assets/img/icon-close-dark.png" alt="IDAP Exchange" (click)="hidePopup()"></div>
+                  </div>
               </div>
               <div class="row mobileRow">
                   <div class="col-md-12">
@@ -150,6 +166,6 @@
                   </div>
                 </div>
         </div>
-    </div>
-    
+      </div>
+    <app-withdrawal-history></app-withdrawal-history>
 

@@ -18,7 +18,8 @@
         <div class="col-sm-12">
           <div class="widget">
             <div class="widget-header">
-              <h4>{{ 'langAddress.btnCreateNewAddress' | translate }}</h4>
+              <h4 *ngIf="addressGeneratedStaus != true">{{ 'langDeposit.btnCreateNewAddress' | translate }}</h4>
+              <h4 *ngIf="addressGeneratedStaus == true">{{ 'langDeposit.lblYourBtcAddress' | translate }}:</h4>
             </div>
             <form [formGroup]="createAddressGroup" (ngSubmit)="onSubmit()" *ngIf="addressGeneratedStaus != true">
               <div *ngIf="error" class="auth-error">
@@ -28,22 +29,23 @@
                   <p>{{ 'langChangePassword.msgSuccess' | translate }}</p>
                 </div>
               <div class="form-group">
-                <label for="OldPassword">{{ 'langAddress.lblSelectCoin' | translate }}</label>
+                <label for="OldPassword">{{ 'langDeposit.lblSelectCoin' | translate }}</label>
                 <select formControlName="coin" class="form-input" [ngClass]="{'is-invalid': submitted && formFields.coin.errors}">
                   <option *ngFor="let coin of coinsArray" value="{{coin.key}}">{{coin.value}}</option>
                 </select>  
                 <div *ngIf="submitted && formFields.coin.errors" class="form-valid-error">
                   <div *ngIf="formFields.coin.errors.required" class="error-msg">
-                    {{ 'langAddress.valChooseCoin' | translate }}
+                    {{ 'langDeposit.valChooseCoin' | translate }}
                   </div>
                 </div>
               </div>
-              <button type="submit" class="form-button form-button-sm update-password">{{ 'langAddress.btnCreateNewAddress' | translate }}</button>
+              <button type="submit" class="form-button form-button-sm update-password">{{ 'langDeposit.btnCreateNewAddress' | translate }}</button>
             </form>
+            <div *ngIf="error && addressGeneratedStaus == true" class="auth-error"><p>{{error}}</p></div>
             <div class="form-group" *ngIf="addressGeneratedStaus == true && createdAddress">
-                <label for="OldPassword">{{ 'langAddress.lblAddress'| translate }}</label>
+                
                 <div class="form-input-box">{{createdAddress}}</div>
-              </div>
+            </div>
           </div>
         </div>
       </div>

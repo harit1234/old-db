@@ -40,6 +40,8 @@ export class RestService {
   private getCurrencyUrl = 'wallets/currencies';
   private sendWithdrawalUrl = 'wallets/withdrawal';
   private verify2faUrl = 'verify_2fa';
+  private getWallentHistoryUrl = 'wallets/history';
+  private cancelWithdrawalUrl = 'wallets/withdrawal';
 
   constructor(private http: HttpClient) {
 
@@ -75,7 +77,7 @@ export class RestService {
         catchError((err, caught) => {
           console.log(err);
           return throwError(
-            `Error: ${err}`);
+            `${err}`);
         })
       );
   }
@@ -89,6 +91,21 @@ export class RestService {
         return d;
       }),
         catchError((err, caught) => {
+          return throwError(
+            `${err}`);
+        })
+      );
+  }
+  private del_request(url: string): Observable<any> {
+
+    return this.http.delete(environment.restUrl + url,
+      {
+        headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+      }).pipe(map(d => {
+        return d;
+      }),
+        catchError((err, caught) => {
+          console.log(err);
           return throwError(
             `${err}`);
         })
@@ -203,6 +220,16 @@ export class RestService {
 
   verifyTwoFaCode(data:any) {
     return this.post_request(this.verify2faUrl, data);
+  }
+  
+  getWalletHistory(data:any) {
+    const url = this.getWallentHistoryUrl+'/'+data.symbol+'/'+data.history_type;
+    return this.get_request(url);
+  }
+  
+  cancelWithdrawal(data:any) {
+    const url = this.cancelWithdrawalUrl+'/'+data.withdrawalId;
+    return this.del_request(url);
   }
   // getTokenStaus() {
   //   var token = localStorage.getItem('token');

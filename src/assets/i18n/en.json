@@ -120,17 +120,27 @@
     "msgGenerationSuccess": "Credentials successfully generated!",
     "msgSecretKeyNote": "Please write down the secret key somewhere safe! The secret key will no longer be available once you leave this page."
   },
-  "langAddress": {
+  "langDeposit": {
     "lblAddress": "Address",
     "lblSelectCoin": "Select Coin",
+    "lblYourBtcAddress": "Your BTC Deposit Address is",
+    "lblAddressCopyClip": "Address copied to clipboard",
+    "btnCreateNewAddress": "Create new Address",
+    "btnAddressCopy": "Copy Address",
+    "valChooseCoin": "Please select one coin!"
+  },
+  "langDepositHistory": {
+    "lblDepositHistory": "Deposit History",
+    "lblSelectCoin": "Select Coin",
+    "lblYourBtcAddress": "Your BTC Deposit Address is",
     "btnCreateNewAddress": "Create new Address",
     "valChooseCoin": "Please select one coin!"
   },
   "langWithdraw": {
-    "lblAddress": "Address",
+    "lblAddress": "Withdrawal Address",
     "lblSelectCoin": "Select Coin",
-    "lblTradingBal": "Trading balance",
-    "lblAvailableBal": "Available",
+    "lblTradingBal": "Available Trading Balance",
+    "lblAvailableBal": "Available Withdrawal Balance",
     "lblAmount": "Amount",
     "lblMinAmount": "Minimum Amount",
     "lblWithdrawalFee": "Withdrawal fee",
@@ -139,7 +149,20 @@
     "valEnterAmount":  "Please enter amount!",
     "valEnterAddress": "Please enter address!",
     "valChooseCoin": "Please select one coin!",
+    "valAmountIsGreater": "Amount is greater then available balance!",
+    "valAmountIsGreaterAfterSubmit": "Insufficient withdrwal balance! Amount corrected to maximum possible withdrawal limit.",
     "errTwoFactorAuth": "Please enable google two factor authentication for withdrawal!"
+  },
+  "langWithdrawHistory": {
+    "lblWithdrawalHistory": "Withdrawal History",
+    "lblWithdrwalCancelSuccess": "Your withdrawal request has been processed successfully!",
+    "lblCreated": "Created",
+    "lblModified": "Modified",
+    "lblAmount": "Amount",
+    "lblFee": "Fee",
+    "lblAddress": "Address",
+    "lblStatus": "Status",
+    "lblTxInfo": "Tx Info"
   },
   "langGoogleAuthVal": {
     "val2FCode": "Please enter two factor code!",
@@ -199,10 +222,23 @@
     "2161": "Api key is required!",
     "2162": "Api key is invalid!",
     "2163": "Api secret key not generated yet!",
+    "2181": "Could not get new address!",
+    "2191": "No currencies are currently enabled!",
+    "2196": "Could not withdraw!",
     "2198": "Your withdrawal request not accepted, please try again!",
+    "2211": "Withdrawal cancellation failed, please try again!",
+    "2220": "Adapter is ofline!",
+    "2221": "Amount should be greater than minimum witdrawal amount!",
+    "2222": "Withdrawal address is not valid!",
+    "2223": "Amount after deducting fees must be positive",
+    "2224": "Insufficient available funds!",
+    "2225": "Withdrawal failed!",
+    "2227": "Withdrawal transaction could not be calcelled!",
+    "2228": "Withdrawal transaction already cancelled",
+    "2229": "Transaction does not exist!  ",
     "3001": "Something went wrong, please try again!",
-    "3002": "You must be login to access this API!"
-
+    "3002": "You must be login to access this API!",
+    "3008": "Something went wrong, please try again!"
   },
   "langServerSuccess": {
     "2021": "Successfully logged out!",
@@ -213,6 +249,10 @@
     "2065": "Your account has been activated successfully!",
     "2073": "Your password has been reset!",
     "2081": "We have sent you a password reset link to your e-mail. Please check your inbox!",
-    "2141": "User profile language updated successfully"
+    "2141": "User profile language updated successfully!",
+    "2197": "Your withdrawal request has been accepted successfully, It will take some time to confirm!",
+    "2199": "Your withdrawal request has been accepted successfully, Please check your email to confirm this transaction!",
+    "2200": "Your withdrawal request has been accepted successfully, It will be processed once an administrator confirms this transaction!",
+    "2212": "Your withdrawal has been cancelled successfully!"
   }
 }

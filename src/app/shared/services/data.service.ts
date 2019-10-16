@@ -42,7 +42,7 @@ export class DataService {
 
    onMessage(data): void {
      
-     // console.log("On Message++++");
+      //console.log("On Message++++");
     if (data.data instanceof Blob) {
         const blobReader = new FileReader();
         blobReader.onload = () => {
@@ -51,7 +51,7 @@ export class DataService {
         };
         blobReader.readAsText(data.data);
     } else {
-         // console.log("On Else++++",data);
+          //console.log("On Else++++",data);
         this.processWSMessage(data);
     }
   }
@@ -184,13 +184,16 @@ export class DataService {
   }
 
   checkApiStatus() {
-    console.log('Check api status function called');
     const data = {
       'token_id': localStorage.getItem('sessionIdStorage'),
       'username': localStorage.getItem('userIdStorage')
     };
-    this.restService.getApiStatus(data).subscribe(apiStatus => {
-      console.log('Api Status', JSON.stringify(apiStatus));
+    this.restService.getApiStatus(data).subscribe( (apiStatus:any) => {
+      console.log('Api Status: ', apiStatus.status);
+      if(apiStatus.status === false) {
+        this.logout();
+      }
+      
     });
   }
   /**

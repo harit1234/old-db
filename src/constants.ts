@@ -23,6 +23,15 @@ export const constants = {
     {code :'ru', name: 'Russian'},
     {code :'sv', name: 'Swedish'}
   ],
+  WITHDRAWAL_STATUS: {
+    pending:'Pending',
+    inprogress: 'In Progress',
+    unconfirmed: 'Unconfirmed',
+    completed: 'Completed',
+    rejected: 'Rejected',
+    cancelled: 'Cancelled',
+    resend: 'Resend'
+  },
    /**
    * Enable support of WSS_OMS server.
    */

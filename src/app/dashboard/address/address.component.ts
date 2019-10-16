@@ -70,7 +70,8 @@ export class AddressComponent implements OnInit {
         });
       }
     }, error => {
-      console.log(error);
+      this.error = error;
+      console.log("error sis: ", error);
     });
   }
   
@@ -99,9 +100,12 @@ export class AddressComponent implements OnInit {
       this.createdAddress = addressInfo.data.address;
       localStorage.setItem('walletAddress', '{"'+addressInfo.data.symbol+'": true}');
     }, error => {
+
+      console.log('errorrrrr');
       this.createAddressGroup.reset();
       this.submitted = false;
       this.error = error;
+      console.log('errorrrrr', this.error);
     });
   }
   // convenience getter for easy access to form fields
