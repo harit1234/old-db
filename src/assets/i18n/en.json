@@ -155,7 +155,7 @@
   },
   "langWithdrawHistory": {
     "lblWithdrawalHistory": "Withdrawal History",
-    "lblWithdrwalCancelSuccess": "Your withdrawal request has been processed successfully!",
+    "lblWithdrwalCancelSuccess": "Your cancel request has been processed successfully!",
     "lblCreated": "Created",
     "lblModified": "Modified",
     "lblAmount": "Amount",
@@ -227,6 +227,7 @@
     "2196": "Could not withdraw!",
     "2198": "Your withdrawal request not accepted, please try again!",
     "2211": "Withdrawal cancellation failed, please try again!",
+    "2216": "Withdrawal confirmation link is invalid or expired!",
     "2220": "Adapter is ofline!",
     "2221": "Amount should be greater than minimum witdrawal amount!",
     "2222": "Withdrawal address is not valid!",
@@ -236,6 +237,9 @@
     "2227": "Withdrawal transaction could not be calcelled!",
     "2228": "Withdrawal transaction already cancelled",
     "2229": "Transaction does not exist!  ",
+    "2230": "The transaction to be confirmed was not found or it has already been confirmed.",
+    "2231": "This confirmation link is expired or have already been used!",
+    "2232": "You can only confirm withdrawal trasactions!",
     "3001": "Something went wrong, please try again!",
     "3002": "You must be login to access this API!",
     "3008": "Something went wrong, please try again!"
@@ -253,6 +257,8 @@
     "2197": "Your withdrawal request has been accepted successfully, It will take some time to confirm!",
     "2199": "Your withdrawal request has been accepted successfully, Please check your email to confirm this transaction!",
     "2200": "Your withdrawal request has been accepted successfully, It will be processed once an administrator confirms this transaction!",
-    "2212": "Your withdrawal has been cancelled successfully!"
+    "2212": "Your withdrawal has been cancelled successfully!",
+    "2217": "You have successfully confirmed your transaction and it will be processed soon!",
+    "2218": "You have successfully confirmed your transaction. It will be processed once an administrator confirms it too!"
   }
 }

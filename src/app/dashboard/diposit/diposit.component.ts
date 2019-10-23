@@ -13,6 +13,7 @@ export class DipositComponent implements OnInit {
 
   addressGeneratedStaus = false;
   createdAddress:string;
+  qrCode:string;
   coinsArray = [];
   createAddressGroup: FormGroup;
   submitted = false;
@@ -99,6 +100,7 @@ export class DipositComponent implements OnInit {
       console.log('Address Result:', addressInfo);
       this.addressGeneratedStaus = true;
       this.createdAddress = addressInfo.data.address;
+      this.qrCode = addressInfo.data.qrcode;
       localStorage.setItem('walletAddress', '{"'+addressInfo.data.symbol+'": true}');
     }, error => {
 

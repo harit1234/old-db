@@ -42,7 +42,7 @@ export class RestService {
   private verify2faUrl = 'verify_2fa';
   private getWallentHistoryUrl = 'wallets/history';
   private cancelWithdrawalUrl = 'wallets/withdrawal';
-
+  private withdrawalConfirmUrl = 'wallets/withdrawal/confirm';
   constructor(private http: HttpClient) {
 
   }
@@ -230,6 +230,9 @@ export class RestService {
   cancelWithdrawal(data:any) {
     const url = this.cancelWithdrawalUrl+'/'+data.withdrawalId;
     return this.del_request(url);
+  }
+  confirmWithdrawal(data:any) {
+    return this.post_request(this.withdrawalConfirmUrl, data);
   }
   // getTokenStaus() {
   //   var token = localStorage.getItem('token');

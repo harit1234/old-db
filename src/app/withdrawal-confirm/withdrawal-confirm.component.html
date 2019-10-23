@@ -1,0 +1,26 @@
+<div class="wrapper">
+    <app-side-panel></app-side-panel>
+    <div class="frm-wrapper">
+      <section class="frm-block">
+      <div class="container">
+        <app-login-logo></app-login-logo>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="frm-body signin-wd" *ngIf="withdrawalConfirmStatus">
+              <figure><img src="assets/img/icon-success.svg" alt=""></figure>
+              <h1>Withdrawal Confirmation Successful</h1>
+                  <p>{{msgSuccess}}</p>
+              <p><a routerLink="/login" class="form-button">Log In</a></p>
+            </div>
+            <div class="frm-body signin-wd" *ngIf="withdrawalConfirmStatus == false">
+                <figure><img src="assets/img/icon-fail.svg" alt=""></figure>
+                <h1>Withdrawal Confirmation Fail!</h1>
+                    <p>{{error}}</p>
+                <p><a routerLink="/login" class="form-button">Log In</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
