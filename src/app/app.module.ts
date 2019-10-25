@@ -23,6 +23,10 @@ import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { AppLoaderComponent } from './app-loader/app-loader.component';
 import { WithdrawalConfirmComponent } from './withdrawal-confirm/withdrawal-confirm.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
+import {CommonModule} from "@angular/common"
 
 export function initializeApp(appConfig: AppConfig) {
   return () => {
@@ -56,8 +60,12 @@ export function httpLoaderFactory(http: HttpClient) {
     ActivateAccountComponent,
     AppLoaderComponent,
     WithdrawalConfirmComponent,
+    LandingPageComponent,
+    FooterComponent,
+    HeaderComponent,
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     DashboardModule,
     AppRoutingModule,

@@ -46,6 +46,10 @@ export class RegisterComponent implements OnInit {
     this.dataService.getCountryList();
 
   }
+
+  /**
+   * Gets the recaptha key 
+   */
   get siteKey() {
     return environment.recaptchaKey;
     // return AppConfig.settings.recaptchaKey;
@@ -54,6 +58,10 @@ export class RegisterComponent implements OnInit {
   get formFields() {
     return this.registerFormGroup.controls;
   }
+
+  /**
+   * Submit form action data
+   */
 
   onSubmit() {
 

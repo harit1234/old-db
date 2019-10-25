@@ -1,0 +1,46 @@
+<header class="landing-header">
+	<div class="landing-header-container d-flex" [ngClass]="{'open': openMenuClass}">
+		<div class="landing-header-logo">
+			<a href="javascript:;">
+				<img src="../../assets/img/Bitfex-logo.svg" alt="Bitfex">
+			</a>
+		</div>
+		<div class="menu-trigger" (click)="openMenuClass = !openMenuClass">	<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+
+		<div class="mob-menu-container">
+		<div class="close-icon" (click)="openMenuClass = !openMenuClass">
+			<span></span>
+			<span></span>
+		</div>
+		<div class="landing-header-right d-flex flex-wrap">
+			<div class="login-links d-flex">	
+				<a href="http://idapwebfrontend.demolinks.xyz/trade/" target="_blank" class="register-btn">View Exchange</a>				
+			</div>
+			<!--div class="language-container">	
+			<!--div class="google-translate"><div id="google_translate_element"></div></div-->
+		</div>
+			
+	
+		<div class="menu-container">
+			<ul>
+				<li class="active-menu">
+                    <a href="docs/BitfexDotCom-Whitepaper.pdf" target="_blank">Whitepaper</a>
+				</li>
+				<li>
+					<a href="docs.html">References</a>
+				</li>
+				<li>
+					<a href="javascript:;" data-attr="about-BFX">BFX</a>
+				</li>
+				
+			</ul>
+		</div>
+    </div>
+  </div>
+		<!-- Menu Open Overlay -->
+		<div class="menu-overlay" [ngClass]="{'open': openMenuClass}" (click)="openMenuClass = !openMenuClass"></div>
+</header>

@@ -4,19 +4,19 @@
 .idap-front-page img.logo-default { display: block;}
 .idap-front-page.sticky-header img.logo-default { display: none;}
 .header-right a.btn-register{background-color: #F18D05; color:#fff; font-weight: 500;}
-.sticky-header.header {background-color: #fff; animation: sticky-header 0.5s; height:50px;}
+.sticky-header.header {background-color: #0a1640; animation: sticky-header 0.5s; height:50px;}
 .sticky-header .logo-default{display:none;}
 .sticky-header .logo-sticky{display:block; height: 30px;}
 .sticky-header.header .navbar-brand{ height:50px;}
-.sticky-header.header .navbar ul li a, .sticky-header .header-right li a{color:#000; padding: 16px 15px 14px 15px;}
+.sticky-header.header .navbar ul li a, .sticky-header .header-right li a{color:#fff; padding: 16px 15px 14px 15px;}
 .sticky-header.header .navbar ul li.current-menu-item a,
 .sticky-header .header-right a.btn-register{color:#fff;}
 .sticky-header.header.loggedin .user-login > a{ height:50px;}
 .sticky-header .translator > a:before{ top: 12px;}
 .sticky-header .user-login > a:before{background-position: -38px -38px; top: 12px;}
 .sticky-header.header {position: fixed;}
-.sticky-header.header .navbar ul li a:hover, .sticky-header .header-right a.btn-login:hover{background-color: transparent; color: #2767ff ;}
-.sticky-header.header .navbar ul li.active a{background-color:#2767ff; color:#fff;}
+.sticky-header.header .navbar ul li a:hover, .sticky-header .header-right a.btn-login:hover{background-color: transparent; color: #fff ;}
+.sticky-header.header .navbar ul li.active a{color:#ffd700;}
 .sticky-header.header .dropdown-menu{top:50px;}
 .sticky-header.header-right .guest ul{margin-top:0;}
 .header-right .guest ul { margin: 16px 15px 0 0;}

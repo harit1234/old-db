@@ -8,10 +8,12 @@ import { EmailVerificationComponent } from './login/email-verification/email-ver
 import { ResetPasswordComponent } from './login/reset-password/reset-password.component';
 import { ActivateAccountComponent } from './login/activate-account/activate-account.component';
 import { WithdrawalConfirmComponent } from './withdrawal-confirm/withdrawal-confirm.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 // import { DownloadComponent } from './download/download.component';
 
 const routes: Routes = [
-  {path: '' , redirectTo: 'dashboard', pathMatch: 'full'},
+  /*{path: '' , redirectTo: 'dashboard', pathMatch: 'full'},*/
+  {path: '' , component: LandingPageComponent},
   {path: 'login' , component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'emailVerification', component: EmailVerificationComponent},

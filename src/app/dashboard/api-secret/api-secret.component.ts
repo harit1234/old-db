@@ -39,9 +39,10 @@ export class ApiSecretComponent implements OnInit {
       localStorage.setItem('apiSecretGenerated', 'true');
       this.secretGeneratedStatus = 'true';
       this.credentialApiKey = credentialInfo.data.api_key;
+      this.credentialSecretKey = credentialInfo.data.api_secret;
       if(credentialInfo.success === true) {
         this.successStatus = true;
-        this.credentialSecretKey = credentialInfo.data.api_secret;
+        //this.credentialSecretKey = credentialInfo.data.api_secret;
       }
       // console.log('Credential Info: ', credentialInfo.data.api_key, credentialInfo.data.api_secret, credentialInfo.success);
     }, error => {

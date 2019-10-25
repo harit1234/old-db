@@ -34,7 +34,8 @@
     to{-ms-transform:rotate(360deg);}
 }
 .spining-icon{ width:100px;height:100px; margin:25% auto; position:relative; display:block;}
-.spining-icon img{-webkit-animation-name: spinnerRotate;
+.spining-icon img{
+    /*-webkit-animation-name: spinnerRotate;
     -webkit-animation-duration: 5s;
     -webkit-animation-iteration-count: infinite;
     -webkit-animation-timing-function: linear;
@@ -45,6 +46,6 @@
     -ms-animation-name: spinnerRotate;
     -ms-animation-duration: 5s;
     -ms-animation-iteration-count: infinite;
-    -ms-animation-timing-function: linear;
+    -ms-animation-timing-function: linear;*/
 	max-width:100%;
 	width:100%;}

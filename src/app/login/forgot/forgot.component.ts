@@ -35,6 +35,9 @@ export class ForgotComponent implements OnInit {
     return this.forgotFormGroup.controls;
   }
 
+  /**
+   * Function to send change password link
+   */
   sendRequest() {
     this.serverError = '';
     this.submitted = true;

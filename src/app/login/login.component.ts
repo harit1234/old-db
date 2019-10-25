@@ -45,6 +45,9 @@ export class LoginComponent implements OnInit {
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
+  /**
+   * Get the recaptcha key
+   */
   get siteKey() {
     return environment.recaptchaKey;
   }
@@ -73,6 +76,10 @@ export class LoginComponent implements OnInit {
 
   }
 
+  /**
+   * Login function sets all the variables after successful login
+   * @param data 
+   */
   login(data: any) {
     this.dataService.loader = true;
     this.restService.login(data).subscribe(userInfo => {

@@ -25,6 +25,9 @@ export class EmailVerificationComponent implements OnInit {
       this.authService.clearSession();
     }
   }
+  /**
+   * Function to resent the email verification link
+   */
   resendEmail() {
 
     this.processing = true;
