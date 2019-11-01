@@ -1,0 +1,48 @@
+/*About BFX*/
+
+.about-BFX-section{padding:50px 0;}
+.about-BFX-section h3{ color:#cc2d30; font-size:40px; font-family: 'Catamaran'; font-weight:700; margin:0; text-align:center;}
+.BFX-benefits ul{list-style:none; margin:25px 0 0 0; padding:0;}
+.BFX-benefits h4{color:#0a1640; font-size:22px; margin:60px 0 0 0; font-weight:600;}
+.BFX-benefits li{ padding-left:25px; position:relative; font-size:16px; margin-bottom:30px;width: calc(50% - 40px);}
+.BFX-benefits li:nth-child(2n) { margin-left: auto;}
+.BFX-benefits li strong{ font-weight:600;}
+.BFX-benefits li:before{ background-color:#cc2d30; border-radius:50%; content:""; height:6px; position:absolute; left:0; top:5px; width:6px;}
+.about-BFX-graph{ margin-top:10px;max-width: 100%;}
+a.buy-bfx-btn{background-color: #ffd700; border-radius: 3px; color: #0a1640; font-size: 20px;
+    font-weight: 600; display: inline-block; margin:20px auto 0; padding: 10px 30px; min-width:200px; text-align:center;}
+
+/*Want to learn Crypto Derivatives Trading?*/
+.crypto-derivatives-section{ background:url(../../assets/img/derivative-trading-bg2x.png) no-repeat 0 0; background-size:cover; padding:25px 0 30px; text-align:center;}
+.crypto-derivatives-section h3{ color:#fff; font-size:40px; font-family: 'Catamaran'; font-weight:700; margin:0; text-align:center;}
+.crypto-derivatives-section p{ color:#fff; line-height:24px; margin:0;}
+a.try-sestnet-btn{background-color: #ffd700; border-radius: 3px; color: #0a1640; font-size: 20px;
+    font-weight: 600; display: inline-block; margin:20px 0 0; padding: 10px 30px; width:200px;text-align:center;}
+a.buy-bfx-btn:hover,
+a.try-sestnet-btn:hover{ background-color:#f2cc02; text-decoration:none;}
+.buy-BFX-CTA a{ display:inline-block; margin:0 10px;}
+.crypto-derivatives-section img { margin-top: 10px;}
+
+/*Start Live Trading in 3 Easy Steps*/
+.live-trading-steps-section{padding:50px 0;}
+.live-trading-steps-section h3{ color:#cc2d30; font-size:40px; font-family: 'Catamaran'; font-weight:700; margin:0; text-align:center;}
+.trading-easy-steps{ margin-top:80px; margin-bottom:0; list-style:none;}
+.trading-easy-steps li{ padding-left:90px; position:relative; width:calc(33.333% - 60px/3); margin-left:30px;}
+.trading-easy-steps li:first-child{ margin-left:0;}
+.trading-easy-steps li:before{color:rgba(206,45,69,.2); font-family: 'Catamaran'; font-weight:900;  font-size:100px; line-height:60px; position:absolute; left:0;top:0;}
+.trading-easy-steps li:nth-child(1):before{content:"1."}
+.trading-easy-steps li:nth-child(2):before{content:"2."}
+.trading-easy-steps li:nth-child(3):before{content:"3."}
+.trading-easy-steps li h4{font-size: 24px; font-weight:600; margin-bottom:15px;}
+.trading-easy-steps li p{ margin-bottom:0;}
+.trading-steps-CTA{ margin-top:78px; text-align:center;}
+a.trading-register-btn{background-color: #ffd700; border-radius: 3px; color: #0a1640; font-size: 20px;font-weight: 600; display: inline-block;padding: 10px 30px; min-width:200px;text-align:center;}
+a.trading-register-btn:hover{  background-color:#ccc; text-decoration:none;}
+
+/*BFX Start*/
+
+.coinmarketcap-currency-widget { background-color: #fff;}
+.coinmarketcap-currency-widget > div { border:none !important; color: #000;}
+
+/*BFX End*/
+

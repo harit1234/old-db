@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -7,8 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   openMenuClass = false;
-  constructor() { }
-
+  constructor(private router: Router) { }
+  public currentUrl = '';
   ngOnInit() {
+    this.currentUrl = this.router.url; /// this will give you current url
   }
 }

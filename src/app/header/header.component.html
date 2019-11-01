@@ -1,7 +1,7 @@
 <header class="landing-header">
 	<div class="landing-header-container d-flex" [ngClass]="{'open': openMenuClass}">
 		<div class="landing-header-logo">
-			<a href="javascript:;">
+			<a routerLink="/">
 				<img src="../../assets/img/Bitfex-logo.svg" alt="Bitfex">
 			</a>
 		</div>
@@ -17,7 +17,11 @@
 			<span></span>
 		</div>
 		<div class="landing-header-right d-flex flex-wrap">
-			<div class="login-links d-flex">	
+			<div class="login-links d-flex" *ngIf="currentUrl == '/'">	
+				<a routerLink="/register" class="register-btn">Register</a>		
+				<a routerLink="/login" class="register-btn" style="margin-left: 5px;">Login</a>				
+			</div>
+			<div class="login-links d-flex" *ngIf="currentUrl != '/'">	
 				<a href="http://idapwebfrontend.demolinks.xyz/trade/" target="_blank" class="register-btn">View Exchange</a>				
 			</div>
 			<!--div class="language-container">	
@@ -28,13 +32,13 @@
 		<div class="menu-container">
 			<ul>
 				<li class="active-menu">
-                    <a href="docs/BitfexDotCom-Whitepaper.pdf" target="_blank">Whitepaper</a>
+                    <a href="../../assets/docs/BitfexDotCom-Whitepaper.pdf" target="_blank">Whitepaper</a>
 				</li>
-				<li>
+				<!--li>
 					<a href="docs.html">References</a>
-				</li>
+				</li-->
 				<li>
-					<a href="javascript:;" data-attr="about-BFX">BFX</a>
+					<a href="#/bfx" data-attr="about-BFX" target="_blank">BFX</a>
 				</li>
 				
 			</ul>

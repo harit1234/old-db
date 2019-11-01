@@ -26,7 +26,8 @@ import { WithdrawalConfirmComponent } from './withdrawal-confirm/withdrawal-conf
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
-import {CommonModule} from "@angular/common"
+import {CommonModule} from "@angular/common";
+import { BfxComponent } from './bfx/bfx.component'
 
 export function initializeApp(appConfig: AppConfig) {
   return () => {
@@ -63,6 +64,7 @@ export function httpLoaderFactory(http: HttpClient) {
     LandingPageComponent,
     FooterComponent,
     HeaderComponent,
+    BfxComponent,
   ],
   imports: [
     CommonModule,

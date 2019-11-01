@@ -188,13 +188,18 @@ export class DataService {
       'token_id': localStorage.getItem('sessionIdStorage'),
       'username': localStorage.getItem('userIdStorage')
     };
-    this.restService.getApiStatus(data).subscribe( (apiStatus:any) => {
-      console.log('Api Status: ', apiStatus.status);
-      if(apiStatus.status === false) {
-        this.logout();
-      }
-      
-    });
+    if(!localStorage.getItem('sessionIdStorage')) {
+      this.logout();
+    }else {
+      this.restService.getApiStatus(data).subscribe( (apiStatus:any) => {
+        console.log('Api Status: ', apiStatus.status);
+        if(apiStatus.status === false) {
+          this.logout();
+        }
+        
+      });
+    }
+    
   }
   /**
    * Bad request error handing

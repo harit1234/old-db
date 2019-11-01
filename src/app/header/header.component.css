@@ -12,6 +12,7 @@ header.landing-header{ background-color:rgba(10,22,64,1); height: 70px; position
 .login-links{-webkit-align-items: center; -ms-flex-align: center; align-items: center;}
 .login-links a{ color:#fff; display:block; font-size:16px; font-weight:500; padding:9px 0;}
 .login-links a.register-btn{ background-color:#ffd700; color:#0a1640; border-radius:3px;  padding:9px 23px;}
+.login-links a.login-btn{ background-color:#ffd700; color:#0a1640; border-radius:3px;  padding:9px 23px;}
 /* .login-links a:first-child:hover{ color:#f2cc02; text-decoration:none;} */
 .language-container{ margin-left:30px;}
 .menu-trigger {	display: none; margin-left:auto;}
@@ -150,6 +151,7 @@ header.landing-header{ background-color:rgba(10,22,64,1); height: 70px; position
 	.menu-container ul{  -webkit-flex-direction: column; -ms-flex-direction: column; flex-direction: column;}
 	.login-links{ background-color: rgba(10,22,64,1); padding:10px 15px; width:100%;}
 	.login-links a.register-btn{ padding:5px 15px; background-color:#fff; color:#000}
+	.login-links a.login-btn{ padding:5px 15px; background-color:#fff; color:#000}
 	.language-container{ background-color: #fff; margin: 0 auto; width: 100%; padding: 10px 0; text-align: center;}
 	.menu-container ul li { margin-left: 0; width: 100%; padding:0 15px; border-bottom: 1px solid rgba(255,255,255,.15);}
 	.menu-container ul li a{ color: #fff; padding:10px 0; display:block;}	

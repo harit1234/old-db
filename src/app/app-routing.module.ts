@@ -9,6 +9,7 @@ import { ResetPasswordComponent } from './login/reset-password/reset-password.co
 import { ActivateAccountComponent } from './login/activate-account/activate-account.component';
 import { WithdrawalConfirmComponent } from './withdrawal-confirm/withdrawal-confirm.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { BfxComponent } from './bfx/bfx.component';
 // import { DownloadComponent } from './download/download.component';
 
 const routes: Routes = [
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path: 'resetPassword', component: ResetPasswordComponent},
   {path: 'activateAccount', component: ActivateAccountComponent},
   {path: 'withdrawalConfirm', component: WithdrawalConfirmComponent},
+  {path: 'bfx', component: BfxComponent},
   {path: '**', component: PageNotFoundComponent}
 ];
 @NgModule({
