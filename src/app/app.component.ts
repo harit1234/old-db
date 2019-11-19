@@ -13,7 +13,7 @@ import { VERSION } from '../environments/version';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'idap-web';
+  title = 'Bitfex';
 
   constructor(
     private authService: AuthService,

@@ -1,5 +1,5 @@
-<div class="wrapper">
-  <app-side-panel></app-side-panel>
+<app-header></app-header>
+<div class="wrapper">  
   <div class="frm-wrapper">
     <section class="frm-block">
       <div class="container">
@@ -8,11 +8,7 @@
           <div class="col-sm-12">
             <div class="frm-outer">
               <div class="frm-body">
-                <h4>Forgot Password</h4>
-                <div class="reset-2fa">If you have lost your 2FA token, please
-                  <a href="mailto:support@idap.exchange">email us</a> with the subject "Lost 2FA Device".
-                  <br>
-                  <br>IDAP Exchange support will then email you an ID verification link.</div>
+                <h4>Reset Password</h4>                
                 <form [formGroup]="forgotFormGroup" (ngSubmit)="sendRequest();">
                   <p>Don’t worry! Just fill in your email id below and you will receive a reset password link in your inbox.</p>
                   <div class="form-group input-ico email" *ngIf="!forgotRequestSuccessMsg">
@@ -34,8 +30,12 @@
                   <div class="text-center m-t-35" *ngIf="!forgotRequestSuccessMsg">
                     <button class="form-button reset-link-btn" type="submit">Request Reset Link</button>
                   </div>
+                  <div class="reset-2fa">If you have lost your 2FA token, please email us at 
+                    <a href="mailto:support@bitfex.com">support@bitfex.com</a> with the subject "Lost 2FA Device".
+                    <br>
+                    <br>Support team will share the 2FA recovery procedure with you.
+                  </div>
                   <div *ngIf="forgotRequestSuccessMsg" class="msg-success">{{forgotRequestSuccessMsg}}</div>
-
                   <div class="frm-footer">
                     <div class="forgot">Back to
                       <a routerLink="/login">Log In</a>
@@ -45,15 +45,9 @@
               </div>
             </div>
           </div>
-        </div>
-        <div class="disclaimer-wrapper">
-          <p>Access to the IDAP Testnet is not meant for any trading purposes. It is solely for the purpose of simulated trading.
-            No actual trades are executed on the Testnet. No deposits and consequently no withdrawals are a part of the simulated
-            trading on the Testnet. It is not intended as investment advice or as a solicitation to engage in any form of
-            trading activity and should not he construed as such.</p>
-        </div>
+        </div>        
       </div>
     </section>
   </div>
 </div>
-<app-login-footer></app-login-footer>
+<app-footer></app-footer>
