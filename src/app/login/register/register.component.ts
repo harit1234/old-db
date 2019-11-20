@@ -33,7 +33,7 @@ export class RegisterComponent implements OnInit {
       country: ['', Validators.required],
       firstName: [''],
       lastName: [''],
-      terms: ['', Validators.requiredTrue],
+      terms: [true, Validators.requiredTrue],
       recaptcha: ['', Validators.required]
     }, {
         validator: MustMatch('password', 'confirmPassword')
