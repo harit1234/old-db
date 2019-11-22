@@ -21,8 +21,12 @@
           <input #refererText id="refer" class="form-input referral-link" type="text" value="{{ affliliateLink }}" placeholder=""
             readonly="true">
         </div>
+        <div class="form-group">
+          <div>{{ 'langAffiliatePage.lblTotalReferrals' | translate }}: <span class="">{{ totalReferrals }}</span></div>
+        </div> 
         <button class="form-button form-button-sm copy-referral-link" data-clipboard-target="#refer" (click)="copyRefererLink(refererText)">{{ 'langAffiliatePage.lblCopyRefLink' | translate }}</button>
         <div class="referral-link-copied" *ngIf="copiedMsg"><i class="far fa-check-circle"></i>{{ 'langAffiliatePage.lblRefLinkCopyClip' | translate }}</div>
+               
       </div>
     </div>
   </div>

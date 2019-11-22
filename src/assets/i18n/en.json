@@ -64,7 +64,8 @@
     "lblSharedReferalLink": "Share Referral Link",
     "lblCopyYourPersonalRef": "Copy your personal referral link and share it with your friends",
     "lblCopyRefLink": "Copy Referral Link",
-    "lblRefLinkCopyClip": "Referral link copied to clipboard"
+    "lblRefLinkCopyClip": "Referral link copied to clipboard",
+    "lblTotalReferrals": "Total Referrals"
   },
   "langChangePasswrodValidate": {
     "valChCurrentPassRequired": "Please enter your current password!"

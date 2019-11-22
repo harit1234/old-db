@@ -9,6 +9,7 @@ import { RestService } from '../../shared/services/rest.service';
 })
 export class AffiliateComponent implements OnInit {
   affliliateLink: string;
+  totalReferrals: BigInteger;
   copiedMsg = false;
   constructor(
     private dataService: DataService,
@@ -20,6 +21,7 @@ export class AffiliateComponent implements OnInit {
       this.dataService.loader = false;
       console.log('Affiliate info : ', affiliateInfo.data.affiliate_link);
       this.affliliateLink = affiliateInfo.data.affiliate_link;
+      this.totalReferrals = affiliateInfo.data.registered_ref;
     });
   }
 
