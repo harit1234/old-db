@@ -1,7 +1,7 @@
 .referral-link-copied {
     color: #289a3d;
     position: absolute;
-    top: 150px;
+    top: 10px;
     right: 22px;
     padding-left: 35px;
     display: flex;
@@ -17,4 +17,12 @@
     color: #289a3d;
     font-size: 24px;
     margin-right: 5px;
+}
+@media (max-width:1024px) {
+    .referral-link-copied {
+        position: relative;
+        top: 0;
+        margin: 10px 0;
+        padding-left: 23px;
+    }
 }
