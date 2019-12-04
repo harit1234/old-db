@@ -49,16 +49,12 @@ export class WithdrawComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
-
     this.dataService.accountSubject.subscribe( (accountInfo: AccountModel) => {
-
-      this.tradingBalance = parseFloat(accountInfo.UnusedMargin.toString()).toFixed(8);
-      // this.availableBalance = parseFloat(accountInfo.UsedMargin.toString()).toFixed(8);
-      this.availableBalance = '5.00000000';
-
+      //this.tradingBalance = parseFloat(accountInfo.UnusedMargin.toString()).toFixed(8);
+      this.availableBalance = parseFloat(accountInfo.UnusedMargin.toString()).toFixed(8);
+      this.tradingBalance = this.availableBalance;
       this.formFields.tradingBalance.setValue(this.tradingBalance);
       this.formFields.available.setValue(this.availableBalance);
-
     });
 
     setTimeout(() => this.dataService.loader = true);
@@ -103,6 +99,10 @@ export class WithdrawComponent implements OnInit, OnDestroy {
     this.restService.getAccountBalance(data).subscribe((balanceInfo :any) => {
 
       console.log('Initiating web socket connection....');
+      this.availableBalance = parseFloat(balanceInfo.account.UnusedMargin.toString()).toFixed(8);
+      this.tradingBalance = this.availableBalance;
+      this.formFields.tradingBalance.setValue(this.tradingBalance);
+      this.formFields.available.setValue(this.availableBalance);
 
       console.log(balanceInfo.account.ExchangeAccountId);
       const exchangeAccId = balanceInfo.account.ExchangeAccountId;
