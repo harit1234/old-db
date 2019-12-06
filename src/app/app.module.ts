@@ -27,7 +27,8 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import {CommonModule} from "@angular/common";
-import { BfxComponent } from './bfx/bfx.component'
+import { BfxComponent } from './bfx/bfx.component';
+import { CountryNoticeModule } from './country-notice/country-notice.module';
 
 export function initializeApp(appConfig: AppConfig) {
   return () => {
@@ -82,7 +83,8 @@ export function httpLoaderFactory(http: HttpClient) {
         deps: [HttpClient]
       }
     }),
-    JwtModule
+    JwtModule,
+    CountryNoticeModule
     // JwtModule.forRoot({
     //   config: {
     //     whitelistedDomains: ['localhost:3001', 'foo.com', 'bar.com']

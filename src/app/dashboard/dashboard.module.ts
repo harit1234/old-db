@@ -36,6 +36,7 @@ import { NumericDirective } from '../shared/directives/numeric.directive';
 import { DepositHistoryComponent } from './diposit/deposit-history/deposit-history.component';
 import { WithdrawalHistoryComponent } from './withdraw/withdrawal-history/withdrawal-history.component';
 import { WithdrawalStatusComponent } from './withdraw/withdrawal-history/withdrawal-status/withdrawal-status.component';
+import { CountryNoticeModule } from '../country-notice/country-notice.module';
 // import { GridModule, PageService, SortService, FilterService, GroupService } from '@syncfusion/ej2-angular-grids';
 // required for AOT compilation
 export function httpLoaderFactory(http: HttpClient) {
@@ -88,7 +89,8 @@ export function httpLoaderFactory(http: HttpClient) {
         useFactory: httpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
+    CountryNoticeModule
   ],
   // providers: [PageService, SortService, FilterService, GroupService],
   providers: [SlicePipe, TimetPipe, PricePipe, QtyPipe, MonetaryPipe]

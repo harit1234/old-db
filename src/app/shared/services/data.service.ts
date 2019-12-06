@@ -22,6 +22,7 @@ export class DataService {
   hambergerMenuStatus = false;
   hamurgerLeftMenu = false;
   selectedLanguage: string;
+  userCountryRestricted = false;
 
   tradingBalance:any;
   availableBalance:any;

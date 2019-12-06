@@ -12,7 +12,7 @@
           </div>
         </div>
       </div>
-      <div class="row">
+      <div class="row" *ngIf="!dataService.userCountryRestricted">
         <div class="col-md-6">
           <div class="row">
             <div class="col-sm-12">
@@ -65,6 +65,19 @@
     </div>
     <div class="col-md-6" *ngIf="qrCode"><img src="{{qrCode}}" height="200"></div> 
   </div>
+</div>
+<div class="container-fluid restricted-country-notice" *ngIf="dataService.userCountryRestricted">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="widget">
+          <div class="">
+              <div class="content">
+                Please check our Terms of Use, Bitfex services are not provided where you are located. We, therefore, will not accept any deposits. You can contact support at support@bitfex.com if you believe this to be an error.
+              </div>
+            </div>
+      </div>
+    </div>
+  </div>      
 </div>
 <app-deposit-history></app-deposit-history>
 

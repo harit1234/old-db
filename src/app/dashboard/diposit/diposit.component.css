@@ -25,3 +25,6 @@ select {
 .copyBtn {
     margin-top: 10px;
 }
+
+/*Restricted country notice*/
+.restricted-country-notice .content{background-color: #cc0000; padding:10px 10px; color: #FFF;}

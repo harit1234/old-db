@@ -6,6 +6,8 @@ import { TranslateService } from '@ngx-translate/core';
 import { DataService } from './shared/services/data.service';
 import { Meta } from '@angular/platform-browser';
 import { VERSION } from '../environments/version';
+import { RestService } from './shared/services/rest.service';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -20,6 +22,7 @@ export class AppComponent implements OnInit {
     private router: Router,
     private translate: TranslateService,
     public dataService: DataService,
+    private restService: RestService,
     private meta: Meta) {
 
     console.log('AppComponent');
@@ -71,6 +74,19 @@ export class AppComponent implements OnInit {
       this.authService.setState(AuthState.LOGGED_IN);
       // this.dataService.startCheckingApiStatusTimer();
     }
+
+    //Check user location info for restricted country
+    this.restService.getUserLocationInfo().subscribe(userLocationInfo => {
+      console.log('User location info: ', userLocationInfo);
+      console.log(userLocationInfo.country)
+      console.log(environment.restrictedCountryCode);
+      if(userLocationInfo.country && userLocationInfo.country == environment.restrictedCountryCode){
+        this.dataService.userCountryRestricted = true;
+      }
+      console.log('user country restricted:', this.dataService.userCountryRestricted);      
+    }, error => {
+      console.log('Error gettting user location info');
+    });
   }
 
 }

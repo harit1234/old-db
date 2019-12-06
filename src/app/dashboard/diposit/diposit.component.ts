@@ -27,24 +27,25 @@ export class DipositComponent implements OnInit {
 
   ngOnInit() {
 
-    let addressGenerated = localStorage.getItem('walletAddress');
-    addressGenerated = JSON.parse(addressGenerated);
-    
-    if(addressGenerated && addressGenerated[constants.DEFAULT_CURRENCY] === true) {
-      this.addressGeneratedStaus = addressGenerated[constants.DEFAULT_CURRENCY];
+    if(!this.dataService.userCountryRestricted){
+      let addressGenerated = localStorage.getItem('walletAddress');
+      addressGenerated = JSON.parse(addressGenerated);
+      
+      if(addressGenerated && addressGenerated[constants.DEFAULT_CURRENCY] === true) {
+        this.addressGeneratedStaus = addressGenerated[constants.DEFAULT_CURRENCY];
+      }
+
+      if(this.addressGeneratedStaus !== true) {
+        this.getCurrencies();
+      }else {
+        const data = {'coin': constants.DEFAULT_CURRENCY};
+        this.getAddress(data);
+      }
+      this.createAddressGroup = this.createAddressFormBuilder.group({
+        'coin': [Validators.required],
+      });
+      this.createAddressGroup.controls['coin'].setValue(constants.DEFAULT_CURRENCY, {onlySelf: true});
     }
-    
-    
-    if(this.addressGeneratedStaus !== true) {
-      this.getCurrencies();
-    }else {
-      const data = {'coin': constants.DEFAULT_CURRENCY};
-      this.getAddress(data);
-    }
-    this.createAddressGroup = this.createAddressFormBuilder.group({
-      'coin': [Validators.required],
-    });
-    this.createAddressGroup.controls['coin'].setValue(constants.DEFAULT_CURRENCY, {onlySelf: true});
   }
 
   getCurrencies() {

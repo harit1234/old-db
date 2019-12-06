@@ -234,6 +234,21 @@ export class RestService {
   confirmWithdrawal(data:any) {
     return this.post_request(this.withdrawalConfirmUrl, data);
   }
+
+  getUserLocationInfo(): Observable<any> {
+    const url = 'https://ipinfo.io/json?token=' + environment.ipinfoAccessToken;
+    return this.http.get(url, {
+        headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+      }).pipe(map(d => {
+        return d;
+      }),
+        catchError((err, caught) => {
+          console.log(err);
+          return throwError(
+            `${err}`);
+        })
+      );
+  }
   // getTokenStaus() {
   //   var token = localStorage.getItem('token');
   //   if(token !== null) {
