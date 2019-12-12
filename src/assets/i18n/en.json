@@ -54,6 +54,7 @@
     "lblMyProfileName": "Name",
     "lblMyProfileEmail": "Email",
     "lblMyProfileDesktopId": "Desktop User ID",
+    "lblMyProfileExchangeAccountId": "Exchange Account ID",
     "lblActivityLog": "Activity Log",
     "lblDateAndTime": "Date and Time",
     "lblIpAddress": "IP Address",
