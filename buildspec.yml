@@ -20,6 +20,10 @@ phases:
   build:
     commands:
       - echo Build started on `date`
+      - sed -i 's@http://52.211.112.45/api/v1/@https://staging-stigasoft-backend-admin.bitfex.com/api/v1/@g' src/assets/config/config.dev.json
+      - sed -i 's@http://52.211.112.45/api/v1/@https://staging-stigasoft-backend-admin.bitfex.com/api/v1/@g' src/environments/environment.prod.ts
+      - sed -i 's@http://52.211.112.45/api/v1/@https://staging-stigasoft-backend-admin.bitfex.com/api/v1/@g' src/environments/environment.ts
+      - sed -i 's@http://52.211.112.45/api/v1/@https://staging-stigasoft-backend-admin.bitfex.com/api/v1/@g' src/assets/config/config.prod.json
       - npm run-script build_prod
       - docker build -t $IMAGE_REPO_NAME:$IMAGE_TAG . -f Dockerfile.nginx
       - docker tag $IMAGE_REPO_NAME:$IMAGE_TAG $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
