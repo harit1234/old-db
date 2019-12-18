@@ -7,7 +7,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 # Install node_modules
 
-Run `npm -i` in project folder to install all dependent node modules.
+Run `npm i` in project folder to install all dependent node modules.
 
 # Update environment configuration
 Update environment settings if needed. Environment files are located at path src/environments/
