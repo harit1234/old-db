@@ -26,7 +26,7 @@ phases:
       - sed -i 's@http://52.211.112.45/api/v1/@https://staging-stigasoft-backend-admin.bitfex.com/api/v1/@g' src/assets/config/config.prod.json
       - npm run-script build_prod
       - docker build -t $IMAGE_REPO_NAME:staging-$IMAGE_TAG . -f Dockerfile.nginx
-      - docker tag $IMAGE_REPO_NAME:$IMAGE_TAG $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:staging-$IMAGE_TAG
+      - docker tag $IMAGE_REPO_NAME:staging-$IMAGE_TAG $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:staging-$IMAGE_TAG
       - echo Production Image
       - sed -i 's@https://staging-stigasoft-backend-admin/api/v1/@https://web-backend-v1.bitfex.com/api/v1/@g' src/assets/config/config.dev.json
       - sed -i 's@https://staging-stigasoft-backend-admin/api/v1/@https://web-backend-v1.bitfex.com/api/v1/@g' src/environments/environment.prod.ts
@@ -34,7 +34,7 @@ phases:
       - sed -i 's@https://staging-stigasoft-backend-admin/api/v1/@https://web-backend-v1.bitfex.com/api/v1/@g' src/assets/config/config.prod.json
       - npm run-script build_prod
       -  docker build -t $IMAGE_REPO_NAME:production-$IMAGE_TAG . -f Dockerfile.nginx
-      - docker tag $IMAGE_REPO_NAME:$IMAGE_TAG $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:production-$IMAGE_TAG
+      - docker tag $IMAGE_REPO_NAME:production-$IMAGE_TAG $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:production-$IMAGE_TAG
   post_build:
     commands:
       - echo Build completed on `date`
