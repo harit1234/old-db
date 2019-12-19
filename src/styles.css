@@ -41,7 +41,7 @@ label{font-weight: 400;}
 .banner-left h1 span{ display: block; font-size:40px; font-weight:300;}
 .banner-left h1 span.strong{ font-weight: 700; display:inline;}
 .banner-left h1 strong{ display: block; font-size:48px; font-weight:700; margin-bottom: 3px;}
-.banner-left p{ color:#ffd700; font-size:20px; font-weight:600; text-transform:uppercase; margin:0;}
+.banner-left p{ color:#ffd700; font-size:20px; font-weight:450; text-transform:uppercase; margin:0;}
 .view-exchange-btn{ display:block; margin-top:19px;}
 .view-exchange-btn a{ background-color: #ffd700; border-radius:3px;  color: #0a1640; font-size:20px; font-weight: 600; display: inline-block; padding:10px 30px; }
 .view-exchange-btn a:hover,
