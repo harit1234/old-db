@@ -36,6 +36,7 @@ phases:
       # - sed -i 's@https://staging-stigasoft-backend-admin/api/v1/@https://web-backend-v1.bitfex.com/api/v1/@g' src/assets/config/config.prod.json
       # - sed -i 's@https://staging-stigasoft-backend-admin/api/v1/@https://web-backend-v1.bitfex.com/api/v1/@g' src/assets/config/config.prod.json
       - find ./ -type f -exec sed -i 's@https://staging-stigasoft-backend-admin.bitfex.com/api/v1/@https://web-backend-v1.bitfex.com/api/v1/@g' {} \;
+      - find ./ -type f -exec sed -i 's@wss://staging-ws-order-v1.bitfex.com/@wss://ws-order-v1.bitfex.com/@g' {} \;
       - npm run-script build_prod
       -  docker build -t $IMAGE_REPO_NAME:production-$IMAGE_TAG . -f Dockerfile.nginx
       - docker tag $IMAGE_REPO_NAME:production-$IMAGE_TAG $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:production-$IMAGE_TAG
