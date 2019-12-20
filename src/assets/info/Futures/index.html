@@ -1,0 +1,616 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.2">
+    
+    
+      
+        <title>Futures - Bitfex Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#dc3545">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="red" data-md-color-accent="red">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#futures" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="Bitfex Documentation" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Bitfex Documentation
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Futures
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href=".." title="Bitfex Documentation" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Bitfex Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../General/" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Contracts
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Contracts
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Futures
+      </label>
+    
+    <a href="./" title="Futures" class="md-nav__link md-nav__link--active">
+      Futures
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quarterly-bitcoin-futures" class="md-nav__link">
+    Quarterly Bitcoin Futures
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contract-specifications" class="md-nav__link">
+    Contract Specifications
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mark-price" class="md-nav__link">
+    Mark Price
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Perpetual/" title="Perpetual" class="md-nav__link">
+      Perpetual
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Exchange Quoted Spreads/" title="Exchange Quoted Spreads" class="md-nav__link">
+      Exchange Quoted Spreads
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Contract Symbols/" title="Contract Symbols" class="md-nav__link">
+      Contract Symbols
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Margin Trading/" title="Margin Trading" class="md-nav__link">
+      Margin Trading
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Fees/" title="Fees" class="md-nav__link">
+      Fees
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Deposit & Withdrawal/" title="Deposits & Withdrawals" class="md-nav__link">
+      Deposits & Withdrawals
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Liquidation/" title="Liquidation" class="md-nav__link">
+      Liquidation
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Order Types/" title="Order Types" class="md-nav__link">
+      Order Types
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Time in Force/" title="Time in Force" class="md-nav__link">
+      Time in Force
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../FAQ/" title="FAQs" class="md-nav__link">
+      FAQs
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quarterly-bitcoin-futures" class="md-nav__link">
+    Quarterly Bitcoin Futures
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contract-specifications" class="md-nav__link">
+    Contract Specifications
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mark-price" class="md-nav__link">
+    Mark Price
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="futures">Futures</h1>
+<h2 id="introduction">Introduction</h2>
+<p>Futures contracts let traders go long or short on the future price of Bitcoin. </p>
+<p>These types of contracts need to be settled upon expiry; either in cash or by delivery of the underlying asset. Futures Contracts, are also referred as outrights. These contracts on Bitfex will be cash-settled. </p>
+<h2 id="quarterly-bitcoin-futures">Quarterly Bitcoin Futures</h2>
+<p>Bitfex quarterly futures for Bitcoin will be cash-settled in BTC. This means, there will be only transfer of profit/loss at the time of settlement based on expiration price between the traders. </p>
+<p>Bitfex quarterly futures for Bitcoin are settled every three months. Settlement will happen on the last Friday of the contract expiration month at 08:00:00 UTC and a settlement fee equal to the taker fees for the contract will be charged. </p>
+<p>Each futures contract on Bitfex will be listed with a month code and year code, which denote its time of expiry. For instance, a contract expiring in December 2019, is listed as BTCZ19, where Z in the month code and 19 is the year code.* </p>
+<p>*<a href="../Contract Symbols/">For a full list of all the month codes, refer to the section Month Codes for Futures.</a></p>
+<p>Unrealised profits are always in real time added to the NAV. <strong><em>Unrealised PnL is calculated on the basis of Mark Price, not the Last Traded Price.</em></strong></p>
+<h2 id="contract-specifications">Contract Specifications</h2>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Underlying Index</td>
+<td align="center">Bitfex BTC Index</td>
+</tr>
+<tr>
+<td align="center">Symbol</td>
+<td align="center">BTC[Month Code][Year Code]</td>
+</tr>
+<tr>
+<td align="center">Example</td>
+<td align="center">BTCU19</td>
+</tr>
+<tr>
+<td align="center">Contract Size</td>
+<td align="center">1 USD</td>
+</tr>
+<tr>
+<td align="center">Instrument Type</td>
+<td align="center">Inverse Futures</td>
+</tr>
+<tr>
+<td align="center">Initial Margin</td>
+<td align="center"><a href="../Addendum/">IM%</a></td>
+</tr>
+<tr>
+<td align="center">Maintenance Margin</td>
+<td align="center"><a href="../Addendum/">MM%</a></td>
+</tr>
+<tr>
+<td align="center">Price Quotation</td>
+<td align="center">US Dollars per 1 bitcoin</td>
+</tr>
+<tr>
+<td align="center">Tick Size</td>
+<td align="center">0.5 USD</td>
+</tr>
+<tr>
+<td align="center">P&amp;L Settlement</td>
+<td align="center">Cash Settled in BTC</td>
+</tr>
+<tr>
+<td align="center">Contract Expiration</td>
+<td align="center">Last Friday of the contract expiration month at 08:00:00 UTC</td>
+</tr>
+<tr>
+<td align="center">Position Limit</td>
+<td align="center">2,000,000 contracts. To increase limit contact us at <a href="mailto:info@bitfex.com">info@bitfex.com</a></td>
+</tr>
+<tr>
+<td align="center">Fees</td>
+<td align="center">See <a href="../Fees/">Fee Structure</a> for complete breakdown as per profile</td>
+</tr>
+</tbody>
+</table>
+<h2 id="mark-price">Mark Price</h2>
+<p>The Mark Price for Futures Contract is the average of Best Bid Price and Best Ask Price.</p>
+<p>If there are no bids or no offer or both bids and offers are missing then BTC Index price will be the Mark Price of the Futures contract.</p>
+<h2 id="example">Example</h2>
+<pre><code>         You want to take a 100000 position in BTCZ19, 
+         when it is trading at $10000.
+
+         Let IM = 5% and MM = 3%
+
+         BTC Value of position in BTCZ19 = 10000/100000 = 0.1 BTC
+
+         IM = 5% of 0.1 = 0.005 BTC
+         MM = 3% of 0.1 = 0.003 BTC
+
+         Suppose the price of BTCZ19 when you decide to exit 
+         is $12000, then
+
+         PnL = [1/Entry Price - 1/Exit Price] * No. of Contracts 
+         = [1/10000 - 1/12000] * 100000 = 1.66666667
+
+         Net Profit = PnL-IM = 1.66666667 - 0.005 = 1.66166667
+
+         Net profit in USD = 1.66166667 * 12000 = $19940
+</code></pre>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        <footer class="md-footer">
+
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright"><a href="https://bitfex.com" target="_blank"> <font size= 3.7rem>  Bitfex  </a>
+
+</div>
+
+
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+    
+  </body>
+</html>
