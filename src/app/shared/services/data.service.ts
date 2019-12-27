@@ -121,14 +121,21 @@ export class DataService {
   /**
    * This function gets the new token
    */
-  refreshToken() {
-    this.restService.refreshToken().subscribe((val: any) => {
-      localStorage.setItem('token', val.access_token);
-    }, error => {
-      console.log('Refresh token failed!!!');
-      // localStorage.removeItem('token');
-      // this.router.navigate(['/dashboard/account']);
-    });
+  // refreshToken() {
+  //   this.restService.refreshToken().subscribe((val: any) => {
+  //     localStorage.setItem('token', val.access_token);
+  //   }, error => {
+  //     console.log('Refresh token failed!!!');
+  //     // localStorage.removeItem('token');
+  //     // this.router.navigate(['/dashboard/account']);
+  //   });
+  // }
+
+  logoutRefreshTokenExpire() {
+    console.log('Calling lgout reresh function');
+    this.authService.clearSession();
+      this.timerService.stopCheckApiStatusTimer();
+      this.router.navigate(['login']);
   }
 
   /**

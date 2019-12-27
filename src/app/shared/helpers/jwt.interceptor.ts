@@ -22,6 +22,11 @@ export class JwtInterceptor implements HttpInterceptor {
                     console.log('Refresh Token in jwt interceptor:::', );
                     localStorage.setItem('token', refreshToken.access_token);
                     return next.handle(request);
+                }, err => {
+                    console.log('Final token expired!');
+                    this.dataService.tokenRefreshing = false;
+                    this.dataService.logoutRefreshTokenExpire();
+                    return;
                 });
             }
             request = request.clone({
