@@ -85,6 +85,7 @@ export class LoginComponent implements OnInit {
     this.restService.login(data).subscribe(userInfo => {
       console.log('response');
       this.authService.setCredentials(userInfo);
+      this.router.navigate(['dashboard']);
       // this.router.navigate([this.returnUrl]);
     }, error => {
       this.loginFormGroup.controls.password.reset();

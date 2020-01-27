@@ -34,7 +34,11 @@ export class AppComponent implements OnInit {
       if (state === AuthState.LOGGED_IN) {
         this.dataService.startCheckingApiStatusTimer();
         console.log('Logged in');
-        this.router.navigate(['dashboard']);
+
+        //Check auto logout
+        this.checkAutoLogout();
+
+        //this.router.navigate(['dashboard']);
       } else if (state === AuthState.LOGGED_OUT) {
         console.log('Logout called: AppComponent');
         this.router.navigate(['login']);
@@ -49,6 +53,15 @@ export class AppComponent implements OnInit {
     this.meta.addTag({ name: 'version', content: versionValue });
   }
 
+  //Auto logout when session storage removed or logut from trading view app
+  checkAutoLogout(){
+    const charInterval = setInterval(() => {
+      if(!localStorage.getItem('sessionIdStorage')){
+        this.authService.setState(AuthState.LOGGED_OUT);
+        clearInterval(charInterval);
+      }
+    }, 1000);
+  }
   ngOnInit() {
     
     //console.log("Language ddddd : ", document.documentElement.lang);

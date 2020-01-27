@@ -2,7 +2,7 @@
 <header class="header" [ngClass]="{loggedin: authService.isLogged, 'aside-open': dataService.hambergerMenuStatus}"  id="header">
     <div class="hamburger d-lg-none" (click)="hamburger();"><a href="javascript:;"> <span></span> </a></div>
     <div class="logo">
-    <a class="navbar-brand" routerLink="/">
+    <a class="navbar-brand" routerLink="/dashboard/account">
         <img src="../../assets/img/Bitfex-logo.svg" alt="Bitfex Exchange" class="logo-sticky d-none d-md-block">
        <img src="assets/img/Bitfex-symbol.png" alt="Bitfex Exchange" class="logo-mobile d-block d-md-none">
     </a>
