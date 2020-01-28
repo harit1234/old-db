@@ -238,6 +238,7 @@
     "2223": "Amount after deducting fees must be positive",
     "2224": "Insufficient available funds!",
     "2225": "Withdrawal failed!",
+    "2226": "Please try again.",
     "2227": "Withdrawal transaction could not be calcelled!",
     "2228": "Withdrawal transaction already cancelled",
     "2229": "Transaction does not exist!  ",
@@ -246,6 +247,7 @@
     "2232": "You can only confirm withdrawal trasactions!",
     "3001": "Something went wrong, please try again!",
     "3002": "You must be logged in to access this API!",
+    "3007": "Something went wrong, please try again!",
     "3008": "Something went wrong, please try again!"
   },
   "langServerSuccess": {
