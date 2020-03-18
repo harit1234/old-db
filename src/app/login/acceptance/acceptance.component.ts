@@ -41,20 +41,7 @@ export class AcceptanceComponent implements OnInit {
   ngOnInit() {}
 
   register() {
-    if (
-      // this.usrAgreement.value &&
-      // this.kyc.value &&
-      // this.privacyPolicy.value &&
-      // this.liq1.value &&
-      // this.liq2.value &&
-      // this.loc1.value &&
-      // this.loc2.value &&
-      // this.loc3.value &&
-      // this.risk1.value &&
-      // this.risk2.value &&
-      // this.risk3.value
-      this.registerAllowed
-    ) {
+    if (this.registerAllowed) {
       this.ds.register(this.ds.registerData);
     }
   }

@@ -1,36 +1,46 @@
 <section class="frm-block">
-    <div class="container">
-      <div class="text-center">
-        <app-login-logo></app-login-logo>
-      </div>
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="frm-body signin-wd" *ngIf="!emailSendError">
-        <figure><img src="assets/img/icon-success.svg" alt=""></figure>
-        <h4>Success</h4>		  
-            <p *ngIf="!processing">We have
-                <span *ngIf="emailSentStatus">resent</span>
-                <span *ngIf="!emailSentStatus">sent</span>
-                 a confirmation email to your registered email address 
-              <strong>{{registerEmail}}</strong>.</p>
-            <p>Please follow the instructions in the email to continue.</p>
-            <p><a href="javascript:;" class="form-button" (click)="resendEmail();">Resend email</a></p>
-            <div class="verfication-steps">
-              <p>If you haven't received the email, please try the following:</p>
-              <ul>
-                <li>Make sure the email address you provided is correct.</li>
-                <li>Check your spam or junk mail folders.</li>
-              </ul>
-            </div>
+  <div class="container">
+    <div class="text-center">
+      <app-login-logo></app-login-logo>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="frm-body signin-wd" *ngIf="!emailSendError">
+          <figure><img src="assets/img/icon-success.svg" alt="" /></figure>
+          <h4>Success</h4>
+          <p *ngIf="!processing">
+            We have
+            <span *ngIf="emailSentStatus">resent</span>
+            <span *ngIf="!emailSentStatus">sent</span>
+            a confirmation email to your registered email address
+            <strong>{{ registerEmail }}</strong
+            >.
+          </p>
+          <p>Please follow the instructions in the email to continue.</p>
+          <p>
+            <a
+              href="javascript:;"
+              class="login-btn-form"
+              (click)="resendEmail()"
+            >
+              Resend email
+            </a>
+          </p>
+          <div class="verfication-steps">
+            <p>If you haven't received the email, please try the following:</p>
+            <ul>
+              <li>Make sure the email address you provided is correct.</li>
+              <li>Check your spam or junk mail folders.</li>
+            </ul>
           </div>
-          <div class="frm-body signin-wd" *ngIf="emailSendError">
-              <figure><img src="assets/img/icon-fail.svg" alt=""></figure>
-              <h1>Resend email action failed</h1>
-                  <p>Your account is already activated!</p>
-              <p><a routerLink="/login" class="form-button">Log In</a></p>
-          </div>
+        </div>
+        <div class="frm-body signin-wd" *ngIf="emailSendError">
+          <figure><img src="assets/img/icon-fail.svg" alt="" /></figure>
+          <h1>Resend email action failed</h1>
+          <p>Your account is already activated!</p>
+          <p><a routerLink="/login" class="form-button">Log In</a></p>
         </div>
       </div>
     </div>
-  </section>
-
+  </div>
+</section>
