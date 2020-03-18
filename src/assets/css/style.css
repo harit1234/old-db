@@ -287,23 +287,23 @@ a.forget-password{ color:#ffd700; font-size:16px; font-weight:500; position:abso
 .contract-type-each h4{ font-size:24px; font-weight:600; text-align:center; margin-top:25px; margin-bottom:15px;}
 .contract-type-each p{ text-align:center; line-height:24px; margin:0;}
 
-/*Why Bitfex*/
+/*Why Alpha5*/
 
-.why-bitfex-section{padding:50px 0;
+.why-Alpha5-section{padding:50px 0;
 background: #cc2d30;
 background: -moz-linear-gradient(left, #cc2d30 1%, #902527 100%);
 background: -webkit-linear-gradient(left, #cc2d30 1%,#902527 100%);
 background: linear-gradient(to right, #cc2d30 1%,#902527 100%);
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc2d30', endColorstr='#902527',GradientType=1 );}
-.why-bitfex-section h3{ color:#fff; font-size:40px; font-family: 'Catamaran'; font-weight:700; margin:0; text-align:center;}
-.why-bitfex-section .tag-content{ color:#fff; }
-.why-bitfex-feature{width:calc(50% - 30px); margin-top:50px;}
-.why-bitfex-feature:nth-child(2n){ margin-left: auto;}
-.why-bitfex-feature-icon{ min-width:64px; height:64px;}
-.why-bitfex-feature-icon img{ max-width:100%;}
-.why-bitfex-feature-content{ margin-left:30px;}
-.why-bitfex-feature-content h4{ color:#fff; font-size:24px; font-weight:600; margin-bottom:20px;} 
-.why-bitfex-feature-content p{color:#fff; line-height:24px; margin:0;}
+.why-Alpha5-section h3{ color:#fff; font-size:40px; font-family: 'Catamaran'; font-weight:700; margin:0; text-align:center;}
+.why-Alpha5-section .tag-content{ color:#fff; }
+.why-Alpha5-feature{width:calc(50% - 30px); margin-top:50px;}
+.why-Alpha5-feature:nth-child(2n){ margin-left: auto;}
+.why-Alpha5-feature-icon{ min-width:64px; height:64px;}
+.why-Alpha5-feature-icon img{ max-width:100%;}
+.why-Alpha5-feature-content{ margin-left:30px;}
+.why-Alpha5-feature-content h4{ color:#fff; font-size:24px; font-weight:600; margin-bottom:20px;} 
+.why-Alpha5-feature-content p{color:#fff; line-height:24px; margin:0;}
 
 /*About BFX*/
 
@@ -412,7 +412,7 @@ footer{ background-color:#0a1640; padding-top:30px;}
 	.contract-type-each h4{ font-size:20px; margin-bottom:5px;}
 	.contract-type-each p{ font-size:14px; line-height: 22px;}
 	.contract-type-section h3,
-	.why-bitfex-section h3,
+	.why-Alpha5-section h3,
 	.about-BFX-section h3,
 	.crypto-derivatives-section h3,
 	.live-trading-steps-section h3{ font-size:34px;}
@@ -421,8 +421,8 @@ footer{ background-color:#0a1640; padding-top:30px;}
 @media(max-width:768px){
 	
 	.timer .count {font-size: 30px; line-height: 65px;}
-	.why-bitfex-feature-content h4{ font-size:18px; margin-bottom:10px;}
-	.why-bitfex-feature-icon{ text-align:right;}
+	.why-Alpha5-feature-content h4{ font-size:18px; margin-bottom:10px;}
+	.why-Alpha5-feature-icon{ text-align:right;}
 	.tag-content{max-width:90%;}
 	.header,
 	.row.BFX-benefits{-webkit-align-items: center; -ms-flex-align: center; align-items: center;}
@@ -574,16 +574,16 @@ footer{ background-color:#0a1640; padding-top:30px;}
 	.contract-type-each h4{ margin-top:10px; min-height: inherit;}
 	
 	.contract-type-icon{ width:64px; height:auto;}
-	.why-bitfex-features,
+	.why-Alpha5-features,
 	.trading-easy-steps{ -webkit-flex-direction: column;  -ms-flex-direction: column; flex-direction: column;}
 	.trading-easy-steps li h4{ font-size:20px;}
-	.why-bitfex-feature,
+	.why-Alpha5-feature,
 	.trading-easy-steps li{ width:100%; margin:40px 0 0 0;}
-	.why-bitfex-feature-icon { text-align: center;}
+	.why-Alpha5-feature-icon { text-align: center;}
 	.BFX-benefits h4{ margin-top:30px;}
 	.buy-BFX-CTA{ text-align:center;}
 	.about-BFX-graph{ margin-top:40px;}
-	.contract-type-section h3, .why-bitfex-section h3, .about-BFX-section h3, .crypto-derivatives-section h3, .live-trading-steps-section h3 {
+	.contract-type-section h3, .why-Alpha5-section h3, .about-BFX-section h3, .crypto-derivatives-section h3, .live-trading-steps-section h3 {
     font-size: 28px;}
 	.BFX-benefits h4{ font-size:20px;}
 	.BFX-benefits li{ font-size:14px;}
@@ -591,7 +591,7 @@ footer{ background-color:#0a1640; padding-top:30px;}
 	a.buy-bfx-btn,
 	a.trading-register-btn{ font-size:16px;}
 	.trading-easy-steps { margin-top: 10px;}
-	.why-bitfex-section,
+	.why-Alpha5-section,
 	.about-BFX-section,
 	.live-trading-steps-section{ padding:25px 0;}
 	

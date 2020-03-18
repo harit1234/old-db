@@ -36,7 +36,7 @@
     
     
       
-        <title>Home - Bitfex Documentation</title>
+        <title>Home - Alpha5 Documentation</title>
       
     
     
@@ -92,7 +92,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href=".." title="Bitfex Documentation" class="md-header-nav__button md-logo">
+        <a href=".." title="Alpha5 Documentation" class="md-header-nav__button md-logo">
           
             <i class="md-icon"></i>
           
@@ -105,7 +105,7 @@
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             <span class="md-header-nav__topic">
-              Bitfex Documentation
+              Alpha5 Documentation
             </span>
             <span class="md-header-nav__topic">
               
@@ -162,12 +162,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href=".." title="Bitfex Documentation" class="md-nav__button md-logo">
+    <a href=".." title="Alpha5 Documentation" class="md-nav__button md-logo">
       
         <i class="md-icon"></i>
       
     </a>
-    Bitfex Documentation
+    Alpha5 Documentation
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -212,8 +212,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#bitfex-btc-index" class="md-nav__link">
-    Bitfex BTC Index
+  <a href="#Alpha5-btc-index" class="md-nav__link">
+    Alpha5 BTC Index
   </a>
   
 </li>
@@ -517,8 +517,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#bitfex-btc-index" class="md-nav__link">
-    Bitfex BTC Index
+  <a href="#Alpha5-btc-index" class="md-nav__link">
+    Alpha5 BTC Index
   </a>
   
 </li>
@@ -646,30 +646,30 @@
                 
                 <h1 id="general">General</h1>
 <h2 id="introduction">Introduction</h2>
-<p>Bitfex is a crypto derivatives exchange offering a complete futures market for Bitcoin. Three types of derivatives products are available for trading:</p>
+<p>Alpha5 is a crypto derivatives exchange offering a complete futures market for Bitcoin. Three types of derivatives products are available for trading:</p>
 <ul>
 <li><a href="../Perpetual/">Perpetual Contract</a> </li>
 <li><a href="../Futures/">Quarterly Futures Contracts</a> </li>
 <li><a href="../Exchange Quoted Spreads/">Exchange Quoted Spread Contracts</a></li>
 </ul>
 <p>General information regarding <a href="../Margin Trading/">margin</a>, prices, index and exchange functioning are provided below. You can navigate directly to a topic from the menu.</p>
-<h2 id="bitfex-btc-index">Bitfex BTC Index</h2>
-<p>To calculate the Bitfex BTC Index Price, the latest prices from 5 different crypto exchanges namely Bitstamp, Coinbase, Gemini, Itbit,and Kraken are sourced continuously.</p>
+<h2 id="Alpha5-btc-index">Alpha5 BTC Index</h2>
+<p>To calculate the Alpha5 BTC Index Price, the latest prices from 5 different crypto exchanges namely Bitstamp, Coinbase, Gemini, Itbit,and Kraken are sourced continuously.</p>
 <p>The mid-price is calculated using the best bid and best ask prices, from each of the 5 exchanges. The exchanges with the highest and the lowest prices are excluded from further calculation. The remaining 3 exchanges then given equal weightage of 33.33% each to calculate the BTC index price. </p>
-<p>In the case one or more exchange's price feed is unavailable or exchange(s) are disabled, prices from 2 out of 4 or 1 out of 3 exchanges, excluding the exchanges with highest and lowest price, will be used to calculate the Bitfex BTC Index. If only 2 active price feeds are available, both will contribute an equal 50% weight to the Index. If only a single price feed is available, this price will be the index price. If for some reason Bitfex could not get the price feed from any of these exchange, trading will be temporarily disabled (<em>platform locked</em>) until a connection is re-established with any one of the exchanges.</p>
+<p>In the case one or more exchange's price feed is unavailable or exchange(s) are disabled, prices from 2 out of 4 or 1 out of 3 exchanges, excluding the exchanges with highest and lowest price, will be used to calculate the Alpha5 BTC Index. If only 2 active price feeds are available, both will contribute an equal 50% weight to the Index. If only a single price feed is available, this price will be the index price. If for some reason Alpha5 could not get the price feed from any of these exchange, trading will be temporarily disabled (<em>platform locked</em>) until a connection is re-established with any one of the exchanges.</p>
 <h2 id="mark-price">Mark Price</h2>
 <p>For Perpetual Contracts, the Mark Price is dependent on the underlying Index Price and the Funding rate.</p>
 <p>For Futures Contracts Mark Price is the average of Best Bid Price and Best Ask Price.</p>
 <p>If there are no bids or no offer or both bids and offers are missing then BTC index price will be the Mark Price of the Futures contract. </p>
 <h2 id="funding">Funding</h2>
-<p>For perpetual contracts, a mechanism called funding is employed to keep the price tethered to the underlying spot price, which will be the Bitfex Index Price. </p>
+<p>For perpetual contracts, a mechanism called funding is employed to keep the price tethered to the underlying spot price, which will be the Alpha5 Index Price. </p>
 <p>After a fixed interval of 8 hours, there is an exchange of payments based on the value and sign of the funding rate. The funding rate is calculated over this fixed interval over the course of 24 hours, every 8 hours. Thus, funding happens at 0 UTC, 8 UTC and 16 UTC in a 24 hours cycle. Only traders holding a position at these times will either pay or receive funding. </p>
 <p>The funding a trader has to pay/will receive is calculated as: </p>
 <p><strong>Funding = Position Value  *  Funding Rate</strong>. </p>
 <p>If the rate is positive, longs (buyers) will pay the shorts (sellers). If the rate is negative, the shorts pay the longs. </p>
 <p>Funding is a net-zero operation for the exchange; it is payments being exchanged between buyers and sellers.</p>
 <h2 id="expiration-price">Expiration Price</h2>
-<p>The expiration price is used for the settlement of expiring futures contracts. A time-weighted average of the Bitfex BTC Index from 07:30 UTC till 8:00 UTC, on a per minute basis, is used for its calculation. Thus, expiration price is given as the average of 30 instances of the Bitfex BTC Index, in the last half hour before settlement occurs. </p>
+<p>The expiration price is used for the settlement of expiring futures contracts. A time-weighted average of the Alpha5 BTC Index from 07:30 UTC till 8:00 UTC, on a per minute basis, is used for its calculation. Thus, expiration price is given as the average of 30 instances of the Alpha5 BTC Index, in the last half hour before settlement occurs. </p>
 <h2 id="initial-margin-and-maintenance-margin">Initial Margin and Maintenance Margin</h2>
 <p><strong>Initial Margin(IM)</strong> is the minimum account balance required to initiate a position. </p>
 <p>IM = Order Value * IM Percentage</p>
@@ -686,7 +686,7 @@
 <h2 id="average-entry-price">Average Entry Price</h2>
 <p>The average entry price for a position is given by the total number of contracts in the position divided by the value (in BTC) of the total position entered. </p>
 <h2 id="fifo-in-pnl-and-average-entry-price-calculation">FIFO in PnL and Average Entry Price Calculation</h2>
-<p>Entering and exiting positions on Bitfex happens as per the 'First-In, First-Out' (FIFO) principle, with PnL and average entry price calculations reflecting the same. FIFO implies that contracts in positions entered first are also the contracts that are sold/bought first when a position is being exit. The example below illustrates this further: </p>
+<p>Entering and exiting positions on Alpha5 happens as per the 'First-In, First-Out' (FIFO) principle, with PnL and average entry price calculations reflecting the same. FIFO implies that contracts in positions entered first are also the contracts that are sold/bought first when a position is being exit. The example below illustrates this further: </p>
 <pre><code>Suppose you enter a long position (buy) of 1000 contracts in BTCUSD at $6000
 You enter another long position of 1000 contracts in BTCUSD at $5000 and 
 another long position of 1000 contracts when BTCUSD price is $7000
@@ -753,8 +753,8 @@ Available Balance = NAV – IM Blocked = 0.99850 - 0.1 = 0.899850 BTC </p>
 <h2 id="margin-call">Margin Call</h2>
 <p>As soon as NAV&lt;=IM, a margin call will be issued to the trader via email. The trader can then choose to keep their positions open by increasing their account balance, and/or cancelling some or all open orders and/or closing some or all positions.</p>
 <h2 id="auto-liquidation">Auto Liquidation</h2>
-<p>If the Bitfex Exchange Risk System assesses that a trader's account balance is insufficient to maintain the account's positions, it will trigger a liquidation event. </p>
-<p>The condition for the liquidation event is <strong>NAV &lt;= MM</strong>. As soon as this condition is met, the Bitfex Liquidation Engine will take over the trader's account.  At this moment, all the open orders will be cancelled, and liquidation orders will be sent to market. During the liquidation event, a trader has no control over their account and cannot place, cancel or modify any orders from their account.  </p>
+<p>If the Alpha5 Exchange Risk System assesses that a trader's account balance is insufficient to maintain the account's positions, it will trigger a liquidation event. </p>
+<p>The condition for the liquidation event is <strong>NAV &lt;= MM</strong>. As soon as this condition is met, the Alpha5 Liquidation Engine will take over the trader's account.  At this moment, all the open orders will be cancelled, and liquidation orders will be sent to market. During the liquidation event, a trader has no control over their account and cannot place, cancel or modify any orders from their account.  </p>
 <p>This will continue till <strong>NAV &gt; MM</strong>. </p>
 <p>A liquidation fee of 0.6% will be charged, that will go to the insurance fund. </p>
 <p>As soon as NAV&lt;=IM, a margin call will be issued to the trader via email. The trader can then choose to keep their positions open by increasing their account balance, and/or cancelling some or all open orders and/or closing some or all positions.</p>
@@ -765,10 +765,10 @@ Available Balance = NAV – IM Blocked = 0.99850 - 0.1 = 0.899850 BTC </p>
 <li>Close the position if a margin call is issued</li>
 <li>Cancel open orders to free up margin if a margin call is issued</li>
 </ul>
-<p>Bitfex Risk Engine does not liquidate the entire position in one go, instead does so via consecutive liquidation orders that are of a minimum predefined size or a percentage of the total position. By breaking down the liquidation into multiple orders until NAV &gt; MM, the engine tries to ensure the preservation of the account balance and thus the capital of the trader.  </p>
+<p>Alpha5 Risk Engine does not liquidate the entire position in one go, instead does so via consecutive liquidation orders that are of a minimum predefined size or a percentage of the total position. By breaking down the liquidation into multiple orders until NAV &gt; MM, the engine tries to ensure the preservation of the account balance and thus the capital of the trader.  </p>
 <h2 id="insurance-fund">Insurance Fund</h2>
-<p>Bitfex’s insurance fund covers the loss in case a trader goes bankrupt. The liquidation fee collected is added to this insurance fund. </p>
-<p>With the advanced Risk Management System of the Bitfex Exchange and the margin requirements that have been set, it is very difficult to get bankrupt unless a very large market move occurs within a very short span of time. As the liquidation fees collected continues to replenish the insurance fund, any occurring bankruptcies will be covered for owing to the insurance fund. </p>
+<p>Alpha5’s insurance fund covers the loss in case a trader goes bankrupt. The liquidation fee collected is added to this insurance fund. </p>
+<p>With the advanced Risk Management System of the Alpha5 Exchange and the margin requirements that have been set, it is very difficult to get bankrupt unless a very large market move occurs within a very short span of time. As the liquidation fees collected continues to replenish the insurance fund, any occurring bankruptcies will be covered for owing to the insurance fund. </p>
 <p>However, in the extraordinary circumstance that the insurance fund depletes completely, a mechanism of socializing the subsequent bankruptcies amongst winning traders will follow, although the exchange will try to ensure before such a scenario occurs, margin requirements are revised if a pattern of excessive bankruptcies is observed among the traders.  </p>
 <h2 id="implied-logic">Implied Logic</h2>
 <p>In a futures market to trade perpetual, quarterly and exchange quoted spread contracts, a matching engine with implied order functionality is essential, as this maintains an interconnection between the three contracts. </p>
@@ -793,7 +793,7 @@ Available Balance = NAV – IM Blocked = 0.99850 - 0.1 = 0.899850 BTC </p>
 
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright"><a href="https://bitfex.com" target="_blank"> <font size= 3.7rem>  Bitfex  </a>
+      <div class="md-footer-copyright"><a href="https://Alpha5.com" target="_blank"> <font size= 3.7rem>  Alpha5  </a>
 
 </div>
 

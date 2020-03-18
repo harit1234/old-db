@@ -1,51 +1,72 @@
 <app-country-notice></app-country-notice>
-<header class="header" [ngClass]="{loggedin: authService.isLogged, 'aside-open': dataService.hambergerMenuStatus}"  id="header">
-    <div class="hamburger d-lg-none" (click)="hamburger();"><a href="javascript:;"> <span></span> </a></div>
-    <div class="logo">
-    <a class="navbar-brand" routerLink="/dashboard/account">
-        <img src="../../assets/img/Bitfex-logo.svg" alt="Bitfex Exchange" class="logo-sticky d-none d-md-block">
-       <img src="assets/img/Bitfex-symbol.png" alt="Bitfex Exchange" class="logo-mobile d-block d-md-none">
-    </a>
-    </div>
-    <div class="navbar" *ngIf="authService.isLogged">
-      <ul>
-        <li><a href="/trade/">{{ 'langDashboardHeader.lblTrade' | translate }}</a></li>
-        <li routerLinkActive="active"><a  routerLink="/dashboard/account" >{{ 'langDashboardHeader.lblAccount' | translate }}</a></li>
-        <!--li routerLinkActive="active"><a routerLink="/dashboard/download">{{ 'langDashboardHeader.lblDownload' | translate }}</a></li-->
-      </ul>
-    </div>
-    <div class="header-right">
-      <div class="user-login" [ngClass]="{loggedin: authService.isLogged}"> <a href="javascript:;"></a>
-        <div class="user-dropdown">
-          <div class="guest">
+<header
+  class="header"
+  [ngClass]="{
+    loggedin: authService.isLogged,
+    'aside-open': dataService.hambergerMenuStatus
+  }"
+  id="header"
+>
+  <div class="hamburger d-lg-none" (click)="hamburger()">
+    <a href="javascript:;"> <span></span> </a>
+  </div>
+  <!-- <div class="logo"> -->
+  <a class="navbar-brand" routerLink="/dashboard/account">
+    <img
+      src="assets/images/icons/alpha5-header-logo.png"
+      alt="Alpha5 Exchange"
+      class="logo-sticky d-none d-md-block"
+    />
+    <img
+      src="assets/images/icons/alpha5-header-logo.png"
+      alt="Alpha5 Exchange"
+      class="logo-mobile d-block d-md-none"
+    />
+  </a>
+  <!-- </div> -->
+  <div class="navbar" *ngIf="authService.isLogged">
+    <ul>
+      <li>
+        <a href="/trade/">{{ "langDashboardHeader.lblTrade" | translate }}</a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/dashboard/account">{{
+          "langDashboardHeader.lblAccount" | translate
+        }}</a>
+      </li>
+    </ul>
+  </div>
+  <div class="header-right">
+    <div class="user-login" [ngClass]="{ loggedin: authService.isLogged }">
+      <a href="javascript:;"></a>
+      <div class="user-dropdown">
+        <div class="guest">
+          <ul>
+            <li>
+              <a routerLink="/login" class="btn-login">{{
+                "langCommon.lblLogin" | translate
+              }}</a>
+            </li>
+            <li>
+              <a routerLink="/register" class="btn-register">{{
+                "langCommon.lblRegister" | translate
+              }}</a>
+            </li>
+          </ul>
+        </div>
+        <div class="user-nav-wrapper" *ngIf="authService.isLogged">
+          <div class="user-email">{{ userName }}</div>
+          <div class="user-nav">
             <ul>
-              <li><a routerLink="/login" class="btn-login">{{ 'langCommon.lblLogin' | translate }}</a></li>
-              <li><a routerLink="/register" class="btn-register">{{ 'langCommon.lblRegister' | translate }}</a></li>
+              <li (click)="dataService.logout()">
+                <a href="javascript:;"
+                  ><span><i class="fas fa-sign-out-alt"></i></span>Log Out</a
+                >
+              </li>
             </ul>
-          </div>
-          <div class="user-nav-wrapper" *ngIf="authService.isLogged">
-            <div class="user-email">{{ userName }}</div>
-            <div class="user-nav">
-              <ul>
-                <li (click)="dataService.logout();"><a href="javascript:;"><span><i class="fas fa-sign-out-alt"></i></span>Log Out</a></li>
-              </ul>
-            </div>
           </div>
         </div>
       </div>
-      <!--<div class="translator"> <a href="javascript:;"></a>
-        <div class="translator-dropdown">
-          <h3>{{ 'langCommon.lblWebsiteTrans' | translate }}</h3>
-          <div class="">
-            <ul>
-              <li
-              [ngClass]="{'active-lang': dataService.selectedLanguage == language.code}" 
-              *ngFor="let language of languages" 
-              (click)="dataService.changeLanguage(language.code)">{{language.name}}</li>
-            </ul>
-          </div>
-            <!--p>Translations by Google is provided for convenience and is not verified contextually. Please refer to original for accuracy.</p-->
-          <!--</div>
-      </div>-->
-      </div>
-  </header>
+    </div>
+  </div>
+</header>

@@ -10,6 +10,7 @@ import { ActivateAccountComponent } from "./login/activate-account/activate-acco
 import { WithdrawalConfirmComponent } from "./withdrawal-confirm/withdrawal-confirm.component";
 import { LandingPageComponent } from "./landing-page/landing-page.component";
 import { BfxComponent } from "./bfx/bfx.component";
+import { AcceptanceComponent } from "./login/acceptance/acceptance.component";
 // import { DownloadComponent } from './download/download.component';
 
 const routes: Routes = [
@@ -18,11 +19,12 @@ const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
   { path: "emailVerification", component: EmailVerificationComponent },
-  { path: "forgot", component: ForgotComponent },
+  // { path: "forgot", component: ForgotComponent },
   { path: "resetPassword", component: ResetPasswordComponent },
   { path: "activateAccount", component: ActivateAccountComponent },
   { path: "withdrawalConfirm", component: WithdrawalConfirmComponent },
-  { path: "bfx", component: BfxComponent },
+  { path: "agreement", component: AcceptanceComponent },
+  // { path: "bfx", component: BfxComponent },
   { path: "**", component: PageNotFoundComponent }
 ];
 @NgModule({

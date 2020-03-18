@@ -1,5 +1,5 @@
 /* Sign Up Forms */
-.register .form-group select{background-color: #FFF; padding: 10px 35px 10px 50px; -webkit-appearance: none; -moz-appearance: none; appearance: none; -webkit-border-radius: 0; border-radius: 0;}
+/* .register .form-group select{background-color: #FFF; padding: 10px 35px 10px 50px; -webkit-appearance: none; -moz-appearance: none; appearance: none; -webkit-border-radius: 0; border-radius: 0;}
 .select-wrap{position: relative;}
 .select-wrap:after{
 	content: "";
@@ -10,4 +10,33 @@
 	right: 10px;
     top: 15px;
 	width: 16px;
+} */
+
+.select-country-dropdown {
+  border-bottom: 1px solid gray;
+}
+
+.country-select {
+  width: 100%;
+  background-color: inherit;
+  border: none;
+  color: #757575;
+  outline: none;
+  -moz-appearance: none; /* Firefox */
+  -webkit-appearance: none; /* Safari and Chrome */
+  appearance: none;
+}
+
+select option {
+  margin: 40px;
+  background: #1b1b1b;
+  color: #757575;
+}
+
+.terms-link {
+  border-bottom: 1px solid gray;
+}
+
+input.non-valid {
+  border-bottom: 1px solid #c03b3c;
 }

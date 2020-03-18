@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { DataService } from "../../shared/services/data.service";
 import { MustMatch } from "../../shared/helpers/must-match.validator";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { environment } from "../../../environments/environment";
 import { RestService } from "../../shared/services/rest.service";
 
@@ -19,14 +19,24 @@ export class RegisterComponent implements OnInit {
     private registerFormBuilder: FormBuilder,
     public dataService: DataService,
     private route: ActivatedRoute,
-    private restService: RestService
+    private restService: RestService,
+    private router: Router
   ) {}
 
   ngOnInit() {
     this.registerFormGroup = this.registerFormBuilder.group(
       {
         email: ["", [Validators.required, Validators.email]],
-        password: ["", [Validators.required, Validators.minLength(8)]],
+        password: [
+          "",
+          [
+            Validators.required,
+            Validators.minLength(8),
+            Validators.pattern(
+              /^(?=[^a-z]*[a-z])(?=[^A-Z]*[A-Z])(?=[^0-9]*[0-9]).*/
+            )
+          ]
+        ],
         confirmPassword: ["", Validators.required],
         country: ["", Validators.required],
         firstName: [""],
@@ -86,10 +96,16 @@ export class RegisterComponent implements OnInit {
       return;
     }
     console.log("Form Submitted!!");
+
     console.log(
       "SUCCESS!! :-)\n\n" + JSON.stringify(this.registerFormGroup.value)
     );
-    this.dataService.register(data);
+
+    this.dataService.registerData = data;
+
+    this.router.navigateByUrl("/agreement");
+
+    // this.dataService.register(data);
   }
 
   /**

@@ -1,34 +1,36 @@
-import { Injectable } from '@angular/core';
-import { RestService } from './rest.service';
-import { AuthService } from './auth.service';
-import { Router, RouterStateSnapshot } from '@angular/router';
-import { TimerService } from './timer.service';
-import { InstrumentModel } from '../models/instrument-model';
-import { Dictionary } from '../models/dictionary';
-import { TranslateService } from '@ngx-translate/core';
-import { WebSocketOmsService } from './web-socket-oms.service';
-import { AccountModel } from '../../models/account-model';
-import { Subject } from 'rxjs';
+import { Injectable } from "@angular/core";
+import { RestService } from "./rest.service";
+import { AuthService } from "./auth.service";
+import { Router, RouterStateSnapshot } from "@angular/router";
+import { TimerService } from "./timer.service";
+import { InstrumentModel } from "../models/instrument-model";
+import { Dictionary } from "../models/dictionary";
+import { TranslateService } from "@ngx-translate/core";
+import { WebSocketOmsService } from "./web-socket-oms.service";
+import { AccountModel } from "../../models/account-model";
+import { Subject } from "rxjs";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class DataService {
   authToken: string;
   loader = false;
-  registerError = '';
-  countryList = '';
+  registerError = "";
+  countryList = "";
   tokenRefreshing = false;
   hambergerMenuStatus = false;
   hamurgerLeftMenu = false;
   selectedLanguage: string;
   userCountryRestricted = false;
 
-  tradingBalance:any;
-  availableBalance:any;
+  tradingBalance: any;
+  availableBalance: any;
   accountSubject = new Subject();
 
   public instruments: Dictionary<InstrumentModel>;
+
+  registerData: any;
 
   constructor(
     private restService: RestService,
@@ -39,35 +41,32 @@ export class DataService {
     private wsOmsService: WebSocketOmsService
   ) {
     this.wsOmsService.onMessage.subscribe(message => this.onMessage(message));
-   }
+  }
 
-   onMessage(data): void {
-     
-      //console.log("On Message++++");
+  onMessage(data): void {
+    //console.log("On Message++++");
     if (data.data instanceof Blob) {
-        const blobReader = new FileReader();
-        blobReader.onload = () => {
-            // console.log("On Load++++");
-            // this.processWSMessage(<string>blobReader.result);
-        };
-        blobReader.readAsText(data.data);
+      const blobReader = new FileReader();
+      blobReader.onload = () => {
+        // console.log("On Load++++");
+        // this.processWSMessage(<string>blobReader.result);
+      };
+      blobReader.readAsText(data.data);
     } else {
-          //console.log("On Else++++",data);
-        this.processWSMessage(data);
+      //console.log("On Else++++",data);
+      this.processWSMessage(data);
     }
   }
 
-  processWSMessage(pack: {event: string, data: any}) {
+  processWSMessage(pack: { event: string; data: any }) {
     switch (pack.event) {
-        
-        case 'account': {
-            this.setAccount(pack.data);
-            break;
-        }
-        default: {
-            break;
-        }
-
+      case "account": {
+        this.setAccount(pack.data);
+        break;
+      }
+      default: {
+        break;
+      }
     }
     return;
   }
@@ -75,7 +74,7 @@ export class DataService {
   private _accountInfo: AccountModel;
 
   public get accountInfo(): AccountModel {
-      return this._accountInfo;
+    return this._accountInfo;
   }
 
   public setAccount(account: AccountModel) {
@@ -88,34 +87,35 @@ export class DataService {
 
   register(data: any) {
     this.loader = true;
-    this.restService.register(data).subscribe(userInfo => {
-      this.loader = false;
-      localStorage.removeItem('refId');
-      localStorage.setItem('registerEmail', data.email);
-      this.router.navigate(['emailVerification']);
-    }, error => {
-
-      this.loader = false;
-      this.registerError = error;
-    });
+    this.restService.register(data).subscribe(
+      userInfo => {
+        this.loader = false;
+        localStorage.removeItem("refId");
+        localStorage.setItem("registerEmail", data.email);
+        this.router.navigate(["emailVerification"]);
+      },
+      error => {
+        this.loader = false;
+        this.registerError = error;
+        this.router.navigate(["register"]);
+      }
+    );
   }
 
   /**
    * Logging out from the system
    */
   logout() {
-    console.log('Logout Api should be called here!!');
+    console.log("Logout Api should be called here!!");
     this.loader = true;
     const data = {};
     this.restService.logout(data).subscribe(val => {
       this.loader = false;
-      console.log('Logout success');
+      console.log("Logout success");
       console.log(val);
       this.authService.clearSession();
       this.timerService.stopCheckApiStatusTimer();
-
     });
-
   }
 
   /**
@@ -132,10 +132,10 @@ export class DataService {
   // }
 
   logoutRefreshTokenExpire() {
-    console.log('Calling lgout reresh function');
+    console.log("Calling lgout reresh function");
     this.authService.clearSession();
-      this.timerService.stopCheckApiStatusTimer();
-      this.router.navigate(['login']);
+    this.timerService.stopCheckApiStatusTimer();
+    this.router.navigate(["login"]);
   }
 
   /**
@@ -143,25 +143,24 @@ export class DataService {
    */
   getInstrument() {
     this.instruments = {};
-    console.log('get Instrument function called');
+    console.log("get Instrument function called");
     const data = {
-      'token_id': localStorage.getItem('sessionIdStorage'),
-      'username': localStorage.getItem('userIdStorage')
+      token_id: localStorage.getItem("sessionIdStorage"),
+      username: localStorage.getItem("userIdStorage")
     };
     this.restService.getInstruments(data).subscribe((instrumentInfo: any) => {
       this.loader = false;
       // console.log('Instruments : ', JSON.stringify(instrumentInfo.instrument));
       if (instrumentInfo.instrument) {
-
         if (instrumentInfo.instrument instanceof Array) {
           instrumentInfo.instrument.forEach(instrument => {
             this.instruments[instrument.Symbol] = instrument;
           });
-        }else {
-          this.instruments[instrumentInfo.instrument.Symbol] = instrumentInfo.instrument;
+        } else {
+          this.instruments[instrumentInfo.instrument.Symbol] =
+            instrumentInfo.instrument;
         }
       }
-
     });
   }
 
@@ -169,19 +168,21 @@ export class DataService {
    * Fetching the country from API if not already fetched or return the old one
    */
   getCountryList() {
-
     if (this.countryList) {
       return this.countryList;
     }
 
-    setTimeout(() => { this.loader = true; });
-    this.restService.getCountryList({ 'lang': 'en' }).subscribe((countryList: any) => {
-      this.loader = false;
-      this.countryList = countryList.data.countries;
-      console.log('Country List : ', this.countryList);
+    setTimeout(() => {
+      this.loader = true;
     });
+    this.restService
+      .getCountryList({ lang: "en" })
+      .subscribe((countryList: any) => {
+        this.loader = false;
+        this.countryList = countryList.data.countries;
+        console.log("Country List : ", this.countryList);
+      });
     return this.countryList;
-
   }
 
   /**
@@ -193,27 +194,26 @@ export class DataService {
 
   checkApiStatus() {
     const data = {
-      'token_id': localStorage.getItem('sessionIdStorage'),
-      'username': localStorage.getItem('userIdStorage')
+      token_id: localStorage.getItem("sessionIdStorage"),
+      username: localStorage.getItem("userIdStorage")
     };
-    if(!localStorage.getItem('sessionIdStorage')) {
+    if (!localStorage.getItem("sessionIdStorage")) {
       this.logout();
-    }else {
-      this.restService.getApiStatus(data).subscribe( (apiStatus:any) => {
-        console.log('Api Status: ', apiStatus.status);
-        if(apiStatus.status === false) {
+    } else {
+      this.restService.getApiStatus(data).subscribe((apiStatus: any) => {
+        console.log("Api Status: ", apiStatus.status);
+        if (apiStatus.status === false) {
           this.logout();
         }
-        
       });
     }
-    
   }
+
   /**
    * Bad request error handing
    */
   badRequestAction() {
-    console.log('bad request');
+    console.log("bad request");
   }
   hideHambergurMenu() {
     this.hambergerMenuStatus = false;
@@ -221,9 +221,8 @@ export class DataService {
   }
   changeLanguage(lang: string) {
     console.log(lang);
-    localStorage.setItem('lang', lang);
+    localStorage.setItem("lang", lang);
     this.translate.use(lang);
     this.selectedLanguage = lang;
-
   }
 }

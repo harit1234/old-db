@@ -36,7 +36,7 @@
     
     
       
-        <title>Exchange Quoted Spreads - Bitfex Documentation</title>
+        <title>Exchange Quoted Spreads - Alpha5 Documentation</title>
       
     
     
@@ -92,7 +92,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href=".." title="Bitfex Documentation" class="md-header-nav__button md-logo">
+        <a href=".." title="Alpha5 Documentation" class="md-header-nav__button md-logo">
           
             <i class="md-icon"></i>
           
@@ -105,7 +105,7 @@
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             <span class="md-header-nav__topic">
-              Bitfex Documentation
+              Alpha5 Documentation
             </span>
             <span class="md-header-nav__topic">
               
@@ -162,12 +162,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href=".." title="Bitfex Documentation" class="md-nav__button md-logo">
+    <a href=".." title="Alpha5 Documentation" class="md-nav__button md-logo">
       
         <i class="md-icon"></i>
       
     </a>
-    Bitfex Documentation
+    Alpha5 Documentation
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -567,7 +567,7 @@
                 <h1 id="exchange-quoted-spreads">Exchange Quoted Spreads</h1>
 <h2 id="introduction">Introduction</h2>
 <p>Spread trading is simply trading the difference between the prices of two futures contracts. It involves simultaneously buying and selling futures contracts with different expiration dates. These two contracts are also known as the two legs of the spread.   </p>
-<p>On Bitfex, this price difference or spread between individual futures contracts is available as a single contract, called Exchange Quoted Spread.</p>
+<p>On Alpha5, this price difference or spread between individual futures contracts is available as a single contract, called Exchange Quoted Spread.</p>
 <p>The symbol for such a contract is denoted as follows:
 Symbol for Contract 1: Symbol for Contract 2</p>
 <p>Eg:- Spread between Perpetual contract and December Futures will be given by BTCUSD:BTCZ19*</p>
@@ -590,7 +590,7 @@ Symbol for Contract 1: Symbol for Contract 2</p>
 <p>Spread trading is a good way to hedge directional risk and can be used a directional neutral trading strategy. By going long (buying) in one leg and short (selling) in other leg, a trader is protected against market moving in a particular direction. </p>
 <p>The two legs of a spread trade expire at different times, so a trader must be careful that expiry in one contract will convert the spread position into a naked outrights position. Thus, a trader needs to exit their spread position before this happens.   </p>
 <h2 id="pricing-and-representation">Pricing and Representation</h2>
-<p>The price of an Exchange Quoted Spread on Bitfex is given by: 
+<p>The price of an Exchange Quoted Spread on Alpha5 is given by: 
 <em>Price of Contract_1 - Price of Contract_2</em> </p>
 <p>For example, let's say you want to calculate the price of BTCUSD:BTCZ19. </p>
 <p>Suppose BTCUSD is trading at $10000 and BTCZ19 is trading at $10400. </p>
@@ -602,7 +602,7 @@ Symbol for Contract 1: Symbol for Contract 2</p>
 <em>Price (BTCUSD) - Price (BTCZ19)</em> = 10000 - 10000 = 0</p>
 <p>Thus, spread prices can be both <em>negative</em>, <em>positive</em> or <em>zero</em>. If the price is negative, it means the second contract is trading at a premium to the first contract. If positive, the second contract is trading at a discount. If the price is zero, it means both contracts are trading at par, i.e. at the same price. </p>
 <h2 id="margin-requirements">Margin Requirements</h2>
-<p>Currently to trade an Exchange Quoted Spread on Bitfex, a trader needs to fulfil the margin requirements of the two individual contracts that make up the spread. </p>
+<p>Currently to trade an Exchange Quoted Spread on Alpha5, a trader needs to fulfil the margin requirements of the two individual contracts that make up the spread. </p>
 <p>So, Initial Margin for Spread = Initial Margin for Contract 1 + Initial Margin for Contract 2 = <a href="../Addendum/">IM%</a> * BTC Value of position in Contract 1 + IM% * BTC Value of position in Contract 2</p>
 <p>Similarly, Maintenance Margin for Spread = Maintenance Margin for Contract 1 + Maintenance Margin for Contract 2 = MM% * BTC Value of position in Contract 1 + MM% * BTC Value of position in Contract 2</p>
 <p>Let's consider an example : </p>
@@ -620,7 +620,7 @@ Symbol for Contract 1: Symbol for Contract 2</p>
            MM = 3% of 0.1 + 3% of 0.09975 = 0.0059925 BTC
 </code></pre>
 <h2 id="trading-the-spread">Trading the Spread</h2>
-<p>Although on Bitfex, buying or selling an exchange quoted spread will be a single-click action, it is important understand what goes behind this action. </p>
+<p>Although on Alpha5, buying or selling an exchange quoted spread will be a single-click action, it is important understand what goes behind this action. </p>
 <p>When you buy (or long) the spread, it means you buy the first contract and sell the second contract. 
 Consequently, to sell (or short) the spread, means you sell the first contract and buy the second contract. </p>
 <p>Suppose you want to trade the BTCUSD:BTCZ19 spread. When you buy this spread, it implies you bought the BTCUSD contract and sold the BTCZ19 contract. When you will sell this spread, you will be selling the BTCUSD contract and buying the BTCZ19 contract. </p>
@@ -670,7 +670,7 @@ Consequently, to sell (or short) the spread, means you sell the first contract a
 <tbody>
 <tr>
 <td align="center">Underlying Index</td>
-<td align="center">Bitfex BTC Index</td>
+<td align="center">Alpha5 BTC Index</td>
 </tr>
 <tr>
 <td align="center">Symbol</td>
@@ -706,7 +706,7 @@ Consequently, to sell (or short) the spread, means you sell the first contract a
 </tr>
 <tr>
 <td align="center">Position Limit</td>
-<td align="center">2,000,000 contracts. To increase limit contact us at <a href="mailto:info@bitfex.com">info@bitfex.com</a></td>
+<td align="center">2,000,000 contracts. To increase limit contact us at <a href="mailto:info@Alpha5.com">info@Alpha5.com</a></td>
 </tr>
 <tr>
 <td align="center">Fees</td>
@@ -806,7 +806,7 @@ Consequently, to sell (or short) the spread, means you sell the first contract a
 
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright"><a href="https://bitfex.com" target="_blank"> <font size= 3.7rem>  Bitfex  </a>
+      <div class="md-footer-copyright"><a href="https://Alpha5.com" target="_blank"> <font size= 3.7rem>  Alpha5  </a>
 
 </div>
 

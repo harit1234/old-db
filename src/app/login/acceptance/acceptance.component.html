@@ -1,0 +1,162 @@
+<div class="container">
+  <div class="acceptance-wrapper">
+    <div class="agreement-header d-flex flex-column align-items-center">
+      <div class="agreement-heading d-flex flex-column align-items-center">
+        <span>Alpha5 - User Agreement</span>
+        <span>acceptance questions</span>
+      </div>
+      <div class="agreement-body d-flex flex-column align-items-center">
+        <span>Thank you for applying to open an account with Alpha5.</span>
+        <span>
+          Before we can open your account, we need you to read and agree to the
+          following important notices about trading on Alpha5.
+        </span>
+      </div>
+    </div>
+    <div class="list-head">Prohibited Locations</div>
+    <div
+      [ngClass]="{ activated: loc1.value }"
+      class="list-item d-flex flex-md-row flex-column-reverse"
+    >
+      <div class="switch">
+        <mat-slide-toggle [formControl]="loc1"> </mat-slide-toggle>
+      </div>
+      <div class="item-decription">
+        I CONFIRM AND CERTIFY THAT I AM NOT A CITIZEN OR RESIDENT OF THE UNITED
+        STATES OF AMERICA
+      </div>
+    </div>
+    <div
+      [ngClass]="{ activated: loc2.value }"
+      class="list-item d-flex flex-md-row flex-column-reverse"
+    >
+      <div class="switch">
+        <mat-slide-toggle [formControl]="loc2"> </mat-slide-toggle>
+      </div>
+      <div class="item-decription">
+        I CONFIRM THAT I WILL NOT ACCESS OR ATTEMPT TO ACCESS ALPHA5 WHILE
+        PHYSICALLY LOCATED IN THE UNITED STATES OF AMERICA
+      </div>
+    </div>
+    <div
+      [ngClass]="{ activated: loc3.value }"
+      class="list-item d-flex flex-md-row flex-column-reverse"
+    >
+      <div class="switch">
+        <mat-slide-toggle [formControl]="loc3"> </mat-slide-toggle>
+      </div>
+      <div class="item-decription">
+        I confirm and certify that I am not a citizen or resident of, and am
+        will not access or attempt to access Alpha5 while physically located in,
+        any of the following locations: Belarus, Burma, Crimea and Sevastopol,
+        Cote d’Ivoire, Cuba, Democratic Republic of Congo,Iran, Iraq, Liberia,
+        North Korea, Sudan, Syria, Zimbabwe
+      </div>
+    </div>
+    <div class="list-head">Risk Of Trading On Alpha5</div>
+    <div
+      [ngClass]="{ activated: risk1.value }"
+      class="list-item d-flex flex-md-row flex-column-reverse"
+    >
+      <div class="switch">
+        <mat-slide-toggle [formControl]="risk1"></mat-slide-toggle>
+      </div>
+      <div class="item-decription">
+        I confirm that I understand the risks of loss involved with trading
+        leveraged financial instruments.
+      </div>
+    </div>
+    <div
+      [ngClass]="{ activated: risk2.value }"
+      class="list-item d-flex flex-md-row flex-column-reverse"
+    >
+      <div class="switch">
+        <mat-slide-toggle [formControl]="risk2"></mat-slide-toggle>
+      </div>
+      <div class="item-decription">
+        I confirm and certify that I am a professional trader with prior
+        experience trading sophisticated financial products including
+        derivatives and leveraged trading
+      </div>
+    </div>
+    <div
+      [ngClass]="{ activated: risk3.value }"
+      class="list-item d-flex flex-md-row flex-column-reverse"
+    >
+      <div class="switch">
+        <mat-slide-toggle [formControl]="risk3"></mat-slide-toggle>
+      </div>
+      <div class="item-decription">
+        I confirm and certify that I am not a citizen or resident of, and am
+        will not access or attempt to access Alpha5 while physically located in,
+        any of the following locations: Belarus, Burma, Crimea and Sevastopol,
+        Cote d’Ivoire, Cuba, Democratic Republic of Congo,Iran, Iraq, Liberia,
+        North Korea, Sudan, Syria, Zimbabwe
+      </div>
+    </div>
+    <div class="list-head">Liquidations</div>
+    <div
+      [ngClass]="{ activated: liq1.value }"
+      class="list-item d-flex flex-md-row flex-column-reverse"
+    >
+      <div class="switch">
+        <mat-slide-toggle [formControl]="liq1"></mat-slide-toggle>
+      </div>
+      <div class="item-decription">
+        I confirm that I have read and understand the operation of Alpha5’s
+        margin requirements, liquidation program, late liquidity pool and
+        insurance fund.
+      </div>
+    </div>
+    <div
+      [ngClass]="{ activated: liq2.value }"
+      class="list-item d-flex flex-md-row flex-column-reverse"
+    >
+      <div class="switch">
+        <mat-slide-toggle [formControl]="liq2"></mat-slide-toggle>
+      </div>
+      <div class="item-decription">
+        I confirm that I understand it is my responsibility to ensure my account
+        meets margin requirements at all time, and that if I fail to do so, I
+        MAY LOSE THE ENTIRE VALUE OF MY POSITION AND MY MARGIN COLLATERAL, UP TO
+        THE TOTAL VALUE OF FUNDS IN MY ACCOUNT.
+      </div>
+    </div>
+    <div class="list-head">Agreements</div>
+    <div class="final-wrapper row">
+      <div class="final-agreements col-md-6 col-sm-12">
+        <div class="point-description">
+          I confirm that I have read, understood and agree to be bound by each
+          of the following documents
+        </div>
+        <div style="margin-top:2rem" class="d-flex flex-column">
+          <div class="point d-flex">
+            <mat-slide-toggle [formControl]="usrAgreement"></mat-slide-toggle>
+            <span>User Agreement</span>
+          </div>
+          <div class="point d-flex">
+            <mat-slide-toggle [formControl]="privacyPolicy"></mat-slide-toggle>
+            <span>Privacy Policy</span>
+          </div>
+          <div class="point d-flex">
+            <mat-slide-toggle [formControl]="kyc"></mat-slide-toggle>
+            <span>KYC Policy</span>
+          </div>
+        </div>
+      </div>
+      <div
+        class="continue col-md-6 col-sm-12 d-flex flex-column align-items-md-start"
+      >
+        <div class="point-description">
+          If you have any questions about any of these notices or trading on
+          Alpha5, we would be happy to assist you. Please contact us at
+          info@alpha5.io at any time
+          <br />
+          <button [disabled]="!registerAllowed" (click)="register()">
+            CONTINUE
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

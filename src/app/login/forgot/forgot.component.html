@@ -1,5 +1,5 @@
 <app-header></app-header>
-<div class="wrapper">  
+<div class="wrapper">
   <div class="frm-wrapper">
     <section class="frm-block">
       <div class="container">
@@ -8,36 +8,73 @@
           <div class="col-sm-12">
             <div class="frm-outer">
               <div class="frm-body">
-                <h4>Reset Password</h4>                
-                <form [formGroup]="forgotFormGroup" (ngSubmit)="sendRequest();">
-                  <p>Don’t worry! Just fill in your email id below and you will receive a reset password link in your inbox.</p>
-                  <div class="form-group input-ico email" *ngIf="!forgotRequestSuccessMsg">
+                <h4>Reset Password</h4>
+                <form [formGroup]="forgotFormGroup" (ngSubmit)="sendRequest()">
+                  <p>
+                    Don’t worry! Just fill in your email id below and you will
+                    receive a reset password link in your inbox.
+                  </p>
+                  <div
+                    class="form-group input-ico email"
+                    *ngIf="!forgotRequestSuccessMsg"
+                  >
                     <label for="emailAddress" class="form-label">Email</label>
-                    <input formControlName="email" type="email" class="form-input" placeholder="Enter your username or email" [ngClass]="{'is-invalid': submitted && formFields.email.errors || serverError}"
-                      maxlength="50">
-                    <div *ngIf="submitted && formFields.email.errors" class="form-valid-error">
-                      <div *ngIf="formFields.email.errors.email" class="error-msg">
+                    <input
+                      formControlName="email"
+                      type="email"
+                      class="form-input"
+                      placeholder="Enter your username or email"
+                      [ngClass]="{
+                        'is-invalid':
+                          (submitted && formFields.email.errors) || serverError
+                      }"
+                      maxlength="50"
+                    />
+                    <div
+                      *ngIf="submitted && formFields.email.errors"
+                      class="form-valid-error"
+                    >
+                      <div
+                        *ngIf="formFields.email.errors.email"
+                        class="error-msg"
+                      >
                         Please enter valid email address!
                       </div>
-                      <div *ngIf="formFields.email.errors.required" class="error-msg">
+                      <div
+                        *ngIf="formFields.email.errors.required"
+                        class="error-msg"
+                      >
                         Email is required!
                       </div>
                     </div>
-                    <div *ngIf="serverError && !formFields.email.errors" class="form-valid-error">
-                      <div class="error-msg">{{serverError}}</div>
+                    <div
+                      *ngIf="serverError && !formFields.email.errors"
+                      class="form-valid-error"
+                    >
+                      <div class="error-msg">{{ serverError }}</div>
                     </div>
                   </div>
-                  <div class="text-center m-t-35" *ngIf="!forgotRequestSuccessMsg">
-                    <button class="form-button reset-link-btn" type="submit">Request Reset Link</button>
+                  <div
+                    class="text-center m-t-35"
+                    *ngIf="!forgotRequestSuccessMsg"
+                  >
+                    <button class="form-button reset-link-btn" type="submit">
+                      Request Reset Link
+                    </button>
                   </div>
-                  <div class="reset-2fa">If you have lost your 2FA token, please email us at 
-                    <a href="mailto:support@bitfex.com">support@bitfex.com</a> with the subject "Lost 2FA Device".
-                    <br>
-                    <br>Support team will share the 2FA recovery procedure with you.
+                  <div class="reset-2fa">
+                    If you have lost your 2FA token, please email us at
+                    <!-- <a href="mailto:support@Alpha5.com">support@Alpha5.com</a> with the subject "Lost 2FA Device". -->
+                    <br />
+                    <br />Support team will share the 2FA recovery procedure
+                    with you.
                   </div>
-                  <div *ngIf="forgotRequestSuccessMsg" class="msg-success">{{forgotRequestSuccessMsg}}</div>
+                  <div *ngIf="forgotRequestSuccessMsg" class="msg-success">
+                    {{ forgotRequestSuccessMsg }}
+                  </div>
                   <div class="frm-footer">
-                    <div class="forgot">Back to
+                    <div class="forgot">
+                      Back to
                       <a routerLink="/login">Log In</a>
                     </div>
                   </div>
@@ -45,7 +82,7 @@
               </div>
             </div>
           </div>
-        </div>        
+        </div>
       </div>
     </section>
   </div>

@@ -1,0 +1,39 @@
+header {
+  background-color: black;
+}
+
+/* color: #ffb13c; */
+.nav-container ul li {
+  color: white;
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 25px;
+}
+
+a.btn {
+  min-width: 100px;
+  font-weight: bold;
+}
+
+.register-btn-header a.btn {
+  background-color: #ffb13c;
+  color: black;
+  padding: 2px 10px;
+}
+
+.login-btn-header a.btn {
+  background-color: blanchedalmond;
+  color: black;
+  padding: 2px 10px;
+}
+
+li.exchange-btn a {
+  color: white;
+}
+
+li.exchange-btn a:visited {
+  color: white;
+}

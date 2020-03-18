@@ -1,58 +1,31 @@
 <app-country-notice></app-country-notice>
-<header class="landing-header">
-  <div
-    class="landing-header-container d-flex"
-    [ngClass]="{ open: openMenuClass }"
-  >
-    <div class="landing-header-logo">
-      <a routerLink="/">
-        <img src="assets/img/Bitfex-logo.svg" alt="Bitfex" />
+<header>
+  <div class="d-flex justify-content-between align-items-center">
+    <div class="header-logo-container">
+      <a>
+        <img alt="alpha5" src="assets/images/icons/alpha5-header-logo.png" />
       </a>
     </div>
-    <div class="menu-trigger" (click)="openMenuClass = !openMenuClass">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-
-    <div class="mob-menu-container">
-      <div class="close-icon" (click)="openMenuClass = !openMenuClass">
-        <span></span>
-        <span></span>
-      </div>
-      <div class="landing-header-right d-flex flex-wrap">
-        <div class="login-links d-flex" *ngIf="currentUrl == '/'">
-          <a routerLink="/register" class="register-btn">Register</a>
-          <a routerLink="/login" class="register-btn" style="margin-left: 5px;"
-            >Login</a
-          >
-        </div>
-        <!-- <div class="login-links d-flex" *ngIf="currentUrl != '/'">	
-				<a href="https://www.bitfex.com/trade" target="_blank" class="register-btn">View Exchange</a>
-			</div> -->
-        <!--div class="language-container">	
-			div class="google-translate"><div id="google_translate_element"></div></div-->
-      </div>
-
-      <div class="menu-container">
-        <ul>
-          <li class="active-menu">
-            <a href="assets/info/" target="_blank">
-              Documentation
-            </a>
-          </li>
-          <li>
-            <a style="cursor: pointer;" (click)="navigateToBfx()">BFX</a>
-          </li>
-        </ul>
-      </div>
+    <div class="nav-container align-items-center">
+      <ul class="d-flex">
+        <li class="exchange-btn btn btn-outline">
+          <a href="/trade">
+            Exchange
+          </a>
+        </li>
+        <!-- <li routerLink="/" class="home">
+          <img src="assets/images/home-icon.png" alt="" />
+        </li> -->
+        <li>About</li>
+        <li class="login-btn-header">
+          <a routerLink="/login" class="btn">Login</a>
+        </li>
+        <!-- <li class="register-btn-header">
+          <a class="btn">
+            Register
+          </a>
+        </li> -->
+      </ul>
     </div>
   </div>
-  <!-- Menu Open Overlay -->
-  <div
-    class="menu-overlay"
-    [ngClass]="{ open: openMenuClass }"
-    (click)="openMenuClass = !openMenuClass"
-  ></div>
 </header>

@@ -1,7 +1,7 @@
 {
-    "env": "dev",
-    "restUrl": "http://52.211.112.45/api/v1/",
-    "recaptchaKey": "6LfQMKIUAAAAAC1emeIR20Ze7SOcJG3xoEQY1V7_",
-    "ipinfoAccessToken": "a4358b19f1bfdd",
-    "restrictedCountryCode": "US"
+  "env": "dev",
+  "restUrl": "http://beta5.demolinks.xyz/api/v1/",
+  "recaptchaKey": "6LfQMKIUAAAAAC1emeIR20Ze7SOcJG3xoEQY1V7_",
+  "ipinfoAccessToken": "a4358b19f1bfdd",
+  "restrictedCountryCode": "US"
 }

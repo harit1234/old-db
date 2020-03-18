@@ -1,85 +1,189 @@
 <app-header></app-header>
-<div class="wrapper">
+<!-- <div class="wrapper">
   <div class="frm-wrapper">
     <section class="frm-block">
       <div class="container">
         <div class="row">
           <div class="col-sm-12">
-            <div class="frm-outer">
-              <ul class="frm-tabs">
-                <li><a href="javascript:;" class="active">{{ 'langCommon.lblLogin' | translate }}</a></li>
-                <li><a routerLink="/register">{{ 'langCommon.lblRegister' | translate }}</a></li>
-              </ul>
+            <div class="frm-outer"> -->
+<!-- <ul class="frm-tabs justify-content-center">
+                <li>
+                  <a href="javascript:;" class="active">{{
+                    "langCommon.lblLogin" | translate
+                  }}</a>
+                </li>
+                <li>
+                  <a routerLink="/register">{{
+                    "langCommon.lblRegister" | translate
+                  }}</a>
+                </li>
+              </ul> -->
+<!-- <div class="frm-header">
+                Sign in to your Account
+              </div>
               <div class="frm-body">
-                <form [formGroup]="loginFormGroup" (ngSubmit)="onSubmit();">
+                <form [formGroup]="loginFormGroup" (ngSubmit)="onSubmit()">
                   <div *ngIf="error" class="auth-error">
-                    <p>{{error}}</p>
-                  </div>
-                  <!--div class="login-signup-heading">Login Bitfex Account</div-->
-                  <div class="form-group input-ico email">
-                    <label for="emailAddress" class="form-label">{{ 'langLogin.lblEmail' | translate }}</label>
-                    <input 
-                    class="form-input"
-                    formControlName="email"
-                    type="text"
-                    [ngClass]="{'is-invalid': submitted && formFields.email.errors}"
-                    maxlength="50"
-                    >
-                    <!--div *ngIf="submitted && formFields.cardHolderName.errors" class="invalid-feedback">
-                                    <div *ngIf="formFields.cardHolderName.errors.required" class="error-msg">Cardholder name is required!</div>
-                            </div-->
-                    <div *ngIf="submitted && formFields.email.errors" class="form-valid-error">
-                      <div *ngIf="formFields.email.errors.email" class="error-msg">
-                          {{ 'langLoginValidate.valUserEmail' | translate }}
-                      </div>
-                      <div *ngIf="formFields.email.errors.required" class="error-msg">
-                          {{ 'langLoginValidate.valUserRequired' | translate }}
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-group input-ico pwd">
-                    <label for="password" class="form-label">{{ 'langLogin.lblPassword' | translate }}</label>
+                    <p>{{ error }}</p>
+                  </div> -->
+<!-- <div class="login-signup-heading">Login Alpha5 Account</div> -->
+<!-- <div class="form-group  email"> -->
+<!-- <label for="emailAddress" class="form-label">{{
+                      "langLogin.lblEmail" | translate
+                    }}</label>
                     <input
-                    class="form-input"
-                    formControlName="password"
-                    type="password"
-                    [ngClass]="{'is-invalid': submitted && formFields.password.errors}"
-                    maxlength="20"
+                      class="form-input"
+                      formControlName="email"
+                      type="text"
+                      [ngClass]="{
+                        'is-invalid': submitted && formFields.email.errors
+                      }"
+                      maxlength="50"
+                    /> -->
+<!-- <mat-form-field color="primary" [floatLabel]="'never'">
+                      <input
+                        matInput
+                        formControlName="email"
+                        type="text"
+                        [ngClass]="{
+                          'is-invalid': submitted && formFields.email.errors
+                        }"
+                        maxlength="50"
+                        placeholder="{{ 'langLogin.lblEmail' | translate }}"
+                      />
+                    </mat-form-field>
+                    <div
+                      *ngIf="submitted && formFields.cardHolderName.errors"
+                      class="invalid-feedback"
                     >
-                    <div *ngIf="submitted && formFields.password.errors" class="form-valid-error">
-                      <div *ngIf="formFields.password.errors.required">{{ 'langLoginValidate.valPassRequired' | translate }}</div>
-                      <div *ngIf="formFields.password.errors.minlength">{{ 'langLoginValidate.valPassMin' | translate:{'length': formFields.password.errors.minlength.requiredLength} }}</div>
+                      <div
+                        *ngIf="formFields.cardHolderName.errors.required"
+                        class="error-msg"
+                      >
+                        Cardholder name is required!
+                      </div>
+                    </div>
+                    <div
+                      *ngIf="submitted && formFields.email.errors"
+                      class="form-valid-error"
+                    >
+                      <div
+                        *ngIf="formFields.email.errors.email"
+                        class="error-msg"
+                      >
+                        {{ "langLoginValidate.valUserEmail" | translate }}
+                      </div>
+                      <div
+                        *ngIf="formFields.email.errors.required"
+                        class="error-msg"
+                      >
+                        {{ "langLoginValidate.valUserRequired" | translate }}
+                      </div>
                     </div>
                   </div>
-                  <div class="form-group input-ico ga">
-                    <label class="form-label">{{ 'langLogin.lblTwoFactorCode' | translate }}</label>
-                    <input 
-                    type="text" 
-                    formControlName="factorCode" 
-                    class="form-input" 
-                    placeholder="{{'langLogin.lblGoogleAuthPh' | translate}}" 
-                    maxlength="6"
+                  <div class="form-group  pwd"> -->
+<!-- <label for="password" class="form-label">{{
+                      "langLogin.lblPassword" | translate
+                    }}</label>
+                    <input
+                      class="form-input"
+                      formControlName="password"
+                      type="password"
+                      [ngClass]="{
+                        'is-invalid': submitted && formFields.password.errors
+                      }"
+                      maxlength="20"
+                    /> -->
+<!-- <mat-form-field [floatLabel]="'never'">
+                      <input
+                        matInput
+                        formControlName="password"
+                        type="password"
+                        [ngClass]="{
+                          'is-invalid': submitted && formFields.password.errors
+                        }"
+                        maxlength="20"
+                        placeholder="{{ 'langLogin.lblPassword' | translate }}"
+                      />
+                    </mat-form-field>
+                    <div
+                      *ngIf="submitted && formFields.password.errors"
+                      class="form-valid-error"
                     >
+                      <div *ngIf="formFields.password.errors.required">
+                        {{ "langLoginValidate.valPassRequired" | translate }}
+                      </div>
+                      <div *ngIf="formFields.password.errors.minlength">
+                        {{
+                          "langLoginValidate.valPassMin"
+                            | translate
+                              : {
+                                  length:
+                                    formFields.password.errors.minlength
+                                      .requiredLength
+                                }
+                        }}
+                      </div>
+                    </div>
                   </div>
-                  <div class="form-group row ng-captcha-container" >
-                    <ngx-recaptcha2 #captchaElem
+                  <div class="form-group  ga">
+                    <label class="form-label">{{
+                      "langLogin.lblTwoFactorCode" | translate
+                    }}</label>
+                    <mat-form-field [floatLabel]="never">
+                      <input
+                        matInput
+                        type="text"
+                        formControlName="factorCode"
+                        class="form-input"
+                        placeholder="{{
+                          'langLogin.lblGoogleAuthPh' | translate
+                        }}"
+                        maxlength="6"
+                      />
+                    </mat-form-field>
+                  </div>
+                  <div class="form-group row ng-captcha-container">
+                    <ngx-recaptcha2
+                      #captchaElem
                       [siteKey]="siteKey"
                       (load)="handleLoad()"
                       (success)="handleSuccess($event)"
                       formControlName="recaptcha"
-                      class="g-recaptcha">
+                      class="g-recaptcha"
+                    >
                     </ngx-recaptcha2>
-                    <div *ngIf="submitted && formFields.recaptcha.errors" class="form-valid-error">
-                      <div *ngIf="formFields.recaptcha.errors.required">{{ 'langLoginValidate.valRobot' | translate }}</div>
-                    </div>  
-                  </div>
-                  <div class="text-center">
-                    <button class="form-button login-btn" type="submit">{{ 'langCommon.lblLogin' | translate }}</button>
-                  </div>
-                  <div class="frm-footer">
-                    <div class="sign"><a routerLink="/forgot">{{ 'langLogin.lblForgotTwoFDevice' | translate}}</a></div>
-                  </div>
-                </form>
+                    <div
+                      *ngIf="submitted && formFields.recaptcha.errors"
+                      class="form-valid-error"
+                    >
+                      <div *ngIf="formFields.recaptcha.errors.required">
+                        {{ "langLoginValidate.valRobot" | translate }}
+                      </div>
+                    </div>
+                  </div> -->
+<!-- <div class="text-center"> -->
+<!-- <div class="login-btn-grp">
+                    <button class="login-btn" type="submit">
+                      {{ "langCommon.lblLogin" | translate }}
+                    </button>
+                    <button class="reg-btn" type="button">
+                      <span class="no-acc">
+                        Don't have an account ?
+                      </span>
+                      <span class="main-reg">
+                        Register
+                      </span>
+                    </button>
+                  </div> -->
+<!-- <div class="frm-footer">
+                    <div class="sign">
+                      <a routerLink="/forgot">{{
+                        "langLogin.lblForgotTwoFDevice" | translate
+                      }}</a>
+                    </div>
+                  </div> -->
+<!-- </form>
               </div>
             </div>
           </div>
@@ -87,5 +191,103 @@
       </div>
     </section>
   </div>
+  </div> -->
+
+<div class="login-wrapper">
+  <div class="container login-form-container">
+    <div class="row">
+      <div class="col-md-6"></div>
+      <div class="col-md-5 form d-flex flex-column">
+        <form [formGroup]="loginFormGroup" (ngSubmit)="onSubmit()">
+          <div class="form-header">
+            Sign in to your Account
+          </div>
+          <div class="form-body">
+            <div class="form-field active-field d-flex flex-column">
+              <input
+                placeholder="{{ 'langLogin.lblEmail' | translate }}"
+                type="text"
+                class="form-input-login"
+                formControlName="email"
+              />
+              <div
+                *ngIf="submitted && formFields.email.errors"
+                class="form-valid-error"
+              >
+                <div *ngIf="formFields.email.errors.email" class="error-msg">
+                  {{ "langLoginValidate.valUserEmail" | translate }}
+                </div>
+                <div *ngIf="formFields.email.errors.required" class="error-msg">
+                  {{ "langLoginValidate.valUserRequired" | translate }}
+                </div>
+              </div>
+            </div>
+            <div class="form-field ">
+              <div class="d-flex flex-md-row flex-column">
+                <input
+                  placeholder="{{ 'langLogin.lblPassword' | translate }}"
+                  type="password"
+                  class="form-input-login"
+                  formControlName="password"
+                />
+                <span class="forgot-password">
+                  Forgot Password?
+                </span>
+              </div>
+              <div
+                *ngIf="submitted && formFields.password.errors"
+                class="form-valid-error"
+              >
+                <div *ngIf="formFields.password.errors.required">
+                  {{ "langLoginValidate.valPassRequired" | translate }}
+                </div>
+                <div *ngIf="formFields.password.errors.minlength">
+                  {{
+                    "langLoginValidate.valPassMin"
+                      | translate
+                        : {
+                            length:
+                              formFields.password.errors.minlength
+                                .requiredLength
+                          }
+                  }}
+                </div>
+              </div>
+            </div>
+            <div class="form-field">
+              <ngx-recaptcha2
+                #captchaElem
+                [siteKey]="siteKey"
+                (load)="handleLoad()"
+                (success)="handleSuccess($event)"
+                formControlName="recaptcha"
+                theme="dark"
+                class="g-recaptcha"
+              >
+              </ngx-recaptcha2>
+            </div>
+            <div
+              class="btn-holder d-flex flex-column flex-md-row align-items-sm-center"
+            >
+              <button type="submit" class="login-btn-form">
+                {{ "langCommon.lblLogin" | translate }}
+              </button>
+              <button
+                routerLink="/register"
+                class="reg-btn-form d-flex justify-content-center flex-md-column flex-sm-row"
+              >
+                <span class="no-acc">Don't have an account?</span>
+
+                <span class="reg">{{
+                  "langCommon.lblRegister" | translate
+                }}</span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
+
 <app-footer></app-footer>

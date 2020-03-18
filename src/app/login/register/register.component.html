@@ -1,5 +1,5 @@
 <app-header></app-header>
-<div class="wrapper">
+<!-- <div class="wrapper">
   <div class="frm-wrapper register">
     <section class="frm-block">
       <div class="container">
@@ -15,7 +15,7 @@
                   <div *ngIf="dataService.registerError" class="auth-error">
                     <p>{{dataService.registerError}}</p>
                   </div>  
-                  <div class="login-signup-heading">Create Bitfex Account</div>                
+                  <div class="login-signup-heading">Create Alpha5 Account</div>                
                   <div class="form-group input-ico email">
                     <label for="emailAddress" class="form-label">{{ 'langLogin.lblEmail' | translate }}</label>
                     <input
@@ -156,6 +156,196 @@
         </div>
       </div>
     </section>
+  </div>
+</div> -->
+<div class="login-wrapper">
+  <div class="container login-form-container">
+    <div class="row">
+      <div class="col-md-6"></div>
+      <div class="col-md-5 form d-flex flex-column">
+        <form [formGroup]="registerFormGroup" (submit)="onSubmit()">
+          <div class="form-header">
+            Create An Account
+          </div>
+          <div class="form-body">
+            <div class="form-field active-field d-flex flex-column">
+              <input
+                placeholder="{{ 'langRegister.lblFirstName' | translate }}"
+                type="text"
+                class="form-input-login"
+                [ngClass]="{
+                  'non-valid': submitted && formFields.firstName.errors
+                }"
+                formControlName="firstName"
+              />
+            </div>
+            <div class="form-field active-field d-flex flex-column">
+              <input
+                placeholder="{{ 'langRegister.lblLastName' | translate }}"
+                type="text"
+                class="form-input-login"
+                [ngClass]="{
+                  'non-valid': submitted && formFields.lastName.errors
+                }"
+                formControlName="lastName"
+              />
+            </div>
+            <div class="form-field active-field d-flex flex-column">
+              <input
+                placeholder="{{ 'langLogin.lblEmail' | translate }}"
+                type="text"
+                class="form-input-login"
+                formControlName="email"
+              />
+              <div
+                *ngIf="submitted && formFields.email.errors"
+                class="form-valid-error"
+              >
+                <div *ngIf="formFields.email.errors.email" class="error-msg">
+                  {{ "langRegisterValidate.valRegEmailErr" | translate }}
+                </div>
+                <div *ngIf="formFields.email.errors.required" class="error-msg">
+                  {{ "langRegisterValidate.valEmailRequired" | translate }}
+                </div>
+              </div>
+            </div>
+            <div class="form-field d-flex flex-column">
+              <input
+                placeholder="{{ 'langLogin.lblPassword' | translate }}"
+                type="password"
+                class="form-input-login"
+                formControlName="password"
+              />
+              <div
+                *ngIf="submitted && formFields.password.errors"
+                class="form-valid-error"
+              >
+                <div
+                  *ngIf="formFields.password.errors.required"
+                  class="error-msg"
+                >
+                  {{ "langRegisterValidate.valRegPassRequired" | translate }}
+                </div>
+                <div
+                  *ngIf="formFields.password.errors.minlength"
+                  class="error-msg"
+                >
+                  {{
+                    "langLoginValidate.valPassMin"
+                      | translate
+                        : {
+                            length:
+                              formFields.password.errors.minlength
+                                .requiredLength
+                          }
+                  }}
+                </div>
+                <div
+                  *ngIf="
+                    formFields.password.errors.pattern &&
+                    !formFields.password.errors.minlength
+                  "
+                  class="error-msg"
+                >
+                  {{ "langRegisterValidate.valRegPassChar" | translate }}
+                </div>
+              </div>
+            </div>
+            <div class="form-field d-flex flex-column">
+              <input
+                placeholder="Confirm Password"
+                type="password"
+                class="form-input-login"
+                formControlName="confirmPassword"
+              />
+              <div
+                *ngIf="submitted && formFields.confirmPassword.errors"
+                class="form-valid-error"
+              >
+                <div
+                  *ngIf="formFields.confirmPassword.errors.required"
+                  class="error-msg"
+                >
+                  {{ "langRegisterValidate.valRegConPassRequired" | translate }}
+                </div>
+                <div
+                  *ngIf="formFields.confirmPassword.errors.mustMatch"
+                  class="error-msg"
+                >
+                  {{ "langRegisterValidate.valRegPassMatchErr" | translate }}
+                </div>
+              </div>
+            </div>
+
+            <div class="form-field dropdown">
+              <div
+                class="d-flex select-country-dropdown justify-content-between"
+              >
+                <span style="width:98%">
+                  <select class="country-select" formControlName="country">
+                    <option selected value="">
+                      {{ "langRegister.lblClickToChoose" | translate }}
+                    </option>
+                    <option
+                      *ngFor="let country of dataService.countryList"
+                      [value]="country.country_id"
+                      >{{ country.name }}</option
+                    >
+                  </select>
+                </span>
+                <i class="fas fa-angle-down"></i>
+              </div>
+            </div>
+            <div class="form-field terms-and-services">
+              <div class="d-flex terms-and-services">
+                <mat-slide-toggle formControlName="terms">
+                  <span class="agreement">
+                    I agree to the
+                  </span>
+                </mat-slide-toggle>
+                &nbsp;
+                <span class="terms-link">Terms & Services</span>
+              </div>
+              <div
+                *ngIf="submitted && formFields.terms.errors"
+                class="form-valid-error"
+              >
+                <div *ngIf="formFields.terms.errors.required" class="error-msg">
+                  {{ "langRegisterValidate.valRegTerms" | translate }}
+                </div>
+              </div>
+            </div>
+            <div class="form-field">
+              <ngx-recaptcha2
+                #captchaElem
+                [siteKey]="siteKey"
+                (load)="handleLoad()"
+                (success)="handleSuccess($event)"
+                formControlName="recaptcha"
+                theme="dark"
+                class="g-recaptcha"
+              >
+              </ngx-recaptcha2>
+            </div>
+            <div
+              class="btn-holder d-flex flex-column flex-md-row align-items-sm-center"
+            >
+              <button type="submit" class="login-btn-form">
+                {{ "langCommon.lblRegister" | translate }}
+              </button>
+              <button
+                routerLink="/login"
+                class="reg-btn-form d-flex justify-content-center flex-md-column flex-row"
+              >
+                <span class="no-acc">Already have an account?</span>
+
+                <span class="reg">{{ "langCommon.lblLogin" | translate }}</span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
 </div>
 <app-footer></app-footer>
