@@ -3,18 +3,19 @@
     <div class="col-sm-12">
       <div class="widget exchange-account-balances">
         <div class="widget-header">
-          <h4>{{ 'langDepositHistory.lblDepositHistory' | translate }}</h4>
+          <h4>{{ "langDepositHistory.lblDepositHistory" | translate }}</h4>
         </div>
         <div class="table-responsive">
-          <ag-grid-angular 
-          style="width: 100%; height: 100%;" 
-          [pagination]="true" 
-          [enableSorting]="true"
-          class="ag-theme-balham" 
-          [rowData]="rowData" 
-          [columnDefs]="columnDefs" 
-          [animateRows]="true" 
-          (gridReady)="onGridReady($event)">
+          <ag-grid-angular
+            style="width: 100%; height: 100%;"
+            [pagination]="true"
+            [enableSorting]="true"
+            class="ag-theme-balham-dark"
+            [rowData]="rowData"
+            [columnDefs]="columnDefs"
+            [animateRows]="true"
+            (gridReady)="onGridReady($event)"
+          >
           </ag-grid-angular>
         </div>
       </div>

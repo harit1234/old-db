@@ -1,6 +1,6 @@
-<aside id="aside" class="aside">
+<!-- <aside id="aside" class="aside">
   <nav class="sidebar-nav">
-    <ul id="sidebarnav">
+    <ul id="sidebarnav"> 
       <li>
         <a
           class="has-arrow"
@@ -8,7 +8,7 @@
           [ngClass]="{ active: walletSlide }"
           (click)="walletSlide = !walletSlide"
         >
-          <span class="icon">
+          <span class="icoflexn">
             <i class="fa fa-wallet"></i>
           </span>
           <span>{{ "langDashboardLeftMenu.lblWallet" | translate }}</span>
@@ -17,7 +17,7 @@
           class="collapse in"
           [ngStyle]="{ display: walletSlide ? 'block' : 'none' }"
         >
-          <li>
+          <li>activeSubOptionsArray
             <a routerLink="/dashboard/balances" routerLinkActive="active">{{
               "langDashboardLeftMenu.lblBalances" | translate
             }}</a>
@@ -27,11 +27,11 @@
               "langDashboardLeftMenu.lblDeposit" | translate
             }}</a>
           </li>
-          <!-- <li>
+          <li>
             <a routerLink="/dashboard/address" routerLinkActive="active">{{
               "langDashboardLeftMenu.lblAddress" | translate
             }}</a>
-          </li> -->
+          </li>
           <li>
             <a routerLink="/dashboard/withdraw" routerLinkActive="active">{{
               "langDashboardLeftMenu.lblWithdraw" | translate
@@ -65,9 +65,17 @@
               "langDashboardLeftMenu.lblSecurity" | translate
             }}</a>
           </li>
-          <!--li><a href="settings.html">Settings</a></li-->
-          <!-- <li><a routerLink="/dashboard/affiliate" routerLinkActive="active">{{ 'langDashboardLeftMenu.lblAffiliate' | translate }}</a></li> -->
-          <!--<li><a routerLink="/dashboard/leaderboard" routerLinkActive="active">{{ 'langDashboardLeftMenu.lblLeaderBoard' | translate }}</a></li>-->
+          <li><a href="settings.html">Settings</a></li>
+          <li>
+            <a routerLink="/dashboard/affiliate" routerLinkActive="active">{{
+              "langDashboardLeftMenu.lblAffiliate" | translate
+            }}</a>
+          </li>
+          <li>
+            <a routerLink="/dashboard/leaderboard" routerLinkActive="active">{{
+              "langDashboardLeftMenu.lblLeaderBoard" | translate
+            }}</a>
+          </li>
           <li>
             <a routerLink="/dashboard/apiSecret" routerLinkActive="active">{{
               "langDashboardLeftMenu.lblApiSecret" | translate
@@ -97,12 +105,81 @@
             }}</a>
           </li>
           <li>
-            <a routerLink="/dashboard/orderHistory" routerLinkActive="active">{{
-              "langDashboardLeftMenu.lblOrdHist" | translate
-            }}</a>
+            <a routerLink="/dashboard/orderHistory" routerLinkActive="active">
+              {{ "langDashboardLeftMenu.lblOrdHist" | translate }}
+            </a>
           </li>
         </ul>
       </li>
     </ul>
   </nav>
-</aside>
+</aside> -->
+
+<div class="main-select-list d-flex justify-content-center d-md-block">
+  <div
+    (click)="optionsOpen = !optionsOpen"
+    class="d-flex d-md-none align-items-center flex-column"
+  >
+    <span style="color: #f8af3d; text-align: center;font-size: 12px;">
+      OPTIONS
+    </span>
+    <mat-icon style="color: #f8af3d;">keyboard_arrow_down</mat-icon>
+  </div>
+  <ul
+    *ngIf="optionsOpen"
+    class="dashboard-menu mobile-menu ctivatedRoute,
+    this.historySlide = false;d-flex align-items-center flex-column d-md-none"
+  >
+    <li
+      (click)="selectOption(opt)"
+      *ngFor="let opt of options"
+      [ngClass]="{ activated: opt == selectedOption }"
+      class="graded-back"
+    >
+      {{ opt | translate }}
+    </li>
+  </ul>
+
+  <ul class="dashboard-menu select-menu d-none  d-md-flex">
+    <li
+      (click)="selectOption(opt)"
+      *ngFor="let opt of options"
+      [ngClass]="{ activated: opt == selectedOption }"
+      class="graded-back"
+    >
+      {{ opt | translate }}
+    </li>
+  </ul>
+  <ul class="dashboard-menu sub-menu m-t-5 d-none d-md-flex">
+    <li
+      class="graded-back"
+      routerLink="{{ opt.rl }}"
+      [ngClass]="{ activated: opt.d == selectedSubmenu.d }"
+      *ngFor="let opt of activeSubOptionsArray"
+    >
+      {{ opt.d | translate }}
+    </li>
+  </ul>
+</div>
+<div
+  class="phone-only-container d-flex d-md-none justify-content-start flex-column"
+>
+  <div
+    (click)="submenuOpen = !submenuOpen"
+    class="selected-submenu d-flex align-items-center justify-content-center"
+  >
+    <span>{{ selectedSubmenu.d | translate }}</span>
+    <!-- <span>Balances</span> -->
+    <mat-icon style="color: #f8af3d;">keyboard_arrow_down</mat-icon>
+  </div>
+  <ul *ngIf="submenuOpen" class="phone-sub-menu d-flex flex-column d-md-none">
+    <li
+      (click)="selectPhoneSubMenu()"
+      [ngClass]="{ activated: opt.d == selectedSubmenu.d }"
+      routerLink="{{ opt.rl }}"
+      *ngFor="let opt of activeSubOptionsArray"
+    >
+      {{ opt.d | translate }}
+    </li>
+  </ul>
+</div>

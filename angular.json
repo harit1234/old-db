@@ -23,7 +23,8 @@
               "src/custom-theme.scss",
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "./node_modules/@fortawesome/fontawesome-free/css/all.css",
-              "src/styles.scss"
+              "src/styles.scss",
+              "./node_modules/ag-grid-community/dist/styles/ag-theme-balham-dark.css"
             ],
             "scripts": []
           },

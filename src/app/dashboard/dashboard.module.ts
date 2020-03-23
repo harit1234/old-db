@@ -38,6 +38,7 @@ import { WithdrawalHistoryComponent } from "./withdraw/withdrawal-history/withdr
 import { WithdrawalStatusComponent } from "./withdraw/withdrawal-history/withdrawal-status/withdrawal-status.component";
 import { CountryNoticeModule } from "../country-notice/country-notice.module";
 import { FooterComponent } from "../footer/footer.component";
+import { MatIconModule } from "@angular/material/icon";
 // import { GridModule, PageService, SortService, FilterService, GroupService } from '@syncfusion/ej2-angular-grids';
 // required for AOT compilation
 export function httpLoaderFactory(http: HttpClient) {
@@ -83,6 +84,7 @@ export function httpLoaderFactory(http: HttpClient) {
     FormsModule,
     // GridModule,
     AgGridModule.withComponents([WithdrawalStatusComponent]),
+    MatIconModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

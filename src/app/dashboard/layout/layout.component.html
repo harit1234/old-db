@@ -1,9 +1,9 @@
 <app-dashboard-header></app-dashboard-header>
-<div id="content-wrapper" class="content-wrapper" [ngClass]="{'aside-open':dataService.hambergerMenuStatus}" (click)="dataService.hideHambergurMenu();">
+<div id="dashboard-wrapper" class="dashboard-wrapper">
   <app-dashboard-left-menu></app-dashboard-left-menu>
   <div id="content" class="body-content">
     <router-outlet></router-outlet>
-  </div>  
+  </div>
   <div class="nav-overlay"></div>
 </div>
 <app-dashboard-footer></app-dashboard-footer>

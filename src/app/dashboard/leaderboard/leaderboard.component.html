@@ -2,32 +2,43 @@
   <div class="row">
     <div class="col-sm-12">
       <div class="page-title">
-        <h1>{{ 'langDashboardLeftMenu.lblLeaderBoard' | translate }}</h1>
+        <h1>{{ "langDashboardLeftMenu.lblLeaderBoard" | translate }}</h1>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item">{{ 'langDashboardHeader.lblAccount' | translate }}</li>
-          <li class="breadcrumb-item active">{{ 'langDashboardLeftMenu.lblLeaderBoard' | translate }}</li>
+          <li class="breadcrumb-item">
+            {{ "langDashboardHeader.lblAccount" | translate }}
+          </li>
+          <li class="breadcrumb-item active">
+            {{ "langDashboardLeftMenu.lblLeaderBoard" | translate }}
+          </li>
         </ol>
       </div>
     </div>
   </div>
   <div class="widget exchange-account-balances">
     <div class="widget-header">
-      <h4>{{ 'langDashboardLeftMenu.lblLeaderBoard' | translate }}</h4>
+      <h4>{{ "langDashboardLeftMenu.lblLeaderBoard" | translate }}</h4>
     </div>
     <div class="mb-2 form-inline">
       <div class="text-right">
-        {{ 'langDashboardTexts.lblSearch' | translate }}
-        <input type="text" name="search" class="form-control form-control-sm" (keyup)="onFilterTextBoxChanged()" [(ngModel)]="searchValue">
+        {{ "langDashboardTexts.lblSearch" | translate }}
+        <input
+          type="text"
+          name="search"
+          class="form-control form-control-sm"
+          (keyup)="onFilterTextBoxChanged()"
+          [(ngModel)]="searchValue"
+        />
       </div>
     </div>
-    <ag-grid-angular 
-      style="width: 100%; height: 100%;" 
+    <ag-grid-angular
+      style="width: 100%; height: 100%;"
       [enableSorting]="true"
-      class="ag-theme-balham" 
-      [rowData]="rowData" 
-      [columnDefs]="columnDefs" 
+      class="ag-theme-balham-dark"
+      [rowData]="rowData"
+      [columnDefs]="columnDefs"
       [animateRows]="true"
-      (gridReady)="onGridReady($event)">
-      </ag-grid-angular>
+      (gridReady)="onGridReady($event)"
+    >
+    </ag-grid-angular>
   </div>
 </div>

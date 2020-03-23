@@ -1956,7 +1956,7 @@ a.try-sestnet-btn:hover {
 
 /* Widgets */
 .widget {
-  background-color: #fff;
+  background-color: #151515;
   border: 1px solid #ddd;
   margin: 7.5px 0;
   padding: 20px;
@@ -1997,7 +1997,7 @@ a.try-sestnet-btn:hover {
   margin-top: 0;
 }
 .widget h4 {
-  color: #0278e1;
+  color: #f8af3d;
   font-size: 18px;
   font-weight: 500;
   margin-top: 0;
@@ -2082,8 +2082,9 @@ a.try-sestnet-btn:hover {
   padding: 10px;
   vertical-align: middle;
 }
-.table-striped tbody tr:nth-of-type(odd) {
-  background: #f8f9fa;
+.table-striped tbody tr {
+  background: #222222;
+  color: #aaaaaa;
 }
 
 /* Footer */

@@ -1,0 +1,88 @@
+ul {
+  list-style: none;
+}
+
+.main-select-list {
+  width: 100%;
+  margin: 0;
+  /* padding-left: 0; */
+}
+
+.graded-back {
+  background: linear-gradient(to bottom, #1c1c1c, #101010);
+}
+
+.plain-back {
+  background-color: #151515;
+}
+
+.dashboard-menu li {
+  color: white;
+  margin: 0px 5px 0 0;
+  /* border: 1px solid black; */
+  padding: 10px;
+  text-align: center;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.mobile-menu {
+  position: absolute;
+  top: 90px;
+  width: 100%;
+  z-index: 142;
+  height: 100%;
+  background: rgba(21, 21, 21, 0.6);
+}
+
+.mobile-menu li {
+  width: 100%;
+}
+
+.select-menu li {
+  width: 33%;
+  padding-top: 16px;
+}
+
+li.filler {
+  margin: 0px;
+}
+
+li.activated {
+  background: linear-gradient(to bottom, #1c1c1c, #382b17);
+  border-bottom: 2px solid #f8af3d;
+  outline: none;
+}
+
+/* .dashboard-body {
+  margin-top: 15px;
+} */
+
+.sub-menu {
+  margin-top: 25px;
+}
+
+.phone-only-container {
+  padding: 0 15px;
+}
+
+.selected-submenu {
+  border: 1px solid #f8af3d;
+  max-width: 30%;
+  padding: 5px 15px;
+  border-radius: 5px;
+  color: #ffffff;
+}
+
+.sub-menu li {
+  width: 25%;
+}
+
+.phone-sub-menu {
+  width: 40%;
+  padding-left: 15px;
+}
+
+.phone-sub-menu li {
+  text-align: start;
+}
