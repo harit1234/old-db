@@ -2,3 +2,7 @@
   background-color: black;
   min-height: 500px;
 }
+
+.left-menu-container {
+  padding: 15px;
+}

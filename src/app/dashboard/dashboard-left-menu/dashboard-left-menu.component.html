@@ -116,17 +116,8 @@
 </aside> -->
 
 <div class="main-select-list d-flex justify-content-center d-md-block">
-  <div
-    (click)="optionsOpen = !optionsOpen"
-    class="d-flex d-md-none align-items-center flex-column"
-  >
-    <span style="color: #f8af3d; text-align: center;font-size: 12px;">
-      OPTIONS
-    </span>
-    <mat-icon style="color: #f8af3d;">keyboard_arrow_down</mat-icon>
-  </div>
   <ul
-    *ngIf="optionsOpen"
+    *ngIf="dataService.phoneMenu"
     class="dashboard-menu mobile-menu ctivatedRoute,
     this.historySlide = false;d-flex align-items-center flex-column d-md-none"
   >
@@ -161,18 +152,8 @@
     </li>
   </ul>
 </div>
-<div
-  class="phone-only-container d-flex d-md-none justify-content-start flex-column"
->
-  <div
-    (click)="submenuOpen = !submenuOpen"
-    class="selected-submenu d-flex align-items-center justify-content-center"
-  >
-    <span>{{ selectedSubmenu.d | translate }}</span>
-    <!-- <span>Balances</span> -->
-    <mat-icon style="color: #f8af3d;">keyboard_arrow_down</mat-icon>
-  </div>
-  <ul *ngIf="submenuOpen" class="phone-sub-menu d-flex flex-column d-md-none">
+<div class="phone-only-container d-flex d-md-none justify-content-start ">
+  <ul class="phone-sub-menu d-flex  d-md-none">
     <li
       (click)="selectPhoneSubMenu()"
       [ngClass]="{ activated: opt.d == selectedSubmenu.d }"

@@ -1,5 +1,5 @@
-<app-country-notice></app-country-notice>
-<header
+<!-- <app-country-notice></app-country-notice> -->
+<!-- <header
   class="header"
   [ngClass]="{
     loggedin: authService.isLogged,
@@ -9,30 +9,31 @@
 >
   <div class="hamburger d-lg-none" (click)="hamburger()">
     <a href="javascript:;"> <span></span> </a>
-  </div>
-  <!-- <div class="logo"> -->
-  <a class="navbar-brand" routerLink="/dashboard/account">
+  </div> -->
+
+<!-- <div class="logo"> -->
+<!-- <a class="navbar-brand" routerLink="/dashboard/account">
     <img
       src="assets/images/icons/alpha5-header-logo.png"
       alt="Alpha5 Exchange"
       class="logo-sticky d-none d-md-block"
-    />
-    <img
+    /> -->
+<!-- <img
       src="assets/images/icons/alpha5-header-logo.png"
       alt="Alpha5 Exchange"
       class="logo-mobile d-block d-md-none"
-    />
-  </a>
-  <!-- </div> -->
-  <div class="navbar" *ngIf="authService.isLogged">
+    /> -->
+<!-- </a> -->
+<!-- </div> -->
+<!-- <div class="navbar" *ngIf="authService.isLogged">
     <ul>
       <li>
         <a href="/trade/">{{ "langDashboardHeader.lblTrade" | translate }}</a>
       </li>
       <li routerLinkActive="active">
-        <a routerLink="/dashboard/account">{{
-          "langDashboardHeader.lblAccount" | translate
-        }}</a>
+        <a routerLink="/dashboard/account">
+          {{ "langDashboardHeader.lblAccount" | translate }}
+        </a>
       </li>
     </ul>
   </div>
@@ -59,13 +60,60 @@
           <div class="user-nav">
             <ul>
               <li (click)="dataService.logout()">
-                <a href="javascript:;"
-                  ><span><i class="fas fa-sign-out-alt"></i></span>Log Out</a
-                >
+                <a href="javascript:;">
+                  <span><i class="fas fa-sign-out-alt"></i></span>
+                  Log Out
+                </a>
               </li>
             </ul>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</header> -->
+
+<header class="d-flex ">
+  <img
+    class="logo-img d-none d-md-block"
+    src="assets/images/icons/alpha5-header-logo.png"
+    alt="Alpha5 Exchange"
+  />
+  <div
+    class="menu-button d-flex d-md-none align-items-center justify-content-center flex-column"
+  >
+    <mat-icon (click)="handleMenu($event)" style="color: #f8af3d;"
+      >menu</mat-icon
+    >
+  </div>
+  <div class="left-header">
+    <div class="header-buttons">
+      <ul class="options d-flex">
+        <li><a href="/trade">Exchange</a></li>
+        <li *ngIf="authService.isLogged">
+          <a routerLink="/dashboard/account">Account</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="right-header flex-grow-1 d-flex flex-row-reverse">
+    <i (click)="handleUserIconClick($event)" class="fas fa-user profile-icon">
+    </i>
+    <div
+      [ngClass]="{ 'd-block': userDropDown, 'd-none': !userDropDown }"
+      class="user-dropdown "
+      *ngIf="authService.isLogged"
+    >
+      <div class="user-email">{{ userName }}</div>
+      <div class="user-nav">
+        <ul>
+          <li (click)="dataService.logout()">
+            <a href="javascript:;">
+              <span><i class="fas fa-sign-out-alt"></i></span>
+              Log Out
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
   </div>

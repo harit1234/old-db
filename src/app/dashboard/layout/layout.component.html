@@ -1,6 +1,8 @@
-<app-dashboard-header></app-dashboard-header>
+<app-dashboard-header [clickEmitter]="clickEmitter"></app-dashboard-header>
 <div id="dashboard-wrapper" class="dashboard-wrapper">
-  <app-dashboard-left-menu></app-dashboard-left-menu>
+  <div class="left-menu-container">
+    <app-dashboard-left-menu></app-dashboard-left-menu>
+  </div>
   <div id="content" class="body-content">
     <router-outlet></router-outlet>
   </div>

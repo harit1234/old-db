@@ -1,31 +1,63 @@
 <app-country-notice></app-country-notice>
+
 <header>
-  <div class="d-flex justify-content-between align-items-center">
-    <div class="header-logo-container">
-      <a>
-        <img alt="alpha5" src="assets/images/icons/alpha5-header-logo.png" />
+  <div class="header d-flex">
+    <div class="logo d-none d-md-block">
+      <a href="javascript:;">
+        <img
+          src="assets/images/logo.svg"
+          alt="Alpha5"
+          width="134"
+          height="17"
+        />
       </a>
     </div>
-    <div class="nav-container align-items-center">
-      <ul class="d-flex">
-        <li class="exchange-btn btn btn-outline">
-          <a href="/trade">
-            Exchange
-          </a>
-        </li>
-        <!-- <li routerLink="/" class="home">
-          <img src="assets/images/home-icon.png" alt="" />
-        </li> -->
-        <li>About</li>
-        <li class="login-btn-header">
-          <a routerLink="/login" class="btn">Login</a>
-        </li>
-        <!-- <li class="register-btn-header">
-          <a class="btn">
-            Register
-          </a>
-        </li> -->
-      </ul>
+    <div class="menu-trigger">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
+    <div class="mob-menu-container d-flex">
+      <div class="close-icon">
+        <span></span>
+        <span></span>
+      </div>
+      <div class="exchange-btn">
+        <a href="/trade" class="register-btn">
+          Exchange
+        </a>
+      </div>
+      <div class="menu-container d-none d-md-block">
+        <ul class="d-flex">
+          <li class="active-menu">
+            <a href="docs.html">About</a>
+          </li>
+          <li>
+            <a href="docs.html">Fees</a>
+          </li>
+          <li>
+            <a href="javascript:;">FAQ's</a>
+          </li>
+        </ul>
+      </div>
+      <div class="login-registration-btns d-flex d-md-block">
+        <a routerLink="/register" class="signup-btn">Register</a>
+        <a routerLink="/login" class="signin-btn">Login</a>
+      </div>
+      <div class="language-container d-none align-items-center">
+        <a href="javascript:;" class="d-flex align-items-center">
+          ENG
+          <img
+            src="assets/images/ENG-Flag.svg"
+            alt="ENG"
+            width="25"
+            height="20"
+          />
+        </a>
+      </div>
+    </div>
+    <!-- Menu Open Overlay -->
+    <div class="menu-overlay"></div>
   </div>
 </header>

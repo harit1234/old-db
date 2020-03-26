@@ -2,6 +2,10 @@ ul {
   list-style: none;
 }
 
+li {
+  cursor: pointer;
+}
+
 .main-select-list {
   width: 100%;
   margin: 0;
@@ -28,8 +32,9 @@ ul {
 
 .mobile-menu {
   position: absolute;
-  top: 90px;
-  width: 100%;
+  top: 50px;
+  left: 0;
+  /* width: 100%; */
   z-index: 142;
   height: 100%;
   background: rgba(21, 21, 21, 0.6);
@@ -63,7 +68,6 @@ li.activated {
 }
 
 .phone-only-container {
-  padding: 0 15px;
 }
 
 .selected-submenu {
@@ -80,9 +84,11 @@ li.activated {
 
 .phone-sub-menu {
   width: 40%;
-  padding-left: 15px;
 }
 
 .phone-sub-menu li {
-  text-align: start;
+  text-align: center;
+  padding: 0 10px;
+  font-weight: 600;
+  font-size: 14px;
 }

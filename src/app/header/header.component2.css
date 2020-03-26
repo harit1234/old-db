@@ -37,3 +37,9 @@ li.exchange-btn a {
 li.exchange-btn a:visited {
   color: white;
 }
+
+.exchange-btn {
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+}

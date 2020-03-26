@@ -23,7 +23,7 @@ export class DataService {
   hamurgerLeftMenu = false;
   selectedLanguage: string;
   userCountryRestricted = false;
-
+  phoneMenu = false;
   tradingBalance: any;
   availableBalance: any;
   accountSubject = new Subject();
