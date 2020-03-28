@@ -7,16 +7,16 @@
       <img src="assets/images/app-screen.png" alt="Trulli" style="width:100%" />
     </div>
     <div class="banner-right">
-      <h3>Advanced Bitcoin<br />Derivatives Trading</h3>
+      <h3>Advanced Bitcoin<br />Derivatives Exchange</h3>
       <p>
-        European Digital Options offer a set-and-forget opportunity to benefit
-        from the price of XBT expiring within or beyond pre-determined levels.
+        33.33x Leverage offered on the world's most sophisticated Liquidity
+        Engine
       </p>
-      <a href="javascript:;" class="register_btn d-inline-flex">
+      <a routerLink="/register" class="register_btn d-inline-flex">
         <span
           class="register_title d-inline-flex align-items-center justify-content-center"
         >
-          Register
+          Register in 60 Seconds
         </span>
         <span
           class="register_btn-icon d-inline-flex align-items-center justify-content-center"
@@ -24,6 +24,12 @@
           <img src="assets/images/right-arrow.svg" />
         </span>
       </a>
+      <div class="countdown d-flex flex-column align-items-center">
+        <span class="countdown-notice">
+          Countdown to Launch
+        </span>
+        <span class="timer">{{ timerString }}</span>
+      </div>
     </div>
   </div>
 </section>
@@ -91,7 +97,7 @@
       <div class="account-register-section d-flex">
         <div class="register-register-box d-flex align-items-center">
           <h4>Register For an Account <span>It only takes 60 Seconds</span></h4>
-          <a href="javascript:;" class="register-btn">Register</a>
+          <a routerLink="/register" class="register-btn">Register</a>
         </div>
       </div>
     </div>
@@ -188,8 +194,8 @@
     <h3>Start Trading Now.</h3>
     <p>It only takes 60 seconds.</p>
     <div class="start-now-btns">
-      <a href="javascript:;" class="start-now-register title">Regiter</a>
-      <a href="javascript:;" class="start-now-login title">Log in</a>
+      <a routerLink="/register" class="start-now-register title">Regiter</a>
+      <a routerLink="/login" class="start-now-login title">Log in</a>
     </div>
   </div>
 </section>

@@ -35,184 +35,8 @@ $idap-web-theme: mat-light-theme(
 // that you are using.
 @include angular-material-theme($idap-web-theme);
 
-body {
-  color: #666;
-  font-family: "Rubik", sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  background-color: #000000;
-}
+// old css
 
-.mat-form-field-label {
-  color: #757575 !important;
-}
-
-.mat-form-field-underline {
-  background-color: #757575 !important;
-}
-
-div.login-wrapper {
-  background-color: black !important;
-  /* background-image: url(../../assets/images/iPhone-X-Isometric-View-Mockup1.svg); */
-  /* background-repeat: no-repeat; */
-  background: black
-    url(../src/assets/images/iPhone-X-Isometric-View-Mockup1.svg) no-repeat;
-  margin-top: 40px;
-}
-
-.form {
-  background: linear-gradient(to bottom, #1b1b1b, #101010);
-  padding: 0px !important;
-  border-radius: 5px;
-}
-
-.form-header {
-  background: linear-gradient(to bottom, #1b1b1b, #131313);
-  font-size: 36px;
-  color: #df8f2b;
-  padding: 25px;
-  text-align: center;
-  border-radius: 5px;
-}
-
-.form-body {
-  background: linear-gradient(to bottom, #1c1c1c, #101010);
-  padding: 42px;
-  border-radius: 5px;
-}
-
-.form-field {
-  margin-top: 50px;
-  color: #757575;
-  /* border-bottom: 1px solid gray; */
-}
-
-.active-field label {
-  color: #df8f2b;
-}
-
-.form-input-login {
-  border: none;
-  border-bottom: 1px solid gray;
-  color: #757575;
-  background: inherit;
-  min-width: 73%;
-}
-
-.form-input-login::-webkit-input-placeholder {
-  text-align: left;
-}
-
-.form-input-login:focus::-webkit-input-placeholder {
-  color: #df8f2b;
-}
-
-.form-input-login:focus {
-  outline: none;
-  border-bottom: 1px solid #f8b043;
-  color: #f8b043;
-}
-
-.forgot-password {
-  font-size: 13px;
-  color: #ffffff;
-  cursor: pointer;
-}
-
-.btn-holder {
-  // margin-top: 75px;
-}
-
-.btn-holder button {
-  width: 50%;
-  border-radius: 5px;
-  border: none;
-  padding: 15px;
-  outline: none;
-}
-
-.login-btn-form {
-  background: linear-gradient(to bottom, #f9b649, #df8f2b);
-  font-weight: 600;
-}
-
-.reg-btn-form {
-  background-color: inherit;
-}
-
-.no-acc {
-  font-size: 12px;
-  color: #444444;
-}
-
-.reg {
-  font-size: 14px;
-  font-weight: 600;
-  color: #ffffff;
-}
-.select-country-dropdown:focus {
-  color: #df8f2b;
-  border-bottom: 1px solid #df8f2b;
-}
-
-/* sm */
-@media screen and (max-width: 767px) {
-  .form-header {
-    font-size: 32px;
-    padding: 5px 5px;
-  }
-  .form-body {
-    padding: 15px;
-  }
-
-  div.login-wrapper {
-    background-image: none;
-  }
-  .btn-holder button {
-    width: 100%;
-  }
-  .reg {
-    margin-left: 15px;
-  }
-}
-
-/* lg */
-@media screen and (min-width: 768px) {
-  div.login-wrapper {
-    background-size: 1034px 880px;
-    background-position: -139px -55px;
-  }
-  .forgot-password {
-    border-bottom: solid 1px #757575;
-  }
-  .btn-holder button {
-    width: 50%;
-  }
-}
-
-/* xl */
-@media screen and (min-width: 1919px) {
-  div.login-wrapper {
-    background-size: 1386px 1180px;
-    background-position: 0 100px;
-  }
-
-  .form {
-    margin-top: 171px;
-  }
-}
-
-a,
-a:visited {
-  color: #2767ff;
-}
-a:hover {
-  color: #2767ff;
-  text-decoration: underline;
-}
-a:focus {
-  outline: none;
-}
 ul,
 ol {
   margin: 0;
@@ -2133,7 +1957,7 @@ footer {
   margin: 0 0 5px;
 }
 .footer-links {
-  margin-left: 50px;
+  // margin-left: 50px;
 }
 .footer-links:first-child {
   margin-left: 0;
@@ -2588,7 +2412,7 @@ footer {
 
   /* Footer */
   .footer-links {
-    margin-left: 30px;
+    // margin-left: 30px;
   }
 
   /* Notification */
@@ -2702,6 +2526,19 @@ body {
 input:focus {
   outline: none;
 }
+
+@media screen and (max-width: 1400px) {
+  .login-form-container {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1401px) {
+  .login-form-container {
+    width: 85%;
+  }
+}
+
 /*
 
 font-family: 'Bai Jamjuree', sans-serif; 400,700
